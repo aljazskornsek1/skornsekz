@@ -1,0 +1,13 @@
+{
+  "type": "module",
+  "scripts": {
+    "ingest": "node scripts/ingest.js"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.49.1",
+    "dotenv": "^16.4.7",
+    "openai": "^4.77.0",
+    "pdf-parse": "^1.1.1"
+  },
+  "devDependencies": {}
+}

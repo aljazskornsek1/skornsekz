@@ -1,0 +1,552 @@
+{
+  "project": "Zavarovanje Skornšek chatbot knowledge base",
+  "description": "Seznam PDF povezav do zavarovalnih pogojev za ingestion v bazo znanja.",
+  "total_files_received": 56,
+  "total_unique_sources": 52,
+  "summary": {
+    "Zasebni uporabniki": {
+      "Življenje / pokojnina": 7,
+      "Nezgoda": 7,
+      "Finančna zaščita / krediti": 2,
+      "Potovanja": 3,
+      "Odgovornost in pravna zaščita": 1,
+      "Zdravje": 6,
+      "Dom / osebna lastnina": 5,
+      "Vozila": 4,
+      "Vozila / plovila": 3
+    },
+    "Splošno": {
+      "Klavzule / dodatna kritja": 3,
+      "Skupna določila": 1
+    },
+    "Podjetja / kmetijstvo": {
+      "Kmetijstvo / živali": 8
+    },
+    "Nerazvrščeno": {
+      "Nerazvrščeno": 2
+    }
+  },
+  "sources": [
+    {
+      "id": "dopolnilni-pogoji-za-enkratna-nalo-bena-ivljenjska-zavarovanja-gb-ivljenje-preud",
+      "title": "Dopolnilni pogoji za enkratna naložbena življenjska zavarovanja GB Življenje +, Preudarna naložba in Abagarant",
+      "group": "Zasebni uporabniki",
+      "category": "Življenje / pokojnina",
+      "url": "https://www.triglav.si/wps/wcm/connect/ffd43cc9-67fd-4abd-8eca-a61c100710ac/PG-D-ENZ-GAR-25-7-20250703-arh.pdf?MOD=AJPERES&CONVERT_TO=url&CACHEID=ROOTWORKSPACE-ffd43cc9-67fd-4abd-8eca-a61c100710ac-pvkLXS3",
+      "source_file": "Dopolnilni pogoji za enkratna naložbena življenjska zavarovanja GB Življenje +, Preudarna naložba in Abagarant (111 KB).webloc",
+      "file_type": "pdf_link_webloc",
+      "duplicate_url": false
+    },
+    {
+      "id": "dopolnilni-pogoji-za-nezgodno-zavarovanje-kreditojemalcev-za-primer-nezgodne-smr",
+      "title": "Dopolnilni pogoji za nezgodno zavarovanje kreditojemalcev za primer nezgodne smrti in trajne invalidnosti kot posledica nezgode",
+      "group": "Zasebni uporabniki",
+      "category": "Nezgoda",
+      "url": "https://www.triglav.si/wps/wcm/connect/a217df65-b69e-4c35-a0fc-758103744802/PG-bni-nsi-14-11.pdf?MOD=AJPERES&CONVERT_TO=url&CACHEID=ROOTWORKSPACE-a217df65-b69e-4c35-a0fc-758103744802-np6lsjO",
+      "source_file": "Dopolnilni pogoji za nezgodno zavarovanje kreditojemalcev za primer nezgodne smrti in trajne invalidnosti kot posledica nezgode (583 KB).webloc",
+      "file_type": "pdf_link_webloc",
+      "duplicate_url": false
+    },
+    {
+      "id": "dopolnilni-pogoji-za-nezgodno-zavarovanje-oseb-pri-portnih-dejavnostih-ali-pri-u",
+      "title": "Dopolnilni pogoji za nezgodno zavarovanje oseb pri športnih dejavnostih ali pri uporabi najetih rekreacijskih sredstev",
+      "group": "Zasebni uporabniki",
+      "category": "Nezgoda",
+      "url": "https://www.triglav.si/wps/wcm/connect/c73d4024-3903-42fc-bfdd-b55fa8bbc789/PG-nvd-FIZ-22-11.pdf?MOD=AJPERES&CONVERT_TO=url&CACHEID=ROOTWORKSPACE-c73d4024-3903-42fc-bfdd-b55fa8bbc789-oi2UV.v",
+      "source_file": "Dopolnilni pogoji za nezgodno zavarovanje oseb pri športnih dejavnostih ali pri uporabi najetih rekreacijskih sredstev (274 KB).webloc",
+      "file_type": "pdf_link_webloc",
+      "duplicate_url": false
+    },
+    {
+      "id": "dopolnilni-pogoji-za-zavarovanje-kreditojemalcev-za-primer-smrti",
+      "title": "Dopolnilni pogoji za zavarovanje kreditojemalcev za primer smrti",
+      "group": "Zasebni uporabniki",
+      "category": "Finančna zaščita / krediti",
+      "url": "https://www.triglav.si/wps/wcm/connect/95276126-410f-4ed3-b7d8-014e6d8151bb/PG-bni-nsm-17-6.pdf?MOD=AJPERES&CONVERT_TO=url&CACHEID=ROOTWORKSPACE-95276126-410f-4ed3-b7d8-014e6d8151bb-np6kImR",
+      "source_file": "Dopolnilni pogoji za zavarovanje kreditojemalcev za primer smrti (541 KB).webloc",
+      "file_type": "pdf_link_webloc",
+      "duplicate_url": false
+    },
+    {
+      "id": "expansion-of-insurance-coverage-clause-special-offer-from-1-1-2026",
+      "title": "Expansion of insurance coverage clause – SPECIAL OFFER from 1. 1. 2026",
+      "group": "Splošno",
+      "category": "Klavzule / dodatna kritja",
+      "url": "https://www.triglav.si/wps/wcm/connect/4c9db850-5b60-4985-a3ee-c3fa5ed47070/KL-tur-akc-26-1-en.pdf?MOD=AJPERES&CONVERT_TO=url&CACHEID=ROOTWORKSPACE-4c9db850-5b60-4985-a3ee-c3fa5ed47070-pJTbkyT",
+      "source_file": "Expansion of insurance coverage clause – SPECIAL OFFER from 1. 1. 2026 (171 KB).webloc",
+      "file_type": "pdf_link_webloc",
+      "duplicate_url": false
+    },
+    {
+      "id": "general-conditions-of-international-travel-insurance",
+      "title": "General Conditions of International Travel Insurance",
+      "group": "Zasebni uporabniki",
+      "category": "Potovanja",
+      "url": "https://www.triglav.si/wps/wcm/connect/881640d8-d9e5-4e5c-a8c4-7a75f5a87311/PG-tur-23-2-en.pdf?MOD=AJPERES&CONVERT_TO=url&CACHEID=ROOTWORKSPACE-881640d8-d9e5-4e5c-a8c4-7a75f5a87311-pnhteA1",
+      "source_file": "General Conditions of International Travel Insurance (643 KB).webloc",
+      "file_type": "pdf_link_webloc",
+      "duplicate_url": false
+    },
+    {
+      "id": "klavzula-za-raz-iritev-zavarovalnega-kritja-akcija-od-1-1-2025-do-31-12-2025",
+      "title": "Klavzula za razširitev zavarovalnega kritja – AKCIJA od 1. 1. 2025 do 31. 12. 2025",
+      "group": "Splošno",
+      "category": "Klavzule / dodatna kritja",
+      "url": "https://www.triglav.si/wps/wcm/connect/658bd082-44a2-46c4-9bee-66e6cc370bfb/KL-tur-akc-25-1.pdf?MOD=AJPERES&CONVERT_TO=url&CACHEID=ROOTWORKSPACE-658bd082-44a2-46c4-9bee-66e6cc370bfb-pJTbhOy",
+      "source_file": "Klavzula za razširitev zavarovalnega kritja – AKCIJA od 1. 1. 2025 do 31. 12. 2025 (175 KB).webloc",
+      "file_type": "pdf_link_webloc",
+      "duplicate_url": false
+    },
+    {
+      "id": "klavzula-za-raz-iritev-zavarovalnega-kritja-akcija-od-1-1-2026",
+      "title": "Klavzula za razširitev zavarovalnega kritja – AKCIJA od 1. 1. 2026",
+      "group": "Splošno",
+      "category": "Klavzule / dodatna kritja",
+      "url": "https://www.triglav.si/wps/wcm/connect/35e37c0e-6ea9-4e72-ad7b-d8a7f0002a54/KL-tur-akc-26-1.pdf?MOD=AJPERES&CONVERT_TO=url&CACHEID=ROOTWORKSPACE-35e37c0e-6ea9-4e72-ad7b-d8a7f0002a54-pJTbiXa",
+      "source_file": "Klavzula za razširitev zavarovalnega kritja – AKCIJA od 1. 1. 2026 (175 KB).webloc",
+      "file_type": "pdf_link_webloc",
+      "duplicate_url": false
+    },
+    {
+      "id": "pokojninski-na-rt-za-izpla-evanje-rent-iz-pdpz-pn-zt-r1",
+      "title": "Pokojninski načrt za izplačevanje rent iz PDPZ PN-ZT-R1",
+      "group": "Zasebni uporabniki",
+      "category": "Življenje / pokojnina",
+      "url": "https://www.triglavpokojnine.si/Files/pdf/1772.pdf",
+      "source_file": "Pokojninski načrt za izplačevanje rent iz PDPZ PN-ZT-R1.webloc",
+      "file_type": "pdf_link_webloc",
+      "duplicate_url": false
+    },
+    {
+      "id": "posebni-pogoji-za-dodatno-indeksno-zavarovanje-posevkov-pred-nevarnostjo-pomanjk",
+      "title": "Posebni pogoji za dodatno indeksno zavarovanje posevkov pred nevarnostjo pomanjkanja vlage v tleh (suše)",
+      "group": "Podjetja / kmetijstvo",
+      "category": "Kmetijstvo / živali",
+      "url": "https://www.triglav.si/wps/wcm/connect/f12fbc95-ed80-4a9a-ad7c-da6fe4f8839e/PG-plo-susa-23-3.pdf?MOD=AJPERES&CONVERT_TO=url&CACHEID=ROOTWORKSPACE-f12fbc95-ed80-4a9a-ad7c-da6fe4f8839e-osQM3Ik",
+      "source_file": "Posebni pogoji za dodatno indeksno zavarovanje posevkov pred nevarnostjo pomanjkanja vlage v tleh (suše) (230 KB).webloc",
+      "file_type": "pdf_link_webloc",
+      "duplicate_url": false
+    },
+    {
+      "id": "posebni-pogoji-za-nezgodno-zavarovanje-govedi",
+      "title": "Posebni pogoji za nezgodno zavarovanje govedi",
+      "group": "Zasebni uporabniki",
+      "category": "Nezgoda",
+      "url": "https://www.triglav.si/wps/wcm/connect/bae96353-3394-4359-8eea-034c91f0a5e7/PG-ziv-nzgov-15-5.pdf?MOD=AJPERES&CONVERT_TO=url&CACHEID=ROOTWORKSPACE-bae96353-3394-4359-8eea-034c91f0a5e7-pnHQZ5r",
+      "source_file": "Posebni pogoji za nezgodno zavarovanje govedi (399 KB).webloc",
+      "file_type": "pdf_link_webloc",
+      "duplicate_url": false
+    },
+    {
+      "id": "posebni-pogoji-za-zavarovanje-govedi",
+      "title": "Posebni pogoji za zavarovanje govedi",
+      "group": "Podjetja / kmetijstvo",
+      "category": "Kmetijstvo / živali",
+      "url": "https://www.triglav.si/wps/wcm/connect/11e4d798-12b9-44a3-8a73-d544efcfe71f/PG-ziv-gov-15-5.pdf?MOD=AJPERES&CONVERT_TO=url&CACHEID=ROOTWORKSPACE-11e4d798-12b9-44a3-8a73-d544efcfe71f-pnHQRJl",
+      "source_file": "Posebni pogoji za zavarovanje govedi (397 KB).webloc",
+      "file_type": "pdf_link_webloc",
+      "duplicate_url": false
+    },
+    {
+      "id": "posebni-pogoji-za-zavarovanje-izpada-proizvodnje-mleka",
+      "title": "Posebni pogoji za zavarovanje izpada proizvodnje mleka",
+      "group": "Podjetja / kmetijstvo",
+      "category": "Kmetijstvo / živali",
+      "url": "https://www.triglav.si/wps/wcm/connect/e498d649-92e5-475a-a708-fad90b4605df/PG-ziv-izml-15-5.pdf?MOD=AJPERES&CONVERT_TO=url&CACHEID=ROOTWORKSPACE-e498d649-92e5-475a-a708-fad90b4605df-pnHRiKp",
+      "source_file": "Posebni pogoji za zavarovanje izpada proizvodnje mleka (383 KB).webloc",
+      "file_type": "pdf_link_webloc",
+      "duplicate_url": false
+    },
+    {
+      "id": "posebni-pogoji-za-zavarovanje-ozimnih-posevkov",
+      "title": "Posebni pogoji za zavarovanje ozimnih posevkov",
+      "group": "Podjetja / kmetijstvo",
+      "category": "Kmetijstvo / živali",
+      "url": "https://www.triglav.si/wps/wcm/connect/cd0200e0-118d-4813-b53a-68f35da14cda/PG-plo-ozp-13-9.pdf?MOD=AJPERES&CONVERT_TO=url&CACHEID=ROOTWORKSPACE-cd0200e0-118d-4813-b53a-68f35da14cda-np6mjHF",
+      "source_file": "Posebni pogoji za zavarovanje ozimnih posevkov (227 KB).webloc",
+      "file_type": "pdf_link_webloc",
+      "duplicate_url": false
+    },
+    {
+      "id": "posebni-pogoji-za-zavarovanje-pravne-za-ite",
+      "title": "Posebni pogoji za zavarovanje pravne zaščite",
+      "group": "Zasebni uporabniki",
+      "category": "Odgovornost in pravna zaščita",
+      "url": "https://www.triglav.si/wps/wcm/connect/9270e2f8-40e5-4698-ba15-dd3dc9a9cb73/PG-zoz-pz-26-3.pdf?MOD=AJPERES&CONVERT_TO=url&CACHEID=ROOTWORKSPACE-9270e2f8-40e5-4698-ba15-dd3dc9a9cb73-pONdvaB",
+      "source_file": "Posebni pogoji za zavarovanje pravne zaščite (402 KB).webloc",
+      "file_type": "pdf_link_webloc",
+      "duplicate_url": false
+    },
+    {
+      "id": "posebni-pogoji-za-zavarovanje-stro-kov-zdravljenja-ivali",
+      "title": "Posebni pogoji za zavarovanje stroškov zdravljenja živali",
+      "group": "Podjetja / kmetijstvo",
+      "category": "Kmetijstvo / živali",
+      "url": "https://www.triglav.si/wps/wcm/connect/26f5ff16-ab6f-4aa0-9c37-4798318f89e8/PG-ziv-zdr-15-5.pdf?MOD=AJPERES&CONVERT_TO=url&CACHEID=ROOTWORKSPACE-26f5ff16-ab6f-4aa0-9c37-4798318f89e8-pnHR5ja",
+      "source_file": "Posebni pogoji za zavarovanje stroškov zdravljenja živali (239 KB).webloc",
+      "file_type": "pdf_link_webloc",
+      "duplicate_url": false
+    },
+    {
+      "id": "posebni-pogoji-za-zavarovanje-teleta-ali-rebeta-pred-ob-in-po-porodu",
+      "title": "Posebni pogoji za zavarovanje teleta ali žrebeta pred, ob in po porodu",
+      "group": "Podjetja / kmetijstvo",
+      "category": "Kmetijstvo / živali",
+      "url": "https://www.triglav.si/wps/wcm/connect/1ab16ff8-f795-4253-b839-6a6384d0f4fb/PG-ziv-plod-15-5.pdf?MOD=AJPERES&CONVERT_TO=url&CACHEID=ROOTWORKSPACE-1ab16ff8-f795-4253-b839-6a6384d0f4fb-pnHRbUU",
+      "source_file": "Posebni pogoji za zavarovanje teleta ali žrebeta pred, ob in po porodu (224 KB).webloc",
+      "file_type": "pdf_link_webloc",
+      "duplicate_url": false
+    },
+    {
+      "id": "seznam-zobozdravstvenih-storitev",
+      "title": "Seznam zobozdravstvenih storitev",
+      "group": "Zasebni uporabniki",
+      "category": "Zdravje",
+      "url": "https://www.triglav.si/wps/wcm/connect/339516c0-dea9-4506-ad6c-cb042961a8c6/SEZNAM-zobje-25-7.pdf?MOD=AJPERES&CONVERT_TO=url&CACHEID=ROOTWORKSPACE-339516c0-dea9-4506-ad6c-cb042961a8c6-pv4px.a",
+      "source_file": "Seznam zobozdravstvenih storitev (248 KB).webloc",
+      "file_type": "pdf_link_webloc",
+      "duplicate_url": false
+    },
+    {
+      "id": "skupna-dolo-ila-splo-nih-pogojev",
+      "title": "Skupna določila splošnih pogojev",
+      "group": "Splošno",
+      "category": "Skupna določila",
+      "url": "https://www.triglav.si/wps/wcm/connect/bb9a174e-90a9-401a-bd60-28e7095ca8a3/PG-ZP-skudo-24-9.pdf?MOD=AJPERES&CONVERT_TO=url&CACHEID=ROOTWORKSPACE-bb9a174e-90a9-401a-bd60-28e7095ca8a3-pIvxuk4",
+      "source_file": "Skupna določila splošnih pogojev (317 KB).webloc",
+      "file_type": "pdf_link_webloc",
+      "duplicate_url": false
+    },
+    {
+      "id": "splos-ni-pogoji-za-nezgodno-zavarovanje-oseb-595-kb",
+      "title": "Splošni pogoji za nezgodno zavarovanje oseb (595 KB)",
+      "group": "Zasebni uporabniki",
+      "category": "Nezgoda",
+      "url": "https://www.triglav.si/wps/wcm/connect/8434811c-52d5-4103-bb91-8ff70faed8b8/PG-NE-22-11.pdf?MOD=AJPERES&CONVERT_TO=url&CACHEID=ROOTWORKSPACE-8434811c-52d5-4103-bb91-8ff70faed8b8-oi2UNmg",
+      "source_file": "Splošni pogoji za nezgodno zavarovanje oseb (595 KB) 2.webloc",
+      "file_type": "pdf_link_webloc",
+      "duplicate_url": false
+    },
+    {
+      "id": "splos-ni-pogoji-za-zavarovanje-malih-z-ivali-531-kb",
+      "title": "Splošni pogoji za zavarovanje malih živali (531 KB)",
+      "group": "Zasebni uporabniki",
+      "category": "Dom / osebna lastnina",
+      "url": "https://www.triglav.si/wps/wcm/connect/0b80708c-aefd-40a3-b927-1ae0ad6c8c81/PG-ziv-mz-25-11.pdf?MOD=AJPERES&CONVERT_TO=url&CACHEID=ROOTWORKSPACE-0b80708c-aefd-40a3-b927-1ae0ad6c8c81-pFdvfGt",
+      "source_file": "Splošni pogoji za zavarovanje malih živali (531 KB) 2.webloc",
+      "file_type": "pdf_link_webloc",
+      "duplicate_url": false
+    },
+    {
+      "id": "splos-ni-pogoji-za-zavarovanje-posevkov-in-plodov-357-kb",
+      "title": "Splošni pogoji za zavarovanje posevkov in plodov (357 KB)",
+      "group": "Podjetja / kmetijstvo",
+      "category": "Kmetijstvo / živali",
+      "url": "https://www.triglav.si/wps/wcm/connect/9ec5f673-ba14-416f-9ac3-9a2a4b112131/PG-plo-21-1.pdf?MOD=AJPERES&CONVERT_TO=url&CACHEID=ROOTWORKSPACE-9ec5f673-ba14-416f-9ac3-9a2a4b112131-oWJ8HAB",
+      "source_file": "Splošni pogoji za zavarovanje posevkov in plodov (357 KB) 2.webloc",
+      "file_type": "pdf_link_webloc",
+      "duplicate_url": false
+    },
+    {
+      "id": "splo-ni-in-dopolnilni-pogoji-za-avtomobilska-zavarovanja",
+      "title": "Splošni in dopolnilni pogoji za avtomobilska zavarovanja",
+      "group": "Zasebni uporabniki",
+      "category": "Vozila",
+      "url": "https://www.triglav.si/wps/wcm/connect/5a99b516-83ee-426f-8a81-f74e51cede0f/POGOJI-motor-avtodom-25-9.pdf?MOD=AJPERES&CONVERT_TO=url&CACHEID=ROOTWORKSPACE-5a99b516-83ee-426f-8a81-f74e51cede0f-pBaV5G7",
+      "source_file": "Splošni in dopolnilni pogoji za avtomobilska zavarovanja (2.700 KB).webloc",
+      "file_type": "pdf_link_webloc",
+      "duplicate_url": false
+    },
+    {
+      "id": "splo-ni-pogoji-za-nalo-beno-ivljenjsko-zavarovanje-i-fleks",
+      "title": "Splošni pogoji za Naložbeno življenjsko zavarovanje i.fleks",
+      "group": "Zasebni uporabniki",
+      "category": "Življenje / pokojnina",
+      "url": "https://www.triglav.si/wps/wcm/connect/b356453b-2faa-470d-9229-e45662e06518/PB-U-IFLE-24-10-arh.pdf?MOD=AJPERES&CONVERT_TO=url&CACHEID=ROOTWORKSPACE-b356453b-2faa-470d-9229-e45662e06518-p9axVry",
+      "source_file": "Splošni pogoji za Naložbeno življenjsko zavarovanje i.fleks (1.275 KB).webloc",
+      "file_type": "pdf_link_webloc",
+      "duplicate_url": false
+    },
+    {
+      "id": "splo-ni-pogoji-za-rentno-zavarovanje-s-pla-ilom-enkratne-premije",
+      "title": "Splošni pogoji za Rentno zavarovanje s plačilom enkratne premije",
+      "group": "Zasebni uporabniki",
+      "category": "Življenje / pokojnina",
+      "url": "https://www.triglav.si/wps/wcm/connect/ad921342-3917-4521-b42b-c3789102700a/PG-R-REN-17-4.pdf?MOD=AJPERES&CONVERT_TO=url&CACHEID=ROOTWORKSPACE-ad921342-3917-4521-b42b-c3789102700a-np6lxnl",
+      "source_file": "Splošni pogoji za Rentno zavarovanje s plačilom enkratne premije (108 KB).webloc",
+      "file_type": "pdf_link_webloc",
+      "duplicate_url": false
+    },
+    {
+      "id": "splo-ni-pogoji-za-zavarovanje-ivljenja",
+      "title": "Splošni pogoji za Zavarovanje življenja",
+      "group": "Zasebni uporabniki",
+      "category": "Življenje / pokojnina",
+      "url": "https://www.triglav.si/wps/wcm/connect/f0520c8f-b62b-41aa-b9a9-a470ce4ae570/PB-Z-ZZS-24-10.pdf?MOD=AJPERES&CONVERT_TO=url&CACHEID=ROOTWORKSPACE-f0520c8f-b62b-41aa-b9a9-a470ce4ae570-pnbXBhd",
+      "source_file": "Splošni pogoji za Zavarovanje življenja (1.264 KB).webloc",
+      "file_type": "pdf_link_webloc",
+      "duplicate_url": false
+    },
+    {
+      "id": "splo-ni-pogoji-za-kasko-zavarovanje-vodnih-plovil",
+      "title": "Splošni pogoji za kasko zavarovanje vodnih plovil",
+      "group": "Zasebni uporabniki",
+      "category": "Vozila / plovila",
+      "url": "https://www.triglav.si/wps/wcm/connect/4e67d020-8688-42f4-813e-530231962ccd/PG-kpd-24-4.pdf?MOD=AJPERES&CONVERT_TO=url&CACHEID=ROOTWORKSPACE-4e67d020-8688-42f4-813e-530231962ccd-oYimaGU",
+      "source_file": "Splošni pogoji za kasko zavarovanje vodnih plovil (508 KB).webloc",
+      "file_type": "pdf_link_webloc",
+      "duplicate_url": false
+    },
+    {
+      "id": "splo-ni-pogoji-za-kasko-zavarovanje-vodnih-plovil-plus",
+      "title": "Splošni pogoji za kasko zavarovanje vodnih plovil – plus",
+      "group": "Zasebni uporabniki",
+      "category": "Vozila / plovila",
+      "url": "https://www.triglav.si/wps/wcm/connect/51ad521b-9ac9-4183-b757-9fa786c12033/PG-kpd-plus-24-4.pdf?MOD=AJPERES&CONVERT_TO=url&CACHEID=ROOTWORKSPACE-51ad521b-9ac9-4183-b757-9fa786c12033-oZok25y",
+      "source_file": "Splošni pogoji za kasko zavarovanje vodnih plovil – plus (516 KB).webloc",
+      "file_type": "pdf_link_webloc",
+      "duplicate_url": false
+    },
+    {
+      "id": "splo-ni-pogoji-za-nezgodno-zavarovanje-otrok-in-mladih",
+      "title": "Splošni pogoji za nezgodno zavarovanje otrok in mladih",
+      "group": "Zasebni uporabniki",
+      "category": "Nezgoda",
+      "url": "https://www.triglav.si/wps/wcm/connect/cfbcfffa-59f0-4e64-9fc4-c50a2a01cd57/PG-nuc_23-6.pdf?MOD=AJPERES&CONVERT_TO=url&CACHEID=ROOTWORKSPACE-cfbcfffa-59f0-4e64-9fc4-c50a2a01cd57-oxQvxby",
+      "source_file": "Splošni pogoji za nezgodno zavarovanje otrok in mladih (447 KB).webloc",
+      "file_type": "pdf_link_webloc",
+      "duplicate_url": false
+    },
+    {
+      "id": "splo-ni-pogoji-za-nezgodno-zavarovanje-starej-ih",
+      "title": "Splošni pogoji za nezgodno zavarovanje starejših",
+      "group": "Zasebni uporabniki",
+      "category": "Nezgoda",
+      "url": "https://www.triglav.si/wps/wcm/connect/65aff228-f131-40a4-ab83-de5f8721fd0c/PG-nes-22-11.pdf?MOD=AJPERES&CONVERT_TO=url&CACHEID=ROOTWORKSPACE-65aff228-f131-40a4-ab83-de5f8721fd0c-oi2.CMX",
+      "source_file": "Splošni pogoji za nezgodno zavarovanje starejših (473 KB).webloc",
+      "file_type": "pdf_link_webloc",
+      "duplicate_url": false
+    },
+    {
+      "id": "splo-ni-pogoji-za-zavarovanje-dom",
+      "title": "Splošni pogoji za zavarovanje DOM",
+      "group": "Zasebni uporabniki",
+      "category": "Dom / osebna lastnina",
+      "url": "https://www.triglav.si/wps/wcm/connect/1cb32ff4-b8cc-4302-bea1-05a7fd1e1860/PG-dom-26-1.pdf?MOD=AJPERES&CONVERT_TO=url&CACHEID=ROOTWORKSPACE-1cb32ff4-b8cc-4302-bea1-05a7fd1e1860-pJT4sXD",
+      "source_file": "Splošni pogoji za zavarovanje DOM (445 KB).webloc",
+      "file_type": "pdf_link_webloc",
+      "duplicate_url": false
+    },
+    {
+      "id": "splo-ni-pogoji-za-zavarovanje-asistence-za-plovila",
+      "title": "Splošni pogoji za zavarovanje asistence za plovila",
+      "group": "Zasebni uporabniki",
+      "category": "Vozila / plovila",
+      "url": "https://www.triglav.si/wps/wcm/connect/992cd6bb-679d-403b-90a6-40f6d7f5b506/PG-vas-23-2.pdf?MOD=AJPERES&CONVERT_TO=url&CACHEID=ROOTWORKSPACE-992cd6bb-679d-403b-90a6-40f6d7f5b506-oohcz89",
+      "source_file": "Splošni pogoji za zavarovanje asistence za plovila (471 KB).webloc",
+      "file_type": "pdf_link_webloc",
+      "duplicate_url": false
+    },
+    {
+      "id": "splo-ni-pogoji-za-zavarovanje-avtomobilske-odgovornosti",
+      "title": "Splošni pogoji za zavarovanje avtomobilske odgovornosti",
+      "group": "Zasebni uporabniki",
+      "category": "Vozila",
+      "url": "https://www.triglav.si/wps/wcm/connect/d35e456a-92d4-4670-b7a2-61d5482e8e05/PG-aod-25-9.pdf?MOD=AJPERES&CONVERT_TO=url&CACHEID=ROOTWORKSPACE-d35e456a-92d4-4670-b7a2-61d5482e8e05-pBaV0H2",
+      "source_file": "Splošni pogoji za zavarovanje avtomobilske odgovornosti (382 KB).webloc",
+      "file_type": "pdf_link_webloc",
+      "duplicate_url": false
+    },
+    {
+      "id": "splo-ni-pogoji-za-zavarovanje-kreditojemalcev-za-primer-brezposelnosti",
+      "title": "Splošni pogoji za zavarovanje kreditojemalcev za primer brezposelnosti",
+      "group": "Zasebni uporabniki",
+      "category": "Finančna zaščita / krediti",
+      "url": "https://www.triglav.si/wps/wcm/connect/c0fecabf-7008-4c3a-b7f1-47e23e2f1e36/PG-bni-14-11.pdf?MOD=AJPERES&CONVERT_TO=url&CACHEID=ROOTWORKSPACE-c0fecabf-7008-4c3a-b7f1-47e23e2f1e36-np6l2Ke",
+      "source_file": "Splošni pogoji za zavarovanje kreditojemalcev za primer brezposelnosti (550 KB).webloc",
+      "file_type": "pdf_link_webloc",
+      "duplicate_url": false
+    },
+    {
+      "id": "splo-ni-pogoji-za-zavarovanje-medicinskih-pripomo-kov",
+      "title": "Splošni pogoji za zavarovanje medicinskih pripomočkov",
+      "group": "Zasebni uporabniki",
+      "category": "Dom / osebna lastnina",
+      "url": "https://www.triglav.si/wps/wcm/connect/8f0b3ca6-fc83-4837-97a9-9f27c9f756d7/PG-mep-19-4.pdf?MOD=AJPERES&CONVERT_TO=url&CACHEID=ROOTWORKSPACE-8f0b3ca6-fc83-4837-97a9-9f27c9f756d7-np6lVe7",
+      "source_file": "Splošni pogoji za zavarovanje medicinskih pripomočkov (200 KB).webloc",
+      "file_type": "pdf_link_webloc",
+      "duplicate_url": false
+    },
+    {
+      "id": "splo-ni-pogoji-za-zavarovanje-mikro-mobilnosti",
+      "title": "Splošni pogoji za zavarovanje mikro mobilnosti",
+      "group": "Zasebni uporabniki",
+      "category": "Vozila",
+      "url": "https://www.triglav.si/wps/wcm/connect/423ee8ec-c7a5-4df2-b8d0-11691d2a8562/PG-mps-24-10.pdf?MOD=AJPERES&CONVERT_TO=url&CACHEID=ROOTWORKSPACE-423ee8ec-c7a5-4df2-b8d0-11691d2a8562-p9ar2aq",
+      "source_file": "Splošni pogoji za zavarovanje mikro mobilnosti (466 KB).webloc",
+      "file_type": "pdf_link_webloc",
+      "duplicate_url": false
+    },
+    {
+      "id": "splo-ni-pogoji-za-zavarovanje-mladega-voznika",
+      "title": "Splošni pogoji za zavarovanje mladega voznika",
+      "group": "Zasebni uporabniki",
+      "category": "Vozila",
+      "url": "https://www.triglav.si/wps/wcm/connect/4a7af682-ad6c-462e-bfdb-3f3a6cb0d655/PG-atm-20-2.pdf?MOD=AJPERES&CONVERT_TO=url&CACHEID=ROOTWORKSPACE-4a7af682-ad6c-462e-bfdb-3f3a6cb0d655-oIiZe5s",
+      "source_file": "Splošni pogoji za zavarovanje mladega voznika (216 KB).webloc",
+      "file_type": "pdf_link_webloc",
+      "duplicate_url": false
+    },
+    {
+      "id": "splo-ni-pogoji-za-zavarovanje-naprav",
+      "title": "Splošni pogoji za zavarovanje naprav",
+      "group": "Zasebni uporabniki",
+      "category": "Dom / osebna lastnina",
+      "url": "https://www.triglav.si/wps/wcm/connect/b45d21ab-6888-456a-8f55-dd60b30205fc/PG-nap-splet-22-7.pdf?MOD=AJPERES&CONVERT_TO=url&CACHEID=ROOTWORKSPACE-b45d21ab-6888-456a-8f55-dd60b30205fc-o8l3Cvt",
+      "source_file": "Splošni pogoji za zavarovanje naprav (342 KB).webloc",
+      "file_type": "pdf_link_webloc",
+      "duplicate_url": false
+    },
+    {
+      "id": "splo-ni-pogoji-za-zavarovanje-odpovedi-turisti-nih-potovanj",
+      "title": "Splošni pogoji za zavarovanje odpovedi turističnih potovanj",
+      "group": "Zasebni uporabniki",
+      "category": "Potovanja",
+      "url": "https://www.triglav.si/wps/wcm/connect/e9dd0756-b65b-4195-8664-bd9933881cb3/PG-tpt-22-12.pdf?MOD=AJPERES&CONVERT_TO=url&CACHEID=ROOTWORKSPACE-e9dd0756-b65b-4195-8664-bd9933881cb3-ojb5TwL",
+      "source_file": "Splošni pogoji za zavarovanje odpovedi turističnih potovanj (337 KB).webloc",
+      "file_type": "pdf_link_webloc",
+      "duplicate_url": false
+    },
+    {
+      "id": "splo-ni-pogoji-za-zavarovanje-osebne-za-ite",
+      "title": "Splošni pogoji za zavarovanje osebne zaščite",
+      "group": "Zasebni uporabniki",
+      "category": "Nezgoda",
+      "url": "https://www.triglav.si/wps/wcm/connect/787c6761-0f5c-4a17-a1e8-2dd68f0136c1/PG-zoz-26-3.pdf?MOD=AJPERES&CONVERT_TO=url&CACHEID=ROOTWORKSPACE-787c6761-0f5c-4a17-a1e8-2dd68f0136c1-pONdtZ8",
+      "source_file": "Splošni pogoji za zavarovanje osebne zaščite (540 KB).webloc",
+      "file_type": "pdf_link_webloc",
+      "duplicate_url": false
+    },
+    {
+      "id": "splo-ni-pogoji-za-zavarovanje-potovanj-v-tujino",
+      "title": "Splošni pogoji za zavarovanje potovanj v tujino",
+      "group": "Zasebni uporabniki",
+      "category": "Potovanja",
+      "url": "https://www.triglav.si/wps/wcm/connect/9b8b756b-c58f-46fd-bebf-b8c45b2ef99d/PG-tur-23-2.pdf?MOD=AJPERES&CONVERT_TO=url&CACHEID=ROOTWORKSPACE-9b8b756b-c58f-46fd-bebf-b8c45b2ef99d-ooaaECB",
+      "source_file": "Splošni pogoji za zavarovanje potovanj v tujino (463 KB).webloc",
+      "file_type": "pdf_link_webloc",
+      "duplicate_url": false
+    },
+    {
+      "id": "splo-ni-pogoji-za-zavarovanje-zlorabe-pla-ilnih-kartic",
+      "title": "Splošni pogoji za zavarovanje zlorabe plačilnih kartic",
+      "group": "Zasebni uporabniki",
+      "category": "Dom / osebna lastnina",
+      "url": "https://www.triglav.si/wps/wcm/connect/f4f45115-7699-4866-ae50-d223580729f8/PG-zlp-18-1.pdf?MOD=AJPERES&CONVERT_TO=url&CACHEID=ROOTWORKSPACE-f4f45115-7699-4866-ae50-d223580729f8-np6lGkP",
+      "source_file": "Splošni pogoji za zavarovanje zlorabe plačilnih kartic (460 KB).webloc",
+      "file_type": "pdf_link_webloc",
+      "duplicate_url": false
+    },
+    {
+      "id": "splo-ni-pogoji-za-zavarovanje-ivali",
+      "title": "Splošni pogoji za zavarovanje živali",
+      "group": "Podjetja / kmetijstvo",
+      "category": "Kmetijstvo / živali",
+      "url": "https://www.triglav.si/wps/wcm/connect/17b29afb-7f5a-433a-8160-3979e5cc502a/PG-ziv-15-5.pdf?MOD=AJPERES&CONVERT_TO=url&CACHEID=ROOTWORKSPACE-17b29afb-7f5a-433a-8160-3979e5cc502a-pnHQL50",
+      "source_file": "Splošni pogoji za zavarovanje živali (581 KB).webloc",
+      "file_type": "pdf_link_webloc",
+      "duplicate_url": false
+    },
+    {
+      "id": "splo-ni-pogoji-za-ivljenjsko-zavarovanje-jesen-ivljenja",
+      "title": "Splošni pogoji za Življenjsko zavarovanje Jesen življenja",
+      "group": "Zasebni uporabniki",
+      "category": "Življenje / pokojnina",
+      "url": "https://www.triglav.si/wps/wcm/connect/ecbd88c6-700f-40b7-b118-30ceb2c164bf/PB-Z-VSMT-24-10-arh.pdf?MOD=AJPERES&CONVERT_TO=url&CACHEID=ROOTWORKSPACE-ecbd88c6-700f-40b7-b118-30ceb2c164bf-p9axS3H",
+      "source_file": "Splošni pogoji za Življenjsko zavarovanje Jesen življenja (516 KB).webloc",
+      "file_type": "pdf_link_webloc",
+      "duplicate_url": false
+    },
+    {
+      "id": "splo-ni-pogoji-za-ivljenjsko-zavarovanje-lajf",
+      "title": "Splošni pogoji za Življenjsko zavarovanje LAJF",
+      "group": "Zasebni uporabniki",
+      "category": "Življenje / pokojnina",
+      "url": "https://www.triglav.si/wps/wcm/connect/d25cfa55-c31e-4688-a0a9-4d5a07a7ffaa/PG-Z-LAJF-24-1-arh.pdf?MOD=AJPERES&CONVERT_TO=url&CACHEID=ROOTWORKSPACE-d25cfa55-c31e-4688-a0a9-4d5a07a7ffaa-p9axQRw",
+      "source_file": "Splošni pogoji za Življenjsko zavarovanje LAJF (455 KB).webloc",
+      "file_type": "pdf_link_webloc",
+      "duplicate_url": false
+    },
+    {
+      "id": "splo-ni-pogoji-zavarovanj-specialisti-in-specialisti",
+      "title": "Splošni pogoji zavarovanj Specialisti in Specialisti+",
+      "group": "Zasebni uporabniki",
+      "category": "Zdravje",
+      "url": "https://www.triglav.si/wps/wcm/connect/731bba45-b8e6-49d2-aca4-71a620de9a18/PG-zdr-spe-25-10.pdf?MOD=AJPERES&CONVERT_TO=url&CACHEID=ROOTWORKSPACE-731bba45-b8e6-49d2-aca4-71a620de9a18-pCsSIOx",
+      "source_file": "Splošni pogoji zavarovanj Specialisti in Specialisti+ (395 KB).webloc",
+      "file_type": "pdf_link_webloc",
+      "duplicate_url": false
+    },
+    {
+      "id": "splo-ni-pogoji-zavarovanj-zobje-in-zobje",
+      "title": "Splošni pogoji zavarovanj Zobje in Zobje+",
+      "group": "Zasebni uporabniki",
+      "category": "Zdravje",
+      "url": "https://www.triglav.si/wps/wcm/connect/4794ce14-3514-4fd0-bddd-a841f862ef18/SP-zavarovanj-Zobje-Zobje-plus-25-5.pdf?MOD=AJPERES&CONVERT_TO=url&CACHEID=ROOTWORKSPACE-4794ce14-3514-4fd0-bddd-a841f862ef18-pv4o-Zl",
+      "source_file": "Splošni pogoji zavarovanj Zobje in Zobje+ (362 KB).webloc",
+      "file_type": "pdf_link_webloc",
+      "duplicate_url": false
+    },
+    {
+      "id": "splo-ni-pogoji-zavarovanja-specialisti-nezgoda",
+      "title": "Splošni pogoji zavarovanja Specialisti Nezgoda",
+      "group": "Zasebni uporabniki",
+      "category": "Zdravje",
+      "url": "https://www.triglav.si/wps/wcm/connect/c33f20b7-a315-42ca-bf28-a10b48b09955/SP+zavarovanja+Specialisti+Nezgoda.pdf?MOD=AJPERES&CONVERT_TO=url&CACHEID=ROOTWORKSPACE-c33f20b7-a315-42ca-bf28-a10b48b09955-p4yuVaZ",
+      "source_file": "Splošni pogoji zavarovanja Specialisti Nezgoda (141 KB).webloc",
+      "file_type": "pdf_link_webloc",
+      "duplicate_url": false
+    },
+    {
+      "id": "splo-ni-pogoji-zavarovanja-zdravnik-360",
+      "title": "Splošni pogoji zavarovanja Zdravnik 360",
+      "group": "Zasebni uporabniki",
+      "category": "Zdravje",
+      "url": "https://www.triglav.si/wps/wcm/connect/64fc4550-5934-491d-bf21-c3f78b1bc50d/SP+zavarovanja+Zdravnik+360.pdf?MOD=AJPERES&CONVERT_TO=url&CACHEID=ROOTWORKSPACE-64fc4550-5934-491d-bf21-c3f78b1bc50d-p4D7O9F",
+      "source_file": "Splošni pogoji zavarovanja Zdravnik 360 (110 KB).webloc",
+      "file_type": "pdf_link_webloc",
+      "duplicate_url": false
+    },
+    {
+      "id": "splo-ni-pogoji-zavarovanja-operacij",
+      "title": "Splošni pogoji zavarovanja operacij",
+      "group": "Zasebni uporabniki",
+      "category": "Zdravje",
+      "url": "https://www.triglav.si/wps/wcm/connect/fd2a8dbb-641d-45bc-8888-98f02e703cf2/SP+zavarovanja+operacij.pdf?MOD=AJPERES&CONVERT_TO=url&CACHEID=ROOTWORKSPACE-fd2a8dbb-641d-45bc-8888-98f02e703cf2-p5F.XDO",
+      "source_file": "Splošni pogoji zavarovanja operacij (450 KB).webloc",
+      "file_type": "pdf_link_webloc",
+      "duplicate_url": false
+    },
+    {
+      "id": "tabela-zavarovalnih-kritij-in-limitov-zlp",
+      "title": "Tabela zavarovalnih kritij in limitov ZLP",
+      "group": "Nerazvrščeno",
+      "category": "Nerazvrščeno",
+      "url": "https://www.triglav.si/wps/wcm/connect/088558e1-ea66-4c1a-ba3a-a79f1e8deb43/PG-zlp-tkl-18-1.pdf?MOD=AJPERES&CONVERT_TO=url&CACHEID=ROOTWORKSPACE-088558e1-ea66-4c1a-ba3a-a79f1e8deb43-np6m8pw",
+      "source_file": "Tabela zavarovalnih kritij in limitov ZLP (194 KB).webloc",
+      "file_type": "pdf_link_webloc",
+      "duplicate_url": false
+    },
+    {
+      "id": "splos-ni-pogoji-za-zavarovan",
+      "title": "Splošni pogoji za zavarovan",
+      "group": "Nerazvrščeno",
+      "category": "Nerazvrščeno",
+      "url": "",
+      "source_file": "Splošni pogoji za zavarovan.textClipping",
+      "file_type": "textClipping",
+      "duplicate_url": false,
+      "note": "Ni .webloc PDF link; po potrebi zamenjaj z direktnim PDF linkom."
+    }
+  ]
+}
