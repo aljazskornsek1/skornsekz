@@ -1,12 +1,14 @@
-import fs from "fs";
-import OpenAI from "openai";
 import dotenv from "dotenv";
-import { createClient } from "@supabase/supabase-js";
-
 dotenv.config({ path: "./data/.env.local" });
 
+import fs from "fs";
+import path from "path";
+import OpenAI from "openai";
+import { createClient } from "@supabase/supabase-js";
+import { PDFParse } from "pdf-parse";
+
 const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY,
+  apiKey: process.env.OPENAI_API_KEY
 });
 
 const supabase = createClient(
@@ -14,40 +16,86 @@ const supabase = createClient(
   process.env.SUPABASE_SERVICE_ROLE_KEY
 );
 
-const INPUT_FILE = "./data/knowledge-base.json";
+const EMBEDDING_MODEL = "text-embedding-3-small";
 
-async function createEmbedding(text) {
-  const response = await openai.embeddings.create({
-    model: "text-embedding-3-small",
-    input: text,
+const PDF_DIR = path.join(process.cwd(), "data", "pdfs");
+
+function chunkText(text, chunkSize = 1200, overlap = 200) {
+  const chunks = [];
+  let start = 0;
+
+  while (start < text.length) {
+    const end = start + chunkSize;
+    chunks.push(text.slice(start, end));
+    start += chunkSize - overlap;
+  }
+
+  return chunks;
+}
+
+async function extractPdfText(filePath) {
+  const buffer = fs.readFileSync(filePath);
+
+  const parser = new PDFParse({
+    data: buffer
   });
 
-  return response.data[0].embedding;
+  const result = await parser.getText();
+
+  await parser.destroy();
+
+  return result.text;
 }
 
 async function main() {
-  const raw = fs.readFileSync(INPUT_FILE, "utf8");
-  const items = JSON.parse(raw);
+  const files = fs
+    .readdirSync(PDF_DIR)
+    .filter((file) => file.endsWith(".pdf"));
 
-  console.log(`Nalagam v Supabase: ${items.length} zapisov`);
+  console.log(`Najdenih PDF-jev: ${files.length}`);
 
-  for (const item of items) {
-    const content = item.text || item.url || JSON.stringify(item);
-    const embedding = item.embedding || await createEmbedding(content);
+  for (const file of files) {
+    const filePath = path.join(PDF_DIR, file);
 
-    const { error } = await supabase.from("documents").insert({
-      content,
-      embedding,
-    });
+    console.log(`\nBerem PDF: ${file}`);
 
-    if (error) {
-      console.error("Supabase napaka:", error);
-    } else {
-      console.log("Naloženo:", content.slice(0, 80));
+    const text = await extractPdfText(filePath);
+
+    const cleanText = text.replace(/\s+/g, " ").trim();
+
+    const chunks = chunkText(cleanText);
+
+    console.log(`Chunkov: ${chunks.length}`);
+
+    for (let i = 0; i < chunks.length; i++) {
+      const chunk = chunks[i];
+
+      const embeddingResponse = await openai.embeddings.create({
+        model: EMBEDDING_MODEL,
+        input: chunk
+      });
+
+      const embedding = embeddingResponse.data[0].embedding;
+
+      const { error } = await supabase
+        .from("documents")
+        .insert({
+          content: chunk,
+          embedding: embedding
+        });
+
+      if (error) {
+        console.error("Supabase napaka:", error);
+        process.exit(1);
+      }
+
+      console.log(`Shranjen chunk ${i + 1}/${chunks.length}`);
     }
   }
 
-  console.log("Končano.");
+  console.log("\nPDF ingest končan.");
 }
 
-main().catch(console.error);
+main().catch((err) => {
+  console.error(err);
+});
