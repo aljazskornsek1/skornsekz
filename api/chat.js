@@ -51,7 +51,9 @@ ${m.content}
 
 export default async function handler(req, res) {
   if (req.method !== "POST") {
-    return res.status(405).json({ error: "Method not allowed" });
+    return res.status(405).json({
+      error: "Method not allowed",
+    });
   }
 
   try {
@@ -59,7 +61,9 @@ export default async function handler(req, res) {
     const question = lastUserMessage(messages);
 
     if (!question) {
-      return res.status(400).json({ error: "Manjka vprašanje uporabnika." });
+      return res.status(400).json({
+        error: "Manjka vprašanje uporabnika.",
+      });
     }
 
     const embeddingResponse = await openai.embeddings.create({
@@ -73,8 +77,8 @@ export default async function handler(req, res) {
       "match_documents",
       {
         query_embedding: queryEmbedding,
-        match_threshold: 0.1,
-        match_count: 8,
+        match_threshold: 0.05,
+        match_count: 10,
       }
     );
 
@@ -95,13 +99,17 @@ export default async function handler(req, res) {
 Ti si premium AI asistent za Zavarovanje Skornšek.
 
 Odgovarjaj:
-- v slovenščini,
+- vedno v slovenščini,
 - profesionalno,
 - jasno,
 - konkretno,
-- brez izmišljanja.
+- brez izmišljanja,
+- kot zavarovalni svetovalec, ne kot robot.
 
-Uporabljaj samo podatke iz najdenih virov spodaj. Če viri niso dovolj jasni, to povej in uporabnika usmeri na Aljaža ali Igorja.
+Uporabljaj predvsem podatke iz najdenih virov spodaj.
+Če viri niso dovolj jasni, povej, da za natančno razlago pogojev priporočaš pogovor z zastopnikom.
+
+Ne izmišljaj cen, kritij ali pogojev, če tega ni v virih.
 
 Kontakti:
 - Aljaž Skornšek: 031 544 416
@@ -116,10 +124,13 @@ ${context}
     });
 
     const reply =
-      completion.choices[0]?.message?.content || "Trenutno ni odgovora.";
+      completion.choices[0]?.message?.content ||
+      "Trenutno nimam dovolj podatkov za zanesljiv odgovor.";
 
     return res.status(200).json({
-      reply,
+      reply: reply,
+      answer: reply,
+      message: reply,
       sources: matches?.slice(0, 5) || [],
     });
   } catch (error) {
@@ -127,6 +138,9 @@ ${context}
 
     return res.status(500).json({
       error: "Napaka pri AI odgovoru.",
+      reply: "Prišlo je do napake pri AI odgovoru.",
+      answer: "Prišlo je do napake pri AI odgovoru.",
+      message: "Prišlo je do napake pri AI odgovoru.",
       details: error.message,
     });
   }
