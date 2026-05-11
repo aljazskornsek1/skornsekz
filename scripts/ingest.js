@@ -8,7 +8,7 @@ import { createClient } from "@supabase/supabase-js";
 import { PDFParse } from "pdf-parse";
 
 const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY
+  apiKey: process.env.OPENAI_API_KEY,
 });
 
 const supabase = createClient(
@@ -17,7 +17,6 @@ const supabase = createClient(
 );
 
 const EMBEDDING_MODEL = "text-embedding-3-small";
-
 const PDF_DIR = path.join(process.cwd(), "data", "pdfs");
 
 function chunkText(text, chunkSize = 1200, overlap = 200) {
@@ -26,7 +25,12 @@ function chunkText(text, chunkSize = 1200, overlap = 200) {
 
   while (start < text.length) {
     const end = start + chunkSize;
-    chunks.push(text.slice(start, end));
+    const chunk = text.slice(start, end).trim();
+
+    if (chunk.length > 50) {
+      chunks.push(chunk);
+    }
+
     start += chunkSize - overlap;
   }
 
@@ -37,7 +41,7 @@ async function extractPdfText(filePath) {
   const buffer = fs.readFileSync(filePath);
 
   const parser = new PDFParse({
-    data: buffer
+    data: buffer,
   });
 
   const result = await parser.getText();
@@ -50,19 +54,18 @@ async function extractPdfText(filePath) {
 async function main() {
   const files = fs
     .readdirSync(PDF_DIR)
-    .filter((file) => file.endsWith(".pdf"));
+    .filter((file) => file.toLowerCase().endsWith(".pdf"));
 
   console.log(`Najdenih PDF-jev: ${files.length}`);
 
   for (const file of files) {
     const filePath = path.join(PDF_DIR, file);
+    const title = file.replace(".pdf", "");
 
     console.log(`\nBerem PDF: ${file}`);
 
     const text = await extractPdfText(filePath);
-
     const cleanText = text.replace(/\s+/g, " ").trim();
-
     const chunks = chunkText(cleanText);
 
     console.log(`Chunkov: ${chunks.length}`);
@@ -72,24 +75,26 @@ async function main() {
 
       const embeddingResponse = await openai.embeddings.create({
         model: EMBEDDING_MODEL,
-        input: chunk
+        input: chunk,
       });
 
       const embedding = embeddingResponse.data[0].embedding;
 
-      const { error } = await supabase
-        .from("documents")
-        .insert({
-          content: chunk,
-          embedding: embedding
-        });
+      const { error } = await supabase.from("documents").insert({
+        content: chunk,
+        embedding: embedding,
+        title: title,
+        source: file,
+        filename: file,
+        chunk_index: i + 1,
+      });
 
       if (error) {
         console.error("Supabase napaka:", error);
         process.exit(1);
       }
 
-      console.log(`Shranjen chunk ${i + 1}/${chunks.length}`);
+      console.log(`Shranjen chunk ${i + 1}/${chunks.length} iz ${file}`);
     }
   }
 
