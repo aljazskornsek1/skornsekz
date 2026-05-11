@@ -112,7 +112,7 @@ export default async function handler(req, res) {
     const completion = await openai.chat.completions.create({
       model: CHAT_MODEL,
       temperature: 0.2,
-      max_tokens: 900,
+      max_tokens: 1000,
       messages: [
         {
           role: "system",
@@ -132,6 +132,15 @@ Tvoj slog:
 
 Pravila:
 - Uporabljaj predvsem podatke iz najdenih virov.
+- Na koncu odgovora vedno dodaj razdelek "Viri:".
+- V razdelku "Viri:" navedi največ 3 uporabljene vire.
+- Vire napiši v obliki:
+  Vir 1: kratek povzetek uporabljene vsebine.
+  Vir 2: kratek povzetek uporabljene vsebine.
+  Vir 3: kratek povzetek uporabljene vsebine.
+- Če viri niso najdeni ali niso dovolj natančni, napiši:
+  Viri: Za to vprašanje nisem našel dovolj natančnega vira v bazi znanja.
+- Ne izmišljaj virov, imen PDF datotek, členov ali številk strani, če niso podani.
 - Ne izmišljaj cen, kritij, izključitev, popustov ali pogojev.
 - Če v virih ni dovolj informacij, to jasno povej.
 - Če uporabnik sprašuje po ceni, povej, da je cena odvisna od podatkov konkretnega primera.
@@ -167,9 +176,12 @@ ${context}
 
     return res.status(500).json({
       error: "Napaka pri AI odgovoru.",
-      reply: "Prišlo je do napake pri AI odgovoru. Poskusite ponovno ali kontaktirajte zastopnika.",
-      answer: "Prišlo je do napake pri AI odgovoru. Poskusite ponovno ali kontaktirajte zastopnika.",
-      message: "Prišlo je do napake pri AI odgovoru. Poskusite ponovno ali kontaktirajte zastopnika.",
+      reply:
+        "Prišlo je do napake pri AI odgovoru. Poskusite ponovno ali kontaktirajte zastopnika.",
+      answer:
+        "Prišlo je do napake pri AI odgovoru. Poskusite ponovno ali kontaktirajte zastopnika.",
+      message:
+        "Prišlo je do napake pri AI odgovoru. Poskusite ponovno ali kontaktirajte zastopnika.",
       details: error.message,
     });
   }
