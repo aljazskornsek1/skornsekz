@@ -1,0 +1,9 @@
+Kopiraj TOČNO te stvari v Desktop/skornsek_rag_knowledge_bot:
+
+1. index.html
+2. assets mapa
+
+Ko vpraša, klikni Replace / Zamenjaj.
+
+Potem v VS Code terminal prilepi:
+git add . && git commit -m "new premium video design" && git push
