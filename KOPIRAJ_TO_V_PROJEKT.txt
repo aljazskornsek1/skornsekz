@@ -1,11 +1,13 @@
-Kopiraj samo:
+V tej mapi je zdaj VSE:
+
 1. index.html
-2. assets mapo
+2. assets/
+   - premium-city.svg
 
-v Desktop/skornsek_rag_knowledge_bot in klikni Replace/Zamenjaj.
+Kopiraj index.html in assets mapo v:
+Desktop/skornsek_rag_knowledge_bot
 
-Potem v VS Code terminal:
-git add . && git commit -m "wow homepage redesign" && git push
+Klikni Replace/Zamenjaj.
 
-Na strani naredi hard refresh:
-Cmd + Shift + R
+Potem v terminal:
+git add . && git commit -m "clean city hero with assets" && git push
