@@ -4,6 +4,7 @@
     "@supabase/supabase-js": "^2.105.4",
     "dotenv": "^17.4.2",
     "openai": "^6.37.0",
-    "pdf-parse": "^2.4.5"
+    "pdf-parse": "^2.4.5",
+    "resend": "^6.12.3"
   }
 }
