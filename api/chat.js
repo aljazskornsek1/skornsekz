@@ -16,7 +16,12 @@ const CHAT_MODEL = "gpt-4o-mini";
 function normalizeMessages(body) {
   if (Array.isArray(body?.messages)) {
     return body.messages
-      .filter((m) => m && typeof m.content === "string")
+      .filter(
+        (m) =>
+          m &&
+          typeof m.content === "string" &&
+          ["user", "assistant"].includes(m.role)
+      )
       .slice(-8);
   }
 
@@ -39,11 +44,13 @@ function formatContext(matches) {
 
   return matches
     .map((m, index) => {
+      const similarity = Number(m.similarity || 0).toFixed(3);
+
       return `
 [VIR ${index + 1}]
-Relevantnost: ${Number(m.similarity || 0).toFixed(3)}
+Relevantnost: ${similarity}
 Vsebina:
-${m.content}
+${m.content || ""}
 `.trim();
     })
     .join("\n\n---\n\n");
@@ -57,6 +64,18 @@ export default async function handler(req, res) {
   }
 
   try {
+    if (!process.env.OPENAI_API_KEY) {
+      throw new Error("Manjka OPENAI_API_KEY.");
+    }
+
+    if (!process.env.SUPABASE_URL) {
+      throw new Error("Manjka SUPABASE_URL.");
+    }
+
+    if (!process.env.SUPABASE_SERVICE_ROLE_KEY) {
+      throw new Error("Manjka SUPABASE_SERVICE_ROLE_KEY.");
+    }
+
     const messages = normalizeMessages(req.body);
     const question = lastUserMessage(messages);
 
@@ -77,8 +96,8 @@ export default async function handler(req, res) {
       "match_documents",
       {
         query_embedding: queryEmbedding,
-        match_threshold: 0.05,
-        match_count: 10,
+        match_threshold: 0.03,
+        match_count: 12,
       }
     );
 
@@ -87,29 +106,39 @@ export default async function handler(req, res) {
       throw matchError;
     }
 
-    const context = formatContext(matches);
+    const usefulMatches = Array.isArray(matches) ? matches : [];
+    const context = formatContext(usefulMatches);
 
     const completion = await openai.chat.completions.create({
       model: CHAT_MODEL,
       temperature: 0.2,
+      max_tokens: 900,
       messages: [
         {
           role: "system",
           content: `
 Ti si premium AI asistent za Zavarovanje Skornšek.
 
-Odgovarjaj:
-- vedno v slovenščini,
-- profesionalno,
-- jasno,
-- konkretno,
-- brez izmišljanja,
-- kot zavarovalni svetovalec, ne kot robot.
+Govoriš vedno v slovenščini.
 
-Uporabljaj predvsem podatke iz najdenih virov spodaj.
-Če viri niso dovolj jasni, povej, da za natančno razlago pogojev priporočaš pogovor z zastopnikom.
+Tvoj slog:
+- profesionalen,
+- jasen,
+- konkreten,
+- prijazen,
+- samozavesten,
+- kot izkušen zavarovalni svetovalec,
+- nikoli kot robot.
 
-Ne izmišljaj cen, kritij ali pogojev, če tega ni v virih.
+Pravila:
+- Uporabljaj predvsem podatke iz najdenih virov.
+- Ne izmišljaj cen, kritij, izključitev, popustov ali pogojev.
+- Če v virih ni dovolj informacij, to jasno povej.
+- Če uporabnik sprašuje po ceni, povej, da je cena odvisna od podatkov konkretnega primera.
+- Če gre za pomembno odločitev, priporočaj pogovor z zastopnikom.
+- Ne omenjaj tehničnih izrazov, kot so vektorji, embeddingi, Supabase, RAG ali baza podatkov.
+- Ne piši predolgih odgovorov, razen če uporabnik zahteva podrobno razlago.
+- Če je smiselno, odgovor zaključi s ponudbo za pomoč ali kontakt.
 
 Kontakti:
 - Aljaž Skornšek: 031 544 416
@@ -128,19 +157,19 @@ ${context}
       "Trenutno nimam dovolj podatkov za zanesljiv odgovor.";
 
     return res.status(200).json({
-      reply: reply,
+      reply,
       answer: reply,
       message: reply,
-      sources: matches?.slice(0, 5) || [],
+      sources: usefulMatches.slice(0, 5),
     });
   } catch (error) {
     console.error("Chat error:", error);
 
     return res.status(500).json({
       error: "Napaka pri AI odgovoru.",
-      reply: "Prišlo je do napake pri AI odgovoru.",
-      answer: "Prišlo je do napake pri AI odgovoru.",
-      message: "Prišlo je do napake pri AI odgovoru.",
+      reply: "Prišlo je do napake pri AI odgovoru. Poskusite ponovno ali kontaktirajte zastopnika.",
+      answer: "Prišlo je do napake pri AI odgovoru. Poskusite ponovno ali kontaktirajte zastopnika.",
+      message: "Prišlo je do napake pri AI odgovoru. Poskusite ponovno ali kontaktirajte zastopnika.",
       details: error.message,
     });
   }
