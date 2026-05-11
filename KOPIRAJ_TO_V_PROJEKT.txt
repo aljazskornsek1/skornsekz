@@ -1,13 +1,16 @@
-V tej mapi je zdaj VSE:
+To je verzija brez spreminjanja strukture in pisave.
 
+Spremenjeno je samo hero ozadje:
+- močan premium animated video background
+- blue glow efekti
+- bolj glass premium hero panel
+- vsebina, pisava in struktura ostanejo enake
+
+Kopiraj v Desktop/skornsek_rag_knowledge_bot:
 1. index.html
-2. assets/
-   - premium-city.svg
-
-Kopiraj index.html in assets mapo v:
-Desktop/skornsek_rag_knowledge_bot
+2. assets mapo
 
 Klikni Replace/Zamenjaj.
 
 Potem v terminal:
-git add . && git commit -m "clean city hero with assets" && git push
+git add . && git commit -m "wow background only" && git push
