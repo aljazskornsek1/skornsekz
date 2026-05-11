@@ -37,6 +37,17 @@ function lastUserMessage(messages) {
   return userMessages[userMessages.length - 1]?.content || "";
 }
 
+function getDocumentName(match) {
+  return (
+    match?.title ||
+    match?.source ||
+    match?.filename ||
+    match?.file_name ||
+    match?.document_name ||
+    "Neznan dokument"
+  );
+}
+
 function formatContext(matches) {
   if (!matches || matches.length === 0) {
     return "Ni najdenih relevantnih virov.";
@@ -45,10 +56,13 @@ function formatContext(matches) {
   return matches
     .map((m, index) => {
       const similarity = Number(m.similarity || 0).toFixed(3);
+      const documentName = getDocumentName(m);
 
       return `
 [VIR ${index + 1}]
+Dokument: ${documentName}
 Relevantnost: ${similarity}
+
 Vsebina:
 ${m.content || ""}
 `.trim();
@@ -134,10 +148,12 @@ Pravila:
 - Uporabljaj predvsem podatke iz najdenih virov.
 - Na koncu odgovora vedno dodaj razdelek "Viri:".
 - V razdelku "Viri:" navedi največ 3 uporabljene vire.
-- Vire napiši v obliki:
-  Vir 1: kratek povzetek uporabljene vsebine.
-  Vir 2: kratek povzetek uporabljene vsebine.
-  Vir 3: kratek povzetek uporabljene vsebine.
+- Vire napiši profesionalno v obliki:
+  Vir 1: ime dokumenta — kratek opis, kaj je bilo uporabljeno iz tega vira.
+  Vir 2: ime dokumenta — kratek opis, kaj je bilo uporabljeno iz tega vira.
+  Vir 3: ime dokumenta — kratek opis, kaj je bilo uporabljeno iz tega vira.
+- Vedno uporabi ime dokumenta, če je navedeno pri viru.
+- Če ime dokumenta ni navedeno, uporabi "Neznan dokument".
 - Če viri niso najdeni ali niso dovolj natančni, napiši:
   Viri: Za to vprašanje nisem našel dovolj natančnega vira v bazi znanja.
 - Ne izmišljaj virov, imen PDF datotek, členov ali številk strani, če niso podani.
