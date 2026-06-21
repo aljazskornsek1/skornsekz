@@ -565,6 +565,151 @@
       html body .cookie{padding:15px!important;align-items:flex-end!important}
     }
   </style>
+  <style id="mobile-first-rebuild-v8">
+    @media(max-width:767px){
+      :root{--wrap:calc(100% - 32px)!important}
+      html,body{max-width:100%;overflow-x:hidden}
+      html body .header{height:72px!important}
+      html body .header-inner{width:calc(100% - 28px)!important;padding:0!important;gap:12px!important}
+      html body .brand img{width:40px!important;height:40px!important}
+      html body .brand span small{font-size:7px!important;letter-spacing:.18em!important}
+      html body .brand span b{font-size:11px!important;letter-spacing:.14em!important}
+      html body .menu-toggle{display:inline-flex!important;align-items:center;justify-content:center;min-width:64px;height:38px;padding:0 12px!important}
+      html body .mobile-drawer{inset:72px 0 0!important;padding:22px 22px max(90px,env(safe-area-inset-bottom))!important}
+      html body .mobile-drawer>a,html body .mobile-drawer summary{font-size:31px!important;line-height:1.1!important;padding:17px 0!important}
+      html body .mobile-drawer details a{font-size:13px!important;line-height:1.35!important;padding:13px 0 13px 14px!important}
+      html body .pb-hero{min-height:calc(100svh - 72px)!important;max-height:none!important;background-position:63% center!important}
+      html body .pb-hero:before{background:linear-gradient(0deg,rgba(4,18,30,.98) 0%,rgba(4,18,30,.91) 43%,rgba(4,18,30,.52) 76%,rgba(4,18,30,.30) 100%)!important}
+      html body .pb-hero:after{background:radial-gradient(circle at 78% 20%,rgba(205,175,116,.15),transparent 30%)!important}
+      html body .pb-hero .wrap{width:calc(100% - 32px)!important;padding:100px 0 44px!important}
+      html body .pb-hero .pb-eyebrow{margin-bottom:19px!important;font-size:8px!important;line-height:1.5!important}
+      html body .pb-hero h1{max-width:100%!important;font-size:clamp(48px,14.2vw,62px)!important;line-height:.93!important;letter-spacing:-.048em!important}
+      html body .pb-hero p{max-width:100%!important;margin-top:22px!important;font-size:14px!important;line-height:1.62!important;color:rgba(255,255,255,.77)!important}
+      html body .pb-actions{display:grid!important;grid-template-columns:1fr!important;gap:9px!important;margin-top:28px!important}
+      html body .pb-actions .pb-btn{width:100%!important;min-height:50px!important;justify-content:center!important}
+      html body .pb-proof .wrap{display:block!important;width:calc(100% - 32px)!important}
+      html body .pb-proof-item,html body .pb-proof-item+.pb-proof-item{display:grid;grid-template-columns:58px 1fr;align-items:center;gap:14px;padding:18px 0!important;border-right:0!important;border-bottom:1px solid rgba(255,255,255,.13)!important}
+      html body .pb-proof-item:last-child{border-bottom:0!important}
+      html body .pb-proof-item strong{font-size:32px!important}
+      html body .pb-proof-item span{margin:0!important;font-size:8px!important;line-height:1.5!important}
+      html body .pb-statement{padding:86px 0 92px!important}
+      html body .pb-statement .wrap{width:calc(100% - 32px)!important}
+      html body .pb-statement .wrap:before{height:40px!important;margin-bottom:27px!important}
+      html body .pb-statement .pb-eyebrow{margin-bottom:20px!important;font-size:8px!important}
+      html body .pb-statement h2{font-size:39px!important;line-height:1.02!important;letter-spacing:-.045em!important}
+      html body .pb-statement p{margin-top:26px!important;font-size:14px!important;line-height:1.7!important}
+      html body .pb-services{padding:84px 0!important}
+      html body .pb-service-head{display:block!important;margin-bottom:44px!important}
+      html body .pb-service-head h2{font-size:40px!important;line-height:1.03!important}
+      html body .pb-service-head p{margin-top:22px!important;padding:0!important;font-size:14px!important;line-height:1.7!important}
+      html body .pb-service-columns{display:block!important}
+      html body .pb-service-column{padding:24px 18px 10px!important;border-radius:15px!important;box-shadow:0 12px 35px rgba(7,29,48,.05)!important}
+      html body .pb-service-column+.pb-service-column{margin-top:16px}
+      html body .pb-service-column:hover{transform:none!important}
+      html body .pb-service-column>header{padding-bottom:16px!important}
+      html body .pb-service-column>header h3{font-size:27px!important}
+      html body .pb-service-link{grid-template-columns:25px minmax(0,1fr) 18px!important;gap:8px;padding:18px 2px!important}
+      html body .pb-service-link strong{font-size:21px!important;line-height:1.1!important}
+      html body .pb-service-link:hover{padding-left:2px!important;padding-right:2px!important}
+      html body .pb-feature{display:flex!important;flex-direction:column;width:calc(100% - 24px)!important;min-height:0!important;margin:62px auto!important;border-radius:18px!important}
+      html body .pb-feature-image{order:0;min-height:350px!important;padding:20px 14px!important}
+      html body .ai-feature-card{width:100%!important;padding:14px!important;border-radius:16px!important;transform:none!important}
+      html body .ai-feature-top{padding-bottom:13px!important}
+      html body .ai-feature-body{padding:25px 1px 8px!important}
+      html body .ai-feature-body h3{font-size:34px!important;margin-bottom:24px!important}
+      html body .ai-feature-question{font-size:11px!important}
+      html body .ai-feature-foot{margin-top:22px!important;font-size:8px!important}
+      html body .pb-feature-copy{order:1;padding:56px 22px 60px!important}
+      html body .pb-feature h2{font-size:41px!important;line-height:1.02!important;margin:19px 0 23px!important}
+      html body .pb-feature p{font-size:14px!important;line-height:1.7!important}
+      html body .pb-feature .pb-principles{margin-top:26px!important}
+      html body .pb-feature .pb-principles div{font-size:12px!important;padding:14px 0!important}
+      html body .pb-process{padding:88px 0!important}
+      html body .pb-process-head{margin-bottom:42px!important}
+      html body .pb-process-head h2{font-size:40px!important;line-height:1.03!important}
+      html body .pb-process-grid{display:block!important}
+      html body .pb-process-step,html body .pb-process-step+.pb-process-step{min-height:0!important;margin-bottom:10px;padding:23px!important;border-radius:14px!important}
+      html body .pb-process-step h3{margin:30px 0 10px!important;font-size:27px!important}
+      html body .pb-process-step p{font-size:12px!important;line-height:1.6!important}
+      html body .pb-page-hero:not(.pb-product-hero){display:flex!important;flex-direction:column;min-height:0!important}
+      html body .pb-page-hero:not(.pb-product-hero) .pb-page-image{order:-1;min-height:240px!important;height:240px!important;background-position:center!important}
+      html body .pb-page-hero:not(.pb-product-hero) .pb-page-copy{min-height:360px!important;padding:38px 18px 44px!important}
+      html body .pb-page-hero:not(.pb-product-hero) .pb-page-copy .back{margin-bottom:62px!important}
+      html body .pb-page-copy h1{font-size:48px!important;line-height:.94!important;margin:18px 0 22px!important}
+      html body .pb-page-copy p{font-size:13px!important;line-height:1.6!important}
+      html body .pb-product-hero,html body .pb-product-hero .pb-page-copy{min-height:520px!important}
+      html body .pb-product-hero .pb-page-copy{width:calc(100% - 32px)!important;padding:28px 0 40px!important}
+      html body .pb-product-hero .pb-page-copy h1{font-size:clamp(42px,13vw,56px)!important;line-height:.92!important;margin:0 0 20px!important}
+      html body .pb-product-hero .pb-page-copy p{font-size:13px!important;line-height:1.55!important}
+      html body .pb-directory{padding:70px 0!important}
+      html body .pb-directory-head{margin-bottom:36px!important}
+      html body .pb-directory-head h2{font-size:37px!important;line-height:1.04!important}
+      html body .pb-directory-link{grid-template-columns:25px minmax(0,1fr) 16px!important;gap:7px!important;padding:19px 0!important}
+      html body .pb-directory-link h3{font-size:22px!important;line-height:1.12!important}
+      html body .pb-directory-link p{font-size:11px!important;line-height:1.52!important;margin-top:7px!important}
+      html body .pb-category-advice{padding:72px 0!important}
+      html body .pb-category-advice-grid{gap:30px!important}
+      html body .pb-category-advice h2{font-size:38px!important}
+      html body .product-detail-hero,html body .product-detail-grid{min-height:520px!important}
+      html body .product-detail-grid{grid-template-columns:1fr!important;width:calc(100% - 32px)!important;padding:30px 0 40px!important;gap:0!important}
+      html body .product-detail-copy{padding-right:30px!important}
+      html body .product-detail-copy .back{margin-bottom:72px!important}
+      html body .product-detail-copy h1{font-size:clamp(44px,13vw,58px)!important;line-height:.91!important}
+      html body .product-detail-copy>p{font-size:13px!important;line-height:1.58!important;margin-top:22px!important}
+      html body .product-detail-art{display:none!important}
+      html body .product-anchor-nav{top:72px!important}
+      html body .product-anchor-inner{width:calc(100% - 24px)!important;min-height:52px!important;gap:20px!important}
+      html body .product-anchor-inner a{font-size:8px!important}
+      html body .product-overview,html body .product-advice,html body .product-before,html body .product-faq{padding:68px 0!important}
+      html body .product-overview-grid,html body .product-advice-head,html body .product-before-grid,html body .product-faq-grid{gap:28px!important}
+      html body .product-section-label{font-size:8px!important}
+      html body .product-overview-content h2,html body .product-before h2,html body .product-faq h2,html body .product-advice-head h2{font-size:38px!important;line-height:1.03!important;margin-bottom:28px!important}
+      html body .product-overview-content>p{font-size:22px!important;line-height:1.42!important;margin-bottom:22px!important}
+      html body .product-overview-content>p:not(:first-of-type){font-size:13px!important;line-height:1.68!important}
+      html body .product-advice-grid{display:block!important}
+      html body .product-advice-item,html body .product-advice-item+.product-advice-item{min-height:0!important;padding:19px 0!important;border-right:0!important;border-bottom:1px solid rgba(255,255,255,.15)!important}
+      html body .product-advice-item strong{margin-top:20px!important;font-size:20px!important}
+      html body .product-checklist div{padding:17px 0!important;font-size:12px!important}
+      html body .product-faq summary{padding:19px 0!important;font-size:20px!important;line-height:1.25!important}
+      html body .product-final-cta{padding:70px 16px!important}
+      html body .product-final-cta h2{font-size:38px!important}
+      html body .product-final-cta p{font-size:13px!important}
+      html body .product-final-cta .btn{width:100%!important;justify-content:center!important}
+      html body .dark#kontakt{padding:76px 0!important}
+      html body .contact-grid{gap:42px!important}
+      html body .contact-grid>.form{padding:26px 18px!important;border-radius:15px!important}
+      html body .contact-grid>.form h3{font-size:36px!important;margin-bottom:28px!important}
+      html body .contact-grid>.form-row{display:block!important}
+      html body .contact-grid .display{font-size:41px!important;line-height:1.04!important}
+      html body .field{margin-bottom:14px!important}
+      html body .field input,html body .field select,html body .field textarea{font-size:16px!important;padding:14px 1px!important}
+      html body .field textarea{min-height:100px!important}
+      html body .form .btn{width:100%!important;justify-content:center!important}
+      html body .privacy{font-size:9px!important}
+      html body .footer{padding:48px 0 max(48px,env(safe-area-inset-bottom))!important}
+      html body .footer .wrap{display:block!important}
+      html body .footer nav{margin-top:28px!important}
+      html body .chat-button{right:12px!important;bottom:max(12px,env(safe-area-inset-bottom))!important;width:56px!important;height:56px!important}
+      html body .chat.open{inset:72px 0 0!important;width:auto!important;height:auto!important;border:0!important;border-radius:0!important}
+      html body .chat-messages{padding:16px!important}
+      html body .chat-form{padding:10px max(10px,env(safe-area-inset-left)) max(10px,env(safe-area-inset-bottom))!important}
+      html body[data-page="ai-asistent"] .ai-page{height:calc(100svh - 72px)!important}
+      html body .ai-top{height:48px!important;flex-basis:48px!important;padding:0 12px!important}
+      html body .ai-messages{padding:18px 14px!important}
+      html body .ai-welcome{padding:9vh 2px 0!important}
+      html body .ai-welcome h1{font-size:29px!important}
+      html body .ai-welcome p{font-size:12px!important}
+      html body .ai-form{width:calc(100% - 20px)!important;margin:0 10px max(10px,env(safe-area-inset-bottom))!important}
+      html body .ai-suggestions{padding-left:10px!important;padding-right:10px!important}
+    }
+    @media(max-width:390px){
+      html body .pb-hero h1{font-size:47px!important}
+      html body .pb-statement h2,html body .pb-service-head h2,html body .pb-process-head h2{font-size:36px!important}
+      html body .pb-feature h2{font-size:38px!important}
+      html body .pb-page-copy h1{font-size:44px!important}
+      html body .contact-grid .display{font-size:37px!important}
+    }
+  </style>
 </head>
 <body>
   <header class="header"><div class="wrap header-inner"><a class="brand" href="#home"><img src="assets/logo.png" alt="Zavarovanje Skornšek logo"><span><small>Zavarovanje</small><b>SKORNŠEK</b></span></a><nav class="nav"><a href="#home">Domov</a><div class="mega-trigger"><button type="button">Zasebni uporabniki</button><div class="mega" id="privateMega"></div></div><div class="mega-trigger"><button type="button">Podjetja</button><div class="mega" id="businessMega"></div></div><a href="#skode">Škode</a><a href="#ai-asistent">AI asistent</a></nav><a class="header-cta" href="#kontakt">Povpraševanje</a><button class="menu-toggle" type="button" aria-label="Odpri meni">Meni</button></div></header>
