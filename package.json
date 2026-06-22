@@ -7,7 +7,8 @@
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.106.2",
-    "busboy": "^1.6.0"
+    "busboy": "^1.6.0",
+    "resend": "^6.9.3"
   },
   "engines": {
     "node": ">=20"

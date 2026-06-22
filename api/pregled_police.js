@@ -1,4 +1,5 @@
 import Busboy from 'busboy'
+import { Resend } from 'resend'
 import { createClient } from '@supabase/supabase-js'
 
 export const config = { api: { bodyParser: false } }
@@ -20,6 +21,64 @@ function respond(res, status, payload) {
 
 function cleanText(value, maxLength) {
   return typeof value === 'string' ? value.trim().slice(0, maxLength) : ''
+}
+
+function escapeHtml(value) {
+  return String(value ?? '').replace(/[&<>"']/g, character => ({
+    '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;',
+  })[character])
+}
+
+async function sendReviewNotification({ supabase, filePath, name, email, phone, insuranceType, message }) {
+  const apiKey = process.env.RESEND_API_KEY
+  if (!apiKey) {
+    console.error('Policy review email not sent: RESEND_API_KEY is missing')
+    return
+  }
+
+  try {
+    const storedPath = `${BUCKET}/${filePath}`
+    const { data: signedFile, error: signedUrlError } = await supabase.storage
+      .from(BUCKET)
+      .createSignedUrl(filePath, 7 * 24 * 60 * 60)
+    if (signedUrlError) console.error('Policy review signed URL error:', signedUrlError)
+
+    const submittedAt = new Intl.DateTimeFormat('sl-SI', {
+      dateStyle: 'full',
+      timeStyle: 'medium',
+      timeZone: 'Europe/Ljubljana',
+    }).format(new Date())
+    const fileReference = signedFile?.signedUrl || storedPath
+    const safeMessage = message || 'Ni dodatnega sporočila.'
+    const fileHtml = signedFile?.signedUrl
+      ? `<a href="${escapeHtml(signedFile.signedUrl)}" style="color:#173f7a">Odpri naloženo polico</a><br><small>${escapeHtml(storedPath)}</small>`
+      : escapeHtml(storedPath)
+
+    const resend = new Resend(apiKey)
+    const { error } = await resend.emails.send({
+      from: process.env.RESEND_FROM_EMAIL || 'Zavarovanje Skornšek <onboarding@resend.dev>',
+      to: ['aljaz.skornsek1@gmail.com'],
+      replyTo: email,
+      subject: 'Nova polica za pregled',
+      text: [
+        'Nova polica za pregled',
+        `Ime: ${name}`,
+        `Email: ${email}`,
+        `Telefon: ${phone}`,
+        `Tip zavarovanja: ${insuranceType}`,
+        `Sporočilo: ${safeMessage}`,
+        `Datoteka: ${fileReference}`,
+        `Pot v Storage: ${storedPath}`,
+        `Datum in čas oddaje: ${submittedAt}`,
+      ].join('\n'),
+      html: `<div style="font-family:Arial,sans-serif;color:#102238;line-height:1.6;max-width:640px"><h1 style="font-size:26px">Nova polica za pregled</h1><table style="width:100%;border-collapse:collapse"><tr><td style="padding:8px 0;color:#61707a">Ime</td><td style="padding:8px 0"><strong>${escapeHtml(name)}</strong></td></tr><tr><td style="padding:8px 0;color:#61707a">Email</td><td style="padding:8px 0">${escapeHtml(email)}</td></tr><tr><td style="padding:8px 0;color:#61707a">Telefon</td><td style="padding:8px 0">${escapeHtml(phone)}</td></tr><tr><td style="padding:8px 0;color:#61707a">Tip zavarovanja</td><td style="padding:8px 0">${escapeHtml(insuranceType)}</td></tr><tr><td style="padding:8px 0;color:#61707a">Sporočilo</td><td style="padding:8px 0">${escapeHtml(safeMessage)}</td></tr><tr><td style="padding:8px 0;color:#61707a">Datoteka</td><td style="padding:8px 0">${fileHtml}</td></tr><tr><td style="padding:8px 0;color:#61707a">Datum in čas</td><td style="padding:8px 0">${escapeHtml(submittedAt)}</td></tr></table></div>`,
+    }, {
+      idempotencyKey: `policy-review/${filePath}`,
+    })
+    if (error) console.error('Policy review email error:', error)
+  } catch (error) {
+    console.error('Policy review email error:', error)
+  }
 }
 
 function parseMultipart(req) {
@@ -130,6 +189,16 @@ export default async function handler(req, res) {
       await supabase.storage.from(BUCKET).remove([filePath])
       throw insertError
     }
+
+    await sendReviewNotification({
+      supabase,
+      filePath,
+      name,
+      email,
+      phone,
+      insuranceType,
+      message,
+    })
 
     return respond(res, 200, { success: true })
   } catch (error) {
