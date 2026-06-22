@@ -36,20 +36,6 @@ function formatDocument(document, index) {
   return `Naslov: ${title}\nVir: ${source}\nVsebina:\n${content}`
 }
 
-async function inspectKnowledgeBase(supabase) {
-  const [documentsResult, embeddingsResult] = await Promise.all([
-    supabase.from('documents').select('*', { count: 'exact', head: true }),
-    supabase.from('documents').select('*', { count: 'exact', head: true }).not('embedding', 'is', null),
-  ])
-
-  console.info('[RAG] Knowledge base status', {
-    documents_count: documentsResult.count ?? null,
-    documents_error: documentsResult.error?.message || null,
-    embedded_documents_count: embeddingsResult.count ?? null,
-    embeddings_error: embeddingsResult.error?.message || null,
-  })
-}
-
 async function retrieveContext(openai, question) {
   const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL
   const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY
@@ -67,15 +53,15 @@ async function retrieveContext(openai, question) {
     dimensions: queryEmbedding.length,
   })
 
-  const supabase = createClient(supabaseUrl, supabaseKey, {
-    auth: { persistSession: false, autoRefreshToken: false },
-  })
+  const supabase = createClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL,
+    process.env.SUPABASE_SERVICE_ROLE_KEY,
+  )
 
-  await inspectKnowledgeBase(supabase)
-
-  const { data, error } = await supabase.rpc('match_documents', {
+  const { data, error } = await supabase.rpc("match_documents", {
     query_embedding: queryEmbedding,
     match_count: 6,
+    filter: {},
   })
 
   console.info('[RAG] match_documents response', {
@@ -92,7 +78,10 @@ async function retrieveContext(openai, question) {
       : [],
   })
 
-  if (error) throw new Error(`match_documents failed: ${error.message}`)
+  if (error) {
+    console.error('[RAG] match_documents error:', error)
+    throw new Error(`match_documents failed: ${error.message}`)
+  }
 
   return (Array.isArray(data) ? data : [])
     .map(formatDocument)
@@ -123,9 +112,11 @@ export default async function handler(req, res) {
 
   const openai = new OpenAI({ apiKey })
   let context = ''
+  let ragError = false
   try {
     context = await retrieveContext(openai, message)
   } catch (error) {
+    ragError = true
     console.error('AI assistant RAG search failed:', error)
   }
 
@@ -136,7 +127,11 @@ export default async function handler(req, res) {
     const languageInstruction = language === 'en' ? 'Answer in English.' : language === 'de' ? 'Antworte auf Deutsch.' : 'Odgovori v slovenščini.'
     const systemPrompt = `Si virtualni zavarovalni asistent podjetja Zavarovanje Skornšek. ${languageInstruction}
 Odgovori jasno, prijazno in jedrnato. Pri zavarovalnih kritjih ne ugibaj in ne predstavljaj splošnega odgovora kot zavezujočo razlago police. Kadar je za pravilen odgovor potreben pregled konkretne police ali pogojev, uporabnika usmeri k osebnemu svetovalcu.
-${context ? `Uporabi predvsem naslednji pridobljeni kontekst iz baze znanja:\n\n${context}` : 'Baza znanja trenutno ni na voljo. Podaj le varen splošen odgovor in jasno povej, da je za natančen odgovor potreben pregled police.'}`
+${context
+  ? `Uporabi predvsem naslednji pridobljeni kontekst iz baze znanja:\n\n${context}`
+  : ragError
+    ? 'Dostop do baze znanja ni uspel. Podaj le varen splošen odgovor in jasno povej, da je za natančen odgovor potreben pregled police.'
+    : 'V bazi znanja ni bilo najdenih ustreznih dokumentov. Podaj le varen splošen odgovor in uporabnika usmeri k Zavarovanju Skornšek.'}`
     const response = await openai.responses.create({
       model: CHAT_MODEL,
       input: [
@@ -147,7 +142,9 @@ ${context ? `Uporabi predvsem naslednji pridobljeni kontekst iz baze znanja:\n\n
       max_output_tokens: 500,
     })
     const answer = response.output_text?.trim() || fallbackAnswer(language)
-    const finalAnswer = context ? answer : `${generalGuidanceNotice(language)}\n\n${answer}`
+    const finalAnswer = context
+      ? answer
+      : `${ragError ? fallbackAnswer(language) : generalGuidanceNotice(language)}\n\n${answer}`
     return respond(res, 200, { answer: finalAnswer })
   } catch (error) {
     console.error('AI assistant OpenAI response failed:', error)
