@@ -60,8 +60,8 @@ async function retrieveContext(openai, question) {
 
   const { data, error } = await supabase.rpc("match_documents", {
     query_embedding: queryEmbedding,
+    match_threshold: 0.5,
     match_count: 6,
-    filter: {},
   })
 
   console.info('[RAG] match_documents response', {
