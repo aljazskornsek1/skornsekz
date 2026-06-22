@@ -89,7 +89,7 @@ async function retrieveContext(openai, question) {
   const { data, error } = await supabase.rpc('match_documents', {
     query_embedding: queryEmbedding,
     match_threshold: 0.5,
-    match_count: 6,
+    match_count: 12,
   })
 
   console.info('[RAG] match_documents response', {
@@ -106,7 +106,7 @@ async function retrieveContext(openai, question) {
   return (Array.isArray(data) ? data : [])
     .map(formatDocument)
     .filter(Boolean)
-    .slice(0, 6)
+    .slice(0, 12)
     .join('\n\n---\n\n')
 }
 
@@ -177,7 +177,19 @@ export default async function handler(req, res) {
           : 'Odgovori v slovenščini.'
 
     const contextInstruction = context
-      ? `Uporabi predvsem naslednji pridobljeni kontekst iz baze znanja:\n\n${context}`
+  ? `Uporabi IZKLJUČNO naslednji kontekst iz baze znanja Zavarovanje Skornšek.
+
+Pravila:
+- odgovarjaj samo na podlagi pridobljenih dokumentov
+- ne ugibaj
+- če informacije ni v dokumentih, to jasno povej
+- vedno navedi uporabljene vire
+- na koncu odgovora dodaj razdelek "Viri"
+- v razdelku Viri navedi naslove dokumentov, iz katerih si črpal podatke
+
+KONTEKST:
+
+${context}`
       : ragError
         ? 'Dostop do baze znanja ni uspel. Podaj le varen splošen odgovor in jasno povej, da je za natančen odgovor potreben pregled police.'
         : 'V bazi znanja ni bilo najdenih ustreznih dokumentov. Podaj le varen splošen odgovor in uporabnika usmeri k Zavarovanju Skornšek.'
