@@ -22,9 +22,32 @@ function generalGuidanceNotice(language = 'sl') {
   return 'Ta odgovor temelji na splošnih informacijah, ker v bazi znanja ni bilo najdenih ustreznih dokumentov. Za natančen odgovor se obrnite na Zavarovanje Skornšek.'
 }
 
-function documentText(document) {
-  return [document?.content, document?.text, document?.chunk, document?.title]
-    .find(value => typeof value === 'string' && value.trim())?.trim() || ''
+function nonEmptyString(...values) {
+  return values.find(value => typeof value === 'string' && value.trim())?.trim() || ''
+}
+
+function formatDocument(document, index) {
+  const metadata = document?.metadata && typeof document.metadata === 'object' ? document.metadata : {}
+  const title = nonEmptyString(document?.title, metadata.title, metadata.name) || `Dokument ${index + 1}`
+  const source = nonEmptyString(document?.source, metadata.source, metadata.url, metadata.file_name) || 'Baza znanja Zavarovanje Skornšek'
+  const content = nonEmptyString(document?.content, document?.text, document?.chunk, metadata.content, metadata.text)
+  if (!content) return ''
+
+  return `Naslov: ${title}\nVir: ${source}\nVsebina:\n${content}`
+}
+
+async function inspectKnowledgeBase(supabase) {
+  const [documentsResult, embeddingsResult] = await Promise.all([
+    supabase.from('documents').select('*', { count: 'exact', head: true }),
+    supabase.from('documents').select('*', { count: 'exact', head: true }).not('embedding', 'is', null),
+  ])
+
+  console.info('[RAG] Knowledge base status', {
+    documents_count: documentsResult.count ?? null,
+    documents_error: documentsResult.error?.message || null,
+    embedded_documents_count: embeddingsResult.count ?? null,
+    embeddings_error: embeddingsResult.error?.message || null,
+  })
 }
 
 async function retrieveContext(openai, question) {
@@ -39,19 +62,40 @@ async function retrieveContext(openai, question) {
   })
   const queryEmbedding = embeddingResponse.data?.[0]?.embedding
   if (!queryEmbedding) throw new Error('Embedding was not returned')
+  console.info('[RAG] Embedding generated', {
+    model: EMBEDDING_MODEL,
+    dimensions: queryEmbedding.length,
+  })
 
   const supabase = createClient(supabaseUrl, supabaseKey, {
     auth: { persistSession: false, autoRefreshToken: false },
   })
+
+  await inspectKnowledgeBase(supabase)
+
   const { data, error } = await supabase.rpc('match_documents', {
     query_embedding: queryEmbedding,
     match_count: 6,
-    filter: {},
   })
-  if (error) throw error
+
+  console.info('[RAG] match_documents response', {
+    error: error?.message || null,
+    documents_returned: Array.isArray(data) ? data.length : 0,
+    documents: Array.isArray(data)
+      ? data.map(document => ({
+          id: document?.id ?? null,
+          title: nonEmptyString(document?.title, document?.metadata?.title) || null,
+          source: nonEmptyString(document?.source, document?.metadata?.source, document?.metadata?.url) || null,
+          similarity: document?.similarity ?? null,
+          has_content: Boolean(nonEmptyString(document?.content, document?.text, document?.chunk)),
+        }))
+      : [],
+  })
+
+  if (error) throw new Error(`match_documents failed: ${error.message}`)
 
   return (Array.isArray(data) ? data : [])
-    .map(documentText)
+    .map(formatDocument)
     .filter(Boolean)
     .slice(0, 6)
     .join('\n\n---\n\n')
