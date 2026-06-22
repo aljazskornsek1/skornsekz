@@ -16,15 +16,21 @@ function fallbackAnswer(language = 'sl') {
   return 'Lahko vam podam splošne informacije o zavarovanju, vendar trenutno ne morem dostopati do baze znanja. Za natančen pregled kritij in pogojev se obrnite na svetovalca Zavarovanje Skornšek.'
 }
 
+function generalGuidanceNotice(language = 'sl') {
+  if (language === 'en') return 'This answer is based on general guidance because no relevant documents were found in the knowledge base. For an exact answer, please contact Zavarovanje Skornšek.'
+  if (language === 'de') return 'Diese Antwort basiert auf allgemeinen Hinweisen, da keine passenden Dokumente in der Wissensdatenbank gefunden wurden. Für eine genaue Auskunft wenden Sie sich bitte an Zavarovanje Skornšek.'
+  return 'Ta odgovor temelji na splošnih informacijah, ker v bazi znanja ni bilo najdenih ustreznih dokumentov. Za natančen odgovor se obrnite na Zavarovanje Skornšek.'
+}
+
 function documentText(document) {
   return [document?.content, document?.text, document?.chunk, document?.title]
     .find(value => typeof value === 'string' && value.trim())?.trim() || ''
 }
 
 async function retrieveContext(openai, question) {
-  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || process.env.SUPABASE_URL
-  const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
-  if (!supabaseUrl || !supabaseKey) throw new Error('Supabase environment variables are missing')
+  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL
+  const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY
+  if (!supabaseUrl || !supabaseKey) throw new Error('NEXT_PUBLIC_SUPABASE_URL or SUPABASE_SERVICE_ROLE_KEY is missing')
 
   const embeddingResponse = await openai.embeddings.create({
     model: EMBEDDING_MODEL,
@@ -39,8 +45,8 @@ async function retrieveContext(openai, question) {
   })
   const { data, error } = await supabase.rpc('match_documents', {
     query_embedding: queryEmbedding,
-    match_threshold: 0.45,
     match_count: 6,
+    filter: {},
   })
   if (error) throw error
 
@@ -96,8 +102,9 @@ ${context ? `Uporabi predvsem naslednji pridobljeni kontekst iz baze znanja:\n\n
       ],
       max_output_tokens: 500,
     })
-    const answer = response.output_text?.trim()
-    return respond(res, 200, { answer: answer || fallbackAnswer(language) })
+    const answer = response.output_text?.trim() || fallbackAnswer(language)
+    const finalAnswer = context ? answer : `${generalGuidanceNotice(language)}\n\n${answer}`
+    return respond(res, 200, { answer: finalAnswer })
   } catch (error) {
     console.error('AI assistant OpenAI response failed:', error)
     return respond(res, 200, { answer: fallbackAnswer(language) })
