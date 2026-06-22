@@ -1,7 +1,7 @@
 import OpenAI from 'openai'
 import { createClient } from '@supabase/supabase-js'
 
-const CHAT_MODEL = process.env.OPENAI_CHAT_MODEL || 'gpt-5-mini'
+const CHAT_MODEL = process.env.OPENAI_CHAT_MODEL || 'gpt-4o-mini'
 const EMBEDDING_MODEL = 'text-embedding-3-small'
 
 function respond(res, status, payload) {
