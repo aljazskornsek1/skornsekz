@@ -3,7 +3,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "node work/blank-canvas/build.mjs"
+    "build": "node work/deploy-redesign.mjs"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.106.2",
