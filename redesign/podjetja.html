@@ -14036,6 +14036,7 @@ if(typeof render==="function"&&location.hash&&location.hash.startsWith("#pb-")){
   });
 
   document.addEventListener('keydown',e=>{if(e.key==='Escape'&&isOpen)closeMega();});
+  try{window.__ZAV_MENU=ZAV_MENU;}catch(_){}
 })();
 </script>
 <style id="nav-overlap-fix">
@@ -14079,5 +14080,83 @@ html body[data-page="ai-asistent"]{display:flex!important;flex-direction:column!
 html body[data-page="ai-asistent"]>.header{display:block!important;position:relative!important;flex:0 0 auto!important;z-index:1001!important;box-shadow:none!important}
 html body[data-page="ai-asistent"] #app{position:relative!important;inset:auto!important;flex:1 1 auto!important;width:100%!important;height:auto!important;min-height:0!important;z-index:1!important}
 </style>
+<style id="m-menu-css">
+/* Bel mobilni meni z drill-down (L1->L2->L3), slog kot desktop mega. */
+@media (max-width:1000px){
+  html body .mobile-drawer{background:#fff!important;color:#0a1428!important}
+  html body .mobile-drawer.open{display:flex!important;flex-direction:column!important;padding:22px 22px 28px!important;gap:0!important}
+  html body .mobile-drawer .m-item{display:flex!important;align-items:center;justify-content:space-between;gap:12px;width:100%;padding:17px 2px;margin:0;font:600 19px/1.25 Manrope,Arial,sans-serif;color:#0a1428;background:none;border:0;border-bottom:1px solid rgba(10,20,40,.09);text-decoration:none;text-align:left;cursor:pointer}
+  html body .mobile-drawer .m-item:hover{color:#2f6bff}
+  html body .mobile-drawer .m-chev{color:#2f6bff;font-size:20px;line-height:1;flex:0 0 auto}
+  html body .mobile-drawer .m-back{display:flex;align-items:center;gap:8px;width:100%;padding:6px 2px 16px;margin:0;font:700 12px Manrope,Arial,sans-serif;letter-spacing:.1em;text-transform:uppercase;color:#2f6bff;background:none;border:0;cursor:pointer;text-align:left}
+  html body .mobile-drawer .m-title{padding:2px 2px 14px;font:700 26px/1.1 Manrope,Arial,sans-serif;color:#0a1428}
+  html body .mobile-drawer .m-scroll{flex:1 1 auto;overflow-y:auto;-webkit-overflow-scrolling:touch;min-height:0}
+  html body .mobile-drawer .m-aud{flex:0 0 auto;display:flex;gap:10px;margin-top:18px;padding-top:18px;border-top:1px solid rgba(10,20,40,.12)}
+  html body .mobile-drawer .m-aud a,html body .mobile-drawer .m-aud span{flex:1;text-align:center;padding:13px 8px;border-radius:999px;font:700 12px Manrope,Arial,sans-serif;letter-spacing:.09em;text-transform:uppercase;text-decoration:none;border:1px solid rgba(10,20,40,.16);color:#0a1428}
+  html body .mobile-drawer .m-aud .active{background:#0a1428;color:#fff;border-color:#0a1428}
+  html body.lock #cookieBox,html body.lock .cookie,html body.lock #chatButton,html body.lock .chat-button{display:none!important}
+}
+</style>
+<script id="m-menu-js">
+(function(){
+  function init(){
+    var drawer=document.querySelector('.mobile-drawer');
+    var ZAV=window.__ZAV_MENU;
+    if(!drawer){return;}
+    if(!ZAV){return setTimeout(init,120);} /* počakaj, da zav-mega-script definira ZAV_MENU */
+
+    function main(){
+      drawer.innerHTML=
+        '<div class="m-scroll">'
+        +'<a class="m-item" href="#home">Domov</a>'
+        +'<button class="m-item" type="button" id="mZav">Zavarovanja <span class="m-chev">&#8250;</span></button>'
+        +'<a class="m-item" href="#pregled-police">Pregled police</a>'
+        +'<a class="m-item" href="#skode">Škode</a>'
+        +'<a class="m-item" href="#ai-asistent">AI asistent</a>'
+        +'<a class="m-item" href="#kontakt">Povpraševanje</a>'
+        +'</div>'
+        +'<div class="m-aud"><a href="zasebniki.html">Zasebni</a><span class="active">Podjetja</span></div>';
+      drawer.querySelector('#mZav').onclick=level1;
+    }
+    function shell(title,backFn,bodyHTML){
+      drawer.innerHTML='<button class="m-back" type="button">&#8249; Nazaj</button>'
+        +'<div class="m-title">'+title+'</div>'
+        +'<div class="m-scroll">'+bodyHTML+'</div>';
+      drawer.querySelector('.m-back').onclick=backFn;
+    }
+    function itemBtn(label){return '<button class="m-item" type="button">'+label+' <span class="m-chev">&#8250;</span></button>';}
+    function itemLink(label,href){return '<a class="m-item" href="'+href+'">'+label+'</a>';}
+
+    function level1(){
+      shell('Zavarovanja',main,ZAV.map(function(c,i){return '<button class="m-item" type="button" data-i="'+i+'">'+c.label+' <span class="m-chev">&#8250;</span></button>';}).join(''));
+      drawer.querySelectorAll('[data-i]').forEach(function(b){b.onclick=function(){level2(+b.dataset.i);};});
+    }
+    function level2(ci){
+      var c=ZAV[ci];
+      var html=c.items.map(function(it,j){
+        return it.sub&&it.sub.length ? '<button class="m-item" type="button" data-j="'+j+'">'+it.label+' <span class="m-chev">&#8250;</span></button>'
+                                     : '<a class="m-item" href="'+it.href+'">'+it.label+'</a>';
+      }).join('');
+      shell(c.label,level1,html);
+      drawer.querySelectorAll('[data-j]').forEach(function(b){b.onclick=function(){level3(ci,+b.dataset.j);};});
+    }
+    function level3(ci,ii){
+      var it=ZAV[ci].items[ii];
+      var html=it.sub.map(function(s){return itemLink(s.label,s.href);}).join('');
+      shell(it.label,function(){level2(ci);},html);
+    }
+
+    main();
+    /* ob vsakem odprtju menija resetiraj na glavni nivo */
+    var wasOpen=false;
+    new MutationObserver(function(){
+      var open=drawer.classList.contains('open');
+      if(open&&!wasOpen)main();
+      wasOpen=open;
+    }).observe(drawer,{attributes:true,attributeFilter:['class']});
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
+})();
+</script>
 </body>
 </html>
