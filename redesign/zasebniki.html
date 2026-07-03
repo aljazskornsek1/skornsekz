@@ -7053,8 +7053,9 @@ html body .mega small{color:#666!important}
       while(walker.nextNode()){
         const node=walker.currentNode,parent=node.parentElement;
         if(!parent||parent.closest('script,style,noscript,.language-switcher,.notranslate'))continue;
-        if(!originalText.has(node))originalText.set(node,normalizeText(node.nodeValue));
-        const source=originalText.get(node);if(source)node.nodeValue=t(source);
+        const raw=node.nodeValue;
+        if(!originalText.has(node))originalText.set(node,normalizeText(raw));
+        const source=originalText.get(node);if(source){const lead=(raw.match(/^\s+/)||[''])[0],trail=(raw.match(/\s+$/)||[''])[0];node.nodeValue=lead+t(source)+trail;}
       }
       root.querySelectorAll?.('[placeholder],[aria-label],[title],[alt],[data-q],[data-ai-q]').forEach(el=>{
         let values=originalAttrs.get(el);if(!values){values={};originalAttrs.set(el,values)}

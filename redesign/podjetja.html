@@ -1495,8 +1495,9 @@ html body .mega small{color:#666!important}
       while(walker.nextNode()){
         const node=walker.currentNode,parent=node.parentElement;
         if(!parent||parent.closest('script,style,noscript,.language-switcher,.notranslate'))continue;
-        if(!originalText.has(node))originalText.set(node,normalizeText(node.nodeValue));
-        const source=originalText.get(node);if(source)node.nodeValue=t(source);
+        const raw=node.nodeValue;
+        if(!originalText.has(node))originalText.set(node,normalizeText(raw));
+        const source=originalText.get(node);if(source){const lead=(raw.match(/^\s+/)||[''])[0],trail=(raw.match(/\s+$/)||[''])[0];node.nodeValue=lead+t(source)+trail;}
       }
       root.querySelectorAll?.('[placeholder],[aria-label],[title],[alt],[data-q],[data-ai-q]').forEach(el=>{
         let values=originalAttrs.get(el);if(!values){values={};originalAttrs.set(el,values)}
@@ -14075,7 +14076,7 @@ if(typeof render==="function"&&location.hash&&location.hash.startsWith("#pb-")){
 /* Na strani "AI asistent" naj ostane glavna navigacija vidna:
    telo postane flex stolpec (glava na vrhu), AI aplikacija zapolni preostanek. */
 html body[data-page="ai-asistent"]{display:flex!important;flex-direction:column!important}
-html body[data-page="ai-asistent"]>.header{display:block!important;position:relative!important;flex:0 0 auto!important;z-index:1001!important}
+html body[data-page="ai-asistent"]>.header{display:block!important;position:relative!important;flex:0 0 auto!important;z-index:1001!important;box-shadow:none!important}
 html body[data-page="ai-asistent"] #app{position:relative!important;inset:auto!important;flex:1 1 auto!important;width:100%!important;height:auto!important;min-height:0!important;z-index:1!important}
 </style>
 </body>
