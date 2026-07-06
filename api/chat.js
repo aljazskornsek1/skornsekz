@@ -133,53 +133,53 @@ async function retrieveContext(openai, question, stems = []) {
   })
 
   const columns = 'id,title,source,chunk_index,content'
-  const empty = Promise.resolve({ data: [], error: null })
 
-  // dobesedno iskanje po korenih: AND (vsi koreni) prednostno, OR kot širša mreža
-  let keywordAnd = empty
-  if (stems.length) {
-    let q = supabase.from('documents').select(columns)
-    for (const s of stems) q = q.ilike('content', `%${s}%`)
-    keywordAnd = q.limit(12)
-  }
-  const keywordOr = stems.length
-    ? supabase
-        .from('documents')
-        .select(columns)
-        .or(stems.map(s => `content.ilike.%${s}%`).join(','))
-        .limit(12)
-    : empty
-
-  const [vector, kwAnd, kwOr] = await Promise.all([
+  // dobesedno iskanje: ločena poizvedba za VSAK koren, da redki koreni zanesljivo pridejo zraven
+  const [vector, ...stemResults] = await Promise.all([
     supabase.rpc('match_documents', {
       query_embedding: queryEmbedding,
       match_threshold: 0.25,
       match_count: 40,
     }),
-    keywordAnd,
-    keywordOr,
+    ...stems.map(s =>
+      supabase.from('documents').select(columns).ilike('content', `%${s}%`).limit(15)
+    ),
   ])
-
-  console.info('[RAG] retrieval', {
-    stems,
-    vector_error: vector.error?.message || null,
-    vector_hits: Array.isArray(vector.data) ? vector.data.length : 0,
-    keyword_and_hits: Array.isArray(kwAnd.data) ? kwAnd.data.length : 0,
-    keyword_or_hits: Array.isArray(kwOr.data) ? kwOr.data.length : 0,
-  })
 
   if (vector.error) {
     console.error('[RAG] match_documents error:', vector.error)
     throw new Error(`match_documents failed: ${vector.error.message}`)
   }
 
-  // odlomki, ki dobesedno vsebujejo VSE iskane korene, gredo v kontekst zajamčeno
-  const guaranteed = (kwAnd.error ? [] : kwAnd.data || []).slice(0, 6)
+  // točkovanje besednih zadetkov po številu zadetih korenov
+  const byId = new Map()
+  for (const res of stemResults) {
+    for (const row of (res.error ? [] : res.data || [])) {
+      if (row && row.id != null && !byId.has(row.id)) byId.set(row.id, row)
+    }
+  }
+  const scored = [...byId.values()]
+    .map(row => ({
+      row,
+      score: stems.filter(s => (row.content || '').toLowerCase().includes(s)).length,
+    }))
+    .sort((a, b) => b.score - a.score)
+
+  // odlomki z VSEMI koreni (pri vsaj 2 korenih) gredo v kontekst zajamčeno
+  const guaranteed = stems.length >= 2
+    ? scored.filter(x => x.score === stems.length).slice(0, 6).map(x => x.row)
+    : []
   const seen = new Set(guaranteed.map(row => row.id))
 
+  console.info('[RAG] retrieval', {
+    stems,
+    vector_hits: Array.isArray(vector.data) ? vector.data.length : 0,
+    keyword_hits: byId.size,
+    guaranteed: guaranteed.length,
+  })
+
   const candidates = []
-  const keywordRows = kwOr.error ? [] : kwOr.data || []
-  for (const row of [...keywordRows, ...(vector.data || [])]) {
+  for (const row of [...scored.map(x => x.row), ...(vector.data || [])]) {
     if (row && row.id != null && !seen.has(row.id)) {
       seen.add(row.id)
       candidates.push(row)
@@ -188,7 +188,7 @@ async function retrieveContext(openai, question, stems = []) {
 
   if (!guaranteed.length && !candidates.length) return ''
 
-  const top = candidates.length ? await rerank(openai, question, candidates) : []
+  const top = candidates.length ? await rerank(openai, question, candidates, stems) : []
 
   return [...guaranteed, ...top]
     .map(formatDocument)
@@ -196,12 +196,28 @@ async function retrieveContext(openai, question, stems = []) {
     .join('\n\n---\n\n')
 }
 
-async function rerank(openai, question, candidates) {
+async function rerank(openai, question, candidates, stems = []) {
   if (candidates.length <= 12) return candidates
+
+  // predogled: izsek okoli prvega zadetka korena, ne nujno začetek odlomka
+  const preview = content => {
+    const text = (content || '').replace(/\s+/g, ' ')
+    const lower = text.toLowerCase()
+    let hit = -1
+    for (const s of stems) {
+      const i = lower.indexOf(s)
+      if (i >= 0 && (hit < 0 || i < hit)) hit = i
+    }
+    if (hit > 250) {
+      const header = text.slice(0, text.indexOf(']') + 1)
+      return `${header} … ${text.slice(hit - 150, hit + 550)}`
+    }
+    return text.slice(0, 700)
+  }
 
   try {
     const listing = candidates
-      .map((d, i) => `[${i}] ${(d.content || '').slice(0, 700).replace(/\s+/g, ' ')}`)
+      .map((d, i) => `[${i}] ${preview(d.content)}`)
       .join('\n\n')
 
     const response = await openai.responses.create({
@@ -318,6 +334,7 @@ ${context}`
     const systemPrompt = `Si izkušen zavarovalni strokovnjak agencije Zavarovanje Skornšek, specializiran za zavarovalne pogoje Zavarovalnice Triglav. ${languageInstruction}
 
 Slog odgovora:
+- Stranko VEDNO vikaj, tudi če ona tika.
 - V prvem ali drugem stavku NEPOSREDNO odgovori na vprašanje (da/ne/koliko/pod kakšnimi pogoji), šele nato razčleni podrobnosti.
 - Uporabljaj pravilno zavarovalniško terminologijo (zavarovalna vsota, soudeležba, franšiza, izključitve, zavarovalnina, jamstvo), a vsak strokovni izraz sproti poljudno pojasni, da ga razume vsakdo.
 - Daljše odgovore strukturiraj z razdelki: kaj je krito → izključitve in omejitve → praktično opozorilo → Viri. Kratka vprašanja zaslužijo kratek odgovor brez razdelkov.
