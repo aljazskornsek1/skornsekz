@@ -322,6 +322,7 @@ Pravila:
 - Napotitev na osebnega svetovalca dodaj kvečjemu v enem kratkem stavku na koncu, in samo kadar je odgovor res odvisen od konkretne police.
 - Ne izmišljuj si določb, ki jih ni v izvlečkih.
 - Odlomki z oznako "ARHIVSKI POGOJI" veljajo za starejše, že sklenjene police — pri vprašanjih o novih sklenitvah se opri na neoznačene (aktualne) pogoje, arhivske pa omeni samo, če stranka sprašuje o obstoječi stari polici.
+- Odlomki z oznako "Zakonodaja" (Obligacijski zakonik, ZZavar-1) so splošna zakonska pravila — uporabi jih pri vprašanjih o pravicah stranke, rokih, zastaranju, zamudi premije, odstopu od pogodbe ipd. Pri razlagi konkretnih kritij imajo prednost zavarovalni pogoji; zakon navedi kot pravno podlago (npr. "po 937. členu OZ").
 - Na koncu odgovora dodaj razdelek "Viri" z naslovi dokumentov, iz katerih si črpal.
 
 KONTEKST:
