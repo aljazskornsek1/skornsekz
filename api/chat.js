@@ -172,9 +172,12 @@ async function retrieveContext(openai, question, stems = []) {
     throw new Error(`match_documents failed: ${vector.error.message}`)
   }
 
-  const seen = new Set()
+  // odlomki, ki dobesedno vsebujejo VSE iskane korene, gredo v kontekst zajamčeno
+  const guaranteed = (kwAnd.error ? [] : kwAnd.data || []).slice(0, 6)
+  const seen = new Set(guaranteed.map(row => row.id))
+
   const candidates = []
-  const keywordRows = [...(kwAnd.error ? [] : kwAnd.data || []), ...(kwOr.error ? [] : kwOr.data || [])]
+  const keywordRows = kwOr.error ? [] : kwOr.data || []
   for (const row of [...keywordRows, ...(vector.data || [])]) {
     if (row && row.id != null && !seen.has(row.id)) {
       seen.add(row.id)
@@ -182,11 +185,11 @@ async function retrieveContext(openai, question, stems = []) {
     }
   }
 
-  if (!candidates.length) return ''
+  if (!guaranteed.length && !candidates.length) return ''
 
-  const top = await rerank(openai, question, candidates)
+  const top = candidates.length ? await rerank(openai, question, candidates) : []
 
-  return top
+  return [...guaranteed, ...top]
     .map(formatDocument)
     .filter(Boolean)
     .join('\n\n---\n\n')
@@ -197,7 +200,7 @@ async function rerank(openai, question, candidates) {
 
   try {
     const listing = candidates
-      .map((d, i) => `[${i}] ${(d.content || '').slice(0, 400).replace(/\s+/g, ' ')}`)
+      .map((d, i) => `[${i}] ${(d.content || '').slice(0, 700).replace(/\s+/g, ' ')}`)
       .join('\n\n')
 
     const response = await openai.responses.create({
