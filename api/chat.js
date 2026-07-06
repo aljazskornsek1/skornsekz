@@ -11,6 +11,50 @@ function respond(res, status, payload) {
   return res.end(JSON.stringify(payload))
 }
 
+// omejitev klicev na IP (v pomnilniku instance; priponke štejejo 5x)
+const RATE = { windowMs: 60 * 60 * 1000, ipBudget: 40, globalBudget: 800 }
+const rateBuckets = new Map()
+let globalBucket = { used: 0, resetAt: Date.now() + RATE.windowMs }
+
+function rateLimited(ip, cost) {
+  const now = Date.now()
+  if (now > globalBucket.resetAt) globalBucket = { used: 0, resetAt: now + RATE.windowMs }
+  if (rateBuckets.size > 5000) rateBuckets.clear()
+  let bucket = rateBuckets.get(ip)
+  if (!bucket || now > bucket.resetAt) {
+    bucket = { used: 0, resetAt: now + RATE.windowMs }
+    rateBuckets.set(ip, bucket)
+  }
+  if (bucket.used + cost > RATE.ipBudget || globalBucket.used + cost > RATE.globalBudget) return true
+  bucket.used += cost
+  globalBucket.used += cost
+  return false
+}
+
+function rateLimitAnswer(language = 'sl') {
+  if (language === 'en') return 'You have reached the hourly limit of questions. Please try again in a while or contact a Zavarovanje Skornšek adviser directly.'
+  if (language === 'de') return 'Sie haben das stündliche Fragenlimit erreicht. Bitte versuchen Sie es später erneut oder wenden Sie sich direkt an einen Berater von Zavarovanje Skornšek.'
+  return 'Dosegli ste urno omejitev vprašanj. Poskusite znova čez nekaj časa ali pa se obrnite neposredno na svetovalca Zavarovanje Skornšek.'
+}
+
+function parseAttachment(raw) {
+  if (!raw || typeof raw !== 'object') return { fileInput: null, error: false }
+  const data = typeof raw.data === 'string' ? raw.data.replace(/[^A-Za-z0-9+/=]/g, '') : ''
+  const mime = raw.mime === 'application/pdf'
+    ? 'application/pdf'
+    : typeof raw.mime === 'string' && /^image\/(jpeg|png|webp|gif)$/.test(raw.mime) ? raw.mime : null
+  const maxChars = mime === 'application/pdf' ? 4200000 : 2600000
+  if (!data || !mime || data.length > maxChars) return { fileInput: null, error: true }
+  const fileInput = mime === 'application/pdf'
+    ? {
+        type: 'input_file',
+        filename: (typeof raw.name === 'string' && raw.name.trim() ? raw.name : 'dokument.pdf').slice(0, 80),
+        file_data: `data:application/pdf;base64,${data}`,
+      }
+    : { type: 'input_image', image_url: `data:${mime};base64,${data}` }
+  return { fileInput, error: false }
+}
+
 function fallbackAnswer(language = 'sl') {
   if (language === 'en') return 'I can provide general insurance guidance, but I cannot access the knowledge base at the moment. For an exact review of coverage and conditions, please contact a Zavarovanje Skornšek adviser.'
   if (language === 'de') return 'Ich kann allgemeine Hinweise zu Versicherungen geben, kann aber momentan nicht auf die Wissensdatenbank zugreifen. Für eine genaue Prüfung von Deckung und Bedingungen wenden Sie sich bitte an einen Berater von Zavarovanje Skornšek.'
@@ -262,11 +306,26 @@ export default async function handler(req, res) {
     return respond(res, 400, { answer: fallbackAnswer('sl') })
   }
 
-  const message = typeof body.message === 'string' ? body.message.trim().slice(0, 5000) : ''
+  let message = typeof body.message === 'string' ? body.message.trim().slice(0, 5000) : ''
   const language = ['sl', 'en', 'de'].includes(body.language) ? body.language : 'sl'
 
+  const { fileInput, error: attachmentError } = parseAttachment(body.attachment)
+  if (attachmentError) {
+    return respond(res, 400, { answer: language === 'en'
+      ? 'The attached file could not be processed. Supported: images and PDF up to 3 MB.'
+      : language === 'de'
+        ? 'Die angehängte Datei konnte nicht verarbeitet werden. Unterstützt: Bilder und PDF bis 3 MB.'
+        : 'Priložene datoteke ni bilo mogoče obdelati. Podprte so slike in PDF do 3 MB.' })
+  }
+
+  if (!message && fileInput) message = 'Preglej priloženo datoteko in povzemi ključne podatke, pomembne za zavarovanje.'
   if (!message) {
     return respond(res, 400, { answer: fallbackAnswer(language) })
+  }
+
+  const ip = (req.headers['x-forwarded-for'] || '').split(',')[0].trim() || req.socket?.remoteAddress || 'neznan'
+  if (rateLimited(ip, fileInput ? 5 : 1)) {
+    return respond(res, 429, { answer: rateLimitAnswer(language) })
   }
 
   const apiKey = process.env.OPENAI_API_KEY
@@ -345,12 +404,19 @@ Slog odgovora:
 
 ${contextInstruction}`
 
+    const attachmentInstruction = fileInput
+      ? '\n\nStranka je sporočilu priložila datoteko. Natančno jo preberi. Če je zavarovalna polica ali ponudba, razberi sklenjena kritja, zavarovalne vsote in soudeležbe ter jih poveži z ustreznimi določili iz baze znanja. Če je fotografija škode, opiši, kaj je razvidno, in pojasni, katera kritja običajno pridejo v poštev. Osebnih podatkov (EMŠO, naslov) ne izpisuj po nepotrebnem.'
+      : ''
+
     const response = await openai.responses.create({
       model: ANSWER_MODEL,
       input: [
-        { role: 'system', content: systemPrompt },
+        { role: 'system', content: systemPrompt + attachmentInstruction },
         ...history,
-        { role: 'user', content: message },
+        {
+          role: 'user',
+          content: fileInput ? [{ type: 'input_text', text: message }, fileInput] : message,
+        },
       ],
       // gpt-5 modeli del proračuna porabijo za razmislek, zato višja meja
       max_output_tokens: 2500,
