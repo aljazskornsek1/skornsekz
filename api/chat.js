@@ -59,24 +59,37 @@ async function buildSearchQuery(openai, message, history) {
       input: [
         {
           role: 'system',
-          content: 'Preoblikuj zadnje uporabnikovo sporočilo v samostojno iskalno poizvedbo v slovenščini za iskanje po zavarovalnih pogojih. Vključi ves potreben kontekst iz pogovora (vrsto zavarovanja, predmet vprašanja) in DODAJ sopomenke ter strokovne izraze, ki se verjetno pojavljajo v uradnih pogojih (npr. "slepič" -> "slepo črevo", "toča" -> "točo, naravne nesreče", "odbitna franšiza" -> "soudeležba"). Vrni samo poizvedbo, brez pojasnil.',
+          content: `Pripravi iskanje po slovenskih zavarovalnih pogojih za zadnje uporabnikovo sporočilo. Vrni SAMO JSON:
+{"poizvedba": "...", "koreni": ["...", "..."]}
+
+- "poizvedba": samostojna iskalna poizvedba z vsem kontekstom iz pogovora IN sopomenkami/strokovnimi izrazi, ki se verjetno pojavljajo v uradnih pogojih (npr. "slepič" -> "slepo črevo", "odbitna franšiza" -> "soudeležba").
+- "koreni": 2-5 KORENOV najbolj razlikovalnih besed za dobesedno iskanje, brez končnic, da ujamejo vse sklone (npr. za slepič: ["slep", "črev"]; za točo: ["toč"]; za kombinacijo B: ["kombinacij"]). Brez splošnih besed kot zavarovanje, polica, kritje.`,
         },
         {
           role: 'user',
           content: (conversation ? `Pogovor:\n${conversation}\n\n` : '') + `Zadnje sporočilo: ${message}`,
         },
       ],
-      max_output_tokens: 150,
+      max_output_tokens: 200,
     })
 
-    return response.output_text?.trim() || message
+    const raw = response.output_text?.trim() || ''
+    const parsed = JSON.parse(raw.match(/\{[\s\S]*\}/)?.[0] || '{}')
+    const query = typeof parsed.poizvedba === 'string' && parsed.poizvedba.trim() ? parsed.poizvedba.trim() : message
+    const stems = (Array.isArray(parsed.koreni) ? parsed.koreni : [])
+      .filter(s => typeof s === 'string')
+      .map(s => s.toLowerCase().replace(/[^a-z0-9čšžđć]/g, ''))
+      .filter(s => s.length >= 3)
+      .slice(0, 5)
+
+    return { query, stems }
   } catch (error) {
     console.error('[RAG] query rewrite failed:', error)
-    return message
+    return { query: message, stems: [] }
   }
 }
 
-async function retrieveContext(openai, question) {
+async function retrieveContext(openai, question, stems = []) {
   const supabaseUrl = getSupabaseUrl()
   const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY
 
@@ -114,28 +127,40 @@ async function retrieveContext(openai, question) {
     },
   })
 
-  const [vector, keyword] = await Promise.all([
+  const columns = 'id,title,source,chunk_index,content'
+  const empty = Promise.resolve({ data: [], error: null })
+
+  // dobesedno iskanje po korenih: AND (vsi koreni) prednostno, OR kot širša mreža
+  let keywordAnd = empty
+  if (stems.length) {
+    let q = supabase.from('documents').select(columns)
+    for (const s of stems) q = q.ilike('content', `%${s}%`)
+    keywordAnd = q.limit(12)
+  }
+  const keywordOr = stems.length
+    ? supabase
+        .from('documents')
+        .select(columns)
+        .or(stems.map(s => `content.ilike.%${s}%`).join(','))
+        .limit(12)
+    : empty
+
+  const [vector, kwAnd, kwOr] = await Promise.all([
     supabase.rpc('match_documents', {
       query_embedding: queryEmbedding,
       match_threshold: 0.25,
       match_count: 40,
     }),
-    supabase
-      .from('documents')
-      .select('id,title,source,chunk_index,content')
-      .textSearch(
-        'content',
-        [...new Set((question.toLowerCase().match(/[a-zčšžđć]{4,}/g) || []))].slice(0, 10).join(' OR ') || question,
-        { type: 'websearch', config: 'simple' }
-      )
-      .limit(20),
+    keywordAnd,
+    keywordOr,
   ])
 
   console.info('[RAG] retrieval', {
+    stems,
     vector_error: vector.error?.message || null,
     vector_hits: Array.isArray(vector.data) ? vector.data.length : 0,
-    keyword_error: keyword.error?.message || null,
-    keyword_hits: Array.isArray(keyword.data) ? keyword.data.length : 0,
+    keyword_and_hits: Array.isArray(kwAnd.data) ? kwAnd.data.length : 0,
+    keyword_or_hits: Array.isArray(kwOr.data) ? kwOr.data.length : 0,
   })
 
   if (vector.error) {
@@ -145,7 +170,8 @@ async function retrieveContext(openai, question) {
 
   const seen = new Set()
   const candidates = []
-  for (const row of [...(vector.data || []), ...(keyword.error ? [] : keyword.data || [])]) {
+  const keywordRows = [...(kwAnd.error ? [] : kwAnd.data || []), ...(kwOr.error ? [] : kwOr.data || [])]
+  for (const row of [...keywordRows, ...(vector.data || [])]) {
     if (row && row.id != null && !seen.has(row.id)) {
       seen.add(row.id)
       candidates.push(row)
@@ -246,9 +272,9 @@ export default async function handler(req, res) {
   let ragError = false
 
   try {
-    const searchQuery = await buildSearchQuery(openai, message, history)
+    const { query: searchQuery, stems } = await buildSearchQuery(openai, message, history)
     console.info('[RAG] search query:', searchQuery)
-    context = await retrieveContext(openai, searchQuery)
+    context = await retrieveContext(openai, searchQuery, stems)
   } catch (error) {
     ragError = true
     console.error('AI assistant RAG search failed:', error)
