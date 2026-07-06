@@ -113,28 +113,80 @@ async function retrieveContext(openai, question) {
     },
   })
 
-  const { data, error } = await supabase.rpc('match_documents', {
-    query_embedding: queryEmbedding,
-    match_threshold: 0.35,
-    match_count: 16,
+  const [vector, keyword] = await Promise.all([
+    supabase.rpc('match_documents', {
+      query_embedding: queryEmbedding,
+      match_threshold: 0.25,
+      match_count: 40,
+    }),
+    supabase
+      .from('documents')
+      .select('id,title,source,chunk_index,content')
+      .textSearch('content', question, { type: 'websearch', config: 'simple' })
+      .limit(20),
+  ])
+
+  console.info('[RAG] retrieval', {
+    vector_error: vector.error?.message || null,
+    vector_hits: Array.isArray(vector.data) ? vector.data.length : 0,
+    keyword_error: keyword.error?.message || null,
+    keyword_hits: Array.isArray(keyword.data) ? keyword.data.length : 0,
   })
 
-  console.info('[RAG] match_documents response', {
-    error: error?.message || null,
-    code: error?.code || null,
-    documents_returned: Array.isArray(data) ? data.length : 0,
-  })
-
-  if (error) {
-    console.error('[RAG] match_documents error:', error)
-    throw new Error(`match_documents failed: ${error.message}`)
+  if (vector.error) {
+    console.error('[RAG] match_documents error:', vector.error)
+    throw new Error(`match_documents failed: ${vector.error.message}`)
   }
 
-  return (Array.isArray(data) ? data : [])
+  const seen = new Set()
+  const candidates = []
+  for (const row of [...(vector.data || []), ...(keyword.error ? [] : keyword.data || [])]) {
+    if (row && row.id != null && !seen.has(row.id)) {
+      seen.add(row.id)
+      candidates.push(row)
+    }
+  }
+
+  if (!candidates.length) return ''
+
+  const top = await rerank(openai, question, candidates)
+
+  return top
     .map(formatDocument)
     .filter(Boolean)
-    .slice(0, 16)
     .join('\n\n---\n\n')
+}
+
+async function rerank(openai, question, candidates) {
+  if (candidates.length <= 12) return candidates
+
+  try {
+    const listing = candidates
+      .map((d, i) => `[${i}] ${(d.content || '').slice(0, 400).replace(/\s+/g, ' ')}`)
+      .join('\n\n')
+
+    const response = await openai.responses.create({
+      model: CHAT_MODEL,
+      input: [
+        {
+          role: 'system',
+          content: 'Dobiš vprašanje in oštevilčene odlomke zavarovalnih pogojev. Izberi do 12 odlomkov, ki so za odgovor na vprašanje najbolj relevantni. Vrni SAMO številke, ločene z vejicami, urejene od najbolj relevantnega (npr.: 3,0,7). Brez pojasnil.',
+        },
+        { role: 'user', content: `Vprašanje: ${question}\n\nOdlomki:\n${listing}` },
+      ],
+      max_output_tokens: 100,
+    })
+
+    const indices = [...new Set(((response.output_text || '').match(/\d+/g) || []).map(Number))]
+      .filter(n => n >= 0 && n < candidates.length)
+
+    if (indices.length >= 4) return indices.slice(0, 12).map(i => candidates[i])
+    console.warn('[RAG] rerank returned too few indices, using vector order')
+  } catch (error) {
+    console.error('[RAG] rerank failed:', error)
+  }
+
+  return candidates.slice(0, 12)
 }
 
 export default async function handler(req, res) {
@@ -214,6 +266,7 @@ Pravila:
 - Če izvlečki na vprašanje odgovarjajo samo delno, najprej povzemi, kaj pogoji GLEDE TEGA določajo (npr. katere stvari/objekti so zavarovani, katere nevarnosti so krite), in šele nato povej, česa v izvlečkih ni izrecno omenjeno. Nikoli ne odgovori samo z napotitvijo na svetovalca.
 - Napotitev na osebnega svetovalca dodaj kvečjemu v enem kratkem stavku na koncu, in samo kadar je odgovor res odvisen od konkretne police.
 - Ne izmišljuj si določb, ki jih ni v izvlečkih.
+- Odlomki z oznako "ARHIVSKI POGOJI" veljajo za starejše, že sklenjene police — pri vprašanjih o novih sklenitvah se opri na neoznačene (aktualne) pogoje, arhivske pa omeni samo, če stranka sprašuje o obstoječi stari polici.
 - Na koncu odgovora dodaj razdelek "Viri" z naslovi dokumentov, iz katerih si črpal.
 
 KONTEKST:
