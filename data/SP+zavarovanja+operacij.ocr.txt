@@ -1,0 +1,1236 @@
+Splošni pogoji zavarovanja operacij
+
+Uvodne določbe
+
+1. člen: Zavarovanje operacij  
+[1] Zavarovanje operacij (v nadaljevanju zavarovanje) je prostovoljno zdravstveno zavarovanje, ki zavarovancu v primeru operacije, opravljene na podlagi utemeljene medicinske indikacije pri izvajalcu zdravstvenih storitev, izplača dogovorjeno zavarovalnino in za operacijo, najavljene preko asistenčnega centra zavarovalnice Zdravstvena točka®, nudi asistenco za izvedbo operacije.
+
+2. člen: Zdravstvena točka®  
+[1] Zdravstvena točka® je asistenčni center zavarovalnice, ki zavarovalcu in zavarovancu nudi informacije o zavarovanju, daje soglasja zavarovalnice in zagotavlja pomoč pri uveljavljanju pravic iz zavarovanja.  
+[2] Orodja Zdravstvene točke® so:  
+1. Zdravstvena KLIC® (telefonski stik),  
+2. Zdravstvena KLIK® (elektronski stik) in  
+3. zastopstvo zavarovalnice (osebni stik).  
+[3] Zavarovalnica ima stik Zdravstvene točke® objavljene na svoji spletni strani.
+
+3. člen: Opredelitev izrazov  
+[1] V Splošnih pogojih veljajo v moškem spolu uporabljeni izrazi za oboje, ženske in moškega spola.  
+[2] Izrazi v Splošnih pogojih pomenijo:  
+-bolezen je zdravstvena okvara, ki jo ugotovi zdravnik in ni posledica nezgode;  
+-čakalna doba je s strani zavarovalnice določeno obdobje od začetka zavarovanja, za katerega je zavarovalec dolžan plačevati zavarovalno premijo, zavarovalnica pa ne zagotavlja zavarovalnega jamstva;  
+-izvajalec zdravstvenih storitev je oseba, ki ima veljavno dovoljenje za opravljanje zdravstvene ali z zdravstvenimi storitvami povezan dejavnosti oziroma dovoljenje za samostojno delo zdravnika ali zobozdravnika in je priznana s strani zavarovalnice (v nadaljevanju izvajalec);  
+-letna zavarovalna vsota je najvišji znesek zavarovalnine, do katerega ima zavarovanec v obdobju enega (1) zavarovalnega leta;  
+-kolektivno zavarovanje operacij je zavarovanje operacij zavarovalnice v kolektivni obliki po posebnih pogojih zavarovalnice;  
+-mirovanje zavarovanja je obdobje, za katerega zavarovalec nima obveznosti plačevanja zavarovalne premije, zavarovalnica pa ne zagotavlja zavarovalnega jamstva;  
+-nadomestilo je najvišji znesek obveznosti zavarovalnice za posamezno operacijo iz Seznama operacij in je izražen v evrih;  
+-nezgoda je nenaden, nepredviden ter od volje zavarovanca neodvisen dogodek, ki deluje od zunaj in naglo na zavarovančevo telo; zlasti povoženje, trčenje, prometna nesreča, udarec s predmetom ali ob kakšen predmet, udarec električnega toka ali strele, padec, zdrs, ranitev z orožjem, drugimi predmeti ali z eksplozivnimi snovmi, bodi v kakšnim predmetom, ugriz živali;  
+-operacija je kirurški poseg z namenom odstraniti oboleli ali poškodovani del telesa ali tujek ali vzpostaviti normalno delovanje dela telesa in je priznana strani zavarovalnice; operacije so določene v Seznamu operacij, ki je sestavni del Splošnih pogojev;  
+-otrok je oseba, mlajša od osemnajst (18) let;  
+-ponudnik je oseba, ki želi skleniti zavarovalno pogodbo in v ta namen zavarovalnici predloži ponudbo;  
+-poškodba je sprememba ali prizadetost tkiva, organa oziroma organizma, ki ne vsebuje elementov bolezni ali degenerativnega procesa, in povečje nagnjenost k poškodbam, ter nastane zaradi nezgode;  
+-predhodno stanje je bolezen, stanje oziroma poškodba (vključno z zdravstvenimi težavami, bolezenskimi znaki ali simptomi), ki je nastopila pred sklenitvijo zavarovanja oziroma ob sklenitvi zavarovalnega obstoj, in glede na to, ali je bila diagnosticirana oziroma zdravljena, in je zavarovanec znal ali mu ni mogla ostati neznana;  
+-prijena napaka je stanje ali bolezen, ki obstoj po obstoju za- radi dednih faktorjev oziroma okoliščin, ki se razvijee med nosečnostjo, in se odkrije po rojstvu ali kadarkoli kasneje;  
+-Seznam operacij je seznam operacij, ki jih krije zavarovanje, s pripadajočimi višinami nadomestil, zamenja v odstotku letne zavarovalne vsote, in je sestavni del Splošnih pogojev;  
+-Splošni pogoji so Splošni pogoji zavarovanja operacij (340.1131.012.02);  
+-starost zavarovanca je razlika med letnico začetka zavarovanja, in letnico rojstva zavarovanca;  
+-zavarovalec je oseba, ki v zavarovalnico sklene zavarovalno pogodbo;  
+-zavarovalna premija je pogodbeni znesek, ki ga zavarovalec plača zavarovalnici;  
+-zavarovalni primer je dogodek, na podlagi katerega nastane obveznost zavarovalnice iz zavarovalne pogodbe;  
+-zavarovalnica je Zavarovalnica Triglav, d.d.;  
+-zavarovanec je imenovani znesek v zverhi, ki ga zavarovalnica izplača zavarovancu ob nastopu zavarovalnega primera;  
+-zavarovalno jamstvo je zaveza zavarovalnice, da ob zavarovalno pogodbo dogovorjenih pogojih izpolni obveznosti iz zavarovalne pogodbe;  
+-zavarovalno leto je obdobje enega (1) leta, ki prične z dnem in mesecem začetka zavarovanja;  
+-zavarovanec je fizična oseba, katre interese je zavarovan v zavarovalno pogodbo;  
+-Zdravstvena točka® je asistenčni center zavarovalnice, preko katerega zavarovalec oziroma zavarovanec upravlja s svojim zavarovanjem in uveljavlja pravice iz zavarovanja.
+Kdo se lahko zavaruje
+
+4. člen: Osebe, ki se lahko zavarujejo
+[1] Zavaruje se lahko oseba, ki ima prebivališče v Republiki Sloveniji.
+[2] Starost zavarovanca ob začetku zavarovanja je največ triinšestde- set (63) let.
+[3] Otrok se lahko zavaruje le, če sta skupaj s staršem zavarovana z isto zavarovalno pogodbo.
+
+Vsebina in obseg zavarovanja
+
+5. člen: Vsebina zavarovanja
+[1] Zavarovalnica izplača zavarovancu enkratno zavarovalnino v evrih za vsako opravljeno operacijo zavarovanca iz Seznama operacij za- radi zdravljenja bolezni, stanj ali poškodb na podlagi utemeljene medicinske indikacije.
+[2] Medicinsko utemeljena indikacija po Splošnih pogojih pomeni, da je operacija upravičena, ker je jo skladno z diagnozo in medicinsko doktrino predpisal pristojni zdravnik in je primerna glede na zdra- vstveno stanje zavarovanca.
+[3] Za operacijo, najavljeno preko Zdravstvene točke®, lahko zavaroval- nica zavarovancu nudi asistenco za izvedbo operacije.
+
+6. člen: Operacija
+[1] Operacija je strokovno doktrinarno priznan medicinska storitev v Republiki Sloveniji in se izvaja pri izvajalcu.
+[2] Operacije, ki so predmet zavarovanja, so določene v Seznamu ope- racij.
+
+7. člen: Asistenca za izvedbo operacije
+[1] Zavarovalnica zavarovancu nudi informacije o izvajalcih, s katerimi ima zavarovalnica vzpostavljene poslovne odnose.
+[2] V primeru uveljavljanja pravic iz zavarovanja na podlagi predho- dnega soglasja zavarovalnice za zagotavljanje izplačila zavarovalni- ne po opravljeni operaciji, zavarovalnica zavarovancu nudi pomoč pri organizaciji izvedbe operacije pri izvajalcih, s katerimi ima zava- rovalnica vzpostavljene poslovne odnose in ki to operacijo ponuja- jo. Pomoč pri organizaciji izvedbe operacije je pridobivanje ponudb izvajalcev in dogovarjanje termina za izvedbo operacije pri izbra- nem izvajalcu.
+[3] V primeru izvedbe operacije v tujini zavarovalnica pomoč iz pred- hodnega odstavka zavarovancu posebej zaračuna po ceniku zava- rovalnice.
+
+8. člen: Obseg zavarovanja
+[1] Zavarovanje ima letno zavarovalno vsoto, ki je določena v zavarovalni polici.
+[2] Višine nadomestil so določene v odstotku letne zavarovalne vsote v Seznamu operacij.
+[3] Višine nadomestil so določene v odstotku letne zavarovalne vsote v Seznamu operacij.
+[4] Če je opravljena več kot ena (1) operacija iz Seznama operacij na- način, da je med izvedbo ene (1) operacije:
+a. narejenih več rezov, zavarovalnica izplača zavarovalnino v višini nadomestila tiste operacije, ki ima določen najvišji odstotek letne zavarovalne vsote, in v višini polovice nadomestila za vsako naslednjo operacijo;
+b. narejen en (1) sam rez, zavarovalnica izplača zavarovalnino v višini nadomestila tiste operacije, ki ima določen najvišji odstotek letne zavarovalne vsote.
+[4] Če je zavarovanje sklenjeno ali obnovljeno s trajanjem dveh (2) let, se zavarovalnina izplača:
+1. po sklenitvi zavarovanja v prvem (1.) zavarovalnem letu največ v višini letne zavarovalne vsote, v drugem (2.) zavarovalnem letu pa največ v višini dvakratnika letne zavarovalne vsote, zmanjšanega za del letne zavarovalne vsote, izkoriščen v prvem (1.) zavarovalnem letu;
+2. po obnovitvi zavarovanja v prvem (1.) zavarovalnem letu naj- več v višini dvakratnika letne zavarovalne vsote, v drugem (2.) zavarovalnem letu pa največ v višini dvakratnika letne zavarovalne vsote, zmanjšanega za del dvakratnika letne zavarovalne vsote, izkoriščen v prvem (1.) zavarovalnem letu po zadnji ob- novitvi.
+[5] Če se novorojeni otrok zavaruje v štirinajstih (14) dneh po rojstvu, se zavarovalnina izplača:
+1. od začetka njegovega zavarovanja do konca zavarovalnega leta starša največ v višini letne zavarovalne vsote;
+2. v drugem (2.) zavarovalnem letu odločnega zavarovalnega star- ša največ v višini dvakratnika letne zavarovalne vsote, kar ustreza razmerju med trajanjem zavarovanja novorojenega otroka in trajanjem zavarovanja starša, zmanjšanega za del le- tne zavarovalne vsote, izkoriščen do konca prvega (1.) zavarovalnega leta starša.
+
+Pogoji in način uveljavljanja pravic iz zavarovanja
+
+9. člen: Uporaba Zdravstvene točke®
+[1] Zavarovanec uveljavlja pravice iz zavarovanja preko Zdravstvene točke®.
+
+10. člen: Podlaga za uveljavljanje pravic iz zavarovanja
+[1] Zavarovanec uveljavlja pravice iz zavarovanja na podlagi utemelje- ne medicinske indikacije, ki izhaja iz odpustnega pisma izvajalca, izvida zdravnika specialističa izvajalca in druge zdravstvene doku- mentacije.
+
+11. člen: Način uveljavljanja pravic iz zavarovanja
+[1] Zavarovanec lahko uveljavlja pravice iz zavarovanja na dva (2) nači- na:
+1. po izvedbi operacije z zahtevkom za izplačilo zavarovalnine ali
+2. pred izvedbo operacije z zahtevkom za predhodno soglasje zavarovalnice o izplačilu zavarovalnine po opravljeni operaciji, pri čemer mora zavarovanec operacijo naprej najaviti zavarovalnici preko Zdravstvene točke®.
+
+12. člen: Zahtevek za izplačilo zavarovalnine
+[1] Zahtevek za izplačilo zavarovalnine zavarovanec vloži na obrazcu zavarovalnice v treh (3) mesecih od datuma opravljene operacije.
+[2] Zahtevi za izplačilo zavarovalnine morajo biti priloženi:
+1. kopijo odpustnega pisma izvajalca in
+2. kopije zdravstvene dokumentacije, iz katere je razvidna utemeljena medicinska indikacija opravljene operacije.
+
+13. člen: Predhodno soglasje zavarovalnice o izplačilu zavarovalnine po opravljeni operaciji
+[1] Predhodno soglasje zavarovalnice o izplačilu zavarovalnine po opravljeni operaciji je izjava zavarovalnice pred izvedbo najavljene operacije, da po opravljeni najavljeni operaciji v primeru upravi- čenosti do izplačila zavarovalnine izplača zavarovalnino.
+[2] Če se zavarovanica in zavarovanec tako dogovorita, vsebuje pred- hodno soglasje zavarovalnice tudi izjavo zavarovanca, da bo v imenu zavarovanca in na njegov račun namensko zavarovalnica v dogovorjeni višini nakazala neposredno izvajalcu kot plačilo za izvedbo najavljene operacije, pri čemer mora zavarovanec:
+1. izbrati izvajalca v dogovoru z zavarovalnico in
+2. z zavarovalnico dogovoriti termin najavljene operacije.
+[3] Zahtevek za predhodno soglasje zavarovalnice o izplačilu zavaroval-
+14. člen: Obveznost zavarovanca do izvedbi operacije  
+[1] Zavarovanec je dolžan upoštevati navodila za izvedbo operacije, ki sta mu jih predhodno posredovala zavarovalnica oziroma izvajalec, in do izvedbi operacije predložiti zavarovalnici zdravstveno dokumentacijo skladno s temi navodili.
+
+15. člen: Dokumentacija za uveljavljanje pravic iz zavarovanja  
+[1] Zavarovanec na svoje stroške pridobi in predloži zavarovalnici vse informacije in dokumentacijo iz tega poglavja ter drugo medicinsko in ostalo dokumentacijo na zahtevo zavarovalnice, potrebno za odločanje o upravičenosti do izplačila zavarovalnine.
+
+16. člen: Odločanje o upravičenosti do izplačila zavarovalnine  
+[1] Zavarovalnica v petnajstih (15) dneh po prejemu celotne dokumentacije odloči o upravičenosti do izplačila zavarovalnine in o tem obvesti zavarovanca.
+
+17. člen: Izplačilo zavarovalnine  
+[1] V primeru upravičenosti do izplačila zavarovalnine zavarovalnica v štirinajstih (14) dneh izplača zavarovalno zavarovalnino v dogovorjeni višini na račun, ki ga navede v zahtevku, razen če sta se zavarovalnica in zavarovanec dogovorila za način izplačila zavarovalnine po [2] odstavku 13. člena Splošnih pogojev.
+
+Omejitve in izključitve zavarovanja
+
+18. člen: Čakalna doba  
+[1] Zavarovanje ima čakalno dobo tri (3) mesece, razen za poškodbe, ki so nastale po začetku zavarovanja.  
+[2] Če se novorojeni otrok zavaruje v štirinajstih (14) dneh po rojstvu, čakalna doba ne velja.
+
+19. člen: Izključitev obveznosti zavarovalnice  
+Zavarovalnica nima obveznosti:  
+1. v povezavi s predhodnimi stanji, razen če so bile ob sklenitvi zavarovanja zavarovalnici prijavljene in jih je zavarovalnica sprejela;  
+2. v povezavi z boleznijo, stanjem oziroma poškodbo, ki je v zavarovalni pogodbi določena med izključitvami obveznosti zavarovalnice;  
+3. v primeru operacij brez medicinsko utemeljene indikacije ali zaradi posledic zdravniške napake ali zaradi namena izboljšanja psihofizičnega stanja zavarovanca;  
+4. v povezavi z nujnim asistenco za izvedbo operacij, ki so nujne.
+
+[2] Zavarovalnica nima obveznosti v primeru operacij, povezanih:  
+1. s transplantacijami, če je zavarovancu darovalec organa, z okvarami in zapleti do oziroma po operativnih posegih ter odstranitvijo in/ali vnovičnega osteoklastičnega materiala;  
+2. s prirojenimi napakami;  
+3. z zdravljenjem karcinomov in situ in vse karcinomov kože (razen invazivnega malignega melanoma);  
+4. z alternativno, komplementarno ali eksperimentalno obravnavo;  
+5. s sindromom pridobljene imunske pomankljivosti, infekcijo s HIV, spolno prenosljivimi boleznimi, epilepsijo in parkinzom;  
+6. z duševnimi boleznimi, psihičnimi psihičnimi težavami, duševnimi motnjami, motnjami hranjenja ter posledicami akutne stresne reakcije;  
+7. z nosečnostjo, amniocentezo, neplodnostjo, (raz)sterilizacijo, umetno oploditvijo, umetno prekinitvijo nosečnosti in spontanim splavom (razen kot posledica nezgode), porodom, poškodbo, bambi pri rojstvu ter operacijami ploda;  
+8. s kozmetičnimi ali estetskimi razlogi, razen če so posledica nezgode;  
+9. s prekomernim uživanjem alkohola oziroma drugih psihoaktivnih snovi;  
+10. s spremembo spola;  
+11. s prekomerno težo;  
+12. z refrakcijskimi okvarami očesa (kratkovidnost, daljnovidnost, astigmatizem), razen če so posledica poškodbe.
+
+[3] Izključene so obveznosti zavarovalnice, kadar od bolezni, stanju oziroma poškodbe pride zaradi ali v povezavi z:  
+1. vojno ali vojnimi podobnimi dogodki, sabotažo, terorističnim dejanjem, izgredom, stavko, revolucijo ipd. ne glede na to, ali je zavarovanec v njih sodeloval;  
+2. epidemijo, pandemijo, onesnaženjem okolja, radioaktivnim sevanjem, neposrednim ali posrednim delovanjem jedrske energije ter naravnimi nesrečami;  
+3. pripravo, poskusom ali izvršitvijo kaznivega dejanja, kadar tudi zaradi pobega do takšen dejanju;  
+4. fizičnim obračunavanjem, razen v primeru uradno dokazane samoobrambe, kar zavarovanec dokazuje sam;  
+5. samopoškodbo ali poskusom samomora;  
+6. dejavnostmi visokega tveganja (kot npr.: turna smuka, športno plezanje, jamarstvo, akrobatko letanje, padalstvo, športno kolesarstvo (spust), potapljanje, zamjarski, letenje z baloni, ameriški nogomet, rugby, ipd.) ter profesionalnimi športnimi udejstvovanji na treningih ter tekmovanjih, razen če je zavarovalno pogodbo posebej drugače dogovorjeno;  
+7. upravljanjem vozil, zračnih plovil, plovnih objektov in mehanizacije brez zakonsko zahtevanih dovoljenj;  
+8. služenjem v vojski, mornarici ali zračnih silah ter sodelovanjem v operacijah, ki aktiva zavarovano obrabo ali so jih ukazale vojaške oblasti za boj proti terotistom, upornikom ipd.
+
+[4] Obveznost zavarovalnice so izključene v primerih:  
+1. neodgovornega ravnanja oziroma opustitve potrebnega ravnanja zavarovanca ter v primeru, če se zavarovanec ne drži navodil lečečega zdravnika;  
+2. dajanja neresničnih podatkov, zamolčanja, prevare, ponarebe ali zlorabe s strani zavarovalca oziroma zavarovanca.
+
+[5] Zavarovalnica tudi ne krije stroškov:  
+1. medicinskih preiskav in zdravstvene dokumentacije, vključno s prevodi ter kopijami dokumentacije, ki jih je zavarovanec dolžan predložiti kot dokazila o nastanku in obstoju zavarovalnega primera, in  
+2. pravnega oziroma drugega zastopanja zavarovanca v postopku reševanja zavarovalnega primera.
+
+20. člen: Krajevna veljavnost zavarovanja  
+[1] Zavarovanje velja v Republiki Sloveniji, državah Evropske unije in
+Sklenitev, trajanje in prenehanje zavarovanja
+
+21. člen: Sklenitev zavarovalne pogodbe in zavarovanja
+[1] Zavarovalna pogodba se sklene na podlagi ponudbe in je sklenjena, ko je podpisana obe pogodbeni stranki. Podpis ponudnika na ponudbi šteje za podpis zavarovanca v zavarovalni polici.
+[2] Ponudnik s podpisom ponudbe izjavlja, da je bil pred sklenitvijo zavarovalne pogodbe seznanjen s pogoji sklepanja in izvajanja zavarovanja in da so pogodbeno določila skladna z dogovorom pogodbenih strank.
+[3] Zavarovanec ob sklenitvi zavarovanje pogodbe izpolni in podpiše vprašalnik o zdravstvenem stanju, ki je sestavni del ponudbe. Na podlagi vprašalnika o zdravstvenem stanju lahko zavarovalnica v zavarovalni pogodbi določi zavarovancu doplačilo zavarovalne premije oziroma izključi/omeji svojih obveznosti, povezane z zdravstvenim stanjem zavarovanca ob sklenitvi. Če se novorojeni otrok zavaruje v štirinajstih (14) dneh po rojstvu, izpolnitev vprašalnika o zdravstvenem stanju ni potrebna. Zavarovanec, razen novorojen otrok iz prehodnega stavka, se lahko vključi v zavarovanje ob preteku zavarovalnega leta z izpolnitvijo vprašalnika o zdravstvenem stanju. Če se zavarovanec zavaruje v štirinajstih (14) dneh po poteku kolektivnega zavarovanja operacij, izpolnitev vprašalnika o zdravstvenem stanju ni potrebna.
+[4] Če je za sklenitev zavarovanja potreben zdravniški pregled, ga za zavarovanca na zahtevo zavarovalnice opravi v štirinajstih (14) dneh. Če je za sklenitev zavarovanja potrebna dodatna zdravstvena dokumentacija, jo zavarovanec posreduje zavarovalnici na njeno zahtevo v štirinajstih (14) dneh.
+[5] Podpisana ponudba za sklenitev zavarovalne pogodbe, ki je bila predložena zavarovalnici, obvezuje ponudnika osem (8) dni od dneva, ko je prispela v zavarovalnico, če je potreben zdravniški pregled pa tri deset (30) dni. Če zavarovalnica v tem roku ne odkloni ponudbe, ki se ne odmika od pogojev, po katerih sklepa zavarovanje, se šteje, da je ponudba sprejeta in da je zavarovalna pogodba sklenjena tistega dne, ko je ponudba prispela k zavarovalnici.
+[6] Če je zavarovalnica pripravljena ponudbo sprejeti samo pod posebnimi ali spremnimi pogoji, je zavarovalna pogodba sklenjena šele s tistim dnem, ko zavarovanec te pogoje pristane s podpisom. Šteje se, da je ponudnik odstopil od ponudbe, če na posebne ali spremenjene pogoje zavarovalnice ni pristal s podpisom v osmih (8) dneh od dneva prejema obvestila zavarovalnice.
+[7] Če zavarovalec in zavarovanec nista ista oseba, mora ponudba vsebovati pisno izjavo soglasje zavarovanca za sklenitev zavarovanja.
+[8] Zavarovalnica lahko ponudbo za sklenitev zavarovalne pogodbe zavrne brez obrazložitve.
+
+22. člen: Trajanje zavarovanja
+[1] Zavarovanje se začne ob 00:00 uri tistega dne, katerega datum je v zavarovalni polici določen kot datum začetka zavarovanja, in poteče ob 00:00 uri tistega dne, katerega datum je v zavarovalni polici določen kot datum poteka zavarovanja.
+[2] Zavarovanje se sklene za obdobje najmanj enega (1) leta.
+[3] Zavarovanje traja največ do konca zavarovalnega leta, v katerem zavarovanec dopolni starost petinšestdeset (65) let.
+
+23. člen: Obnovitev zavarovanja
+[1] Zavarovanje se obnovi za enako trajanje. Ob obnovitvi lahko zavarovalnica ponovno oceni zdravstveno stanje zavarovanca ter določi doplačilo zavarovalne premije oziroma izključi/omejitve obveznosti zavarovalnice, povezane z zdravstvenim stanjem zavarovanca ob obnovitvi. Zavarovalnica o obnovitvi zavarovanja in spremembah zavarovanja ob obnovitvi zavarovalca na primeren način obvestil vsaj en (1) mesec pred potekom zavarovanja. Če se zavarovalec oziroma zavarovanec z obnovitvijo zavarovanja ne strinja, ima pravico, da pred začetkom obnovljenega zavarovanja izjavo obnove ne sprejme.
+[2] Zavarovanje se ne obnovi, če je zavarovalec iz izvajanja zavarovanja prenehala, če je zavarovalec oziroma zavarovanec ravnal nasprotju z zavarovalno pogodbo ali se z zneskom okoliščine, zaradi katerih zavarovalnica zavarovanje pogodbe ni sklenila. Zavarovalnica o tem obvesti zavarovalca v osmih (8) dneh pred datumom preneha zavarovanja.
+
+24. člen: Prenehanje zavarovalne pogodbe in zavarovanja
+[1] Zavarovalna pogodba preneha s potekom, za katero je zavarovanje sklenjeno.
+[2] Zavarovalec med trajanjem zavarovalne pogodbe ne more enostransko razdreti. Razdrtje je mogoče doseči samo sporazumno in če za to obstajajo utemeljeni razlogi.
+[3] V primeru sklenitve zavarovanja na daljavo ima zavarovalec skladno z zakonom, ki ureja varstvo potrošnikov, pravico, da v petnajstih (15) dneh od dneva sklenitve zavarovanja brez obrazložitve odstopi od zavarovalne pogodbe.
+[4] Če je zavarovanje sklenjeno s trajanjem več kot pet (5) let, sme vsaka pogodbena stranka po potek tega časa z odpovednim rokom šestih (6) mesecev z izjavo odstopiti od zavarovalne pogodbe. Zavarovalna pogodba ne glede na določbo [1] odstavka 22. člena Splošnih pogojev preneha ob 00:00 uri tistega dne, ko:
+
+  1. poteče zavarovalno leto, v katerem zavarovanec dopolni starost petinšestdeset (65) let;
+  2. je zavarovanec razdrt ali razveljavljen.
+Zavarovanje preneša s smrtjo zavarovanca.
+
+Zavarovalno jamstvo
+
+25. člen: Zavarovalno jamstvo
+[1] Zavarovalno jamstvo se začne z datumom začetka zavarovanja, če:
+  1. je za zavarovanje v celoti plačana zapadla zavarovalna premija v skladu z določili zavarovalne pogodbe in
+  2. zavarovanik ni v zakasnitvi dolž.
+[2] Če zapadla zavarovalna premija med trajanjem zavarovanja ni v celoti plačana, se zavarovalno jamstvo preneha v dneh, ki sledijo dnevu zapadlosti zavarovalne premije. Zavarovalno jamstvo se v tem primeru ponovno vzpostavi naslednji dan po dnevu plačila celotne zapadle zavarovalne premije.
+[3] Če se novorojeni otrok zavaruje v štirinajstih (14) dneh po rojstvu, zavarovalno jamstvo začne veljati en (1) mesec po rojstvu.
+[4] Če se zavarovanje obnovi v enem (1) mesecu po poteku prehodnega zavarovanja, zavarovanik nima čakalne dobe. Če se zavarovanje sklene v štirinajstih (14) dneh po poteku kolektivnega zavarovanja operacij, zavarovanik nima čakalne dobe.
+[5] Če je predhodno soglasje zavarovalnice o izplačilu zavarovalnine na opravljeni operaciji izdano v času trajanja zavarovanja, operacija se opravi po poteku zavarovanja, in ima zavarovalnica obveznosti iz zavarovalne pogodbe le, če je zavarovanje pogodbe brez prekinitve teče.
+[6] Zavarovalno jamstvo preneha s prenehanjem zavarovanja.
+
+26. člen: Mirovanje zavarovanja
+[1] Mirovanje zavarovanja ni mogoče dogovoriti.
+
+Zavarovalna premija
+
+27. člen: Zavarovalna premija
+[1] Zavarovalna premija je letna. Plačuje se vnaprej z dinamiko plačila, ki je določena v zavarovalni pogodbi.
+
+Seveda, tukaj je natančen prepis besedila s slike:
+
+---
+
+[2] Zavarovalna premija je razvidna iz veljavnega premijskega cenika zavarovalnice.
+[3] Zavarovalna premija je določena po starostnih razredih. Na podlagi vprašalnika o zdravstvenem stanju lahko zavarovalnica v zavarovalni pogodbi določi izzavarovano doplačilo zavarovalne premije oziroma izključitev svojih obveznosti, povezane z zdravstvenim stanjem zavarovanca. V primeru prehoda v višji starostni razred se ob začetku novega zavarovalnega leta višina zavarovalne premije za naslednje zavarovalno leto uskladi z veljavnim premijskim cenikom zavarovanja.
+[4] Če je zavarovanje sklenjeno za obdobje več let, si zavarovalnica pridržuje pravico spremeniti zavarovalno premijo vsako novo zavarovalno leto.
+[5] Skladno z zakonskimi določbami se na zavarovalno premijo obračunajo davki.
+[6] V primeru zaostankov pri plačilu zavarovalne premije se obveznosti poravnajo po vrstnem redu zapadlosti.
+
+28. člen: Posledice neplačila zavarovalne premije
+
+[1] Če zavarovalna premija ni plačana do dneva zapadlosti, lahko zavarovalnica zavarovanca pozove, da plača zavarovalno premijo. Če zavarovalna premija ni plačana v roku, ki je postavljen v pozivu in ni krajši od tridesetih (30) dni, sme zavarovalnica razdreti zavarovalno pogodbo brez odpovednega roka, pri čemer zavarovalnici pripada zapadla zavarovalna premija.
+V primeru zamude pri plačilu zavarovalne premije lahko zavarovalnica od zavarovanca zahteva povračilo stroškov, ki so ji bili z zamudo povzročeni, in zakonske zamudne obresti.
+[3] Zavarovalec z neplačilom zavarovalne premije ne more enostransko razdreti zavarovanja.
+namenoma zamolči kakšno okoliščino take narave, da zavarovalnica ne bi sklenila zavarovanja, če bi vedela za resnično stanje, lahko zavarovalnica zahteva razveljavitev zavarovanja brez odpovednega roka in vračilo izplačane zavarovalnine, skupaj z zakonskimi zamudnimi obrestmi ter s tem nastalo škodo in stroški, pri čemer zavarovalnica lahko obdrži že plačane zavarovalne premije in ima pravico zahtevati plačilo zavarovalne premije za zavarovalno dobo, v kateri je zahtevala razveljavitev zavarovalne pogodbe.
+[2] Če zavarovalec oziroma zavarovanec kdaj nesrečno prijavi ali opusti dolžno obvestilo, pa tega ni storil namenoma, lahko zavarovalnica v enem (1) mesecu od dneva, ko izve za nesrečnostni in/ali nepošteni prijave, razdre zavarovanje z odpovednim rokom štirinajstih (14) dni ali ustrezno zniža zavarovalno premijo. Če zavarovalec na zvišanje zavarovalne premije ne pristane, ima pravico, da v štirinajstih (14) dneh po obvestilu iz izjave razdre zavarovanje, pri čemer zavarovalnici v celoti že plačane zavarovalne premije, ki odpada na čas do poteka zavarovanja, in ima pravico ustrezno zmanjšati zavarovalnino.
+[5] Zavarovalnica lahko v primeru prevare, poneverbe ali zlorabe s strani zavarovalca oziroma zavarovanca razdre zavarovalno pogodbo brez odpovednega roka in zahteva v celoti izplačane zavarovalnine, skupaj z zakonskimi zamudnimi obrestmi ter s tem nastalo škodo in stroški, pri čemer zavarovalnica lahko obdrži že plačane zavarovalne premije in ima pravico zahtevati plačilo zavarovalne premije za zavarovalno dobo, v kateri je zahtevala razdrtje zavarovalne pogodbe.
+[6] Če zavarovanje preneha s smrtjo zavarovanca, je zavarovalnica upravičena do zavarovalne premije za tisto mesece, v katerem je nastopila smrt, sorazmerni del vnaprej plačanega zneska zavarovalne premije pa se v primeru, da je višji od stroška, ki ga ima zavarovalnica z vračilom sorazmernega dela, vrne v premoženje zavarovalca.
+[7] Zavarovalnica v primeru sprememb, ki so pomembne za izvajanje zavarovanja, o tem na primeren način (pismo, telefonsko, na svoji spletni strani ali preko medijev in podobno) obvesti zavarovalca oziroma zavarovanca.
+[8] Zavarovalnica ne prevzema odgovornosti za kakovost opravljene zdravstvene storitve.
+
+Osebni podatki
+
+29. člen: Obdelava osebnih podatkov
+
+[1] Zavarovalec oziroma zavarovane odgovore, da zavarovalnica v svojih arhivih obdeluje njegove osebne podatke, vključno s podatki o zdravstvenem stanju, potrebne za sklenitev in izvajanje zavarovanja ter reševanja zavarovalnih primerov, ter da zavarovalnica njegove osebne podatke zbira in preverja pri upravljavcih zbirki osebnih podatkov, ki z njimi razpolagajo, doma in v tujini, in da v njegovem imenu pooblaščena oseba zavarovalnice ugotavlja, pridobiva in obdeluje zdravstveno in drugo dokumentacijo, ki je potrebna za ugotavljanje okoliščin za sklenitev zavarovanja in obveznosti zavarovalnice iz zavarovalnega pogodbe, izjavlja tudi dovoljuje razkritje in posredovanje teh podatkov zavarovalnici.
+[2] Zavarovalec oziroma zavarovanec dovoljuje zavarovalnici in z njo povezanim pooblaščenim osebam za zastopanje in posredovanje zavarovanji, da skladno z zakonom, ki ureja varstvo osebnih podatkov, uporablja njegove osebne podatke iz zavarovalne pogodbe, brez občitljivih osebnih podatkov, tudi za namene trženja zavarovalnic. Zavarovalec oziroma zavarovanec lahko kadarkoli začasno ali trajno prekliče dovoljenje z izjavo.
+
+30. člen: Varstvo osebnih podatkov
+
+[1] Zavarovalnica osebne podatke obdeluje in varuje skladno z zakonodajo, ki ureja obdelavo in varstvo osebnih podatkov.
+
+Druge pravice in obveznosti pogodbenih strank
+
+31. člen: Druge pravice in obveznosti zavarovalnice
+
+[1] Zavarovalnica ima s pogodbenimi izvajalci vzpostavljene poslovne odnose, potrebne za izvajanja zavarovanja.
+[2] Zavarovalnica je dolžna sprejeti zavarovalno premijo od vsake osebe, ki ima za njeno plačilo pravni interes.
+[3] Če zavarovalec oziroma zavarovanec namenoma netočno prijavi ali
+
+32. člen: Druge pravice in obveznosti zavarovalca in zavarovanca
+
+[1] Če zavarovalec in zavarovanec nista ista oseba, zavarovalec z določili zavarovalne pogodbe seznani zavarovanca. Steje se, da je zavarovanec seznanjen s pogoji sklepanja in izvajanja zavarovanja.
+[2] Zavarovalec oziroma zavarovanec je dolžan zavarovalnici:
+1. ob sklenitvi zavarovanja prijaviti vse okoliščine, ki so nujno potrebne za oceno nevarnosti in so mu znane ali niso mogle ostati neznane. Za nujno potrebne veljajo okoliščine, brez poznavanja katerh zavarovalna ni mogoče skleniti oziroma so takšne, da bi zavarovalnica zavarovanje sklenila pod posebnimi ali spremenjenimi pogoji oziroma da zavarovanja ne bi sklenila;
+med trajanjem zavarovanja zavarano sporočati osebne in druge podatke ter okoliščine in njihove spremembe, pomembne za izvajanje zavarovanja.
+[3] Zavarovalec je dolžan zagotavljati plačilo zavarovalne premije na način in v rokih, ki so določeni v zavarovalni pogodbi.
+[4] Zavarovanec je dolžan:
+1. pravice iz zavarovanja uveljavljati na način in po pogojih, ki so določeni v zavarovalni pogodbi in
+2. na svoje stroške zavarovalnici predložiti vso dokumentacijo in nuditi vse informacije, potrebne za ugotavljanje nastanka in obstoja zavarovalnega primera ter upravičenosti do izplačila zavarovalnine.
+[5] Če zavarovanec ne ravna v skladu z zavarovalno pogodbo, zlasti pravic iz zavarovanja ne uveljavlja na način in po pogojih, ki so do-
+ločenj v zavarovalni pogodbi, ali ne upošteva navodil za izvedbo operacije, ki sta mu jih predhodno posredovala zavarovalnica oziroma izvajalec, povrne zavarovalnici škodo in stroške, nastale zaradi njegovega ravnanja ali opustitve.
+6 Če se po uveljavljanju pravic iz zavarovanja ugotovi, da zavarovalni primer ni nastal, zavarovanec povrne zavarovalnici plačano zavarovalnino ter stroške, nastale zaradi njegovega ravnanja.
+
+Zavarovalna pogodba
+
+33. člen: Zavarovalna pogodba
+1 Z zavarovalno pogodbo se zavarovalec zavezuje, da zavarovalnici plača zavarovalno premijo, zavarovalnica pa se zavezuje, da ob nastopu zavarovalnega primera in ob izpolnjenih pogojih zavarovalnega zavarovanca za opravljeno operacijo iz Seznama operacij izplača zavarovalnino v dogovorjeni višini in nudi asistenco pri uveljavljanju pravic iz zavarovanja.
+
+34. člen: Splošni pogoji
+1 Splošni pogoji so sestavni del zavarovalne pogodbe, k katero so urejena razmerja med zavarovalcem, zavarovancem in zavarovalnico.
+2 Sestavni del Splošnih pogojev je Seznam operacij.
+3 Zavarovalnica ima Splošne pogoje objavljene na svoji spletni strani.
+
+35. člen: Drugi dokumenti zavarovalne pogodbe in njihova hierarhija
+1 Sestavni deli zavarovalne pogodbe so poleg Splošnih pogojev in Seznama operacij tudi ponudba, vprašalnik o zdravstvenem stanju, zavarovalna polica ter zdravstvena dokumentacija in druge prijave, izjave ali dokumenti pogodbenih strank, lahko pa tudi posebni pogoji oziroma klavzule zavarovalne police.
+V primeru, ko so določbe posebnih pogojev v nasprotju z določbami Splošnih pogojev, veljajo posebni pogoji. V primerih, ko je klavzula zavarovalne police v nasprotju z določbami Splošnih pogojev oziroma posebnih pogojev, velja klavzula zavarovalne police.
+
+36. člen: Oblika zavarovalne pogodbe in medsebojno obveščanje
+1 Dokumentacija zavarovalne pogodbe in v zvezi z zavarovalno pogodbo morata biti v slovenskem jeziku in v pisni ali dogovorjeni elektronski obliki ter učinkuje in prejemnika od dneva prejema.
+2 Kot dan prejema šteje naslednji delovni dan po dnevu priporočene oddaje pošiljke, poslane na zadnji, s strani prejemnika posredovani naslov.
+
+37. člen: Spremembe zavarovalne pogodbe
+1 V času trajanja zavarovalne pogodbe si zavarovalnica pridržuje pravico spreminti Splošne pogoje, višino zavarovalne premije oziroma premijskega cenika zavarovanja, višine nadomestil in višino letne zavarovalne vsote, pri čemer spremembe veljajo z začetkom novega zavarovalnega leta.
+2 Zavarovalnica o spremembah na primeren način obvesti zavarovalca, ki ima zavarovanje sklenjeno s trajanjem več kot eno (1) leto, vsaj en (1) mesec pred uveljavitvijo spremembe. Če se zavarovalec s spremembo ne strinja, ima pravico, da v tridesetih (30) dneh po obvestilu iz izjavo odstopi od zavarovalne pogodbe, pri čemer odstop od zavarovalne pogodbe učinkuje s potekom tekočega zavarovalnega leta. Če zavarovalec v tem roku ne odstopi od zavarovalne pogodbe, šteje se, da se s spremembami strinja.
+3 Zavarovalec nima pravice odstopiti od zavarovalne pogodbe, če je sprememba v njegovo oziroma zavarovančevo korist ali če se spremeni višina zavarovalne premije zaradi prehoda zavarovanca v višji starostni razred.
+4 Druge spremembe zavarovalne pogodbe veljajo z začetkom novega zavarovalnega leta, če ni z zavarovalnico dogovorjeno drugače.
+
+38. člen: Sprememba Seznama operacij
+1 Seznam operacij lahko zavarovalnica spremeni z objavo na svoji spletni strani.
+
+39. člen: Cenik zavarovalnice
+1 Zavarovalnica ima cenik asistencin in drugih storitev objavljen na svoji spletni strani.
+2 Spremembe cenika zavarovalnice veljajo z dnem sprejetja, razen če je določeno drugače.
+
+Sklepne določbe
+
+40. člen: Uporaba prava in zakonodaje
+1 Za razmerja iz zavarovalne pogodbe se uporablja pravo Republike Slovenije.
+2 Za razmerja med zavarovalnico, zavarovalcem in zavarovancem, ki niso dogovorjena z zavarovalno pogodbo, se uporablja zakonodaja, ki ureja obligacijska razmerja.
+
+41. člen: Reševanje sporov
+1 Zoper odločitve zavarovalnice je mogoče v petnajstih (15) dneh vložiti pritožbo, o kateri dokončno odloči pritožbena komisija zavarovalnice v internem postopku skladno s pravilnikom zavarovalnice. V primeru nestrinjanja z odločitvijo pritožbene komisije zavarovalnice se lahko po posebnem dogovoru nadaljuje postopek za izvensodno reševanje sporov pri Mediacijskem centru, iz določenih razlogov pa tudi pri Varuhu pravic z področja zavarovalništva, ki delujeta pri Slovenskem zavarovalnem združenju.
+2 Za reševanje sodnih sporov je pristojno sodišče v Ljubljani.
+
+42. člen: Poboti, zastava in odstop terjatev
+1 Zavarovalnica lahko ob izplačilu zavarovalnine pobota zapadle neplačane zavarovalne premije in druge obveznosti zavarovalca in zavarovanca, vključno s tistimi po predhodnem zavarovanju, skupaj z zakonskimi zamudnimi obrestmi in s tem nastalo škodo in stroški.
+2 Terjatve zoper zavarovalnico zavarovalec oziroma zavarovanec ne more niti zastaviti niti odstopiti.
+
+43. člen: Nadzor nad zavarovalnico
+1 Nadzor nad zavarovalnico izvaja Agencija za zavarovalni nadzor, Trg republike 3, 1000 Ljubljana.
+
+44. člen: Veljavnost Splošnih pogojev
+1 Splošni pogoji veljajo in se uporabljajo s 01.04.2015.
+Seznam operacij	Nadomestilo %
+Operacije živčnega sistema
+Operacije intrakranialnih in motganskih živcev
+A01 Vsejkcija akcesorijskega živca 5
+A02 Selektivna lize motganskih živcew 10
+A03 Stereotaktična ablacija motganskega živca 100
+A05 Derzacija obolenja motganov 30
+A07 Druge odprte operacije motganov 30
+A08 Druge biopsije obolelega motganskega tkiva 10
+A10 Druge operacije za motganske krvavitve 30
+A12 Dreniranje pcevnice v, in ventrikulov 10
+A14 Druge operacije s povezavo k ventrikli motganov 30
+A16 Druge odprte operacije na votlini motganov 30
+A17 Terapvetske endoskopske operacije na ventriklih motganov 5
+A18 Diagnostične endoskopske preiskave na ventriklih motganov 5
+A20 Druge operacije na ventriklih motganov 10
+A22 Operacije na živcih/kamnih motganskih motganov 30
+A24 Graft na motganskih živcih 30
+A25 Intrakranialni nefrektomijski motganskega živca 30
+A26 Druge intrakranialne poškodbe motganskega živca 30
+A27 Ekstrakranialna odstranitev žilavca vagusa (x) 30
+A28 Ekstrakranialna odstranitev živca motganskega živca 30
+A29 Ekscizija obolelega motganskega živca 5
+A30 Popolna motganskega živca 5
+A31 Intrakranialna stereotaktična prostovoljčev motganskega živca 30
+A32 Druge dekompresije motganskih živcev 10
+A33 Druge operacije na motganskih živcih 10
+A35 Druzptacija obolele mielinske ovojnice motg. živcev 30
+A39 Paravuliza 5
+A40 Denzifa ekstraaduralnega prostora 10
+A41 Denzifa subduralnega prostora 10
+A42 Druge operacije na meningealni oblogi motganov 10
+Operacije na hrbtenjači, hrbteničnih ovojnicah in spinalnem kanalu
+A44 Denz ekskripcija hrbtenjače 30
+A45 Druge odprte operacije na hrbtenjači 30
+A47 Druge destruktivne intervencije 10
+A48 Druge operacije na hrbtenjači 10
+A51 Druge operacije na dvojicah hrbtenjače 10
+Operacije na perifernih živcih
+A59 Ekscizija perifernega živca 5
+A60 Destrukcija perifernega živca 5
+A61 Ekscizija obolelega dela perifernaga živca 5
+A62 Mikrokirurška popravila perifernega živca 30
+A63 Druge grafti na perifernih živcih 30
+A64 Popolna reparacija perifernega živca 30
+A65 Prostevitev vkleščenega perifernega živca na gležnju 5
+A67 Prostevitev vkleščenega perifernega živca na drugi lokaciji 5
+A68 Druge prostevitve perifernega živca 5
+A69 Revizija po poškodbi perifernega živca 5
+A73 Druge operacije na periferne živcu 5
+A75 Ekscizija simpatičnega živca 5
+A76 Kemidna destrukcija simpatičnega živca 5
+A77 Krioteralpija simpatičnega živca 5
+A78 Radiofrekventna termalna destrukcija simpatičnega živca 5
+A79 Ostale destrukcija simpatičnega živca 5
+A81 Ostale operacije na simpatičnem živčevju 5
+Operacije na endokrinih žlezah
+B01 Ekscizija hipofize 10
+B04 Druge operacije na hipofizni žlezi 10
+B06 Operacija na češariki 10
+B08 Ekscizija ščitnice 10
+B09 Operacija zabrantnega tkiva ščitnice 10
+B10 Operacija na ektrateroidelusu 5
+B12 Druge operacije na ščitnici 10
+B14 Ekscizija paratiroidne žleze 5
+B16 Druge operacije na paratiroidni žlezi 5
+B18 Ekscizija timusa 5
+B20 Druge operacije na timusu 5
+B22 Odstranitev nadledvične žleze 10
+B23 Operacija na zabrantnem tkivu nadledvične žleze 10
+B25 Druge operacije na nadledvičnikih 10
+Operacije na prsih
+B27 Totalna ekscizija prsi 30
+B28 Rekonstruktcija prsi 10
+B31 Plastično prestavljenje prsi 10
+B33 Dvig prsi s pozitivnim efektom 10
+B34 Operacija na izvodilni prsi 5
+B35 Operacija na bradavici 5
+B37 Druge operacije na prsih 5
+Operacije na orbiti
+C01 Ekscizija očesca 10
+C02 Ekscizija poškodega tkiva orbite 10
+C03 Kratvitev poškodbe orbite 10
+C14 Rekonstruktivna veka 5
+Operacije solznih žlez, solznih izvodil in mišic zrkla
+C31 Kominterna operacija na mišicah zrkla 5
+C32 Vntrnje mišice zrkla 5
+C33 Rezekcija mišic zrkla 5
+C34 Praktična prekinitev tetive mišice zrkla 5
+C35 Druge nastavitve mišice zrkla 5
+C37 Druge operacije na mišicah zrkla 5
+Operacije na veni, nodleli, beločnici in mrežnici
+C49 Ekscizija obolelega tkiva veznice 5
+C40 Popravilo veznice 5
+C41 Incizija veznice 5
+C43 Druge operacije na veznici 5
+C45 Ekscizija obolelega dela roženice 5
+C46 Ekscizija obolelega na roženici 5
+C47 Zaprite roženice 5
+C49 Druge operacije na roženici 5
+C51 Druge operacije na roženici 5
+C53 Ekscizija obolelega dela beločnice 5
+C54 Operacija dostopa mrežnice s plombno 5
+C55 Druge operacije na beločnici 5
+C57 Druge operacije na beločnici 5
+Operacije na šarenici, cililarnem telesu in leči
+C59 Ekscizija šarenice 5
+C60 Iridektomija 5
+C61 Druge operacije na trabekularni mreži očesa 5
+C62 Druge operacije 5
+C64 Druge operacije na šarenici 5
+C66 Odstranitev ciliarnes telesa 5
+C67 Druge operacije na ciliarlem telesu 5
+C69 Druge operacije na sprednjem prekatou očesa 5
+Operacije na steklovini in mrežnici
+C81 Fotokoagulacija mrežnice zaradi odstopa 10
+C84 Druge operacije na mrežnici 10
+Operacije ušesa
+C86 Druge operacije na ušesu 5
+Operacije na zunanjem ušesu in mastoidem
+D01 Ekscizija zunanjega ušesa 5
+D03 Incizija zunanjega ušesa 5
+D05 Druge operacije na zunanjem ušesu 5
+D06 Druge operacije na zunanjem slušnem kanalu 5
+D10 Ekstirpaija mastoidnih celic 5
+D12 Druge operacije na mastoidu 5
+Operacije na srednjem in notranjem ušesu
+D14 Popravilo bobna 5
+D16 Rekonstruktivna kolčkiče vgritve 5
+D18 Ekscizija obolelega dela kosti ušesa 10
+D19 Pristopajoča obolela dela srednjega ušesa 5
+D20 Druge operacije na srednjem ušesu 5
+D22 Operacija na cevčistviji 5
+D24 Operacije kohle (notranjega ušesa) 10
+D26 Operacija na ravnotežnem aparatu 10
+D28 Druge operacije na ušesu 10
+Operacije na nosu in nosnih sinusih
+Operacije na nosu
+E01 Ekscizija nosnice 5
+E08 Druge operacije na notranjega dela nosu 5
+E10 Druge operacije na nosu 5
+Operacije na sinusih
+E12 Operacija na maksimalnem vhodu z uporabo pristopa pod ustnico 5
+E13 Druge operacije na frontalnem maksilarnem vhodu 5
+E14 Operacija na fontanelnem sinusu 5
+E15 Operacija na sfenoidnem sinusu 5
+Operacije na neurejenem nosnem sinusu 5
+Operacije na žrelu, grlu in sapniku
+Operacije na žrelu in žlezah
+E19 Ekscizija na žrelu 30
+E20 Operacija na žlezih 10
+E21 Popravilo žrela 30
+E23 Druge odprte operacije na žrelu 10
+E24 Terapvetske endoskopske operacije na žrelu 5
+E27 Druge operacije na žrelu 10
+Operacije na grlu
+E39 Ekscizija grla 30
+E40 Klasična operacija na traheji 30
+E41 Odprta vstavitev proteze v trahejo 30
+E42 Operacija traheje z zunanjostjo 10
+E43 Druge odprte operacije na traheji 10
+Operacije na pljučih in bronhusu  
+E44 Operacije na bronhusu 30  
+E46 Paraklina ekstripacija bronhusa 10  
+E47 Druge odprte operacije na bronhusu 10  
+E48 Terapevtske fibrotomijske endoskopske operacije na spodnjem respiratornem traktu 1  
+E50 Terapevtske endoskopske operacije na spodnjem respiratornem traktu z uporabo rigidnega bronhoskopa 1  
+E52 Druge operacije bronhusa 1  
+E53 Transplantacija pljuč 100  
+E54 Ekscizija pljuč 10  
+E55 Druge ekscizijske obolelega dela pljuč 10  
+E56 Druge odprte operacije na pljučih 10  
+E59 Druge operacije pljuč 1  
+E60Druge operacije mediastinuma 30  
+E62 Terapevtske endoskopske operacije mediastinuma 10  
+
+Operacije na ustih in obrazu  
+Operacije na ustnicah, na zobeh in jeziku  
+F01 Paraklina ekscizija ustnice 1  
+F02 Ekscizijske obolelega dela ustnice 1  
+F03 Korekcija deformacije ustnic 1  
+F04 Druge rekonstruktivne ustnic 1  
+F05 Druge popravil ustnice 1  
+F06 Druge operacije ustnic 1  
+F20 Operacija na dlesni 1  
+F22 Ekscizija jezika 1  
+F23 Ekscizijska obolelega dela jezika 1  
+F24 Indikacija jezika 1  
+F26 Druge operacije na jeziku 1  
+
+Operacije na nebu, tonzilah in drugih mestih v ustih  
+F28 Ekscizija obolelega dela neba 1  
+F29 Korekcija deformacije neba 1  
+F30 Druge popravila neba 1  
+F32 Druge operacije na nebu 1  
+F34 Ekscizija tonzil 1  
+F36 Druge operacije tonzil 1  
+F38 Ekscizijska obolelega dela drugega mesta v ustih 1  
+F39 Rekonstrukcija in drugih udel 1  
+F40 Druge popravila drugih delovust 1  
+F42 Druge operacije na ustih 1  
+
+Operacije na ilealni slinovkah in na drugih žlezovildih  
+F44 Ekscizija žleze slinavke 1  
+F45 Ekscizija obolelega dela žleze slinavke 1  
+F46 Tinjanje žleze slinavke 1  
+F48 Druge operacije na žlez slinavk 1  
+F50 Transpozicija slinavke 1  
+F52 Drugažen slinavke 1  
+F53 Druge odprte operacije izvodila žleze slinavke 1  
+F58 Druge operacije na izvodilih slinavk 1  
+
+Operacije na prebavnem traktu  
+Operacije na požiralniku, želodcu in ledocu  
+G01 Ekscizija požiralnika 100  
+G02 Totalna ekscizija požiralnika 100  
+G03 Paraklina ekscizija požiralnika 30  
+G04 Odprta odstranitev bolezensko spremenjenega požiralnika 100  
+G05 Bypass požiralnika 10  
+G07 Popravilo požiralnika 1  
+G08 Umestitev odprtina v požiralniku 1  
+G09 Indikacija požiralnika 1  
+G10 Odprte operacije požiralnika 1  
+G11 Odprta vstavljanje proteze požiralnika 1  
+G13 Druge odprte operacije na požiralniku 1  
+G14 Fibrotomijska odstranitve obolelega dela požiralnika 1  
+G17 Endoskopska odstranitve obolelega dela požiralnika z uporabo rigidnega ezofagoskopa 1  
+G18 Druge terapevtske endoskopske operacije požiralnika z uporabo rigidnega ezofagoskopa 1  
+G21 Druge operacije na požiralniku 1  
+G23 Popravila diafragmalne hernije 10  
+G24 Antirefluksne operacije 10  
+G25 Revizija antirefluksne operacije 5  
+G27 Totalna ekscizija želodca 100  
+G28 Paraklina odstranitev želodca 30  
+G30 Odprta odstranitev obolelega dela želodca 30  
+G30 Plastikna operacija želodca 10  
+G31 Povezava želodca z dvanajstnikom 5  
+G32 Povezava želodca s preostankim tankim črevesom 5  
+G33 Povezava želodca z ileumom 5  
+G34 Umestitev odprtina v želodcu 1  
+G35 Operacija ali incizija želodca 1  
+G36 Druge popravila želodca 1  
+G38 Druge odprte operacije na želodcu 1  
+G44 Incizije pilorusa 1  
+G47 Druge operacije na pilorusu 1  
+G48 Druge operacije na želodcu 1  
+
+Operacije na dvanajstniku, jejunumu in ileumu  
+G49 Ekscizija dvanajstnika 10  
+G50 Odstranitev obolelega dela dvanajstnika 10  
+G51 Bypass dvanajstnika 5  
+G52 Operacija ulkusa dvanajstnika 5  
+G53 Druge odprte operacije na dvanajstniku 1  
+G54 Terapevtske endoskopske operacije dvanajstnika 1  
+G57 Druge operacije dvanajstnika 1  
+G58 Ekscizija jejunuma 10  
+G59 Odstranitev obolelega dela jejunuma 10  
+G60 Umestitev odprtina v jejunumu 1  
+G61 Bypass jejunuma 5  
+G62 Druge operacije 1  
+G63 Endoskopske operacije na jejunumu 1  
+G64 Druge odprte operacije na jejunumu 1  
+G66 Terapevtske endoskopske operacije jejunuma 1  
+G67 Druge operacije jejunuma 1  
+G69 Ekscizija ileuma 10  
+G70 Odprta odstranitev obolelega dela ileuma 5  
+G71 Bypass ileuma 5  
+G72 Druge povezave ileuma 1  
+G74 Izdelava umetnega izhoda iz ileuma 5  
+G78 Druge odprte operacije na ileumu 1  
+G79 Terapevtske endoskopske operacije na ileumu 1  
+G82 Druge operacije na ileumu 1  
+
+Operacije slepega črevesa  
+H01 Nuja odstranitev slepega črevesa 1  
+H02 Druge odstranitev slepega črevesa 1  
+H03 Druge operacije na slepem črevesu 1  
+
+Operacije debelega črevesa in danke  
+H04 Totalna odstranitev debelega črevesa in danke 50  
+H05 Totalna odstranitev debelega črevesa 10  
+H06 Razširjeni odstranitev desne polovice debelega črevesa 10  
+H07 Druge odstranitev desne polovice debelega črevesa 10  
+H08 Odstranitev prečne dela debelega črevesa 10  
+H09 Odstranitev leve polovice debelega črevesa 10  
+H10 Odstranitev sigme 10  
+H11 Druge odstranitve debelega črevesa 10  
+H12 Odstranitev obolelega dela debelega črevesa 10  
+H13 Bypass debelega črevesa 5  
+H14 Povezava slepega črevesa z zunanjostjo 5  
+H15 Druge operacije debelega črevesa z zunanjostjo 5  
+H16 Incizija debelega črevesa 5  
+H17 Manipulacija debelega črevesa znotraj trebuha 5  
+H18 Odprte endoskopske operacije na debelem črevesu 1  
+H19 Druge odprte operacije na debelem črevesu 1  
+H21 Druge terapevtske endoskopske operacije na debelem črevesu 1  
+H24 Druge terapevtske endoskopske operacije dela debelega črevesa z uporabo fibrooptika sigmoidoskopa 1  
+H26 Endoskopska odstranitev obolelega dela debelega črevesa z uporabo rigidnega sigmoidoskopa 1  
+H27 Druge terapevtske operacije na sigmi z uporabo rigidnega sigmoidoskopa 1  
+H30 Druge operacije na debelem črevesu 1  
+H34 Distrakcija obolelega dela danke 10  
+H35 Plastična odprta zaradi prolapsa danke 10  
+H36 Druge trebušne operacije zaradi prolapsa danke 10  
+H40 Operacije danke zaradi inkontinence 1  
+H41 Druge operacije slok anusa 1  
+H42 Preinialne operacije zaradi prolapsa danke 5  
+H46 Druge operacije na danki 5  
+
+Operacije zadnjika in presredka  
+H47 Ekscizija zadnjika 10  
+H50 Incizija zadnjika 10  
+H59 Ekscizija anilodnega sinusa 5  
+H60 Druge operacije anilodnega sinusa 5  
+H62 Druge operacije na debelem črevesu 5  
+
+Operacije na jetrih, žolčniku in trebušni slinavki  
+Operacije na jetrih  
+J01 Transplantacija jeter 100  
+J02 Delna odstranitev jeter 10  
+J05 Odstranitev obolelega dela jeter 10  
+J04 Popravilo jeter 10  
+J05 Incizija jeter 10  
+J07 Druge odprte operacije na jetrih 10  
+J08 Terapevtske endoskopske operacije jeter z uporabo laparoskop 10  
+J09 Diagnostična endoskopska preiskava jeter z uporabo laparoskop 5  
+J10 Transamplatna operacije na jetrih ali žolču 5  
+J12 Druge terapevtske punkture operacije jeter 5  
+J16 Druge operacije na jetrih 5  
+Operacije na žolčniku  
+J19 Povezava žolčnika 10  
+J20 Popravilo žolčnika 10  
+J21 Incizija žolčnika 10  
+J23 Druge odprte operacije na žolčniku 10  
+J24 Terapevtske perkutane operacije na žolčniku 10  
+J25 Druge operacije na žolčniku 10  
+Operacije na žolčnih vodih  
+J27 Odstranitev žolčevoda 10  
+J28 Odstranitev obolelega dela žolčnega izvodila 10  
+J29 Povezava jetrnega voda 10  
+J70 Povezava skupnega žolčnega izvodila 10  
+J31 Odprte vstavljene proteze v žolčnem izvodilu 10
+340.113.012.02
+
+332 Popravilo ledvičnega izvodila 10
+J33 Kontinencija 5
+J34 Plastični oddejek sfinktra z uporabo pristopa skozi dvanajstnik 5
+J35 Indikacija oddelega sfinktra z uporabo pristopa skozi dvanajstnik 5
+J36 Druge operacije na majal papili z uporabo pristopa skozi sfinkter dvanajstnika 5
+J37 Druge odprte operacije na izvodilu in vodnikih 5
+J39 Druge terapevtske endoskopske operacije na papili ali na duodeni 5
+J40 Endoskopska retrogradna vstavitev proteze v žolčno izvodilo 1
+J41 Druge terapevtske endoskopske retrogradne operacije na žolčnem izvodu 1
+J42 Terapevtske endoskopske retrogradne operacije na izvodilu slinavke 5
+J47 Terapevtske perkutaniose vstavitve proteze v žolčno izvodilo 5
+J48 Druge terapevtske operacije na žolčnem izvodu 5
+J49 Terapevtska operacija na žolčnem izvodu skozi cevko 5
+J50 Perkutana perivaskularna žolčna izvodila 5
+J52 Druge operacije na žolčnem izvodu 5
+
+Operacije na slinavkah
+J54 Transplantacija trebušne slinavke 100
+J55 Totalna odstanitev slinavke 30
+J56 Odstanitev glave trebušne slinavke 30
+J57 Druge obsežne odstanitvene trebušne slinavke 30
+J58 Odstanitvene obdelave dela slinavke 10
+J59 Povezava izvodil slinavke 5
+J60 Druge odprte operacije na izvodu trebušne slinavke 5
+J61 Odprta drenaža obolelega dela slinavke 10
+J62 Inicijacija slinavke 5
+J63 Drenaža trebušne slinavke 10
+J65 Druge odprte operacije na trebušni slinavki 10
+J66 Terapevtske perkutane operacije trebušne slinavke 5
+
+Operacije vranice
+J70 Totalna odstanitvene vranice 10
+J71 Druge odstanitvene operacije 10
+J72 Druge operacije na vranici 5
+
+Operacije na srcu
+Transplantacija
+K01 Transplantacija srca in pljuč 100
+K02 Druga transplantacija srca 100
+
+Operacije ustiman, atrijih in srčnih zaklopk
+K14 Druge odprte operacije na septumu srca 10
+K15 Zapera operacije srca septuma 10
+K16 Terapevtske transuluminalne operacije septuma srca 1
+K18 Izdelava srčnega vsadka v zadeplomki 10
+K19 Inicijacija srčnih vsadkov 5
+K20 Preoblikovanja atrij 10
+K22 Druge operacije na stenah atrija 10
+K23 Druge operacije na desni atrija 10
+K25 Plastična aritmicka zaklopk 10
+K26 Plastika na triho zaklopke 10
+K27 Plastika trikuspidalne zaklopke 10
+K28 Plastika pulmonalne zaklopke 10
+K29 Plastika presnečne zaklopke srca 10
+K30 Revizija in zapesnitev zaklopke srca 10
+K31 Odprte inicijacije zaklopke srca 10
+K32 Zaprte inicijacije zaklopke srca 5
+K34 Druge odprte operacije na zaklopki srca 10
+K35 Terapevtske transuluminalne operacije na zaklopki srca 1
+K37 Odstranitev obstrukcije srčne zaklopke zadaj sosednjih struktur 10
+K38 Druge operacije na strukturi in zbližanju zaklopke srca 5
+
+Operacije na koronarnih arterijah
+K40 Zamenjava koronarne arteriji by graftom vene safene 100
+K41 Zamenjava koronarne arteriji z arterji ali arteriograftom 100
+K42 Zamenjava koronarne arteriji z alograftom 100
+K43 Zamenjava koronarne arteriji z protezo 100
+K44 Zamenjava koronarne arteriji z protezo K46 Odtok na bypass operaciji koronarne arterije 100
+K47 Povbale koronarne arterije 10
+K48 Druge odprte operacije na koronarnih arterijah 10
+K49 Transluminalna balonska angioplastika koronarne arterije 10
+K50 Druge terapevtske transluminalne operacije na koronarni arteriji 1
+
+Operacije na prevodnem sistemu, vstavljanje pacemakerjev
+K52 Odprte operacije na prevodnem sistemu srca 10
+K53 Druge inicijacije srca 5
+K55 Druge odprte operacije na srcu 10
+K56 Transluminalne operacije na srcu 1
+K57 Druge terapevtske transluminalne operacije na srcu 1
+K58 Diagnostične transluminalne operacije na srcu 1
+K61 Drugi srčni pacemakerski sistem 5
+K66 Druge operacije na srcu 10
+
+Operacije perikardija
+K67 Ekscizija perikardija 10
+K68 Drenaža perikardija 5
+K69 Inicijacija perikardija 5
+K71 Druge operacije na perikardiju 5
+
+Operacije na krvnih žilah
+Korekcija kongenitalnih anomalij [1]
+Operacije na pljučnih arterijah in na aorti
+L05 Izdelava šanta aorto na pljučni arteriji z uporabo cevaste proteze 100
+L06 Druge povezave na pljučne arterije z aorto 100
+L07 Izdelava šanta z intrapulmonalno subklavijo na pljučno arterijo z uporabo interpozicijske cevne proteze 50
+L08 Druge povezave z arterije subklavije na pljučno arterijo 50
+L09 Druge povezave na pljučno arterijo 50
+L10 Prozni pljučnih arterij 50
+L12 Druge odprte operacije na pljučni arteriji 50
+L13 Transluminalne operacije na pljučni arteriji 1
+L16 Karotnaksonski by pass aorte 50
+L18 Inguina zamenjava aneurizme segmenta aorte 50
+L19 Druge zamenjave aneurizme segmenta aorte 10
+L20 Ostali aorti by pass segmenti aorte 10
+L21 Ostali by pass segmenti aorte 10
+L23 Plastik aorte 10
+L25 Druge odprte operacije na aorti 10
+L26 Transluminalne operacije na aorti 1
+
+Operacije karotidni in arteriji subklavije
+L29 Rekonstruktivna karotidne arterije 30
+L30 Druge odprte operacije karotidne arterije 10
+L31 Transluminalne operacije na karotidni arteriji 1
+L33 Druge operacije zamenjave cerebralne arterije 10
+L34 Druge odprte operacije cerebralne arterije 10
+L37 Transluminalne operacije cerebralne arterije 1
+L38 Rekonstruktivni arterije subklavije 30
+L39 Transluminalne operacije arterije subklavije 1
+
+Operacije nadledvične arterije in abdominalne aorte
+L41 Rekonstruktivna ledvične arterije 10
+L42 Druge odprte operacije ledvične arterije 10
+L43 Transluminalne odprte operacije ledvične arterije 1
+L45 Rekonstruktivna druge visceralne veje abdominalne aorte 10
+L46 Druge odprte operacije na drugih viscelarnih vejah abdominalne aorte 10
+L47 Transluminalne operacije na drugih viscelarnih vejah abdominalne aorte 1
+
+Operacije na arterijah (ključni in femoralnih arterijah)
+L48 Nugna zamenjava aneurizme črevesne arterije 10
+L50 Druge zamenjave aneurizme črevesne arterije 10
+L54 Transluminalne operacije črevesne arterije 1
+L55 Nugna zamenjava aneurizme arterije femoralis 10
+L57 Nugna zamenjava aneurizme arterije femoralis 10
+L58 Druge by pass arterije femoralis 10
+L59 Drug by pass-i arterije femoralis 10
+L60 Rekonstruktivna arterije femoralis 10
+L62 Druge odprte operacije arterije femoralis 10
+L65 Bypass-i rekonstrukcije arterije 10
+L67 Resekcija druge arterije 10
+L68 Popravilo druge arterije 10
+L70 Druge odprte operacije na drugih arterijah 10
+L71 Terapevtske transluminalne operacije na drugih arterij 1
+
+Arterijenske šant operacije
+L74 Arterijenski šant 1
+L75 Druge arteriovenske operacije 1
+
+Operacije na venah
+L77 Povezava vene kave ali veli vene kave 30
+L79 Druge operacije na veni kavi 30
+L81 Druge bypass operacije na veni 10
+L82 Proximalna zaklopke vene 10
+L83 Druge operacije z vensko insuficienco 10
+L85 Povezave varikozne vene na nogi 10
+L87 Druge operacije varikoznih ven na nogi 10
+L90 Odprta odstranitev trombusa iz vene 1
+L93 Druge operacije na veni 1
+L94 Druge odprte operacije na venah 10
+L97 Druge operacije na krvnih žilah 1
+
+Operacije na ledvicah
+M01 Transplantacija ledvice 30
+M02 Totalna odstranitev ledvice 10
+M03 Delna odstranitev ledvice 10
+M04 Odprta odstranitev obolelega dela ledvice 10
+M05 Odprto popravilo ledvice 10
+M06 Inicijacije ledvice 5
+M08 Druge odprte operacije ledvice 10
+M09 Terapevtska endoskopska operacija ledvičnega kamna 5
+M10 Druge terapevtske endoskopske operacije ledvic 5
+M15 Operacije na ledvični skadi nefrostomii 5
+M16 Druge operacije ledvic 5
+Operacija na sečniku
+M18 Odstranitev sečnika 5  
+M19 Unikost delovnih 5  
+M20 Rekanalizacija sečnika 1  
+M21 Druga resekcija sečnika 1  
+M22 Popravilo sečnika 1  
+M23 Injekcija sečnika 1  
+M25 Drugo odvzete operacije sečnika 1  
+M26 Terapevtske nefroskopske operacije na sečniku 1  
+M27 Terapevtske uretroskopske operacije sečnika 1  
+M28 Druga endoskopske odstranitve kamnov iz sečnika 1  
+M29 Druge terapevtske endoskopske operacije na sečniku 1  
+
+Operacije na sečnem mehurju  
+M34 Totalna odstranitev sečnega mehurja 10  
+M35 Delna odstranitev sečnega mehurja 5  
+M36 Povlečenje sečnega mehurja 1  
+M37 Druga resekcija sečnega mehurja 1  
+M38 Drugo popravilo sečnega mehurja 1  
+M39 Druga odprta operacija na sečnem mehurju 1  
+M44 Drugo endoskopske operacije na sečnem mehurju 1  
+M41 Endoskopska operacija za povečanje kapacitete sečnega mehurja 1  
+M43 Druge terapevtske endoskopske operacije sečnega mehurja 1  
+
+Operacije na sečnem mehurju žensk  
+M51 Kombinirana trebušna in vaginalna operacija za podporo izhoda ženskega sečnega mehurja 10  
+M52 Trebušne operacije za podporo ženskega sečnega mehurja 5  
+M53 Vaginalne operacije za podporo izhoda ženskega sečnega mehurja 5  
+M55 Drugo odprte operacije na izhodu ženskega sečnega mehurja 5  
+M56 Terapevtske endoskopske operacije za izhod ženskega sečnega mehurja 1  
+M58 Druge operacije na izhodu ženskega sečnega mehurja 1  
+
+Operacije na prostati in moškem sečnem mehurju  
+M61 Odprte ekscizije prostate 5  
+M62 Druge odprte operacije prostate 5  
+M64 Druge odprte operacije na zhodu mehurja sečnega mehurja 1  
+M66 Druge terapevtske endoskopske operacije za izhod moškega sečnega mehurja 1  
+M67 Druge terapevtske endoskopske operacije na prostati 1  
+
+Operacije na sečnici  
+M71 Odstranitev sečnice 5  
+M73 Popravilo sečnice 1  
+M75 Druge odprte operacije na sečnici 1  
+M76 Terapevtske endoskopske operacije na sečnici 1  
+M79 Druge operacije na sečnici 1  
+M81 Operacije na zhodu sečnice 1  
+M83 Druge operacije na sečnem traktu (urinarnem traktu) 1  
+
+Operacije na moških spolnih organih  
+Operacije na skrotumu in testisih  
+N01 Odstranitev skrotuma 10  
+N03 Druge operacije na skrotumu 1  
+N05 Dvostranska odstranitve testisov 10  
+N06 Druga ekscizija testisov 5  
+N07 Odstranitev obolelega dela testisov 5  
+N08 Dvostranska povstaje testisov v skrotumu 1  
+N09 Druga povstaje testisov v skrotumu 1  
+N10 Proteza testisa 1  
+N11 Operacije hidrokele 1  
+N13 Druge operacije na testisih 1  
+
+Operacije na epididimisu, semenčniku in tunica testis deferens  
+N15 Operacije na epididimisu 1  
+N18 Povijalno spermatogene tkiva 1  
+N19 Operacije varikokele 1  
+N20 Druge operacije na spermalnem traktu 1  
+N22 Operacije na vodi semenika 1  
+
+Operacije na moškem presredku  
+N24 Amputacija penisa 5  
+N26 Druge operacije na penisu 1  
+
+Operacije na penisu  
+N27 Odstranitev obolelega dela penisa 5  
+N28 Plastična penis 1  
+N29 Proteza penisa 1  
+N30 Druga operacija na penisu 1  
+N32 Druge operacije na penisu 1  
+N34 Druge operacije na moškem genitalnem traktu 1  
+
+Operacije na ženskih spolnih organih  
+Operacije na vulvi in presredku  
+P01 Operacija na klitorisu 5  
+P03 Operacije na Bartholinijevi žlezi 1  
+P05 Odstranitev vulve 10  
+P06 Odstranitev obolelega dela vulve 5  
+P07 Popravilo vulve 1  
+P09 Druge operacije na vulvi 1  
+P11 Odstranitev obolelega dela ženskega presredka 1  
+P13 Druge operacije na ženskem presredku 1  
+
+Operacije na vagini  
+P14 Injekcija vhod vagine 5  
+P15 Druge operacije na vhodu vagine 5  
+P17 Ekscizija vagine 10  
+P18 Druge ablativne vagine 5  
+P19 Plastična veji vagine 1  
+P20 Odstranitev obolelega dela vagine 1  
+P21 Plastična vagine 1  
+P22 Popravila prolapsa vagine in amputacija materničnega vratu 1  
+P23 Popravila prolapsa nožnice vagine 1  
+P24 Popravila svoda vagine 1  
+P25 Drugo popravilo vagine 1  
+P29 Druge operacije vagine 5  
+
+Operacije na materničnem vratu in maternici  
+P31 Operacija Douglasovega prostora 1  
+Q01 Odstranitev materničnega vratu 5  
+Q02 Uničenje obolelega dela materničnega vratu 1  
+Q05 Druge operacije na materničnem vratu 1  
+Q07 Trebušna odstranitev maternice 10  
+Q08 Vaginalna odstranitev maternice 5  
+Q09 Druge odprte operacije na maternici 5  
+Q10 Ekscizija maternice 1  
+Q11 Drugo odstranitve vsebine maternice 1  
+Q15 Vstavitev druge substance v maternično votlino 1  
+Q16 Druge vaginalne operacije na maternici 1  
+Q17 Terapevtske endoskopske operacije na maternici 1  
+Q20 Druge operacije na maternici 1  
+
+Operacije adneksov maternice in jajcevodov  
+Q22 Dvostranska odstranitev adneksov maternice 10  
+Q23 Enostranska odstranitev adneksov maternice 5  
+Q24 Druge odstranitve adneksov maternice 1  
+Q25 Druga odstranitev jajcevoda 1  
+Q26 Vstavitev proteze v jajcevod 1  
+Q30 Druga popravila jajcevoda 1  
+Q31 Injekcija jajcevoda 1  
+Q32 Operacij fimbrijcev 1  
+Q34 Druge odprte operacije na jajcevodih 1  
+Q38 Druge terapevtske endoskopske operacije na jajcevodih 1  
+Q41 Druge operacije jajcevodih 1  
+
+Operacije na jajčnikih  
+Q43 Odstranitev jajčnika 5  
+Q44 Odprta uničenje obolelega dela jajčnika 1  
+Q45 Popravilo jajčnika 1  
+Q47 Druge odprte operacije na jajčniku 1  
+Q49 Terapevtske endoskopske operacije jajčnika 1  
+Q51 Druge operacije na jajčniku 1  
+Q52 Operacije na širokem ligamentu maternice 1  
+Q54 Operacije na drugem ligamentu maternice 1  
+
+Druge operacije na ženskih spolnih organih  
+Q56 Druge operacije na ženskem genitalnem traktu 1  
+R01 Terapevtske endoskopske operacije zarodka 1  
+
+Operacije na koži in podkožnem tkivu  
+Ekscizijski ali biopsije kože  
+S01 Plastine ekscizije kože glave ali vratu 1  
+S02 Plastine ekscizije kože trebušne stene 1  
+S03 Plastine ekscizije kože na drugih mestih 1  
+S10 Drugah uničenje obolelega dela kože glave in vratu 1  
+S11 Drugo/uničenje obolelega dela kože na drugih mestih 1  
+
+S17 Delni flap kože in mišice 1  
+S18 Daljni flap kože in fascije 1  
+S19 Daljni lokalni flap kože 1  
+S21 Stranski flap kože 1  
+S22 Stranski flap kože 1  
+
+S24 Operacija s flapom kože za relaksacijo kontrakture kože 1  
+S25 Lokalni flap kože in fascije 1  
+S26 Lokalni podkožni flap kože 1  
+S27 Drug lokalni flap kože 1  
+S28 Flap mukoze 1  
+S30 Druge operacije na flap kože na glavi ali vratu 1  
+S31 Druge operacije na flap kože na drugih mestih 1  
+S34 Prenos kože z aksil na skalp 1  
+S35 Prenos kože z aksil na drugo mesto 1  
+S36 Zascepenje avtograft kože 1  
+S36 Drugi avtograft kože 1  
+S37 Drug graft kože 1  
+S38 Graft mukoze 1  
+S39 Graft drugega tkiva kože 1  
+
+Sveža kož, odstranitev materiala za popravilo in odpiranje kože  
+S41 Drugo operacije po poškodbi 1  
+
+Operacije na prsnem, plevenih in diafragmi  
+T01 Parietalna odstranitev prsne stene 5  
+T02 Rekonstrukcija prsne stene 10  
+T03 Operacije pri plevi 5  
+T05 Druge operacije na prsni steni 1  
+T07 Odprta ekscizija pleure 10  
+T08 Odprta drenaza plevalne votline 5  
+T09 Druge odprte operacije na plevri 5
+T10 Terapevtske endoskopske operacije plevre 1  
+T15 Prva uporaba strojnega dihanja 10  
+T16 Dvoprva uporaba defibrilatorja 10  
+
+Poškodba in delne oziroma operacije v trebušni regiji  
+Operacije kile  
+T19 Preprostia odstranitve ingvinalne (dimeljske) kile vrece 1  
+T21 Popravilo popolialne dimeljske kile 1  
+T22 Popravilo poponalne femoralne kile 1  
+T23 Popravilo popolnale femoralne kile 1  
+T24 Popravilo popokalne kile 1  
+T25 Popravilo popokalne incizijske kile 1  
+T26 Popravilo drugačnih izčisijske kile 1  
+T27 Popravilo drugih in neznanih trebušne stene 1  
+
+Operacije trebušne stene, mezenterija in peritoneja  
+T28 Operacija popokline sprednje trebušne stene 1  
+T29 Popravilo popoka 1  
+T30 Odprtje trebuha 1  
+T31 Druga operacija na sprednji trebušni steni 1  
+T33 Odprta odstranitve obolelega dela peritoneja 1  
+T34 Odprta drenaža peritoneja 1  
+T36 Operacija na mezenteriju 1  
+T37 Operacija na mezenterijalnem tankega črevesa 1  
+T38 Operacija mezenterija debelega črevesa 1  
+T39 Operacije adhezije peritoneja 1  
+T41 Druge odprte operacije na peritoneju 1  
+T42 Terapevtske endoskopske operacije peritoneja 1  
+T45 Operacije trebušne votline pod kontrolo slikanja 1  
+T48 Druge operacije peritoneja 1  
+
+Operacije trebušne fascije  
+T50 Transplantacija fascije 1  
+T51 Odstranitev fascije trebuha 1  
+T53 Odstranitev obolelega dela fascije 1  
+T54 Prekinitev fascije 1  
+T55 Postvitev fascije 1  
+T57 Druge operacije na fasciji 1  
+
+Operacije na mišicah, kitah in sinovialnih sluznikih  
+T59 Odstranitev ganglijev 1  
+T60 Ponovna odstranitev ganglijev 1  
+T62 Operacije burse 1  
+T64 Presektivne mišice 1  
+T65 Odstranitev tetive 1  
+T67 Primarna popravilo tetive 1  
+T68 Sekundarna odstranitev tetive 1  
+T69 Presaditev tetive 1  
+T70 Podaljševanje odstranitev tetive 1  
+T71 Odstranitev ovojnice tetive 1  
+T72 Druge operacije na ovojnici tetive 1  
+T74 Druge operacije na tetivah 1  
+T76 Presektivne mišice 1  
+T77 Odstranitev mišice 1  
+T79 Posvitivne mišice 1  
+T80 Reparsite kontraktur mišice 1  
+T83 Druge operacije na mišici 1  
+
+Operacije na limfnem tkivu  
+T85 Odstranitev limfnih vozlov v bloku 5  
+T87 Odstranitev ali biopsija limfnih vozlov (bezgavke) 5  
+T88 Odstranitev obolelih bezgavk 5  
+T89 Operacije za limfatični vodnik 1  
+T92 Druge operacije na limfnem tkivu 1  
+
+Operacije na obrazu in obraznih živcih  
+T94 Operacija na brahialnem vozu 1  
+T96 Druge operacije na mišicah tkivih 1  
+V10 Plastič bolačenje 1  
+V03 Odprtje lobanje 1  
+V05 Druge operacije na lobanji 1  
+V07 Odstranitev obrazne kosti 1  
+V08 Naravnava zlomov zgornje čeljustnice 1  
+V09 Naravnava zlomov obraznih kosti 1  
+V10 Prekinitev obrazne kosti 1  
+V11 Fiksacija obrazne kosti 1  
+V13 Druga operacija na obrazni kosti 1  
+V14 Odstranitev spojenih čeljusti 1  
+V15 Naravnava zlomov spodnji čeljusti 1  
+V16 Prekinitev spodnje čeljusti 1  
+V17 Fiksacija spodnje čeljusti 1  
+V19 Druge operacije na spodnji čeljusti 1  
+V21 Druge operacije na temporomandibularnem sklepu 1  
+
+Operacije na hrbtenici in medvretenčnih ploščicah  
+V22 Prikmane operacije z dekompresijo vratne hrbtenice 5  
+V23 Prikmane operacije z dekompresijo ledvene hrbtenice 5  
+V24 Revizijske operacije z dekompresijo vratne hrbtenice 10  
+V25 Prikmane operacije z dekompresijo ledvene hrbtenice 10  
+V26 Revizijske operacije z dekompresijo ledvene hrbtenice 10  
+V27 Operacije z dekompresijo resličnega dela hrbtenice 10  
+V29 Primarna odstranitev cervikalne medvretenčne ploščice 3  
+V30 Revizijska odstranitev cervikalne medvretenčne ploščice 5  
+V31 Primarna odstranitev torakalne medvretenčne ploščice 5  
+V32 Revizijska odstranitev prsne medvretenčne ploščice 10  
+V33 Primarna odstranitev ledvene medvretenčne ploščice 10  
+V34 Revizijska odstranitev ledvene medvretenčne ploščice 10  
+V35 Odstranitev nedoločenih medvretenčne ploščice 10  
+V37 Primarna fuzija sklepov vretenca 5  
+V38 Primarna fuzija drugega sklepa hrbtenice 10  
+V39 Revizijska fuzija sklepa hrbtenice 10  
+V41 Instrumentalna korekcija deformacije hrbtenice 10  
+V42 Druge korekcije deformacije hrbtenice 5  
+V43 Odstranitev osteofitov dela hrbtenice 1  
+V44 Dekompresija izorna hrbtenice 5  
+V45 Druga dekompresija izorna hrbtenice 1  
+V46 Fiksacija izorna hrbtenice 1  
+V48 Denervacija fasetnih sklepov hrbtenice 5  
+V52 Druge operacije na medvretenčni ploščici 1  
+
+Travmatološka kirurgija in ortopedija  
+Rekonstrukcija kosti  
+W01 Kompleksna rekonstrukcija palca na nogi 10  
+W02 Druga kompleksna rekonstrukcija dlani 5  
+W03 Kompleksna rekonstrukcija sprednjega stopala 5  
+W04 Kompleksna rekonstrukcija zadnjega dela stopala 5  
+W05 Nadomestitev kosti s protezo 10  
+W06 Totalna odstranitev kosti 10  
+W07 Odstranitev etopiče kosti 5  
+W08 Druge odstranitve kosti 1  
+W09 Odstranitev obolelega dela kosti 1  
+W10 Odprti kirurški zlom kosti 1  
+W11 Odstraniti kirurški zlom kosti 1  
+W12 Angulacija sklepenega zloma kosti 1  
+W13 Druga obsežnejše prekritve kosti 1  
+W14 Difikalne prekritve kosti 1  
+W15 Prekinitev kosti stopali 1  
+W16 Druge prekinitev kosti 1  
+W17 Druge rekonstrukcije kosti 1  
+
+Naravnava zlomov kosti, fiksacij zlomov  
+W21 Primarna odprta naravnava artrokligenega zloma kosti 1  
+W22 Druga primarna odprta naravnava zloma kosti 1  
+W23 Sekundarna odprta naravnava zloma kosti 1  
+W27 Fiksacija zloma 1  
+W29 Druge naprave fiksacije kosti 1  
+W30 Sklepeta kostna fiksacija 1  
+W32 Druge zunanje fiksacije kosti 1  
+W31 Drugi uskljivi artifiksaciji 1  
+W33 Druge grafti kosti 1  
+W34 Drugi odprti operaciji na kosti 1  
+W35 Terapevtske punkcije kosti 1  
+
+Zamenjave sklepov in kostni protezami  
+W37 Totna cementna proteza kolka 30  
+W38 Totalna brecementna proteza kolka 30  
+W39 Druga totalna proteza kolka 10  
+W40 Totalna brecementna proteza kolena 30  
+W42 Druge totalne proteze kolena 10  
+W43 Totalna cementna proteza drugih sklepov 10  
+W44 Totalna brecementna proteza drugih sklepov 10  
+W45 Druge totalne proteze sklepov 10  
+W46 Totalna cementna proteza glave stegnenice 10  
+W47 Totalna brecementna proteza glave stegnenice 10  
+W48 Druge proteze glave stegnenice 10  
+W49 Cementna proteza glavice nadlahtnice 10  
+W50 Brecementna proteza glavice nadlahtnice 10  
+W51 Druge proteze glavice nadlahtnice 10  
+W52 Cementne proteze drugih sklepih in kosti 10  
+W53 Brecementne proteze drugih sklepih kosti 10  
+W54 Druge proteze sklepov in kosti 10  
+W55 Impozitijske sklepne proteze 10  
+W56 Druge intraprotezijske sklepne proteze 10  
+W57 Odstranitev rekonstrukcija sklepa 10  
+W58 Druge rekonstrukcije sklepa 10  
+
+Zatrditev sklepov in naravnava izpahov  
+W59 Zatrditev sklepa navka in rabe 10  
+W60 Zatrditev drugega sklepa in neštirukularni kostni graft 1  
+W61 Zatrditev drugega sklepa in drugi sklepni kostni graft 1  
+W62 Druga primarna artrodeza drugega sklepa 1  
+W63 Revizijska zatrditev drugega sklepa 5  
+W64 Preverba odstranjev za zatrditev drugega sklepa 5  
+W65 Primarna odprta naravnava travmatskega izpaha sklepa 10  
+W66 Primarna zaprta naravnava travmatskega izpaha sklepa 5  
+W67 Sekundarna naravnava travmatskega izpaha sklepa 5  
+W68 Naravnava naravnanega poškodbe rambe ploščice 1  
+
+Operacije na sklepnih strukturah  
+W69 Odprte operacije na sinovijalni membrani sklepa 1  
+W70 Odprte operacije na hrustancu sklepa 1  
+W71 Druge odprte operacije na sklepnih strukturah 1  
+W72 Nadomestitev ligamenta s protezo 1  
+W73 Odplivce ligamenta s protezo 1
+Splošni pogoji zavarovanja operacij
+
+W74 Druge rekonstrukcije ligamentov 1  
+W75 Druge odprte popravljalce ligamentov 1  
+W76 Druge operacije za ligamente 1  
+W77 Operacije za stabilizacijo sklepa 1  
+W78 Oprostitve kontraktur sklepa 1  
+W79 Operacije na mehkih tkivih na sklepu in/ali sklepa stopala 1  
+W81 Druge odprte operacije sklepa 1  
+W82 Terapevtske endoskopske operacije odstranjevanja meniska 1  
+W83 Terapevtske endoskopske operacije na drugem sklepu 1  
+W84 Terapevtske endoskopske operacije na drugih sklepnih strukturah 1  
+W85 Terapevtske endoskopske operacije na sklepu sprednjega kolena 1  
+W86 Terapevtske endoskopske operacije sklepnih sklepnih prigr in/ali drugih sklepov 1  
+W87 Druge operacije sklepa 1  
+Replantacije in amputacije okončin  
+X01 Reimplantacija zgornje okončine 10  
+X02 Reimplantacija spodnje okončine 100  
+X05 Avstacije prstov na roki/nočino 10  
+X07 Amputacija roke 30  
+X08 Amputacija dlani 30  
+X09 Amputacija noge 30  
+X10 Amputacija stopala 30  
+X11 Amputacija palca na stopalu 5  
+X12 Operacija na amputacijskem krnu 5  
+Druge operacije  
+X14 Izpraznitev medenice 100  
+
+* Seznam operacij je določen po OPCS Klasifikaciji NHS UK
