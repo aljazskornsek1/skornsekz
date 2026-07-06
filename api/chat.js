@@ -1,7 +1,7 @@
 import OpenAI from 'openai'
 import { createClient } from '@supabase/supabase-js'
 
-const CHAT_MODEL = process.env.OPENAI_CHAT_MODEL || 'gpt-4o-mini'
+const CHAT_MODEL = process.env.OPENAI_CHAT_MODEL || 'gpt-4.1-mini'
 const EMBEDDING_MODEL = 'text-embedding-3-small'
 
 function respond(res, status, payload) {
@@ -48,6 +48,33 @@ function getSupabaseUrl() {
     .replace(/\/$/, '')
 }
 
+async function buildSearchQuery(openai, message, history) {
+  if (!history.length) return message
+
+  try {
+    const conversation = history
+      .map(item => `${item.role === 'user' ? 'Uporabnik' : 'Asistent'}: ${item.content}`)
+      .join('\n')
+
+    const response = await openai.responses.create({
+      model: CHAT_MODEL,
+      input: [
+        {
+          role: 'system',
+          content: 'Preoblikuj zadnje uporabnikovo sporočilo v samostojno iskalno poizvedbo v slovenščini za iskanje po zavarovalnih pogojih. Vključi ves potreben kontekst iz pogovora (vrsto zavarovanja, predmet vprašanja). Vrni samo poizvedbo, brez pojasnil.',
+        },
+        { role: 'user', content: `Pogovor:\n${conversation}\n\nZadnje sporočilo: ${message}` },
+      ],
+      max_output_tokens: 120,
+    })
+
+    return response.output_text?.trim() || message
+  } catch (error) {
+    console.error('[RAG] query rewrite failed:', error)
+    return message
+  }
+}
+
 async function retrieveContext(openai, question) {
   const supabaseUrl = getSupabaseUrl()
   const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY
@@ -88,8 +115,8 @@ async function retrieveContext(openai, question) {
 
   const { data, error } = await supabase.rpc('match_documents', {
     query_embedding: queryEmbedding,
-    match_threshold: 0.5,
-    match_count: 12,
+    match_threshold: 0.35,
+    match_count: 16,
   })
 
   console.info('[RAG] match_documents response', {
@@ -106,7 +133,7 @@ async function retrieveContext(openai, question) {
   return (Array.isArray(data) ? data : [])
     .map(formatDocument)
     .filter(Boolean)
-    .slice(0, 12)
+    .slice(0, 16)
     .join('\n\n---\n\n')
 }
 
@@ -144,31 +171,33 @@ export default async function handler(req, res) {
 
   const openai = new OpenAI({ apiKey })
 
+  const history = Array.isArray(body.history)
+    ? body.history
+        .slice(-6)
+        .filter(item =>
+          item &&
+          ['user', 'assistant'].includes(item.role) &&
+          typeof item.content === 'string'
+        )
+        .map(item => ({
+          role: item.role,
+          content: item.content.slice(0, 2000),
+        }))
+    : []
+
   let context = ''
   let ragError = false
 
   try {
-    context = await retrieveContext(openai, message)
+    const searchQuery = await buildSearchQuery(openai, message, history)
+    console.info('[RAG] search query:', searchQuery)
+    context = await retrieveContext(openai, searchQuery)
   } catch (error) {
     ragError = true
     console.error('AI assistant RAG search failed:', error)
   }
 
   try {
-    const history = Array.isArray(body.history)
-      ? body.history
-          .slice(-6)
-          .filter(item =>
-            item &&
-            ['user', 'assistant'].includes(item.role) &&
-            typeof item.content === 'string'
-          )
-          .map(item => ({
-            role: item.role,
-            content: item.content.slice(0, 2000),
-          }))
-      : []
-
     const languageInstruction =
       language === 'en'
         ? 'Answer in English.'
@@ -177,15 +206,15 @@ export default async function handler(req, res) {
           : 'Odgovori v slovenščini.'
 
     const contextInstruction = context
-  ? `Uporabi IZKLJUČNO naslednji kontekst iz baze znanja Zavarovanje Skornšek.
+  ? `Spodaj so izvlečki iz uradnih zavarovalnih pogojev (baza znanja Zavarovanje Skornšek). Odgovori na njihovi podlagi.
 
 Pravila:
-- odgovarjaj samo na podlagi pridobljenih dokumentov
-- ne ugibaj
-- če informacije ni v dokumentih, to jasno povej
-- vedno navedi uporabljene vire
-- na koncu odgovora dodaj razdelek "Viri"
-- v razdelku Viri navedi naslove dokumentov, iz katerih si črpal podatke
+- Odgovori KONKRETNO in POPOLNO: navedi kritja, izključitve, omejitve, franšize in zneske točno tako, kot so zapisani v pogojih.
+- Kadar je smiselno, citiraj ali povzemi točno določbo (člen, alinejo) in navedi, iz katerega dokumenta je.
+- Če izvlečki na vprašanje odgovarjajo samo delno, najprej povzemi, kaj pogoji GLEDE TEGA določajo (npr. katere stvari/objekti so zavarovani, katere nevarnosti so krite), in šele nato povej, česa v izvlečkih ni izrecno omenjeno. Nikoli ne odgovori samo z napotitvijo na svetovalca.
+- Napotitev na osebnega svetovalca dodaj kvečjemu v enem kratkem stavku na koncu, in samo kadar je odgovor res odvisen od konkretne police.
+- Ne izmišljuj si določb, ki jih ni v izvlečkih.
+- Na koncu odgovora dodaj razdelek "Viri" z naslovi dokumentov, iz katerih si črpal.
 
 KONTEKST:
 
@@ -195,7 +224,7 @@ ${context}`
         : 'V bazi znanja ni bilo najdenih ustreznih dokumentov. Podaj le varen splošen odgovor in uporabnika usmeri k Zavarovanju Skornšek.'
 
     const systemPrompt = `Si virtualni zavarovalni asistent podjetja Zavarovanje Skornšek. ${languageInstruction}
-Odgovori jasno, prijazno in jedrnato. Pri zavarovalnih kritjih ne ugibaj in ne predstavljaj splošnega odgovora kot zavezujočo razlago police. Kadar je za pravilen odgovor potreben pregled konkretne police ali pogojev, uporabnika usmeri k osebnemu svetovalcu.
+Tvoja naloga je, da stranki čim bolj konkretno pojasniš vsebino zavarovalnih pogojev. Odgovori strukturirano in prijazno. Splošni odgovor ni zavezujoča razlaga konkretne police, zato ne obljubljaj izplačil, vendar to ne sme biti izgovor za izogibanje vsebinskemu odgovoru.
 
 ${contextInstruction}`
 
@@ -206,7 +235,7 @@ ${contextInstruction}`
         ...history,
         { role: 'user', content: message },
       ],
-      max_output_tokens: 500,
+      max_output_tokens: 900,
     })
 
     const answer = response.output_text?.trim() || fallbackAnswer(language)
