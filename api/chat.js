@@ -63,7 +63,7 @@ async function buildSearchQuery(openai, message, history) {
 {"poizvedba": "...", "koreni": ["...", "..."]}
 
 - "poizvedba": samostojna iskalna poizvedba z vsem kontekstom iz pogovora IN sopomenkami/strokovnimi izrazi, ki se verjetno pojavljajo v uradnih pogojih (npr. "slepič" -> "slepo črevo", "odbitna franšiza" -> "soudeležba").
-- "koreni": 2-5 KORENOV najbolj razlikovalnih besed za dobesedno iskanje, brez končnic, da ujamejo vse sklone (npr. za slepič: ["slep", "črev"]; za točo: ["toč"]; za kombinacijo B: ["kombinacij"]). Brez splošnih besed kot zavarovanje, polica, kritje.`,
+- "koreni": 2-4 kratki KORENI (4-6 znakov, brez končnic) samo za PREDMET vprašanja — telesni del, predmet, nevarnost, oznako (npr. za slepič: ["slep", "črev"]; za točo: ["toč"]; za kombinacijo B: ["kombinac"]). NIKOLI splošnih zavarovalniških besed (zavarovanje, polica, kritje, odstotek, vsota, izplačilo, premija).`,
         },
         {
           role: 'user',
@@ -76,11 +76,15 @@ async function buildSearchQuery(openai, message, history) {
     const raw = response.output_text?.trim() || ''
     const parsed = JSON.parse(raw.match(/\{[\s\S]*\}/)?.[0] || '{}')
     const query = typeof parsed.poizvedba === 'string' && parsed.poizvedba.trim() ? parsed.poizvedba.trim() : message
-    const stems = (Array.isArray(parsed.koreni) ? parsed.koreni : [])
-      .filter(s => typeof s === 'string')
-      .map(s => s.toLowerCase().replace(/[^a-z0-9čšžđć]/g, ''))
-      .filter(s => s.length >= 3)
-      .slice(0, 5)
+    // varovalka: okrajšaj na 4 znake (ujame vse sklone) in izloči generične zavarovalniške korene
+    const genericStems = new Set(['zava', 'poli', 'pogo', 'prem', 'vsot', 'izpl', 'krit'])
+    const stems = [...new Set(
+      (Array.isArray(parsed.koreni) ? parsed.koreni : [])
+        .filter(s => typeof s === 'string')
+        .map(s => s.toLowerCase().replace(/[^a-z0-9čšžđć]/g, '').slice(0, 4))
+    )]
+      .filter(s => s.length >= 3 && !genericStems.has(s))
+      .slice(0, 4)
 
     return { query, stems }
   } catch (error) {
