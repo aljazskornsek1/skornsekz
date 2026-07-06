@@ -49,8 +49,6 @@ function getSupabaseUrl() {
 }
 
 async function buildSearchQuery(openai, message, history) {
-  if (!history.length) return message
-
   try {
     const conversation = history
       .map(item => `${item.role === 'user' ? 'Uporabnik' : 'Asistent'}: ${item.content}`)
@@ -61,11 +59,14 @@ async function buildSearchQuery(openai, message, history) {
       input: [
         {
           role: 'system',
-          content: 'Preoblikuj zadnje uporabnikovo sporočilo v samostojno iskalno poizvedbo v slovenščini za iskanje po zavarovalnih pogojih. Vključi ves potreben kontekst iz pogovora (vrsto zavarovanja, predmet vprašanja). Vrni samo poizvedbo, brez pojasnil.',
+          content: 'Preoblikuj zadnje uporabnikovo sporočilo v samostojno iskalno poizvedbo v slovenščini za iskanje po zavarovalnih pogojih. Vključi ves potreben kontekst iz pogovora (vrsto zavarovanja, predmet vprašanja) in DODAJ sopomenke ter strokovne izraze, ki se verjetno pojavljajo v uradnih pogojih (npr. "slepič" -> "slepo črevo", "toča" -> "točo, naravne nesreče", "odbitna franšiza" -> "soudeležba"). Vrni samo poizvedbo, brez pojasnil.',
         },
-        { role: 'user', content: `Pogovor:\n${conversation}\n\nZadnje sporočilo: ${message}` },
+        {
+          role: 'user',
+          content: (conversation ? `Pogovor:\n${conversation}\n\n` : '') + `Zadnje sporočilo: ${message}`,
+        },
       ],
-      max_output_tokens: 120,
+      max_output_tokens: 150,
     })
 
     return response.output_text?.trim() || message
@@ -122,7 +123,11 @@ async function retrieveContext(openai, question) {
     supabase
       .from('documents')
       .select('id,title,source,chunk_index,content')
-      .textSearch('content', question, { type: 'websearch', config: 'simple' })
+      .textSearch(
+        'content',
+        [...new Set((question.toLowerCase().match(/[a-zčšžđć]{4,}/g) || []))].slice(0, 10).join(' OR ') || question,
+        { type: 'websearch', config: 'simple' }
+      )
       .limit(20),
   ])
 
