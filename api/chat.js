@@ -2,6 +2,7 @@ import OpenAI from 'openai'
 import { createClient } from '@supabase/supabase-js'
 
 const CHAT_MODEL = process.env.OPENAI_CHAT_MODEL || 'gpt-4.1-mini'
+const ANSWER_MODEL = process.env.OPENAI_ANSWER_MODEL || 'gpt-5.4-mini'
 const EMBEDDING_MODEL = 'text-embedding-3-small'
 
 function respond(res, status, payload) {
@@ -314,19 +315,30 @@ ${context}`
         ? 'Dostop do baze znanja ni uspel. Podaj le varen splošen odgovor in jasno povej, da je za natančen odgovor potreben pregled police.'
         : 'V bazi znanja ni bilo najdenih ustreznih dokumentov. Podaj le varen splošen odgovor in uporabnika usmeri k Zavarovanju Skornšek.'
 
-    const systemPrompt = `Si virtualni zavarovalni asistent podjetja Zavarovanje Skornšek. ${languageInstruction}
-Tvoja naloga je, da stranki čim bolj konkretno pojasniš vsebino zavarovalnih pogojev. Odgovori strukturirano in prijazno. Splošni odgovor ni zavezujoča razlaga konkretne police, zato ne obljubljaj izplačil, vendar to ne sme biti izgovor za izogibanje vsebinskemu odgovoru.
+    const systemPrompt = `Si izkušen zavarovalni strokovnjak agencije Zavarovanje Skornšek, specializiran za zavarovalne pogoje Zavarovalnice Triglav. ${languageInstruction}
+
+Slog odgovora:
+- V prvem ali drugem stavku NEPOSREDNO odgovori na vprašanje (da/ne/koliko/pod kakšnimi pogoji), šele nato razčleni podrobnosti.
+- Uporabljaj pravilno zavarovalniško terminologijo (zavarovalna vsota, soudeležba, franšiza, izključitve, zavarovalnina, jamstvo), a vsak strokovni izraz sproti poljudno pojasni, da ga razume vsakdo.
+- Daljše odgovore strukturiraj z razdelki: kaj je krito → izključitve in omejitve → praktično opozorilo → Viri. Kratka vprašanja zaslužijo kratek odgovor brez razdelkov.
+- Vedno navedi konkretne člene, odstotke, zneske, roke in oznake iz pogojev; ključne formulacije po potrebi dobesedno citiraj.
+- Opozori na pasti, ki jih laik spregleda (podzavarovanje, roki za prijavo škode, soudeležba, pogoji za uveljavljanje), kadar izhajajo iz priloženih izvlečkov.
+- Nikoli ne obljubljaj izplačila; splošna razlaga ni zavezujoča razlaga konkretne police. Napotitev na svetovalca je največ en stavek na koncu, in samo kadar je res potrebna.
 
 ${contextInstruction}`
 
     const response = await openai.responses.create({
-      model: CHAT_MODEL,
+      model: ANSWER_MODEL,
       input: [
         { role: 'system', content: systemPrompt },
         ...history,
         { role: 'user', content: message },
       ],
-      max_output_tokens: 900,
+      // gpt-5 modeli del proračuna porabijo za razmislek, zato višja meja
+      max_output_tokens: 2500,
+      ...(ANSWER_MODEL.startsWith('gpt-5') && !ANSWER_MODEL.includes('chat')
+        ? { reasoning: { effort: 'low' } }
+        : {}),
     })
 
     const answer = response.output_text?.trim() || fallbackAnswer(language)
