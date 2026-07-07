@@ -37,7 +37,22 @@ def doc_meta(pdf_path, first_page_text):
 
 CLEN_RE = re.compile(r'(?<![\d.])(\d{1,3})\.\s*člen\s*[:\-–]?\s*([^\n]{0,90})', re.U)
 
+GLYPH_RE = re.compile(r'/G([0-9A-Fa-f]{2})')
+
+def decode_glyph_text(t):
+    """Stari Triglav PDF-ji vračajo besedilo kot glyph kode /GXX (cp1250)."""
+    if t.count('/G') < 50:
+        return t
+    out, pos = [], 0
+    for m in GLYPH_RE.finditer(t):
+        out.append(t[pos:m.start()])
+        out.append(bytes([int(m.group(1), 16)]).decode('cp1250', 'replace'))
+        pos = m.end()
+    out.append(t[pos:])
+    return ''.join(out)
+
 def normalize(t):
+    t = decode_glyph_text(t)
     t = t.replace('­', '')
     t = re.sub(r'[ \t]+', ' ', t)
     t = re.sub(r'\n{2,}', '\n', t)
@@ -82,10 +97,12 @@ def build_chunks(pdf_path):
     text = normalize('\n'.join(pages))
     dm = doc_meta(pdf_path, pages[0] if pages else '')
     arh = ' | ARHIVSKI POGOJI (veljajo za starejše police, ne za nove sklenitve)' if '-arh' in pdf_path.stem.lower() else ''
+    vpr = (' | VPRAŠALNIK — vprašanja za pripravo ponudbe, NE seznam kritij'
+           if 'vprašalnik' in dm['title'].lower() or pdf_path.stem.lower().startswith('vp-') else '')
     prefix_parts = [dm['title']]
     if dm['category']: prefix_parts.append(dm['category'])
     if dm['group']: prefix_parts.append(dm['group'])
-    prefix = '[' + ' | '.join(prefix_parts) + arh + ']'
+    prefix = '[' + ' | '.join(prefix_parts) + arh + vpr + ']'
 
     flat = re.sub(r'\s+', ' ', text)
     sections = split_by_clen(text)
@@ -152,7 +169,10 @@ def upload_doc(pdf_path, dm, chunks):
             headers=SB, method='POST')
 
 mode_arg = sys.argv[1] if len(sys.argv) > 1 else 'dry'
+only = set(sys.argv[2:])  # neobvezno: imena datotek za selektivni uvoz
 pdfs = sorted(PDF_DIR.glob('*.pdf'))
+if only:
+    pdfs = [p for p in pdfs if p.name in only]
 print(f'PDF-jev: {len(pdfs)}; način: {mode_arg}\n')
 total = 0
 problems = []
