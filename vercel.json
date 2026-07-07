@@ -4,7 +4,7 @@
   "outputDirectory": "outputs",
   "functions": {
     "api/chat.js": {
-      "maxDuration": 30
+      "maxDuration": 60
     },
     "api/pregled_police.js": {
       "maxDuration": 30

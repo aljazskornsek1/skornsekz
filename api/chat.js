@@ -3,6 +3,7 @@ import { createClient } from '@supabase/supabase-js'
 
 const CHAT_MODEL = process.env.OPENAI_CHAT_MODEL || 'gpt-4.1-mini'
 const ANSWER_MODEL = process.env.OPENAI_ANSWER_MODEL || 'gpt-5.4-mini'
+const ANSWER_MODEL_STRONG = process.env.OPENAI_ANSWER_MODEL_STRONG || 'gpt-5.4'
 const EMBEDDING_MODEL = 'text-embedding-3-small'
 
 function respond(res, status, payload) {
@@ -93,6 +94,18 @@ function getSupabaseUrl() {
     .replace(/\/$/, '')
 }
 
+// okrajšaj korene na 4 znake (ujame vse sklone) in izloči generične zavarovalniške
+function sanitizeStems(rawList) {
+  const genericStems = new Set(['zava', 'poli', 'pogo', 'prem', 'vsot', 'izpl', 'krit'])
+  return [...new Set(
+    (Array.isArray(rawList) ? rawList : [])
+      .filter(s => typeof s === 'string')
+      .map(s => s.toLowerCase().replace(/[^a-z0-9čšžđć]/g, '').slice(0, 4))
+  )]
+    .filter(s => s.length >= 3 && !genericStems.has(s))
+    .slice(0, 4)
+}
+
 async function buildSearchQuery(openai, message, history) {
   try {
     const conversation = history
@@ -105,10 +118,11 @@ async function buildSearchQuery(openai, message, history) {
         {
           role: 'system',
           content: `Pripravi iskanje po slovenskih zavarovalnih pogojih za zadnje uporabnikovo sporočilo. Vrni SAMO JSON:
-{"poizvedba": "...", "koreni": ["...", "..."]}
+{"poizvedba": "...", "koreni": ["...", "..."], "zahtevnost": "preprosto" ali "zahtevno"}
 
 - "poizvedba": samostojna iskalna poizvedba z vsem kontekstom iz pogovora IN sopomenkami/strokovnimi izrazi, ki se verjetno pojavljajo v uradnih pogojih (npr. "slepič" -> "slepo črevo", "odbitna franšiza" -> "soudeležba").
-- "koreni": 2-4 kratki KORENI (4-6 znakov, brez končnic) samo za PREDMET vprašanja — telesni del, predmet, nevarnost, oznako (npr. za slepič: ["slep", "črev"]; za točo: ["toč"]; za kombinacijo B: ["kombinac"]). NIKOLI splošnih zavarovalniških besed (zavarovanje, polica, kritje, odstotek, vsota, izplačilo, premija).`,
+- "koreni": 2-4 kratki KORENI (4-6 znakov, brez končnic) samo za PREDMET vprašanja — telesni del, predmet, nevarnost, oznako (npr. za slepič: ["slep", "črev"]; za točo: ["toč"]; za kombinacijo B: ["kombinac"]). NIKOLI splošnih zavarovalniških besed (zavarovanje, polica, kritje, odstotek, vsota, izplačilo, premija).
+- "zahtevnost": "zahtevno" pri primerjavah več zavarovanj, večdelnih vprašanjih, izračunih, pravnih vprašanjih ali sporih; sicer "preprosto".`,
         },
         {
           role: 'user',
@@ -121,24 +135,16 @@ async function buildSearchQuery(openai, message, history) {
     const raw = response.output_text?.trim() || ''
     const parsed = JSON.parse(raw.match(/\{[\s\S]*\}/)?.[0] || '{}')
     const query = typeof parsed.poizvedba === 'string' && parsed.poizvedba.trim() ? parsed.poizvedba.trim() : message
-    // varovalka: okrajšaj na 4 znake (ujame vse sklone) in izloči generične zavarovalniške korene
-    const genericStems = new Set(['zava', 'poli', 'pogo', 'prem', 'vsot', 'izpl', 'krit'])
-    const stems = [...new Set(
-      (Array.isArray(parsed.koreni) ? parsed.koreni : [])
-        .filter(s => typeof s === 'string')
-        .map(s => s.toLowerCase().replace(/[^a-z0-9čšžđć]/g, '').slice(0, 4))
-    )]
-      .filter(s => s.length >= 3 && !genericStems.has(s))
-      .slice(0, 4)
+    const stems = sanitizeStems(parsed.koreni)
 
-    return { query, stems }
+    return { query, stems, complex: parsed.zahtevnost === 'zahtevno' }
   } catch (error) {
     console.error('[RAG] query rewrite failed:', error)
-    return { query: message, stems: [] }
+    return { query: message, stems: [], complex: false }
   }
 }
 
-async function retrieveContext(openai, question, stems = []) {
+async function retrieveContext(openai, question, stems = [], { light = false } = {}) {
   const supabaseUrl = getSupabaseUrl()
   const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY
 
@@ -182,11 +188,11 @@ async function retrieveContext(openai, question, stems = []) {
   const [vector, ...stemResults] = await Promise.all([
     supabase.rpc('match_documents', {
       query_embedding: queryEmbedding,
-      match_threshold: 0.25,
-      match_count: 40,
+      match_threshold: light ? 0.3 : 0.25,
+      match_count: light ? 16 : 40,
     }),
     ...stems.map(s =>
-      supabase.from('documents').select(columns).ilike('content', `%${s}%`).limit(15)
+      supabase.from('documents').select(columns).ilike('content', `%${s}%`).limit(light ? 8 : 15)
     ),
   ])
 
@@ -232,9 +238,40 @@ async function retrieveContext(openai, question, stems = []) {
 
   if (!guaranteed.length && !candidates.length) return ''
 
-  const top = candidates.length ? await rerank(openai, question, candidates, stems) : []
+  // lahki način (dodatna iskanja iz agentne zanke): brez LLM prefiltriranja in sosedov
+  if (light) {
+    return [...guaranteed, ...candidates.slice(0, 10)]
+      .slice(0, 12)
+      .map(formatDocument)
+      .filter(Boolean)
+      .join('\n\n---\n\n')
+  }
 
-  return [...guaranteed, ...top]
+  const top = candidates.length ? await rerank(openai, question, candidates, stems) : []
+  const chosen = [...guaranteed, ...top]
+
+  // sosednji odlomki: za prvih 5 zadetkov dodaj še odlomek pred in za njim,
+  // da se člen ali tabela ne odreže na polovici
+  let neighbors = []
+  try {
+    const anchors = chosen.slice(0, 5).filter(row => row.title && Number.isFinite(row.chunk_index))
+    if (anchors.length) {
+      const orParts = []
+      for (const anchor of anchors) {
+        const title = `"${String(anchor.title).replace(/"/g, '')}"`
+        orParts.push(`and(title.eq.${title},chunk_index.eq.${anchor.chunk_index - 1})`)
+        orParts.push(`and(title.eq.${title},chunk_index.eq.${anchor.chunk_index + 1})`)
+      }
+      const res = await supabase.from('documents').select(columns).or(orParts.join(',')).limit(12)
+      const chosenIds = new Set(chosen.map(row => row.id))
+      neighbors = (res.error ? [] : res.data || []).filter(row => row && row.id != null && !chosenIds.has(row.id))
+      console.info('[RAG] neighbors', { anchors: anchors.length, added: neighbors.length })
+    }
+  } catch (error) {
+    console.error('[RAG] neighbor fetch failed:', error)
+  }
+
+  return [...chosen, ...neighbors]
     .map(formatDocument)
     .filter(Boolean)
     .join('\n\n---\n\n')
@@ -353,10 +390,12 @@ export default async function handler(req, res) {
 
   let context = ''
   let ragError = false
+  let complexQuestion = false
 
   try {
-    const { query: searchQuery, stems } = await buildSearchQuery(openai, message, history)
-    console.info('[RAG] search query:', searchQuery)
+    const { query: searchQuery, stems, complex } = await buildSearchQuery(openai, message, history)
+    complexQuestion = complex
+    console.info('[RAG] search query:', searchQuery, { complex })
     context = await retrieveContext(openai, searchQuery, stems)
   } catch (error) {
     ragError = true
@@ -382,6 +421,7 @@ Pravila:
 - Ne izmišljuj si določb, ki jih ni v izvlečkih.
 - Odlomki z oznako "ARHIVSKI POGOJI" veljajo za starejše, že sklenjene police — pri vprašanjih o novih sklenitvah se opri na neoznačene (aktualne) pogoje, arhivske pa omeni samo, če stranka sprašuje o obstoječi stari polici.
 - Odlomki z oznako "Zakonodaja" (Obligacijski zakonik, ZZavar-1) so splošna zakonska pravila — uporabi jih pri vprašanjih o pravicah stranke, rokih, zastaranju, zamudi premije, odstopu od pogodbe ipd. Pri razlagi konkretnih kritij imajo prednost zavarovalni pogoji; zakon navedi kot pravno podlago (npr. "po 937. členu OZ").
+- Če priloženi izvlečki ne zadoščajo za popoln odgovor (manjka člen, tabela, odstotek ali drugi del vprašanja), NAJPREJ uporabi orodje isci_pogoje z drugače ubesedeno poizvedbo — šele če tudi to ne najde, povej, da informacije v pogojih ni.
 - Na koncu odgovora dodaj razdelek "Viri" z naslovi dokumentov, iz katerih si črpal.
 
 KONTEKST:
@@ -408,24 +448,78 @@ ${contextInstruction}`
       ? '\n\nStranka je sporočilu priložila datoteko. Natančno jo preberi. Če je zavarovalna polica ali ponudba, razberi sklenjena kritja, zavarovalne vsote in soudeležbe ter jih poveži z ustreznimi določili iz baze znanja. Če je fotografija škode, opiši, kaj je razvidno, in pojasni, katera kritja običajno pridejo v poštev. Osebnih podatkov (EMŠO, naslov) ne izpisuj po nepotrebnem.'
       : ''
 
-    const response = await openai.responses.create({
-      model: ANSWER_MODEL,
-      input: [
-        { role: 'system', content: systemPrompt + attachmentInstruction },
-        ...history,
-        {
-          role: 'user',
-          content: fileInput ? [{ type: 'input_text', text: message }, fileInput] : message,
-        },
-      ],
-      // gpt-5 modeli del proračuna porabijo za razmislek, zato višja meja
-      max_output_tokens: 2500,
-      ...(ANSWER_MODEL.startsWith('gpt-5') && !ANSWER_MODEL.includes('chat')
-        ? { reasoning: { effort: 'low' } }
-        : {}),
-    })
+    // eskalacija: zahtevna vprašanja, priponke in dolgi pogovori gredo na močnejši model
+    const answerModel = complexQuestion || fileInput || history.length >= 6 ? ANSWER_MODEL_STRONG : ANSWER_MODEL
+    console.info('[RAG] answer model:', answerModel)
 
-    const answer = response.output_text?.trim() || fallbackAnswer(language)
+    const searchTool = {
+      type: 'function',
+      name: 'isci_pogoje',
+      strict: false,
+      description:
+        'Dodatno iskanje po bazi znanja (zavarovalni pogoji, Obligacijski zakonik, ZZavar-1). Uporabi, kadar priloženi izvlečki ne zadoščajo za popoln in natančen odgovor — namesto da odgovoriš, da informacije ni.',
+      parameters: {
+        type: 'object',
+        properties: {
+          poizvedba: { type: 'string', description: 'Iskalna poizvedba v slovenščini, s sopomenkami in strokovnimi izrazi.' },
+          koreni: {
+            type: 'array',
+            items: { type: 'string' },
+            description: '2-4 koreni najbolj razlikovalnih besed brez končnic (npr. ["slep","črev"]), da dobesedno iskanje ujame vse sklone.',
+          },
+        },
+        required: ['poizvedba'],
+      },
+    }
+
+    let convo = [
+      { role: 'system', content: systemPrompt + attachmentInstruction },
+      ...history,
+      {
+        role: 'user',
+        content: fileInput ? [{ type: 'input_text', text: message }, fileInput] : message,
+      },
+    ]
+
+    let searchesLeft = 2
+    let response = null
+
+    for (let round = 0; round < 3; round++) {
+      response = await openai.responses.create({
+        model: answerModel,
+        input: convo,
+        ...(searchesLeft > 0 ? { tools: [searchTool] } : {}),
+        // gpt-5 modeli del proračuna porabijo za razmislek, zato višja meja
+        max_output_tokens: 2500,
+        ...(answerModel.startsWith('gpt-5') && !answerModel.includes('chat')
+          ? { reasoning: { effort: 'low' } }
+          : {}),
+      })
+
+      const calls = (response.output || []).filter(item => item.type === 'function_call')
+      if (!calls.length) break
+
+      convo = convo.concat(response.output)
+      for (const call of calls) {
+        let result = ''
+        if (searchesLeft > 0) {
+          searchesLeft--
+          try {
+            const args = JSON.parse(call.arguments || '{}')
+            const extraQuery = String(args.poizvedba || '').slice(0, 300)
+            console.info('[RAG] agent search:', extraQuery)
+            if (extraQuery) {
+              result = await retrieveContext(openai, extraQuery, sanitizeStems(args.koreni), { light: true })
+            }
+          } catch (error) {
+            console.error('[RAG] agent search failed:', error)
+          }
+        }
+        convo.push({ type: 'function_call_output', call_id: call.call_id, output: result || 'Ni dodatnih zadetkov.' })
+      }
+    }
+
+    const answer = response?.output_text?.trim() || fallbackAnswer(language)
 
     const finalAnswer = context
       ? answer
