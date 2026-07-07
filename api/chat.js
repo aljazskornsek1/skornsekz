@@ -455,7 +455,7 @@ ${contextInstruction}`
     const searchTool = {
       type: 'function',
       name: 'isci_pogoje',
-      strict: false,
+      strict: true,
       description:
         'Dodatno iskanje po bazi znanja (zavarovalni pogoji, Obligacijski zakonik, ZZavar-1). Uporabi, kadar priloženi izvlečki ne zadoščajo za popoln in natančen odgovor — namesto da odgovoriš, da informacije ni.',
       parameters: {
@@ -468,7 +468,8 @@ ${contextInstruction}`
             description: '2-4 koreni najbolj razlikovalnih besed brez končnic (npr. ["slep","črev"]), da dobesedno iskanje ujame vse sklone.',
           },
         },
-        required: ['poizvedba'],
+        required: ['poizvedba', 'koreni'],
+        additionalProperties: false,
       },
     }
 
