@@ -1208,6 +1208,7 @@ html body .mega small{color:#666!important}
 #zavMega .zav-l3-mark{color:#bbb!important;font-size:12px!important;flex-shrink:0!important}
 </style>
   <style id="mobile-polish">
+    @media (max-width:767px){ input,select,textarea{font-size:16px!important} }
     /* Mobilne izboljsave (10.7.2026): tipografija, tap tarce, inline mreze */
     @media (max-width:767px){
       /* Naslovi H1 so bili 45-60px na 375px zaslonu */
@@ -1250,6 +1251,9 @@ html body .mega small{color:#666!important}
     body[data-page="ai-asistent"] .brand small,body[data-page="ai-asistent"] .brand b,body[data-page="ai-asistent"] .brand span{color:#0A1428!important}
     body[data-page="ai-asistent"] .header::after,body[data-page="ai-asistent"] .header::before{display:none!important;content:none!important}
     html body[data-page="ai-asistent"][data-page] .ai-top{display:none!important}
+    @media (max-width:767px){
+      html body[class] .ai-form input,html body[data-page] .ai-form input,html body .chat-form input,html body form input,html body input,html body select,html body textarea{font-size:16px!important}
+    }
   </style>
   <style id="pb-hero-tweak">
     /* Domov (zasebniki): naslov visje in vecji */
@@ -3717,7 +3721,7 @@ html body .mega small{color:#666!important}
       'kritje odgovornosti, če povzročite škodo drugim;':'liability coverage if you cause damage to others;',
       'pravno zaščito in pravni nasvet, če ste toženi ali če tožite;':'legal protection and legal advice if you are sued or if you sue;',
       'finančno varnost in asistenčno pomoč v različnih situacijah in še mnogo več.':'financial security and assistance help in various situations and much more.',
-      'Zavarovanje lahko sklenete zase ali za vso družino, hitro in enostavno – tudi preko spleta.':'You can take out the insurance for yourself or for your entire family, quickly and easily – also online.',
+      'Zavarovanje lahko sklenete zase ali za vso družino, hitro in enostavno.':'You can take out the insurance for yourself or for your entire family, quickly and easily.',
       'Zavarovanja za vašo varnost':'Insurance for your safety',
       'Kaj vključuje paket osebne zaščite?':'What does the personal protection package include?',
       'Odgovornost zasebnika':'Private individual\'s liability',
@@ -3920,7 +3924,7 @@ html body .mega small{color:#666!important}
       'Preventivni program, ki vas in vašo družino z uporabnimi vsebinami in osebnimi priporočili usmerja k zdravemu načinu življenja. Vključuje DNK analizo, nasvete za prehrano, telesno aktivnost in spanje. Dostopen pri paketu Comfort.':'A preventive programme that guides you and your family towards a healthy lifestyle with useful content and personalised recommendations. It includes DNA analysis, advice on nutrition, physical activity and sleep. Available with the Comfort package.',
       'Prihranite pri sklenitvi zavarovanja':'Save when taking out the insurance',
       'Popust s kodo UGODNO15':'Discount with the code UGODNO15',
-      'Pri spletni sklenitvi popust uveljavite z vpisom kode v 4. koraku.':'For online purchase, claim the discount by entering the code in step 4.',
+      '':'For online purchase, claim the discount by entering the code in step 4.',
       'Popust za veliko družino':'Large family discount',
       'Za nezgodno zavarovanje otrok in mladih, če hkrati zavarujete vsaj 3 otroke, ki so člani iste družine.':'For accident insurance for children and young people, if you simultaneously insure at least 3 children who are members of the same family.',
       'Triglav komplet popust':'Triglav komplet discount',
@@ -3932,18 +3936,18 @@ html body .mega small{color:#666!important}
       'Ali lahko zavarovanje sklenem tako, da kritja in višino zavarovalnih vsot določim sam?':'Can I take out the insurance so that I determine the coverage and the amount of the sums insured myself?',
       'Lahko. Zavarovanje s prosto izbiro kritij lahko sklenete pri zavarovalnih zastopnikih in na prodajnih mestih.':'Yes, you can. Insurance with a free choice of coverage can be taken out through insurance agents and at points of sale.',
       'Ali lahko zavarujem otroka za primer nezgodne smrti?':'Can I insure a child for the event of accidental death?',
-      'Lahko, in sicer pri zavarovalnih zastopnikih ali na prodajnih mestih, kjer se lahko dogovorite za zavarovalna kritja in njihov obseg po svoji meri. Kritje nezgodne smrti ni vključeno v pakete zavarovanj, ki jih je mogoče skleniti tudi preko spleta. Za primer nezgodne smrti lahko zavarujete otroke, ki so že dopolnili 14. leto starosti.':'Yes, you can, through insurance agents or at points of sale, where you can arrange insurance coverage and its scope tailored to your needs. Accidental death coverage is not included in the insurance packages that can also be taken out online. For the event of accidental death, you can insure children who have already reached the age of 14.',
+      'Lahko, in sicer pri zavarovalnih zastopnikih ali na prodajnih mestih, kjer se lahko dogovorite za zavarovalna kritja in njihov obseg po svoji meri. Kritje nezgodne smrti ni vključeno v pakete zavarovanj. Za primer nezgodne smrti lahko zavarujete otroke, ki so že dopolnili 14. leto starosti.':'Yes, you can, through insurance agents or at points of sale, where you can arrange insurance coverage and its scope tailored to your needs. Accidental death coverage is not included in the insurance packages. For the event of accidental death, you can insure children who have already reached the age of 14.',
       'Kako zavarovati otroka ali mladostnika, ki je aktiven športnik?':'How to insure a child or young person who is an active athlete?',
       'Če je otrok ali mladostnik registriran športnik, ima polno kritje le, če ima sklenjeno zavarovanje z doplačilom za šport in rizične dejavnosti. Če tega doplačila ni, se nezgode, ki jih otrok ali mladostnik utrpi pri športnem udejstvovanju (treningi in tekmovanja), izplačajo v omejenem obsegu v višini 66 % zavarovalne vsote.':'If a child or young person is a registered athlete, they have full coverage only if they have taken out insurance with a surcharge for sport and risky activities. Without this surcharge, accidents that the child or young person suffers during sports participation (training and competitions) are paid out to a limited extent, amounting to 66% of the sum insured.',
       'Ali lahko sklenem zavarovanje tudi kadarkoli med letom?':'Can I also take out the insurance at any time during the year?',
       'Da, zavarovanje ni vezano na trajanje šolskega ali študijskega leta in ga lahko sklenete kadarkoli med letom.':'Yes, the insurance is not tied to the duration of the school or academic year and can be taken out at any time during the year.',
       'Če je na zavarovalni polici naveden le začetek zavarovanja, čas trajanja ni določen. Veljavnost zavarovalnega kritja se nadaljuje iz leta v leto. Pred potekom zavarovalnega leta vam bomo poslali obračun za plačilo zavarovalne premije za naslednje zavarovalno leto. Tako zavarovanje traja, dokler ga ena od pogodbenih strank pisno ne odpove. Zavarovanja v prvem letu trajanja ni možno prekiniti. Lahko ga prekinete ob poteku prvega leta. V tem primeru morate odstopno izjavo podati pred iztekom prvega leta. Po preteku enega leta od sklenitve zavarovanja lahko kadarkoli odstopite od zavarovalne pogodbe. Zavarovanje v tem primeru preneha ob izteku meseca, v katerem boste podali odstopno izjavo. Zavarovalnica vam bo vrnila neizkoriščen del premije, če v tekočem zavarovalnem letu iz zavarovanja ni bila izplačana nobena škoda. Pisno odstopno izjavo lahko posredujete s sporočilom v digitalni poslovalnici i.triglav, preko spletnega obrazca ali na naslov Zavarovalnica Triglav, d.d., Miklošičeva cesta 19, 1000 Ljubljana. V primeru sklenitve enoletne zavarovalne police zavarovanje preneha veljati z datumom, ki je naveden na polici.':'If only the start of the insurance is stated on the insurance policy, the duration is not fixed. The validity of the insurance coverage continues from year to year. Before the end of the insurance year, we will send you a statement for payment of the insurance premium for the following insurance year. The insurance thus continues until one of the contracting parties cancels it in writing. The insurance cannot be terminated in the first year of its duration. You may terminate it at the end of the first year. In this case, you must submit the notice of withdrawal before the end of the first year. After one year has passed from the conclusion of the insurance, you may withdraw from the insurance contract at any time. In this case, the insurance ends at the end of the month in which you submit the notice of withdrawal. The insurer will refund the unused portion of the premium if no claim has been paid out under the insurance in the current insurance year. You can submit a written notice of withdrawal via a message in the i.triglav digital branch, through the online form, or to the address Zavarovalnica Triglav, d.d., Miklošičeva cesta 19, 1000 Ljubljana. In the case of a one-year insurance policy, the insurance ceases to be valid on the date stated on the policy.',
       'Kaj moram narediti, če želim spremeniti višino zavarovalnih vsot oziroma dodati novo kritje?':'What must I do if I want to change the amount of the sums insured or add new coverage?',
-      'V tem primeru prekinete obstoječo polico in sklenete novo, in sicer z novo izbrano višino zavarovalnih vsot oziroma dodanim novim kritjem. To lahko storite pri zavarovalnem zastopniku ali na prodajnem mestu. Če pa boste novo zavarovanje sklenili preko spleta, potem nam pisno zahtevo za prekinitev obstoječega zavarovanja lahko posredujete s sporočilom v digitalni poslovalnici i.triglav, preko spletnega obrazca ali na naslov Zavarovalnica Triglav, d.d., Miklošičeva cesta 19, 1000 Ljubljana.':'In this case, you terminate the existing policy and take out a new one, with the newly chosen amount of the sums insured or the added new coverage. You can do this through an insurance agent or at a point of sale. If, however, you take out the new insurance online, you can submit your written request to terminate the existing insurance via a message in the i.triglav digital branch, through the online form, or to the address Zavarovalnica Triglav, d.d., Miklošičeva cesta 19, 1000 Ljubljana.',
+      'V tem primeru prekinete obstoječo polico in sklenete novo, in sicer z novo izbrano višino zavarovalnih vsot oziroma dodanim novim kritjem. To lahko storite pri zavarovalnem zastopniku ali na prodajnem mestu.':'In this case, you terminate the existing policy and take out a new one, with the newly chosen amount of the sums insured or the added new coverage. You can do this through an insurance agent or at a point of sale.',
       'Med trajanjem nezgodnega zavarovanja se je otrok začel ukvarjati s športom. Ali lahko k polici priključim tudi kritje rizika športa?':'During the term of the accident insurance, the child began to take up sport. Can I add sport risk coverage to the policy?',
-      'K že veljavni polici nezgodnega zavarovanja otrok ali mladih razširitve kritja za rizik športa ni možno dodati. Če ga želite skleniti, potem obstoječo polico prekinite in sklenite novo z razširitvijo kritja za riziko športa. To lahko storite pri zavarovalnem zastopniku ali na prodajnem mestu. Če pa boste novo zavarovanje sklenili preko spleta, potem nam pisno zahtevo za prekinitev obstoječega zavarovanja lahko posredujete s sporočilom v digitalni poslovalnici i.triglav, preko spletnega obrazca ali na naslov Zavarovalnica Triglav, d.d., Miklošičeva cesta 19, 1000 Ljubljana.':'Sport risk coverage cannot be added to an already valid accident insurance policy for children or young people. If you wish to take it out, then terminate the existing policy and take out a new one with the sport risk coverage extension. You can do this through an insurance agent or at a point of sale. If, however, you take out the new insurance online, you can submit your written request to terminate the existing insurance via a message in the i.triglav digital branch, through the online form, or to the address Zavarovalnica Triglav, d.d., Miklošičeva cesta 19, 1000 Ljubljana.',
+      'K že veljavni polici nezgodnega zavarovanja otrok ali mladih razširitve kritja za rizik športa ni možno dodati. Če ga želite skleniti, potem obstoječo polico prekinite in sklenite novo z razširitvijo kritja za riziko športa. To lahko storite pri zavarovalnem zastopniku ali na prodajnem mestu.':'Sport risk coverage cannot be added to an already valid accident insurance policy for children or young people. If you wish to take it out, then terminate the existing policy and take out a new one with the sport risk coverage extension. You can do this through an insurance agent or at a point of sale.',
       'Stara sem 26 let. Prejela sem obvestilo o prenehanju nezgodnega zavarovanja. Na kakšen način se lahko zavarujem po prenehanju tega zavarovanja?':'I am 26 years old. I received a notice of termination of my accident insurance. How can I insure myself after this insurance ends?',
-      'Z nezgodnim zavarovanjem otrok in mladih se lahko zavarujejo mladi do 26. leta starosti. Zavarovanje preneha ob izteku zavarovalnega leta, v katerem zavarovanec dopolni 26. leto starosti. Svetujemo vam, da ste zavarovani tudi v prihodnje: sklenite LAJF – življenjsko in nezgodno zavarovanje za mlade, sklenete ga preko spleta; glede nadaljnjih možnosti zavarovanja se lahko obrnete tudi na naše zavarovalne zastopnike ali se oglasite na prodajnem mestu, kjer vam bomo svetovali primerno obliko zavarovanja za naprej.':'Accident insurance for children and young people can cover young people up to the age of 26. The insurance ends at the expiry of the insurance year in which the insured reaches the age of 26. We advise you to remain insured in the future as well: take out LAJF – life and accident insurance for young people, which you can conclude online; regarding further insurance options, you can also contact our insurance agents or visit a point of sale, where we will advise you on a suitable form of insurance going forward.',
+      'Z nezgodnim zavarovanjem otrok in mladih se lahko zavarujejo mladi do 26. leta starosti. Zavarovanje preneha ob izteku zavarovalnega leta, v katerem zavarovanec dopolni 26. leto starosti. Svetujemo vam, da ste zavarovani tudi v prihodnje: sklenite LAJF – življenjsko in nezgodno zavarovanje za mlade; glede nadaljnjih možnosti zavarovanja se lahko obrnete tudi na naše zavarovalne zastopnike ali se oglasite na prodajnem mestu, kjer vam bomo svetovali primerno obliko zavarovanja za naprej.':'Accident insurance for children and young people can cover young people up to the age of 26. The insurance ends at the expiry of the insurance year in which the insured reaches the age of 26. We advise you to remain insured in the future as well: take out LAJF – life and accident insurance for young people; regarding further insurance options, you can also contact our insurance agents or visit a point of sale, where we will advise you on a suitable form of insurance going forward.',
       'Kaj moram storiti, če se moj otrok ali mladostnik poškoduje?':'What should I do if my child or adolescent is injured?',
       'Če se otrok ali mladostnik poškoduje, uredite naslednje: najprej obiščite zdravnika in se glede zdravljenja ravnajte po njegovih navodilih; shranite zdravstveno in ostalo dokumentacijo, ki jo boste prejeli v postopku zdravljenja; zavarovalnici prijavite nezgodo takoj, ko vam oziroma vašemu otroku zdravstveno stanje to omogoča; v prijavi nezgode boste zavarovalnici podali vsa potrebna dokazila, ki jih bo zavarovalnica zahtevala za rešitev zavarovalnega primera.':'If a child or adolescent is injured, take the following steps: first visit a doctor and follow their instructions regarding treatment; keep the medical and other documentation you receive during the course of treatment; report the accident to the insurer as soon as your or your child\'s health condition allows; in the accident report you will provide the insurer with all the necessary evidence that the insurer requires to settle the insurance claim.',
       'Kdaj lahko prijavim nezgodo?':'When can I report an accident?',
@@ -4090,7 +4094,7 @@ html body .mega small{color:#666!important}
       'Zavarovanje začne veljati z datumom, ki je na polici naveden kot začetek zavarovanja, in sicer za kritje mesečne nezgodne rente, zlomov, izpahov in opeklin ter smrti. Jamstvo za primer smrti začne veljati 3 mesece po začetku veljavnosti zavarovanja, vendar pa velja, da si že v obdobju prvih 3 mesecev zavarovan/-a za primer smrti, ki je posledica nezgode.':'The insurance takes effect on the date stated on the policy as the start of the insurance, namely for coverage of the monthly accident annuity, fractures, dislocations and burns, and death. The guarantee in the event of death takes effect 3 months after the insurance takes effect, but it applies that already during the first 3 months you are insured for the event of death resulting from an accident.',
       'Zavarovanje preneha veljati s potekom, ki je določen na zavarovalni polici, v primeru smrti ali v primeru neplačila premije.':'The insurance ceases to be in force upon the expiry stated on the insurance policy, in the event of death or in the event of non-payment of the premium.',
       'Kritje za primer smrti bi želel skleniti za 100.000 EUR, vendar noben paket tega ne omogoča. Kaj lahko storim?':'I would like to take out death coverage for EUR 100,000, but none of the packages allow this. What can I do?',
-      'Življenjsko zavarovanje LAJF lahko skleneš le v okviru predstavljenih paketov, kjer je najvišja zavarovalna vsota za primer smrti 60.000 EUR. Če želiš višje kritje za primer smrti, potem ti priporočamo sklenitev Zavarovanja življenja, ki ga lahko skleneš tudi preko spleta.':'LAJF life insurance can only be taken out within the presented packages, where the highest sum insured for the event of death is EUR 60,000. If you want higher coverage in the event of death, then we recommend taking out Life Insurance, which you can also take out online.',
+      'Življenjsko zavarovanje LAJF lahko skleneš le v okviru predstavljenih paketov, kjer je najvišja zavarovalna vsota za primer smrti 60.000 EUR. Če želiš višje kritje za primer smrti, potem ti priporočamo sklenitev Zavarovanja življenja.':'LAJF life insurance can only be taken out within the presented packages, where the highest sum insured for the event of death is EUR 60,000. If you want higher coverage in the event of death, then we recommend taking out Life Insurance.',
       'Za dodatne informacije nam piši ali pokliči na 080 555 555.':'For additional information, write to us or call 080 555 555.',
       'Ali se lahko med trajanjem zavarovanja odločim za zamenjavo paketa?':'Can I decide to change the package during the term of the insurance?',
       'Da, če premijo plačuješ mesečno, lahko izbereš paket z višjimi kritji od obstoječega. Za dodatne informacije nam piši ali pokliči na 080 555 555.':'Yes, if you pay the premium monthly, you can choose a package with higher coverage than the existing one. For additional information, write to us or call 080 555 555.',
@@ -4106,7 +4110,7 @@ html body .mega small{color:#666!important}
       'Ključna kritja':'Key coverages',
       'Poskrbite zase in za svoje najdražje':'Take care of yourself and your loved ones',
       'Z življenjskim zavarovanjem si zagotovite, da bodo vaši bližnji preskrbljeni in vi zaščiteni.':'With life insurance you ensure that your loved ones are provided for and you are protected.',
-      'Zavarujejo se lahko zdrave osebe od izpolnjenega 14. do 74. leta starosti, ki ob izteku zavarovanja niso starejše od 75 let (sklenitev preko spleta je možna od 18. leta dalje). Osebe, ki niso popolnoma zdrave, kakor tudi osebe, starejše kot 74 let, se zavarujejo po dopolnilnih pogojih.':'Healthy persons from the completed age of 14 to 74 who are not older than 75 at the expiry of the insurance can be insured (conclusion online is possible from the age of 18 onwards). Persons who are not fully healthy, as well as persons older than 74, are insured under supplementary terms and conditions.',
+      'Zavarujejo se lahko zdrave osebe od izpolnjenega 14. do 74. leta starosti, ki ob izteku zavarovanja niso starejše od 75 let. Osebe, ki niso popolnoma zdrave, kakor tudi osebe, starejše kot 74 let, se zavarujejo po dopolnilnih pogojih.':'Healthy persons from the completed age of 14 to 74 who are not older than 75 at the expiry of the insurance can be insured (conclusion online is possible from the age of 18 onwards). Persons who are not fully healthy, as well as persons older than 74, are insured under supplementary terms and conditions.',
       'Višina premije je odvisna od obsega zavarovalnega kritja, vaše starosti, življenjskega sloga in predvidenega zavarovalno-tehničnega rezultata.':'The amount of the premium depends on the scope of the insurance coverage, your age, lifestyle and the anticipated actuarial result.',
       'Ključna zavarovalna kritja':'Key insurance coverages',
       'Naj bodo vaši bližnji preskrbljeni tudi, če ne boste več z njimi. To vam zagotavlja osnovno življenjsko zavarovanje.':'Let your loved ones be provided for even if you are no longer with them. This is what basic life insurance provides for you.',
@@ -4157,7 +4161,7 @@ html body .mega small{color:#666!important}
       'V primeru trajne delovne nezmožnosti zaradi nezgode čakalnega roka ni. Če je vzrok bolezen, pa se jamstvo zavarovalnice začne 6 mesecev po izpolnitvi pogojev.':'In the case of permanent incapacity to work due to an accident, there is no waiting period. If the cause is illness, the insurer\'s liability begins 6 months after the conditions are met.',
       'Zakaj je ob sklenitvi življenjskega zavarovanja pomembno moje zdravstveno stanje?':'Why is my health status important when taking out life insurance?',
       'Vaše zdravstveno stanje je za zavarovalnico pomemben podatek. Nekateri zdravstveni dejavniki namreč vplivajo na vašo pričakovano življenjsko dobo. Zavarovalnica jih upošteva pri izračunu tveganja, ki ga prevzema s tem, ko vas zavaruje, in določanju višine zavarovalne premije za vašo zavarovalno polico. Zato je pomembno, da ob sklenitvi zavarovanja navedete resnične podatke, po katerih sprašujemo, saj vam v nasprotnem primeru ne moremo zagotoviti, da boste prejeli izplačilo (celotne) zavarovalnine.':'Your health status is important information for the insurer. Some health factors affect your life expectancy. The insurer takes them into account when calculating the risk it assumes by insuring you and when determining the amount of the insurance premium for your policy. It is therefore important that when taking out the insurance you provide truthful information about what we ask, since otherwise we cannot guarantee that you will receive payment of the (full) insurance benefit.',
-      'Zavarovanje lahko sklenete na vseh prodajnih mestih Zavarovalnice Triglav, preko spleta ali pri zavarovalnem zastopniku. Z zastopnikom lahko zavarovanje sklenete osebno ali na daljavo. Za več informacij nam lahko pišete ali pokličete na brezplačno telefonsko številko 080 555 555.':'You can take out the insurance at all points of sale of Zavarovalnica Triglav, online or through an insurance agent. With an agent you can take out the insurance in person or remotely. For more information you can write to us or call our toll-free number 080 555 555.',
+      'Zavarovanje lahko sklenete na vseh prodajnih mestih Zavarovalnice Triglav ali pri zavarovalnem zastopniku. Z zastopnikom lahko zavarovanje sklenete osebno ali na daljavo. Za več informacij nam lahko pišete ali pokličete na brezplačno telefonsko številko 080 555 555.':'You can take out the insurance at all points of sale of Zavarovalnica Triglav or through an insurance agent. With an agent you can take out the insurance in person or remotely. For more information you can write to us or call our toll-free number 080 555 555.',
       'Splošni pogoji za Zavarovanje življenja':'General Terms and Conditions for Life Insurance',
       '1.264 KB':'1,264 KB',
       'Zahtevek za finančne spremembe':'Request for financial changes',
@@ -4508,7 +4512,7 @@ html body .mega small{color:#666!important}
       'Skladi spodbujajo okoljske in družbene značilnosti ob investiranju v družbe, ki spoštujejo prakse dobrega upravljanja. Z naložbami v trajnostne sklade postajate del globalnega gibanja za trajnostnost in zmanjšujete negativni vpliv tveganj na donosnost.':'The funds promote environmental and social characteristics while investing in companies that respect good governance practices. By investing in sustainable funds, you become part of a global sustainability movement and reduce the negative impact of risks on returns.',
       'Dve različici zavarovanja Fleksi':'Two versions of the Fleksi insurance',
       'i.fleks':'i.fleks',
-      'Različica, ki jo preprosto sklenete preko spleta. Prihranite čas in denar. Možnost izbire skladov ETF.':'A version you can conclude easily online. Save time and money. Option to choose ETF funds.',
+      'Preprosta in hitra različica. Prihranite čas in denar. Možnost izbire skladov ETF.':'A simple and fast option. Save time and money. Option to choose ETF funds.',
       'Več o i.fleks':'More about i.fleks',
       'Enkratno naložbeno zavarovanje':'Single-premium investment insurance',
       'Kombinacija varčevanja v skladih in življenjskega zavarovanja z možnostjo priključitve Dodatnega zavarovanja mesečne nezgodne rente. Brez vnaprej določene dobe.':'A combination of saving in funds and life insurance with the option to add Supplementary insurance for a monthly accident annuity. Without a predetermined term.',
@@ -4517,7 +4521,7 @@ html body .mega small{color:#666!important}
       'Prilagodljivo, prav mimogrede':'Flexible, just on the side',
       'Zavarovanje z odprto dobo –':'Insurance with an open term –',
       'sklenjeno v minutah':'concluded in minutes',
-      'Različica naložbenega zavarovanja Fleks, ki vam prihrani čas in denar. Sklenete ga preprosto preko spleta. Zavarujejo se zdrave osebe od 18. do 65. leta starosti.':'A version of the Fleks investment insurance that saves you time and money. You conclude it easily online. Healthy persons from 18 to 65 years of age can be insured.',
+      'Različica naložbenega zavarovanja Fleks, ki vam prihrani čas in denar. Zavarujejo se zdrave osebe od 18. do 65. leta starosti.':'A version of the Fleks investment insurance that saves you time and money. Healthy persons from 18 to 65 years of age can be insured.',
       'Fleksibilnost':'Flexibility',
       'Prilagodljivo tako ob sklenitvi kot med trajanjem zavarovanja.':'Flexible both at conclusion and during the term of the insurance.',
       'Skladi ETF':'ETF funds',
@@ -6137,7 +6141,7 @@ html body .mega small{color:#666!important}
       'kritje odgovornosti, če povzročite škodo drugim;':'Haftpflichtdeckung, wenn Sie anderen Schaden zufügen;',
       'pravno zaščito in pravni nasvet, če ste toženi ali če tožite;':'Rechtsschutz und rechtliche Beratung, wenn Sie verklagt werden oder wenn Sie klagen;',
       'finančno varnost in asistenčno pomoč v različnih situacijah in še mnogo več.':'finanzielle Sicherheit und Assistance-Hilfe in verschiedenen Situationen und vieles mehr.',
-      'Zavarovanje lahko sklenete zase ali za vso družino, hitro in enostavno – tudi preko spleta.':'Sie können die Versicherung für sich selbst oder für die ganze Familie abschließen, schnell und einfach – auch online.',
+      'Zavarovanje lahko sklenete zase ali za vso družino, hitro in enostavno.':'Sie können die Versicherung für sich selbst oder für die ganze Familie abschließen, schnell und einfach.',
       'Zavarovanja za vašo varnost':'Versicherungen für Ihre Sicherheit',
       'Kaj vključuje paket osebne zaščite?':'Was umfasst das persönliche Schutzpaket?',
       'Odgovornost zasebnika':'Privathaftpflicht',
@@ -6340,7 +6344,7 @@ html body .mega small{color:#666!important}
       'Preventivni program, ki vas in vašo družino z uporabnimi vsebinami in osebnimi priporočili usmerja k zdravemu načinu življenja. Vključuje DNK analizo, nasvete za prehrano, telesno aktivnost in spanje. Dostopen pri paketu Comfort.':'Ein Präventionsprogramm, das Sie und Ihre Familie mit nützlichen Inhalten und persönlichen Empfehlungen zu einem gesunden Lebensstil führt. Es umfasst eine DNA-Analyse, Ratschläge zu Ernährung, körperlicher Aktivität und Schlaf. Verfügbar im Comfort-Paket.',
       'Prihranite pri sklenitvi zavarovanja':'Sparen Sie beim Abschluss der Versicherung',
       'Popust s kodo UGODNO15':'Rabatt mit dem Code UGODNO15',
-      'Pri spletni sklenitvi popust uveljavite z vpisom kode v 4. koraku.':'Beim Online-Abschluss machen Sie den Rabatt durch Eingabe des Codes in Schritt 4 geltend.',
+      '':'Beim Online-Abschluss machen Sie den Rabatt durch Eingabe des Codes in Schritt 4 geltend.',
       'Popust za veliko družino':'Rabatt für kinderreiche Familien',
       'Za nezgodno zavarovanje otrok in mladih, če hkrati zavarujete vsaj 3 otroke, ki so člani iste družine.':'Für die Unfallversicherung von Kindern und Jugendlichen, wenn Sie gleichzeitig mindestens 3 Kinder versichern, die Mitglieder derselben Familie sind.',
       'Triglav komplet popust':'Triglav komplet Rabatt',
@@ -6352,18 +6356,18 @@ html body .mega small{color:#666!important}
       'Ali lahko zavarovanje sklenem tako, da kritja in višino zavarovalnih vsot določim sam?':'Kann ich die Versicherung so abschließen, dass ich die Deckungen und die Höhe der Versicherungssummen selbst festlege?',
       'Lahko. Zavarovanje s prosto izbiro kritij lahko sklenete pri zavarovalnih zastopnikih in na prodajnih mestih.':'Ja, das können Sie. Eine Versicherung mit freier Wahl der Deckungen können Sie bei Versicherungsvertretern und an Verkaufsstellen abschließen.',
       'Ali lahko zavarujem otroka za primer nezgodne smrti?':'Kann ich ein Kind für den Fall des Unfalltods versichern?',
-      'Lahko, in sicer pri zavarovalnih zastopnikih ali na prodajnih mestih, kjer se lahko dogovorite za zavarovalna kritja in njihov obseg po svoji meri. Kritje nezgodne smrti ni vključeno v pakete zavarovanj, ki jih je mogoče skleniti tudi preko spleta. Za primer nezgodne smrti lahko zavarujete otroke, ki so že dopolnili 14. leto starosti.':'Ja, und zwar bei Versicherungsvertretern oder an Verkaufsstellen, wo Sie die Versicherungsdeckungen und deren Umfang nach Maß vereinbaren können. Die Deckung des Unfalltods ist nicht in den Versicherungspaketen enthalten, die auch online abgeschlossen werden können. Für den Fall des Unfalltods können Sie Kinder versichern, die das 14. Lebensjahr bereits vollendet haben.',
+      'Lahko, in sicer pri zavarovalnih zastopnikih ali na prodajnih mestih, kjer se lahko dogovorite za zavarovalna kritja in njihov obseg po svoji meri. Kritje nezgodne smrti ni vključeno v pakete zavarovanj. Za primer nezgodne smrti lahko zavarujete otroke, ki so že dopolnili 14. leto starosti.':'Ja, und zwar bei Versicherungsvertretern oder an Verkaufsstellen, wo Sie die Versicherungsdeckungen und deren Umfang nach Maß vereinbaren können. Die Deckung des Unfalltods ist nicht in den Versicherungspaketen enthalten. Für den Fall des Unfalltods können Sie Kinder versichern, die das 14. Lebensjahr bereits vollendet haben.',
       'Kako zavarovati otroka ali mladostnika, ki je aktiven športnik?':'Wie versichert man ein Kind oder einen Jugendlichen, der aktiver Sportler ist?',
       'Če je otrok ali mladostnik registriran športnik, ima polno kritje le, če ima sklenjeno zavarovanje z doplačilom za šport in rizične dejavnosti. Če tega doplačila ni, se nezgode, ki jih otrok ali mladostnik utrpi pri športnem udejstvovanju (treningi in tekmovanja), izplačajo v omejenem obsegu v višini 66 % zavarovalne vsote.':'Ist das Kind oder der Jugendliche ein registrierter Sportler, hat es nur dann vollen Versicherungsschutz, wenn eine Versicherung mit Zuschlag für Sport und riskante Tätigkeiten abgeschlossen wurde. Fehlt dieser Zuschlag, werden Unfälle, die das Kind oder der Jugendliche bei der sportlichen Betätigung (Trainings und Wettkämpfe) erleidet, nur in begrenztem Umfang in Höhe von 66 % der Versicherungssumme ausgezahlt.',
       'Ali lahko sklenem zavarovanje tudi kadarkoli med letom?':'Kann ich die Versicherung auch jederzeit im Laufe des Jahres abschließen?',
       'Da, zavarovanje ni vezano na trajanje šolskega ali študijskega leta in ga lahko sklenete kadarkoli med letom.':'Ja, die Versicherung ist nicht an die Dauer des Schul- oder Studienjahres gebunden und kann jederzeit im Laufe des Jahres abgeschlossen werden.',
       'Če je na zavarovalni polici naveden le začetek zavarovanja, čas trajanja ni določen. Veljavnost zavarovalnega kritja se nadaljuje iz leta v leto. Pred potekom zavarovalnega leta vam bomo poslali obračun za plačilo zavarovalne premije za naslednje zavarovalno leto. Tako zavarovanje traja, dokler ga ena od pogodbenih strank pisno ne odpove. Zavarovanja v prvem letu trajanja ni možno prekiniti. Lahko ga prekinete ob poteku prvega leta. V tem primeru morate odstopno izjavo podati pred iztekom prvega leta. Po preteku enega leta od sklenitve zavarovanja lahko kadarkoli odstopite od zavarovalne pogodbe. Zavarovanje v tem primeru preneha ob izteku meseca, v katerem boste podali odstopno izjavo. Zavarovalnica vam bo vrnila neizkoriščen del premije, če v tekočem zavarovalnem letu iz zavarovanja ni bila izplačana nobena škoda. Pisno odstopno izjavo lahko posredujete s sporočilom v digitalni poslovalnici i.triglav, preko spletnega obrazca ali na naslov Zavarovalnica Triglav, d.d., Miklošičeva cesta 19, 1000 Ljubljana. V primeru sklenitve enoletne zavarovalne police zavarovanje preneha veljati z datumom, ki je naveden na polici.':'Wenn auf der Versicherungspolice nur der Beginn der Versicherung angegeben ist, ist die Laufzeit nicht festgelegt. Die Gültigkeit des Versicherungsschutzes setzt sich von Jahr zu Jahr fort. Vor Ablauf des Versicherungsjahres senden wir Ihnen eine Abrechnung zur Zahlung der Versicherungsprämie für das folgende Versicherungsjahr. So läuft die Versicherung, bis eine der Vertragsparteien sie schriftlich kündigt. Die Versicherung kann im ersten Jahr ihrer Laufzeit nicht gekündigt werden. Sie können sie zum Ablauf des ersten Jahres kündigen. In diesem Fall müssen Sie die Rücktrittserklärung vor Ablauf des ersten Jahres abgeben. Nach Ablauf eines Jahres seit Abschluss der Versicherung können Sie jederzeit vom Versicherungsvertrag zurücktreten. Die Versicherung endet in diesem Fall zum Ablauf des Monats, in dem Sie die Rücktrittserklärung abgeben. Die Versicherung erstattet Ihnen den ungenutzten Teil der Prämie, sofern im laufenden Versicherungsjahr aus der Versicherung kein Schaden ausgezahlt wurde. Die schriftliche Rücktrittserklärung können Sie per Nachricht in der digitalen Geschäftsstelle i.triglav, über das Online-Formular oder an die Adresse Zavarovalnica Triglav, d.d., Miklošičeva cesta 19, 1000 Ljubljana übermitteln. Im Falle des Abschlusses einer einjährigen Versicherungspolice erlischt die Versicherung mit dem auf der Police angegebenen Datum.',
       'Kaj moram narediti, če želim spremeniti višino zavarovalnih vsot oziroma dodati novo kritje?':'Was muss ich tun, wenn ich die Höhe der Versicherungssummen ändern oder eine neue Deckung hinzufügen möchte?',
-      'V tem primeru prekinete obstoječo polico in sklenete novo, in sicer z novo izbrano višino zavarovalnih vsot oziroma dodanim novim kritjem. To lahko storite pri zavarovalnem zastopniku ali na prodajnem mestu. Če pa boste novo zavarovanje sklenili preko spleta, potem nam pisno zahtevo za prekinitev obstoječega zavarovanja lahko posredujete s sporočilom v digitalni poslovalnici i.triglav, preko spletnega obrazca ali na naslov Zavarovalnica Triglav, d.d., Miklošičeva cesta 19, 1000 Ljubljana.':'In diesem Fall kündigen Sie die bestehende Police und schließen eine neue ab, und zwar mit der neu gewählten Höhe der Versicherungssummen bzw. der hinzugefügten neuen Deckung. Dies können Sie bei einem Versicherungsvertreter oder an einer Verkaufsstelle tun. Wenn Sie die neue Versicherung jedoch online abschließen, können Sie uns den schriftlichen Antrag auf Kündigung der bestehenden Versicherung per Nachricht in der digitalen Geschäftsstelle i.triglav, über das Online-Formular oder an die Adresse Zavarovalnica Triglav, d.d., Miklošičeva cesta 19, 1000 Ljubljana übermitteln.',
+      'V tem primeru prekinete obstoječo polico in sklenete novo, in sicer z novo izbrano višino zavarovalnih vsot oziroma dodanim novim kritjem. To lahko storite pri zavarovalnem zastopniku ali na prodajnem mestu.':'In diesem Fall kündigen Sie die bestehende Police und schließen eine neue ab, und zwar mit der neu gewählten Höhe der Versicherungssummen bzw. der hinzugefügten neuen Deckung. Dies können Sie bei einem Versicherungsvertreter oder an einer Verkaufsstelle tun.',
       'Med trajanjem nezgodnega zavarovanja se je otrok začel ukvarjati s športom. Ali lahko k polici priključim tudi kritje rizika športa?':'Während der Laufzeit der Unfallversicherung hat das Kind begonnen, Sport zu treiben. Kann ich der Police auch die Deckung des Sportrisikos hinzufügen?',
-      'K že veljavni polici nezgodnega zavarovanja otrok ali mladih razširitve kritja za rizik športa ni možno dodati. Če ga želite skleniti, potem obstoječo polico prekinite in sklenite novo z razširitvijo kritja za riziko športa. To lahko storite pri zavarovalnem zastopniku ali na prodajnem mestu. Če pa boste novo zavarovanje sklenili preko spleta, potem nam pisno zahtevo za prekinitev obstoječega zavarovanja lahko posredujete s sporočilom v digitalni poslovalnici i.triglav, preko spletnega obrazca ali na naslov Zavarovalnica Triglav, d.d., Miklošičeva cesta 19, 1000 Ljubljana.':'Zu einer bereits gültigen Police der Unfallversicherung für Kinder oder Jugendliche kann die Erweiterung der Deckung um das Sportrisiko nicht hinzugefügt werden. Wenn Sie diese abschließen möchten, kündigen Sie die bestehende Police und schließen eine neue mit der Erweiterung der Deckung um das Sportrisiko ab. Dies können Sie bei einem Versicherungsvertreter oder an einer Verkaufsstelle tun. Wenn Sie die neue Versicherung jedoch online abschließen, können Sie uns den schriftlichen Antrag auf Kündigung der bestehenden Versicherung per Nachricht in der digitalen Geschäftsstelle i.triglav, über das Online-Formular oder an die Adresse Zavarovalnica Triglav, d.d., Miklošičeva cesta 19, 1000 Ljubljana übermitteln.',
+      'K že veljavni polici nezgodnega zavarovanja otrok ali mladih razširitve kritja za rizik športa ni možno dodati. Če ga želite skleniti, potem obstoječo polico prekinite in sklenite novo z razširitvijo kritja za riziko športa. To lahko storite pri zavarovalnem zastopniku ali na prodajnem mestu.':'Zu einer bereits gültigen Police der Unfallversicherung für Kinder oder Jugendliche kann die Erweiterung der Deckung um das Sportrisiko nicht hinzugefügt werden. Wenn Sie diese abschließen möchten, kündigen Sie die bestehende Police und schließen eine neue mit der Erweiterung der Deckung um das Sportrisiko ab. Dies können Sie bei einem Versicherungsvertreter oder an einer Verkaufsstelle tun.',
       'Stara sem 26 let. Prejela sem obvestilo o prenehanju nezgodnega zavarovanja. Na kakšen način se lahko zavarujem po prenehanju tega zavarovanja?':'Ich bin 26 Jahre alt. Ich habe eine Mitteilung über die Beendigung der Unfallversicherung erhalten. Wie kann ich mich nach dem Ende dieser Versicherung versichern?',
-      'Z nezgodnim zavarovanjem otrok in mladih se lahko zavarujejo mladi do 26. leta starosti. Zavarovanje preneha ob izteku zavarovalnega leta, v katerem zavarovanec dopolni 26. leto starosti. Svetujemo vam, da ste zavarovani tudi v prihodnje: sklenite LAJF – življenjsko in nezgodno zavarovanje za mlade, sklenete ga preko spleta; glede nadaljnjih možnosti zavarovanja se lahko obrnete tudi na naše zavarovalne zastopnike ali se oglasite na prodajnem mestu, kjer vam bomo svetovali primerno obliko zavarovanja za naprej.':'Mit der Unfallversicherung für Kinder und Jugendliche können sich junge Menschen bis zum 26. Lebensjahr versichern. Die Versicherung endet mit Ablauf des Versicherungsjahres, in dem der Versicherte das 26. Lebensjahr vollendet. Wir raten Ihnen, auch künftig versichert zu sein: Schließen Sie LAJF – die Lebens- und Unfallversicherung für junge Menschen – ab, die Sie online abschließen können; hinsichtlich weiterer Versicherungsmöglichkeiten können Sie sich auch an unsere Versicherungsvertreter wenden oder eine Verkaufsstelle aufsuchen, wo wir Sie über eine geeignete Versicherungsform für die Zukunft beraten.',
+      'Z nezgodnim zavarovanjem otrok in mladih se lahko zavarujejo mladi do 26. leta starosti. Zavarovanje preneha ob izteku zavarovalnega leta, v katerem zavarovanec dopolni 26. leto starosti. Svetujemo vam, da ste zavarovani tudi v prihodnje: sklenite LAJF – življenjsko in nezgodno zavarovanje za mlade; glede nadaljnjih možnosti zavarovanja se lahko obrnete tudi na naše zavarovalne zastopnike ali se oglasite na prodajnem mestu, kjer vam bomo svetovali primerno obliko zavarovanja za naprej.':'Mit der Unfallversicherung für Kinder und Jugendliche können sich junge Menschen bis zum 26. Lebensjahr versichern. Die Versicherung endet mit Ablauf des Versicherungsjahres, in dem der Versicherte das 26. Lebensjahr vollendet. Wir raten Ihnen, auch künftig versichert zu sein: Schließen Sie LAJF – die Lebens- und Unfallversicherung für junge Menschen – ab; hinsichtlich weiterer Versicherungsmöglichkeiten können Sie sich auch an unsere Versicherungsvertreter wenden oder eine Verkaufsstelle aufsuchen, wo wir Sie über eine geeignete Versicherungsform für die Zukunft beraten.',
       'Kaj moram storiti, če se moj otrok ali mladostnik poškoduje?':'Was muss ich tun, wenn sich mein Kind oder Jugendlicher verletzt?',
       'Če se otrok ali mladostnik poškoduje, uredite naslednje: najprej obiščite zdravnika in se glede zdravljenja ravnajte po njegovih navodilih; shranite zdravstveno in ostalo dokumentacijo, ki jo boste prejeli v postopku zdravljenja; zavarovalnici prijavite nezgodo takoj, ko vam oziroma vašemu otroku zdravstveno stanje to omogoča; v prijavi nezgode boste zavarovalnici podali vsa potrebna dokazila, ki jih bo zavarovalnica zahtevala za rešitev zavarovalnega primera.':'Wenn sich ein Kind oder Jugendlicher verletzt, gehen Sie wie folgt vor: Suchen Sie zunächst einen Arzt auf und befolgen Sie seine Anweisungen zur Behandlung; bewahren Sie die medizinische und sonstige Dokumentation auf, die Sie im Laufe der Behandlung erhalten; melden Sie den Unfall der Versicherung, sobald Ihr Gesundheitszustand bzw. der Ihres Kindes dies zulässt; in der Unfallmeldung legen Sie der Versicherung alle erforderlichen Nachweise vor, die die Versicherung zur Regulierung des Versicherungsfalls verlangt.',
       'Kdaj lahko prijavim nezgodo?':'Wann kann ich einen Unfall melden?',
@@ -6510,7 +6514,7 @@ html body .mega small{color:#666!important}
       'Zavarovanje začne veljati z datumom, ki je na polici naveden kot začetek zavarovanja, in sicer za kritje mesečne nezgodne rente, zlomov, izpahov in opeklin ter smrti. Jamstvo za primer smrti začne veljati 3 mesece po začetku veljavnosti zavarovanja, vendar pa velja, da si že v obdobju prvih 3 mesecev zavarovan/-a za primer smrti, ki je posledica nezgode.':'Die Versicherung tritt zu dem in der Police als Versicherungsbeginn angegebenen Datum in Kraft, und zwar für die Deckung der monatlichen Unfallrente, der Brüche, Verrenkungen und Verbrennungen sowie des Todes. Die Deckung für den Todesfall tritt 3 Monate nach Inkrafttreten der Versicherung in Kraft, jedoch gilt, dass du bereits im Zeitraum der ersten 3 Monate für den Fall des Todes, der Folge eines Unfalls ist, versichert bist.',
       'Zavarovanje preneha veljati s potekom, ki je določen na zavarovalni polici, v primeru smrti ali v primeru neplačila premije.':'Die Versicherung endet mit dem auf der Versicherungspolice festgelegten Ablauf, im Todesfall oder bei Nichtzahlung der Prämie.',
       'Kritje za primer smrti bi želel skleniti za 100.000 EUR, vendar noben paket tega ne omogoča. Kaj lahko storim?':'Ich möchte eine Todesfalldeckung über 100.000 EUR abschließen, aber kein Paket ermöglicht das. Was kann ich tun?',
-      'Življenjsko zavarovanje LAJF lahko skleneš le v okviru predstavljenih paketov, kjer je najvišja zavarovalna vsota za primer smrti 60.000 EUR. Če želiš višje kritje za primer smrti, potem ti priporočamo sklenitev Zavarovanja življenja, ki ga lahko skleneš tudi preko spleta.':'Die LAJF-Lebensversicherung kannst du nur im Rahmen der vorgestellten Pakete abschließen, bei denen die höchste Versicherungssumme für den Todesfall 60.000 EUR beträgt. Wenn du eine höhere Deckung für den Todesfall möchtest, empfehlen wir dir den Abschluss der Lebensversicherung, die du auch online abschließen kannst.',
+      'Življenjsko zavarovanje LAJF lahko skleneš le v okviru predstavljenih paketov, kjer je najvišja zavarovalna vsota za primer smrti 60.000 EUR. Če želiš višje kritje za primer smrti, potem ti priporočamo sklenitev Zavarovanja življenja.':'Die LAJF-Lebensversicherung kannst du nur im Rahmen der vorgestellten Pakete abschließen, bei denen die höchste Versicherungssumme für den Todesfall 60.000 EUR beträgt. Wenn du eine höhere Deckung für den Todesfall möchtest, empfehlen wir dir den Abschluss der Lebensversicherung.',
       'Za dodatne informacije nam piši ali pokliči na 080 555 555.':'Für weitere Informationen schreibe uns oder rufe die 080 555 555 an.',
       'Ali se lahko med trajanjem zavarovanja odločim za zamenjavo paketa?':'Kann ich mich während der Versicherungsdauer für einen Wechsel des Pakets entscheiden?',
       'Da, če premijo plačuješ mesečno, lahko izbereš paket z višjimi kritji od obstoječega. Za dodatne informacije nam piši ali pokliči na 080 555 555.':'Ja, wenn du die Prämie monatlich zahlst, kannst du ein Paket mit höheren Deckungen als dem bestehenden wählen. Für weitere Informationen schreibe uns oder rufe die 080 555 555 an.',
@@ -6526,7 +6530,7 @@ html body .mega small{color:#666!important}
       'Ključna kritja':'Wesentliche Deckungen',
       'Poskrbite zase in za svoje najdražje':'Sorgen Sie für sich und Ihre Liebsten',
       'Z življenjskim zavarovanjem si zagotovite, da bodo vaši bližnji preskrbljeni in vi zaščiteni.':'Mit der Lebensversicherung stellen Sie sicher, dass Ihre Nächsten versorgt und Sie geschützt sind.',
-      'Zavarujejo se lahko zdrave osebe od izpolnjenega 14. do 74. leta starosti, ki ob izteku zavarovanja niso starejše od 75 let (sklenitev preko spleta je možna od 18. leta dalje). Osebe, ki niso popolnoma zdrave, kakor tudi osebe, starejše kot 74 let, se zavarujejo po dopolnilnih pogojih.':'Versichern können sich gesunde Personen vom vollendeten 14. bis zum 74. Lebensjahr, die bei Ablauf der Versicherung nicht älter als 75 Jahre sind (der Online-Abschluss ist ab dem 18. Lebensjahr möglich). Personen, die nicht vollständig gesund sind, sowie Personen, die älter als 74 Jahre sind, versichern sich nach ergänzenden Bedingungen.',
+      'Zavarujejo se lahko zdrave osebe od izpolnjenega 14. do 74. leta starosti, ki ob izteku zavarovanja niso starejše od 75 let. Osebe, ki niso popolnoma zdrave, kakor tudi osebe, starejše kot 74 let, se zavarujejo po dopolnilnih pogojih.':'Versichern können sich gesunde Personen vom vollendeten 14. bis zum 74. Lebensjahr, die bei Ablauf der Versicherung nicht älter als 75 Jahre sind (der Online-Abschluss ist ab dem 18. Lebensjahr möglich). Personen, die nicht vollständig gesund sind, sowie Personen, die älter als 74 Jahre sind, versichern sich nach ergänzenden Bedingungen.',
       'Višina premije je odvisna od obsega zavarovalnega kritja, vaše starosti, življenjskega sloga in predvidenega zavarovalno-tehničnega rezultata.':'Die Höhe der Prämie hängt vom Umfang der Versicherungsdeckung, Ihrem Alter, Ihrem Lebensstil und dem erwarteten versicherungstechnischen Ergebnis ab.',
       'Ključna zavarovalna kritja':'Wesentliche Versicherungsdeckungen',
       'Naj bodo vaši bližnji preskrbljeni tudi, če ne boste več z njimi. To vam zagotavlja osnovno življenjsko zavarovanje.':'Sorgen Sie dafür, dass Ihre Nächsten versorgt sind, auch wenn Sie nicht mehr bei ihnen sind. Das gewährleistet Ihnen die Grundlebensversicherung.',
@@ -6577,7 +6581,7 @@ html body .mega small{color:#666!important}
       'V primeru trajne delovne nezmožnosti zaradi nezgode čakalnega roka ni. Če je vzrok bolezen, pa se jamstvo zavarovalnice začne 6 mesecev po izpolnitvi pogojev.':'Im Falle dauerhafter Arbeitsunfähigkeit infolge eines Unfalls gibt es keine Wartezeit. Ist die Ursache eine Krankheit, beginnt die Haftung der Versicherung 6 Monate nach Erfüllung der Bedingungen.',
       'Zakaj je ob sklenitvi življenjskega zavarovanja pomembno moje zdravstveno stanje?':'Warum ist mein Gesundheitszustand beim Abschluss einer Lebensversicherung wichtig?',
       'Vaše zdravstveno stanje je za zavarovalnico pomemben podatek. Nekateri zdravstveni dejavniki namreč vplivajo na vašo pričakovano življenjsko dobo. Zavarovalnica jih upošteva pri izračunu tveganja, ki ga prevzema s tem, ko vas zavaruje, in določanju višine zavarovalne premije za vašo zavarovalno polico. Zato je pomembno, da ob sklenitvi zavarovanja navedete resnične podatke, po katerih sprašujemo, saj vam v nasprotnem primeru ne moremo zagotoviti, da boste prejeli izplačilo (celotne) zavarovalnine.':'Ihr Gesundheitszustand ist für die Versicherung eine wichtige Information. Einige gesundheitliche Faktoren beeinflussen nämlich Ihre Lebenserwartung. Die Versicherung berücksichtigt sie bei der Berechnung des Risikos, das sie mit Ihrer Versicherung übernimmt, und bei der Festlegung der Höhe der Versicherungsprämie für Ihre Police. Daher ist es wichtig, dass Sie beim Abschluss der Versicherung wahrheitsgemäße Angaben zu den von uns gestellten Fragen machen, da wir Ihnen andernfalls nicht garantieren können, dass Sie die Auszahlung der (gesamten) Versicherungsleistung erhalten.',
-      'Zavarovanje lahko sklenete na vseh prodajnih mestih Zavarovalnice Triglav, preko spleta ali pri zavarovalnem zastopniku. Z zastopnikom lahko zavarovanje sklenete osebno ali na daljavo. Za več informacij nam lahko pišete ali pokličete na brezplačno telefonsko številko 080 555 555.':'Sie können die Versicherung an allen Verkaufsstellen der Versicherung Triglav, online oder bei einem Versicherungsvertreter abschließen. Mit einem Vertreter können Sie die Versicherung persönlich oder aus der Ferne abschließen. Für weitere Informationen können Sie uns schreiben oder unter der kostenlosen Telefonnummer 080 555 555 anrufen.',
+      'Zavarovanje lahko sklenete na vseh prodajnih mestih Zavarovalnice Triglav ali pri zavarovalnem zastopniku. Z zastopnikom lahko zavarovanje sklenete osebno ali na daljavo. Za več informacij nam lahko pišete ali pokličete na brezplačno telefonsko številko 080 555 555.':'Sie können die Versicherung an allen Verkaufsstellen der Versicherung Triglav oder bei einem Versicherungsvertreter abschließen. Mit einem Vertreter können Sie die Versicherung persönlich oder aus der Ferne abschließen. Für weitere Informationen können Sie uns schreiben oder unter der kostenlosen Telefonnummer 080 555 555 anrufen.',
       'Splošni pogoji za Zavarovanje življenja':'Allgemeine Bedingungen für die Lebensversicherung',
       '1.264 KB':'1.264 KB',
       'Zahtevek za finančne spremembe':'Antrag auf finanzielle Änderungen',
@@ -6928,7 +6932,7 @@ html body .mega small{color:#666!important}
       'Skladi spodbujajo okoljske in družbene značilnosti ob investiranju v družbe, ki spoštujejo prakse dobrega upravljanja. Z naložbami v trajnostne sklade postajate del globalnega gibanja za trajnostnost in zmanjšujete negativni vpliv tveganj na donosnost.':'Die Fonds fördern ökologische und soziale Merkmale bei Investitionen in Unternehmen, die die Praktiken guter Unternehmensführung achten. Mit Anlagen in nachhaltige Fonds werden Sie Teil einer globalen Nachhaltigkeitsbewegung und verringern die negativen Auswirkungen von Risiken auf die Rendite.',
       'Dve različici zavarovanja Fleksi':'Zwei Varianten der Fleksi-Versicherung',
       'i.fleks':'i.fleks',
-      'Različica, ki jo preprosto sklenete preko spleta. Prihranite čas in denar. Možnost izbire skladov ETF.':'Eine Variante, die Sie einfach online abschließen. Sparen Sie Zeit und Geld. Möglichkeit zur Auswahl von ETF-Fonds.',
+      'Preprosta in hitra različica. Prihranite čas in denar. Možnost izbire skladov ETF.':'Eine einfache und schnelle Variante. Sparen Sie Zeit und Geld. Möglichkeit zur Auswahl von ETF-Fonds.',
       'Več o i.fleks':'Mehr über i.fleks',
       'Enkratno naložbeno zavarovanje':'Einmalige Anlageversicherung',
       'Kombinacija varčevanja v skladih in življenjskega zavarovanja z možnostjo priključitve Dodatnega zavarovanja mesečne nezgodne rente. Brez vnaprej določene dobe.':'Eine Kombination aus Sparen in Fonds und Lebensversicherung mit der Möglichkeit, eine Zusatzversicherung für eine monatliche Unfallrente hinzuzufügen. Ohne vorab festgelegte Dauer.',
@@ -6937,7 +6941,7 @@ html body .mega small{color:#666!important}
       'Prilagodljivo, prav mimogrede':'Flexibel, ganz nebenbei',
       'Zavarovanje z odprto dobo –':'Versicherung mit offener Dauer –',
       'sklenjeno v minutah':'in Minuten abgeschlossen',
-      'Različica naložbenega zavarovanja Fleks, ki vam prihrani čas in denar. Sklenete ga preprosto preko spleta. Zavarujejo se zdrave osebe od 18. do 65. leta starosti.':'Eine Variante der Fleks-Anlageversicherung, die Ihnen Zeit und Geld spart. Sie schließen sie einfach online ab. Versichert werden gesunde Personen im Alter von 18 bis 65 Jahren.',
+      'Različica naložbenega zavarovanja Fleks, ki vam prihrani čas in denar. Zavarujejo se zdrave osebe od 18. do 65. leta starosti.':'Eine Variante der Fleks-Anlageversicherung, die Ihnen Zeit und Geld spart. Versichert werden gesunde Personen im Alter von 18 bis 65 Jahren.',
       'Fleksibilnost':'Flexibilität',
       'Prilagodljivo tako ob sklenitvi kot med trajanjem zavarovanja.':'Flexibel sowohl beim Abschluss als auch während der Laufzeit der Versicherung.',
       'Skladi ETF':'ETF-Fonds',
@@ -8294,7 +8298,7 @@ const triglavData = {
 <p>Dom niso le štiri stene hiše ali stanovanja. Dom je občutek varnosti, vaši najlepši spomini, ujeti v fotografijah na steni, umetniška dela in spominki s potovanj ter vsa oprema, ki vam olajša vsakodnevne opravke. Dom je le eden, zato s pravim zavarovanjem poskrbite tudi, če se zgodi kaj nepredvidenega.</p>
 <p>Zavarovanje doma je namenjeno lastnikom hiš, stanovanj in vikendov ter opreme v njih.</p>
 <p><strong>Prednosti zavarovanja:</strong></p>
-<ul><li>enostavnost – izberete lahko enega izmed 3 paketov in ga sklenete tudi preko spleta</li><li>fleksibilnost – z zastopnikom lahko zavarovanje oblikujete po svoji meri, izberete poljubna kritja in prilagodite njihovo višino</li><li>prilagodljivost – zavarovanje lahko sklenete:</li></ul>
+<ul><li>enostavnost – izberete lahko enega izmed 3 paketov</li><li>fleksibilnost – z zastopnikom lahko zavarovanje oblikujete po svoji meri, izberete poljubna kritja in prilagodite njihovo višino</li><li>prilagodljivost – zavarovanje lahko sklenete:</li></ul>
 <ul><li>za stanovanjske objekte ali stanovanjsko opremo v njih ali oboje hkrati</li><li>za objekt v drugačnem obsegu kot za opremo</li><li>na novo ali dejansko vrednost;i</li></ul>
 <ul><li>asistenčna pomoč 24/7 – najhitreje jo naročite v mobilni aplikaciji i.triglav, lahko nas tudi pokličete na brezplačno številko 080 28 64, iz tujine na +386 2 222 28 64</li><li>brezskrbnost – ob morebitni škodi lahko za vas uredimo celoten postopek popravila, od izbire izvajalca, vodenja dokumentacije do plačila, kar vam omogoča storitev Prijavi – odpravi;i</li></ul>
 <ul><li>dodatna kritja – izberite tista, s katerimi boste lahko dodatnoi zaščitili svoj dom</li></ul>
@@ -8310,7 +8314,7 @@ const triglavData = {
 <p>Zavarovanje lahko sklenete za stanovanjske objekte in stanovanjsko opremo v njih na območju Slovenije in Hrvaške.</p>
 <h3>Zavarovane nevarnosti in zavarovalna kritja po paketih</h3>
 <p><strong>Zavarovanje doma je enostavno, prilagodljivo in fleksibilno, saj lahko:</strong></p>
-<ul><li>izbirate med 3 paketi, ki jih lahko sklenete tudi preko spleta</li><li>zavarujete objekt in opremo hkrati ali le objekt ali opremo</li></ul>
+<ul><li>izbirate med 3 paketi</li><li>zavarujete objekt in opremo hkrati ali le objekt ali opremo</li></ul>
 <p>zavarovanje popolnoma prilagodite svojim potrebam – v tem primeru se posvetujte z zastopnikom, izberite poljubna kritja za objekt in opremo, dogovorite se za ustrezne limitei kritij, višino soudeležbe pri škodi ter sklenitev zavarovanja na novo ali dejansko vrednost.</p>
 <p>Če ste v dilemi glede izbire paketa, lahko v digitalni poslovalnici i.triglav preverite, ali je vaš dom izpostavljen poplavi, potresu, udaru strele, toči ali zemeljskemu plazu. Tako boste lažje ocenili, kateri paket je najbolj ustrezen za zavarovanje vašega doma. Več informacij.</p>
 <h3>Objekt in oprema</h3>
@@ -8404,7 +8408,6 @@ const triglavData = {
 <h3>Splošni pogoji za zavarovanje DOM (445 KB)</h3>
 <p>Skupna določila splošnih pogojev (317 KB)</p>
 <h3>Dokument z informacijami o zavarovalnem produktu – Zavarovanje DOM (384 KB)</h3>
-<p>Kako preko spleta skleniti zavarovanje doma?</p>
 <p>Najdražje napake pri prenovi so tiste, ki jih ne vidite</p>
 <p>Kdo plača škodo sosedu? Razlika med odgovornostjo iz posesti in osebno odgovornostjo</p>
 <p>Izliv vode v stanovanju ali hiši: vzroki, škoda in zavarovanje</p>
@@ -8495,7 +8498,7 @@ const triglavData = {
 <ul><li>nudijo popolno zaščito</li><li>krijejo stroške pregledov, diagnostike, zdravljenja, operacij, zdravil in še veliko več</li><li>paket kritja stroškov operacij:</li><li>je cenovno ugodna rešitev za kritje stroškov operacij, pregleda in diagnostike na dan operacije, zdravil ter hospitalizacije po operaciji</li></ul>
 <p>Pakete lahko dopolnite z dodatnimi zavarovanji, med katerimi je tudi 24-urna asistenca.</p>
 <h3>Kako lahko najhitreje sklenete zavarovanje?</h3>
-<p>Zavarovanje za pse in mačke lahko sklenete tudi preko spleta.</p>
+<p>Zavarovanje za pse in mačke sklenete hitro in enostavno pri našem zastopniku.</p>
 <p><strong>Za zavarovanje drugih malih živali:</strong></p>
 <ul><li>nam lahko pišete preko spletnega obrazca</li><li>se dogovorite z zavarovalnim zastopnikom ali</li></ul>
 <p>obiščete najbližjo poslovalnico.</p>
@@ -8721,7 +8724,7 @@ const triglavData = {
 <h3>Mesečna premija</h3>
 <p>Možnost plačila mesečne premije pri zavarovanju mačk.</p>
 <h3>Popust na organizirane skupine</h3>
-<p>Za člane organiziranih skupin (klubi, društva …) se lahko prizna popust v višini do 10 % na zavarovanje mačk. Popust ne velja za sklenitev zavarovanja preko spleta.</p>
+<p>Za člane organiziranih skupin (klubi, društva …) se lahko prizna popust v višini do 10 % na zavarovanje mačk.</p>
 <h3>Prijava škode</h3>
 <h3>Pogosta vprašanja</h3>
 <p>Ali lahko med trajanjem zavarovanja spremenim obseg zavarovanja?</p>
@@ -8875,7 +8878,7 @@ const triglavData = {
 <h3>Mesečna premija</h3>
 <p>Možnost plačila mesečne premije pri zavarovanju psov.</p>
 <h3>Popust za organizirane skupine</h3>
-<p>Za člane organiziranih skupin (klubi, društva …) se lahko prizna popust v višini do 10 % na zavarovanje psov. Popust ne velja za sklenitev zavarovanja preko spleta.</p>
+<p>Za člane organiziranih skupin (klubi, društva …) se lahko prizna popust v višini do 10 % na zavarovanje psov.</p>
 <h3>Prijava škode</h3>
 <h3>Pogosta vprašanja</h3>
 <p>Ali lahko med trajanjem zavarovanja spremenim obseg zavarovanja?</p>
@@ -9052,9 +9055,7 @@ const triglavData = {
 <p>\${loading}</p>
 <p>S piškotki zagotavljamo, da naše spletno mesto deluje pravilno, prilagajamo vsebino in oglase, omogočamo funkcije družabnih omrežij in analiziramo omrežni promet. Podatke o vaši uporabi našega spletnega mesta delimo s svojimi partnerji, ki delujejo na področjih družabnih omrežij, oglaševanja in analize.Politika zasebnosti</p>
 <h3>Nastavitve piškotkov Zavrni Sprejmi vse piškotke</h3>`},
-  "t/zavarovanje-vozil/zavarovanje-avtomobila": {title:"Zavarovanje avtomobila", depth:2, isSubcat:true, parentRel:"t/zavarovanje-vozil", html:`<h2>Spomladansko darilo – 20 EUR parkirnine</h2>
-<p>Če med 23. 3. 2026 in 30. 6. 2026 sklenete ali podaljšate avtomobilsko zavarovanje preko spleta, prejmete kupon v vrednosti 20 EUR za parkiranje na parkiriščih EasyPark. Velja za sklenitev paketov Veliki ali Veliki Plus. Več informacij.</p>
-<h3>Paketi avtomobilskih zavarovanj</h3>
+  "t/zavarovanje-vozil/zavarovanje-avtomobila": {title:"Zavarovanje avtomobila", depth:2, isSubcat:true, parentRel:"t/zavarovanje-vozil", html:`<h3>Paketi avtomobilskih zavarovanj</h3>
 <p>Najboljša odločitev za celovito zavarovanje vozila in prihranek pri plačilu premije.</p>
 <h3>Avtomobilska odgovornost (AO)</h3>
 <p>Za kritje škode oškodovancem v prometni nesreči, ki jo povzroči uporabnik zavarovanega vozila.</p>
@@ -9107,7 +9108,6 @@ const triglavData = {
 <h3>Posebna ugodnost za vozila do enega leta starosti</h3>
 <p>V primeru popolnega uničenja ali kraje kasko zavarovanega vozila, zavarovalnica izplača zavarovalnino, ki je enaka novi vrednosti vozila.</p>
 <h3>Next</h3>
-<p>Kako preko spleta skleniti novo avtomobilsko zavarovanje?</p>
 <p>080 555 555</p>
 <p>Informacije</p>
 <p>080 28 64</p>
@@ -9186,9 +9186,7 @@ const triglavData = {
 <p>\${loading}</p>
 <p>S piškotki zagotavljamo, da naše spletno mesto deluje pravilno, prilagajamo vsebino in oglase, omogočamo funkcije družabnih omrežij in analiziramo omrežni promet. Podatke o vaši uporabi našega spletnega mesta delimo s svojimi partnerji, ki delujejo na področjih družabnih omrežij, oglaševanja in analize.Politika zasebnosti</p>
 <h3>Nastavitve piškotkov Zavrni Sprejmi vse piškotke</h3>`},
-  "t/zavarovanje-vozil/zavarovanje-avtomobila/paketi-avtomobilskih-zavarovanj": {title:"Paketi avtomobilskih zavarovanj", depth:3, isSubcat:false, parentRel:"t/zavarovanje-vozil/zavarovanje-avtomobila", html:`<h2>Spomladansko darilo – 20 EUR parkirnine</h2>
-<p>Če med 23. 3. 2026 in 30. 6. 2026 sklenete ali podaljšate avtomobilsko zavarovanje preko spleta, prejmete kupon v vrednosti 20 EUR za parkiranje na parkiriščih EasyPark. Velja za sklenitev paketov Veliki ali Veliki Plus. Več informacij.</p>
-<h3>Paketi avtomobilskih zavarovanj</h3>
+  "t/zavarovanje-vozil/zavarovanje-avtomobila/paketi-avtomobilskih-zavarovanj": {title:"Paketi avtomobilskih zavarovanj", depth:3, isSubcat:false, parentRel:"t/zavarovanje-vozil/zavarovanje-avtomobila", html:`<h3>Paketi avtomobilskih zavarovanj</h3>
 <p>Predstavljeni paketi so namenjeni zavarovanju osebnih avtomobilov, tudi električnih in hibridnih.</p>
 <h3>Avtomobilska odgovornost (AO)</h3>
 <p>i</p>
@@ -9275,7 +9273,6 @@ const triglavData = {
 <h3>Posebna ugodnost za vozila do enega leta starosti</h3>
 <p>V primeru popolnega uničenja ali kraje kasko zavarovanega vozila, zavarovalnica izplača zavarovalnino, ki je enaka novi vrednosti vozila.</p>
 <h3>Next</h3>
-<p>Kako preko spleta skleniti novo avtomobilsko zavarovanje?</p>
 <p>080 555 555</p>
 <p>Informacije</p>
 <p>080 28 64</p>
@@ -9308,8 +9305,6 @@ const triglavData = {
 <p>sklenete za osebne avtomobile (tudi električne in hibridne), motorna kolesa z močjo motorja nad 4 kW, avtodome, bivalne prikolice in tovorna vozila do 3,5 ti največje tehnično dovoljene mase;i</p>
 <ul><li>sklenete le skupaj z zavarovanjem avtomobilske odgovornosti (AO)</li></ul>
 <p>vključite v paket avtomobilskih zavarovanj in si zagotovite do 14 % popusta.</p>
-<h3>Spomladansko darilo – 20 EUR parkirnine</h3>
-<p>Če med 23. 3. 2026 in 30. 6. 2026 sklenete ali podaljšate avtomobilsko zavarovanje preko spleta, prejmete kupon v vrednosti 20 EUR za parkiranje na parkiriščih EasyPark. Velja za sklenitev paketov Veliki ali Veliki Plus. Več informacij.</p>
 <h3>Višina kritij stroškov asistenčnih storitev</h3>
 <p>Natančen opis kritij asistenčnih storitev je razviden iz določb zavarovalnih pogojev.</p>
 <h3>POMOČ DOMA IN NA CESTIi</h3>
@@ -9433,8 +9428,6 @@ const triglavData = {
 <ul><li>pomoč pri urejanju zadev pri zavarovalnici povzročitelja nesreče</li><li>popravilo osebnega avtomobila in</li></ul>
 <p>izplačilo zneska za materialno škodo.</p>
 <p>Zavarovanjii lahko vključite v paket avtomobilskih zavarovanj in si zagotovite do 14 % popusta.</p>
-<h3>Spomladansko darilo – 20 EUR parkirnine</h3>
-<p>Če med 23. 3. 2026 in 30. 6. 2026 sklenete ali podaljšate avtomobilsko zavarovanje preko spleta, prejmete kupon v vrednosti 20 EUR za parkiranje na parkiriščih EasyPark. Velja za sklenitev paketov Veliki ali Veliki Plus. Več informacij.</p>
 <h3>Triglav komplet</h3>
 <p>Združite vsa zavarovanja in prihranite do 40 %.</p>
 <h3>Ugodnosti</h3>
@@ -9545,7 +9538,6 @@ const triglavData = {
 <p>Skupna določila splošnih pogojev (317 KB)</p>
 <p>Dokument z informacijami o zavarovalnem produktu – Avtomobilska zavarovanja (412 KB)</p>
 <p>Uporaba potrdil o škodnem dogajanju (84 KB)</p>
-<p>Kako preko spleta podaljšati avtomobilsko zavarovanje?</p>
 <p>Oglejte si tudi</p>
 <p>Paketi avtomobilskih zavarovanj</p>
 <p>Najboljša odločitev za celovito zavarovanje vozila in prihranek pri plačilu premije.</p>
@@ -9595,8 +9587,6 @@ const triglavData = {
 <ul><li>oblačila, kovčki in torbe, otroški sedeži, fotoaparat, mobilni telefon, prenosni računalnik, športna oprema, glasbila itd</li><li>osebni dokumenti: osebna izkaznica, potni list itd</li><li>dodatna oprema za prevoz prtljage: prtljažniki ter razni nosilci in strešni kovčki</li><li>material in oprema za namen opravljanja poklicne dejavnosti</li><li>pogonska baterija in polnilni kabel – velja za električna ter hibridna vozila</li></ul>
 <p>S posebnim dogovorom lahko zavarujete tudi dodatno opremo vozila, ki ni bila tovarniško vgrajena ali pritrjena v/na vozilo in ne sodi med zgoraj naštete predmete zavarovanja.</p>
 <p>Zavarovanje lahko vključite v paket avtomobilskih zavarovanj in si zagotovite do 14 % popusta.</p>
-<h3>Spomladansko darilo – 20 EUR parkirnine</h3>
-<p>Če med 23. 3. 2026 in 30. 6. 2026 sklenete ali podaljšate avtomobilsko zavarovanje preko spleta, prejmete kupon v vrednosti 20 EUR za parkiranje na parkiriščih EasyPark. Velja za sklenitev paketov Veliki ali Veliki Plus. Več informacij.</p>
 <h3>Splošni kasko</h3>
 <p>Zavarovanje krije škodo zaradi uničenja ali poškodovanja zavarovanih stvari, ki je posledica presenetljivih in od voznikove volje neodvisnih dogodkov. Ti dogodki lahko nastanejo:</p>
 <ul><li>v prometu in mirovanju: prometna nesreča, trčenje, prevrnitev, zdrs ali padec vozila, udarec ali padec kakega predmeta, snega ter ledenih sveč na vozilo, potopitev vozilai</li><li>zaradi dejanj tretjih oseb: nasilno ali objestno dejanje, manifestacije in demonstracije</li></ul>
@@ -9679,7 +9669,6 @@ const triglavData = {
 <p>Dopolnilni pogoji za strojelomno zavarovanje motornih vozil in delovnih naprav na vozilih (335 KB)</p>
 <p>Skupna določila splošnih pogojev (317 KB)</p>
 <p>Dokument z informacijami o zavarovalnem produktu – Avtomobilska zavarovanja (412 KB)</p>
-<p>Kako preko spleta podaljšati avtomobilsko zavarovanje?</p>
 <p>Oglejte si tudi</p>
 <p>Paketi avtomobilskih zavarovanj</p>
 <p>Najboljša odločitev za celovito zavarovanje vozila in prihranek pri plačilu premije.</p>
@@ -10886,10 +10875,10 @@ const triglavData = {
 <p>Ob sklenitvi ali obnovi nezgodnega zavarovanja otrok in mladih do 31. 10. 2026 lahko sodelujete v nagradni igri ter se potegujete za glavno nagrado – petdnevno družinsko potovanje v Pariz z obiskom Disneylanda.i</p>
 <h3>Kako lahko sklenete zavarovanje?</h3>
 <p><strong>Zavarovanje lahko sklenete:</strong></p>
-<ul><li>za več otrok hkrati</li><li>kadarkoli med letom, saj ni vezano na šolsko ali študijsko leto</li><li>za eno leto ali z avtomatskim letnim podaljšanjem</li><li>v paketu – hitro in enostavno preko spleta</li></ul>
+<ul><li>za več otrok hkrati</li><li>kadarkoli med letom, saj ni vezano na šolsko ali študijsko leto</li><li>za eno leto ali z avtomatskim letnim podaljšanjem</li><li>v paketu – hitro in enostavno</li></ul>
 <p>v paketu ali po svoji meri – sami izberete obseg in višino kritij, pri tem so vam v pomoč naši zavarovalni zastopniki in svetovalci na prodajnih mestih.</p>
 <p>Paketi zavarovanj in premija</p>
-<p>Na voljo so 3 paketi, ki jih lahko sklenete tudi preko spleta.</p>
+<p>Na voljo so 3 paketi.</p>
 <p>Izberite paket, ki vašemu otroku ali mladostniku zagotavlja ustrezno zaščito v primeru nezgode.</p>
 <h3>Težje poškodbe s progresijo (vsak % nad 50 % šteje 5-krat)</h3>
 <p>Izplačilo pri 100-odstotni stopnji težjih poškodb</p>
@@ -10920,8 +10909,7 @@ const triglavData = {
 <p>15</p>
 <h3>Zavarovalna kritja in primeri izplačil</h3>
 <h3>Ugodnosti</h3>
-<p>15 % popusta s kodo UGODNO15</p>
-<p>Pri spletni sklenitvi popust uveljavite z vpisom kode v 4. koraku. Če zavarovanje sklenete pri zavarovalnem zastopniku, mu sporočite kodo za popust.</p>
+<p> Če zavarovanje sklenete pri zavarovalnem zastopniku, mu sporočite kodo za popust.</p>
 <h3>20 % popusta za</h3>
 <p>veliko družino</p>
 <p>Za nezgodno zavarovanje otrok in mladih, če hkrati zavarujete vsaj 3 otroke, ki so člani iste družine.</p>
@@ -11191,7 +11179,7 @@ const triglavData = {
 <p>Pri sklenitvi zavarovanja ne bomo ugotavljali tvojega zdravstvenega stanja. Potrdil/-a boš le izjavo, da si v dobrem zdravstvenem stanju.</p>
 <h3>Paketi zavarovanj in premija</h3>
 <p><strong>Zavarovanje LAJF je enostavno in fleksibilno, saj lahko:</strong></p>
-<ul><li>zavarovanje skleneš preko spleta</li><li>izbiraš med 3 paketi, ki se med seboj razlikujejo po višini zavarovalnih kritij in premiji;i</li></ul>
+<ul><li>izbiraš med 3 paketi, ki se med seboj razlikujejo po višini zavarovalnih kritij in premiji;i</li></ul>
 <p>premijo znižaš za 10 %, če si imetnik/-ca Evropske mladinske kartice (EYCA)i ali si pridobil/-a kodo za popust;i</p>
 <p>premijo plačuješ mesečno, dodatno jo lahko znižaš, če se odločiš za letno ali enkratnoi plačilo.</p>
 <p>Preveri, kaj dobiš v posameznem paketu in koliko bi zanj plačal</p>
@@ -11221,7 +11209,7 @@ const triglavData = {
 <p>Zavarovanje življenja</p>
 <p>Dolgoročno zavarovanje, s katerim svojim najdražjim zagotoviš finančno varnost, če se ti zgodi najhujše.</p>
 <h3>Naložbeno življenjsko zavarovanje i.fleks</h3>
-<p>Kombinacija varčevanja v skladih in življenjskega zavarovanja z možnostjo priključitve dodatnih zavarovanj. Ob sklenitvi ni treba določiti trajanja zavarovanja. Zavarovanje preprosto skleneš preko spleta.</p>
+<p>Kombinacija varčevanja v skladih in življenjskega zavarovanja z možnostjo priključitve dodatnih zavarovanj. Ob sklenitvi ni treba določiti trajanja zavarovanja.</p>
 <h3>Življenjsko zavarovanje Varnost uspešnih</h3>
 <p>S sklenitvijo zavarovanja poskrbite za poplačilo kredita pri Addiko banki, če se vam zgodi najhujše, in za svojo finančno varnost z dodatnimi kritji v primeru hudih bolezni in trajne invalidnosti zaradi nezgode.</p>
 <h3>Bronja Žakelj: “Bolezen mi je dala potrpežljivost.”</h3>
@@ -11257,7 +11245,7 @@ const triglavData = {
 <p>Asistenca</p>
 <p>Tu smo za vas – da boste v primeru nezgode hitreje prišli do specialista, bolj brezskrbno potovali po svetu in pridobili drugo zdravniško mnenje.</p>
 <h3>Kako si lahko prilagodim življenjsko zavarovanje?</h3>
-<p>Tako, da ga dopolnite z dodatnimi zavarovanji, ki ustrezajo vašemu življenjskemu slogu in potrebam. Za lažjo izbiro smo vam pripravili tri pakete, ki jih lahko sklenete preko spleta.</p>
+<p>Tako, da ga dopolnite z dodatnimi zavarovanji, ki ustrezajo vašemu življenjskemu slogu in potrebam. Za lažjo izbiro smo vam pripravili tri pakete.</p>
 <h3>Za kaj vse se lahko dodatno zavarujem?</h3>
 <p>Primeri situacij</p>
 <p>Prehodna ali trajna nezmožnost za delo</p>
@@ -11275,7 +11263,7 @@ const triglavData = {
 <p>Veliki Plus</p>
 <p>Informativnii izračun premije za posamezen paket dobite tako, da v tabelo vnesete svojo starost.</p>
 <h3>Vpiši letnico rojstva</h3>
-<p>Starost je lahko med 14 in 65 let (sklenitev preko spleta je možna od 18. leta dalje).</p>
+<p>Starost je lahko med 14 in 65 let.</p>
 <h3>Smrti</h3>
 <p>Trajna invalidnosti</p>
 <p>Nezgodna renta za invalidnost višjo od 50 % za dobo 10 leti</p>
@@ -11312,7 +11300,7 @@ const triglavData = {
 <p>7.500</p>
 <h3>Več o zavarovanju</h3>
 <p><strong>Zavarujejo se lahko:</strong></p>
-<ul><li>zdrave osebe od izpolnjenega 14. do 74. letai starosti, ki ob izteku zavarovanja niso starejše od 75 let (sklenitev preko spleta je možna od 18. leta dalje)</li></ul>
+<ul><li>zdrave osebe od izpolnjenega 14. do 74. letai starosti, ki ob izteku zavarovanja niso starejše od 75 let</li></ul>
 <p>osebe, ki niso popolnoma zdrave, kakor tudi osebe, starejše kot 74 let, po dopolnilnih pogojih.</p>
 <p><strong>Višina premije je odvisna od:</strong></p>
 <ul><li>obsega zavarovalnega kritja</li><li>vaše starosti</li><li>življenjskega slogai – bolj ugoden življenjski slog pomeni nižjo premijo</li></ul>
@@ -15438,7 +15426,7 @@ return `<div style="background:#fff">
       <button class="kk-faq-q">Kje lahko sklenem zavarovanje?<span class="kk-faq-arrow">+</span></button>
       <div class="kk-faq-a"><div class="kk-faq-a-inner">
         <p>Zavarovanje lahko sklenete:</p>
-        <ul class="kk-list"><li>v turistični agenciji,</li><li>preko spleta,</li><li>v poslovalnici ali pri zavarovalnemu zastopniku Zavarovalnice Triglav.</li></ul>
+        <ul class="kk-list"><li>v turistični agenciji,</li><li>v poslovalnici ali pri zavarovalnemu zastopniku Zavarovalnice Triglav.</li></ul>
       </div></div>
     </div>
     <div class="kk-faq-item">
@@ -15503,7 +15491,7 @@ return `<div style="background:#fff">
       <span>Zavarovanje doma</span>
     </div>
     <p class="kk-eyebrow">Zavarovanja za dom</p>
-    <h1>Zavarovanje doma.<br>Sklenite preko spleta.</h1>
+    <h1>Zavarovanje doma.</h1>
     <div class="kk-hero-actions">
       <a href="#kontakt" class="pb-btn solid">Pridobi ponudbo</a>
     </div>
@@ -15530,7 +15518,7 @@ return `<div style="background:#fff">
     <p class="kk-p">Dom niso le štiri stene hiše ali stanovanja. Dom je občutek varnosti, vaši najlepši spomini, ujeti v stenah prostora, ki ga imenujete dom.</p>
     <p class="kk-p">Zavarovanje doma je namenjeno lastnikom hiš, stanovanj, vikendov in opreme v njih. Zavarovanje je enostavno, prilagodljivo in fleksibilno, saj lahko:</p>
     <ul class="kk-list">
-      <li>izberete enega izmed 3 paketov, ki jih lahko sklenete tudi <a href="https://skleni.triglav.si/isklepanje/dom/dom_zavarovanje" target="_blank">preko spleta</a>;</li>
+      <li>izberete enega izmed 3 paketov;</li>
       <li>zavarujete stanovanjski objekt ali stanovanjsko opremo v njem ali oboje hkrati;</li>
       <li>zavarovanje popolnoma prilagodite svojim potrebam – izberite poljubna kritja za objekt in/ali opremo ter jih prilagodite na novo ali dejansko vrednost.</li>
     </ul>
@@ -16016,7 +16004,7 @@ return `<div style="background:#fff">
     <p class="kk-p">Zavarovanje naprav je kasko zavarovanje, saj krije vsako uničenje, poškodovanje, okvaro ali odtujitev naprave. Kritje velja na območju celega sveta, reševanje škode ter popravilo naprave pa se izvajata izključno v Sloveniji.</p>
     <p class="kk-p">Zavarovanje je mogoče skleniti:</p>
     <ul class="kk-list">
-      <li><a href="https://skleni.triglav.si/isklepanje/elektronskeNaprave/zavarovanje_naprav_intro" target="_blank">preko spleta</a>, in sicer v obdobju 7 koledarskih dni od dneva nakupa, ki ste ga opravili doma ali v tujini;</li>
+      <li>pri našem zastopniku, in sicer v obdobju 7 koledarskih dni od dneva nakupa, ki ste ga opravili doma ali v tujini;</li>
       <li>s predložitvijo računa, ki dokazuje nakup nove naprave in njeno vrednost;</li>
       <li>za vsako napravo posebej na svoji zavarovalni polici, za katero je na računu jasno razvidna cena.</li>
     </ul>
@@ -16635,7 +16623,7 @@ function paketnaZascitaPage(){return `
         <li>pravno zaščito in pravni nasvet, če ste toženi ali če tožite;</li>
         <li>finančno varnost in asistenčno pomoč v različnih situacijah in še mnogo več.</li>
       </ul>
-      <p class="kk-p">Zavarovanje lahko sklenete zase ali za vso družino, hitro in enostavno – tudi preko spleta.</p>
+      <p class="kk-p">Zavarovanje lahko sklenete zase ali za vso družino, hitro in enostavno.</p>
     </div>
   </div>
 
@@ -17172,7 +17160,7 @@ function nezgodaOtrokPage(){return `
         <div style="background:var(--kk-light);border:1px solid var(--kk-border);border-radius:8px;padding:28px 24px">
           <div style="font-size:1.5rem;font-weight:700;color:var(--kk-navy);margin-bottom:10px">15 %</div>
           <h3 style="font-family:'Newsreader',Georgia,serif;font-size:1.15rem;font-weight:600;color:var(--kk-navy);margin:0 0 10px">Popust s kodo UGODNO15</h3>
-          <p style="font-size:.88rem;color:#555;margin:0">Pri spletni sklenitvi popust uveljavite z vpisom kode v 4. koraku.</p>
+          <p style="font-size:.88rem;color:#555;margin:0"></p>
         </div>
         <div style="background:var(--kk-light);border:1px solid var(--kk-border);border-radius:8px;padding:28px 24px">
           <div style="font-size:1.5rem;font-weight:700;color:var(--kk-navy);margin-bottom:10px">20 %</div>
@@ -17196,13 +17184,13 @@ function nezgodaOtrokPage(){return `
           <div class="kk-faq-item"><button class="kk-faq-q">Ali je odsotnost otroka ali mladostnika od pouka pogoj za izplačilo zavarovalnine?</button><div class="kk-faq-a"><p>Ne. Odsotnost od pouka ni pogoj za izplačilo zavarovalnine. Nadomestilo za zlome, izpahe, opekline in ostale poškodbe se izplača na osnovi zdravstvene dokumentacije, iz katere je razvidna poškodba oziroma diagnoza, neodvisno od tega, ali je bil otrok ali mladostnik odsoten od pouka ali ne.</p></div></div>
           <div class="kk-faq-item"><button class="kk-faq-q">Ali je v nezgodno zavarovanje otrok in mladih vključeno tudi kritje za invalidnost?</button><div class="kk-faq-a"><p>Da. Kritje za primer invalidnosti je eden izmed najpogostejših razlogov za sklenitev nezgodnega zavarovanja otrok in mladih in se pri tem zavarovanju imenuje kritje za težje poškodbe. Seznam poškodb in višina izplačil je opredeljena v Tabeli težjih poškodb.</p></div></div>
           <div class="kk-faq-item"><button class="kk-faq-q">Ali lahko zavarovanje sklenem tako, da kritja in višino zavarovalnih vsot določim sam?</button><div class="kk-faq-a"><p>Lahko. Zavarovanje s prosto izbiro kritij lahko sklenete pri zavarovalnih zastopnikih in na prodajnih mestih.</p></div></div>
-          <div class="kk-faq-item"><button class="kk-faq-q">Ali lahko zavarujem otroka za primer nezgodne smrti?</button><div class="kk-faq-a"><p>Lahko, in sicer pri zavarovalnih zastopnikih ali na prodajnih mestih, kjer se lahko dogovorite za zavarovalna kritja in njihov obseg po svoji meri. Kritje nezgodne smrti ni vključeno v pakete zavarovanj, ki jih je mogoče skleniti tudi preko spleta. Za primer nezgodne smrti lahko zavarujete otroke, ki so že dopolnili 14. leto starosti.</p></div></div>
+          <div class="kk-faq-item"><button class="kk-faq-q">Ali lahko zavarujem otroka za primer nezgodne smrti?</button><div class="kk-faq-a"><p>Lahko, in sicer pri zavarovalnih zastopnikih ali na prodajnih mestih, kjer se lahko dogovorite za zavarovalna kritja in njihov obseg po svoji meri. Kritje nezgodne smrti ni vključeno v pakete zavarovanj. Za primer nezgodne smrti lahko zavarujete otroke, ki so že dopolnili 14. leto starosti.</p></div></div>
           <div class="kk-faq-item"><button class="kk-faq-q">Kako zavarovati otroka ali mladostnika, ki je aktiven športnik?</button><div class="kk-faq-a"><p>Če je otrok ali mladostnik registriran športnik, ima polno kritje le, če ima sklenjeno zavarovanje z doplačilom za šport in rizične dejavnosti. Če tega doplačila ni, se nezgode, ki jih otrok ali mladostnik utrpi pri športnem udejstvovanju (treningi in tekmovanja), izplačajo v omejenem obsegu v višini 66 % zavarovalne vsote.</p></div></div>
           <div class="kk-faq-item"><button class="kk-faq-q">Ali lahko sklenem zavarovanje tudi kadarkoli med letom?</button><div class="kk-faq-a"><p>Da, zavarovanje ni vezano na trajanje šolskega ali študijskega leta in ga lahko sklenete kadarkoli med letom.</p></div></div>
           <div class="kk-faq-item"><button class="kk-faq-q">Do kdaj traja zavarovanje? Kdaj in kako ga lahko prekinem?</button><div class="kk-faq-a"><p>Če je na zavarovalni polici naveden le začetek zavarovanja, čas trajanja ni določen. Veljavnost zavarovalnega kritja se nadaljuje iz leta v leto. Pred potekom zavarovalnega leta vam bomo poslali obračun za plačilo zavarovalne premije za naslednje zavarovalno leto. Tako zavarovanje traja, dokler ga ena od pogodbenih strank pisno ne odpove. Zavarovanja v prvem letu trajanja ni možno prekiniti. Lahko ga prekinete ob poteku prvega leta. V tem primeru morate odstopno izjavo podati pred iztekom prvega leta. Po preteku enega leta od sklenitve zavarovanja lahko kadarkoli odstopite od zavarovalne pogodbe. Zavarovanje v tem primeru preneha ob izteku meseca, v katerem boste podali odstopno izjavo. Zavarovalnica vam bo vrnila neizkoriščen del premije, če v tekočem zavarovalnem letu iz zavarovanja ni bila izplačana nobena škoda. Pisno odstopno izjavo lahko posredujete s sporočilom v digitalni poslovalnici i.triglav, preko spletnega obrazca ali na naslov Zavarovalnica Triglav, d.d., Miklošičeva cesta 19, 1000 Ljubljana. V primeru sklenitve enoletne zavarovalne police zavarovanje preneha veljati z datumom, ki je naveden na polici.</p></div></div>
-          <div class="kk-faq-item"><button class="kk-faq-q">Kaj moram narediti, če želim spremeniti višino zavarovalnih vsot oziroma dodati novo kritje?</button><div class="kk-faq-a"><p>V tem primeru prekinete obstoječo polico in sklenete novo, in sicer z novo izbrano višino zavarovalnih vsot oziroma dodanim novim kritjem. To lahko storite pri zavarovalnem zastopniku ali na prodajnem mestu. Če pa boste novo zavarovanje sklenili preko spleta, potem nam pisno zahtevo za prekinitev obstoječega zavarovanja lahko posredujete s sporočilom v digitalni poslovalnici i.triglav, preko spletnega obrazca ali na naslov Zavarovalnica Triglav, d.d., Miklošičeva cesta 19, 1000 Ljubljana.</p></div></div>
-          <div class="kk-faq-item"><button class="kk-faq-q">Med trajanjem nezgodnega zavarovanja se je otrok začel ukvarjati s športom. Ali lahko k polici priključim tudi kritje rizika športa?</button><div class="kk-faq-a"><p>K že veljavni polici nezgodnega zavarovanja otrok ali mladih razširitve kritja za rizik športa ni možno dodati. Če ga želite skleniti, potem obstoječo polico prekinite in sklenite novo z razširitvijo kritja za riziko športa. To lahko storite pri zavarovalnem zastopniku ali na prodajnem mestu. Če pa boste novo zavarovanje sklenili preko spleta, potem nam pisno zahtevo za prekinitev obstoječega zavarovanja lahko posredujete s sporočilom v digitalni poslovalnici i.triglav, preko spletnega obrazca ali na naslov Zavarovalnica Triglav, d.d., Miklošičeva cesta 19, 1000 Ljubljana.</p></div></div>
-          <div class="kk-faq-item"><button class="kk-faq-q">Stara sem 26 let. Prejela sem obvestilo o prenehanju nezgodnega zavarovanja. Na kakšen način se lahko zavarujem po prenehanju tega zavarovanja?</button><div class="kk-faq-a"><p>Z nezgodnim zavarovanjem otrok in mladih se lahko zavarujejo mladi do 26. leta starosti. Zavarovanje preneha ob izteku zavarovalnega leta, v katerem zavarovanec dopolni 26. leto starosti. Svetujemo vam, da ste zavarovani tudi v prihodnje: sklenite LAJF – življenjsko in nezgodno zavarovanje za mlade, sklenete ga preko spleta; glede nadaljnjih možnosti zavarovanja se lahko obrnete tudi na naše zavarovalne zastopnike ali se oglasite na prodajnem mestu, kjer vam bomo svetovali primerno obliko zavarovanja za naprej.</p></div></div>
+          <div class="kk-faq-item"><button class="kk-faq-q">Kaj moram narediti, če želim spremeniti višino zavarovalnih vsot oziroma dodati novo kritje?</button><div class="kk-faq-a"><p>V tem primeru prekinete obstoječo polico in sklenete novo, in sicer z novo izbrano višino zavarovalnih vsot oziroma dodanim novim kritjem. To lahko storite pri zavarovalnem zastopniku ali na prodajnem mestu.</p></div></div>
+          <div class="kk-faq-item"><button class="kk-faq-q">Med trajanjem nezgodnega zavarovanja se je otrok začel ukvarjati s športom. Ali lahko k polici priključim tudi kritje rizika športa?</button><div class="kk-faq-a"><p>K že veljavni polici nezgodnega zavarovanja otrok ali mladih razširitve kritja za rizik športa ni možno dodati. Če ga želite skleniti, potem obstoječo polico prekinite in sklenite novo z razširitvijo kritja za riziko športa. To lahko storite pri zavarovalnem zastopniku ali na prodajnem mestu.</p></div></div>
+          <div class="kk-faq-item"><button class="kk-faq-q">Stara sem 26 let. Prejela sem obvestilo o prenehanju nezgodnega zavarovanja. Na kakšen način se lahko zavarujem po prenehanju tega zavarovanja?</button><div class="kk-faq-a"><p>Z nezgodnim zavarovanjem otrok in mladih se lahko zavarujejo mladi do 26. leta starosti. Zavarovanje preneha ob izteku zavarovalnega leta, v katerem zavarovanec dopolni 26. leto starosti. Svetujemo vam, da ste zavarovani tudi v prihodnje: sklenite LAJF – življenjsko in nezgodno zavarovanje za mlade; glede nadaljnjih možnosti zavarovanja se lahko obrnete tudi na naše zavarovalne zastopnike ali se oglasite na prodajnem mestu, kjer vam bomo svetovali primerno obliko zavarovanja za naprej.</p></div></div>
           <div class="kk-faq-item"><button class="kk-faq-q">Kaj moram storiti, če se moj otrok ali mladostnik poškoduje?</button><div class="kk-faq-a"><p>Če se otrok ali mladostnik poškoduje, uredite naslednje: najprej obiščite zdravnika in se glede zdravljenja ravnajte po njegovih navodilih; shranite zdravstveno in ostalo dokumentacijo, ki jo boste prejeli v postopku zdravljenja; zavarovalnici prijavite nezgodo takoj, ko vam oziroma vašemu otroku zdravstveno stanje to omogoča; v prijavi nezgode boste zavarovalnici podali vsa potrebna dokazila, ki jih bo zavarovalnica zahtevala za rešitev zavarovalnega primera.</p></div></div>
           <div class="kk-faq-item"><button class="kk-faq-q">Kdaj lahko prijavim nezgodo?</button><div class="kk-faq-a"><p>Nezgodo lahko prijavite že v času zdravljenja. Za prijavo nezgode zadostuje že prvi izvid, iz katerega je razvidna poškodba oziroma diagnoza in ni treba čakati zaključka zdravljenja. Nezgodo je treba prijaviti najkasneje pred potekom 3 let od nezgodnega dogodka.</p></div></div>
         </div>
@@ -17623,7 +17611,7 @@ function lajfPage(){return `
       <div class="kk-faq-list" style="margin-top:32px">
         <div class="kk-faq-item"><button class="kk-faq-q">Zakaj ponujate samo kratkoročno zavarovanje za 3 leta?</button><div class="kk-faq-a"><p>Življenjska zavarovanja so dolgoročna zavarovanja. Mladi, ki so šele na začetku ali na pol poti do finančne samostojnosti, večinoma ne želijo sklepati dolgoročnih zavarovanj, saj zaradi finančnega položaja njihova prihodnost ni povsem predvidljiva.</p><p>Zato smo za mlade, ki se želite zaščititi za primer, če se vam zgodi kaj nepredvidenega (na primer nezgoda ali celo smrt), pripravili kratkoročno zavarovanje, ki združuje nezgodno in življenjsko zavarovanje ter ne pogojuje sklenitve z dolgoročno zavezo z zavarovalnico.</p><p>Zavarovanje skleneš za obdobje 3 let z možnostjo podaljšanja. Če želiš skleniti dolgoročno zavarovanje, se lahko odločiš za Zavarovanje življenja.</p></div></div>
         <div class="kk-faq-item"><button class="kk-faq-q">Kdaj zavarovanje začne veljati in do kdaj traja?</button><div class="kk-faq-a"><p>Zavarovanje začne veljati z datumom, ki je na polici naveden kot začetek zavarovanja, in sicer za kritje mesečne nezgodne rente, zlomov, izpahov in opeklin ter smrti. Jamstvo za primer smrti začne veljati 3 mesece po začetku veljavnosti zavarovanja, vendar pa velja, da si že v obdobju prvih 3 mesecev zavarovan/-a za primer smrti, ki je posledica nezgode.</p><p>Zavarovanje preneha veljati s potekom, ki je določen na zavarovalni polici, v primeru smrti ali v primeru neplačila premije.</p></div></div>
-        <div class="kk-faq-item"><button class="kk-faq-q">Kritje za primer smrti bi želel skleniti za 100.000 EUR, vendar noben paket tega ne omogoča. Kaj lahko storim?</button><div class="kk-faq-a"><p>Življenjsko zavarovanje LAJF lahko skleneš le v okviru predstavljenih paketov, kjer je najvišja zavarovalna vsota za primer smrti 60.000 EUR. Če želiš višje kritje za primer smrti, potem ti priporočamo sklenitev Zavarovanja življenja, ki ga lahko skleneš tudi preko spleta.</p><p>Za dodatne informacije nam piši ali pokliči na 080 555 555.</p></div></div>
+        <div class="kk-faq-item"><button class="kk-faq-q">Kritje za primer smrti bi želel skleniti za 100.000 EUR, vendar noben paket tega ne omogoča. Kaj lahko storim?</button><div class="kk-faq-a"><p>Življenjsko zavarovanje LAJF lahko skleneš le v okviru predstavljenih paketov, kjer je najvišja zavarovalna vsota za primer smrti 60.000 EUR. Če želiš višje kritje za primer smrti, potem ti priporočamo sklenitev Zavarovanja življenja.</p><p>Za dodatne informacije nam piši ali pokliči na 080 555 555.</p></div></div>
         <div class="kk-faq-item"><button class="kk-faq-q">Ali se lahko med trajanjem zavarovanja odločim za zamenjavo paketa?</button><div class="kk-faq-a"><p>Da, če premijo plačuješ mesečno, lahko izbereš paket z višjimi kritji od obstoječega. Za dodatne informacije nam piši ali pokliči na 080 555 555.</p></div></div>
         <div class="kk-faq-item"><button class="kk-faq-q">Ali je izplačilo za primer smrti obdavčeno z dohodnino?</button><div class="kk-faq-a"><p>Ne, izplačilo za primer smrti ni obdavčeno z dohodnino.</p></div></div>
       </div>
@@ -17671,7 +17659,7 @@ function zivljenjeSmrtiPage(){return `
     <div class="kk-section" id="zsm-uvod">
       <p class="kk-label">Poskrbite zase in za svoje najdražje</p>
       <h2 class="kk-h2">Z življenjskim zavarovanjem si zagotovite, da bodo vaši bližnji preskrbljeni in vi zaščiteni.</h2>
-      <p class="kk-p">Zavarujejo se lahko zdrave osebe od izpolnjenega 14. do 74. leta starosti, ki ob izteku zavarovanja niso starejše od 75 let (sklenitev preko spleta je možna od 18. leta dalje). Osebe, ki niso popolnoma zdrave, kakor tudi osebe, starejše kot 74 let, se zavarujejo po dopolnilnih pogojih.</p>
+      <p class="kk-p">Zavarujejo se lahko zdrave osebe od izpolnjenega 14. do 74. leta starosti, ki ob izteku zavarovanja niso starejše od 75 let. Osebe, ki niso popolnoma zdrave, kakor tudi osebe, starejše kot 74 let, se zavarujejo po dopolnilnih pogojih.</p>
       <p class="kk-p">Višina premije je odvisna od obsega zavarovalnega kritja, vaše starosti, življenjskega sloga in predvidenega zavarovalno-tehničnega rezultata.</p>
     </div>
   </div>
@@ -17749,7 +17737,7 @@ function zivljenjeSmrtiPage(){return `
           <div class="kk-faq-item"><button class="kk-faq-q">Kdaj sem upravičen do nadomestila za kritje začasne delovne nezmožnosti?</button><div class="kk-faq-a"><p>Do nadomestila za kritje začasne delovne nezmožnosti ste s sklenjenim Dodatnim zavarovanjem za delovno nezmožnost upravičeni po prvih 30 dneh bolniške odsotnosti.</p></div></div>
           <div class="kk-faq-item"><button class="kk-faq-q">Kdaj začne veljati kritje za trajno delovno nezmožnost?</button><div class="kk-faq-a"><p>V primeru trajne delovne nezmožnosti zaradi nezgode čakalnega roka ni. Če je vzrok bolezen, pa se jamstvo zavarovalnice začne 6 mesecev po izpolnitvi pogojev.</p></div></div>
           <div class="kk-faq-item"><button class="kk-faq-q">Zakaj je ob sklenitvi življenjskega zavarovanja pomembno moje zdravstveno stanje?</button><div class="kk-faq-a"><p>Vaše zdravstveno stanje je za zavarovalnico pomemben podatek. Nekateri zdravstveni dejavniki namreč vplivajo na vašo pričakovano življenjsko dobo. Zavarovalnica jih upošteva pri izračunu tveganja, ki ga prevzema s tem, ko vas zavaruje, in določanju višine zavarovalne premije za vašo zavarovalno polico. Zato je pomembno, da ob sklenitvi zavarovanja navedete resnične podatke, po katerih sprašujemo, saj vam v nasprotnem primeru ne moremo zagotoviti, da boste prejeli izplačilo (celotne) zavarovalnine.</p></div></div>
-          <div class="kk-faq-item"><button class="kk-faq-q">Kje lahko sklenem zavarovanje?</button><div class="kk-faq-a"><p>Zavarovanje lahko sklenete na vseh prodajnih mestih Zavarovalnice Triglav, preko spleta ali pri zavarovalnem zastopniku. Z zastopnikom lahko zavarovanje sklenete osebno ali na daljavo. Za več informacij nam lahko pišete ali pokličete na brezplačno telefonsko številko 080 555 555.</p></div></div>
+          <div class="kk-faq-item"><button class="kk-faq-q">Kje lahko sklenem zavarovanje?</button><div class="kk-faq-a"><p>Zavarovanje lahko sklenete na vseh prodajnih mestih Zavarovalnice Triglav ali pri zavarovalnem zastopniku. Z zastopnikom lahko zavarovanje sklenete osebno ali na daljavo. Za več informacij nam lahko pišete ali pokličete na brezplačno telefonsko številko 080 555 555.</p></div></div>
         </div>
       </div>
     </div>
@@ -17897,7 +17885,7 @@ function zdravnik360Page(){return `<div style="background:#fff">
     <p class="kk-eyebrow">Zdravstvena zavarovanja</p>
     <h1>Zavarovanje<br>Zdravnik 360</h1>
     <div class="kk-hero-actions">
-      <a href="#kontakt" class="pb-btn solid">Skleni online</a>
+      <a href="#kontakt" class="pb-btn solid">Pridobi ponudbo</a>
     </div>
   </div>
 </div>
@@ -17987,7 +17975,7 @@ function zobjePage(){return `<div style="background:#fff">
     <p class="kk-eyebrow">Zdravstvena zavarovanja</p>
     <h1>Zavarovanje Zobje<br>in Zobje+</h1>
     <div class="kk-hero-actions">
-      <a href="#kontakt" class="pb-btn solid">Skleni online</a>
+      <a href="#kontakt" class="pb-btn solid">Pridobi ponudbo</a>
     </div>
   </div>
 </div>
@@ -18929,7 +18917,7 @@ function fleksiPage(){return `<div style="background:#fff">
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:24px">
       <div style="border:2px solid var(--kk-navy);border-radius:12px;padding:28px">
         <div style="font-weight:800;color:var(--kk-navy);font-size:.9rem;text-transform:uppercase;letter-spacing:.07em;margin-bottom:8px">i.fleks</div>
-        <p class="kk-p" style="font-size:.9rem">Različica, ki jo preprosto sklenete preko spleta. Prihranite čas in denar. Možnost izbire skladov ETF.</p>
+        <p class="kk-p" style="font-size:.9rem">Preprosta in hitra različica. Prihranite čas in denar. Možnost izbire skladov ETF.</p>
         <a href="#t/nalozbena-in-pokojninska-zavarovanja/nalozbena-zavarovanja/nalozbeno-zivljenjsko-zavarovanje-i-fleks" class="pb-btn outline" style="margin-top:16px;display:inline-block">Več o i.fleks</a>
       </div>
       <div style="border:1px solid var(--kk-border);border-radius:12px;padding:28px">
@@ -18955,7 +18943,7 @@ function iFleksPage(){return `<div style="background:#fff">
     <p class="kk-eyebrow">Naložbe</p>
     <h1>Naložbeno življenjsko<br>zavarovanje i.fleks</h1>
     <div class="kk-hero-actions">
-      <a href="#kontakt" class="pb-btn solid">Skleni online</a>
+      <a href="#kontakt" class="pb-btn solid">Pridobi ponudbo</a>
     </div>
   </div>
 </div>
@@ -18971,7 +18959,7 @@ function iFleksPage(){return `<div style="background:#fff">
   <div class="kk-section" id="if-uvod">
     <p class="kk-label">Prilagodljivo, prav mimogrede</p>
     <h2 class="kk-h2">Zavarovanje z odprto dobo –<br>sklenjeno v minutah</h2>
-    <p class="kk-p">Različica naložbenega zavarovanja Fleks, ki vam prihrani čas in denar. Sklenete ga preprosto preko spleta. Zavarujejo se zdrave osebe od 18. do 65. leta starosti.</p>
+    <p class="kk-p">Različica naložbenega zavarovanja Fleks, ki vam prihrani čas in denar. Zavarujejo se zdrave osebe od 18. do 65. leta starosti.</p>
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:32px">
       <div style="background:var(--kk-light);border-radius:10px;padding:24px;border:1px solid var(--kk-border)">
         <div style="font-size:1.8rem;margin-bottom:10px">🎯</div>
@@ -19684,6 +19672,43 @@ function rentnoZavarovanje(){return `<div style="background:#fff">
     }).observe(drawer,{attributes:true,attributeFilter:['class']});
   }
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
+})();
+</script>
+<script id="ai-kbfix">
+(function(){
+  if(!window.visualViewport) return;
+  var vv=window.visualViewport;
+  function apply(){
+    var kb=(window.innerHeight - vv.height) > 80;
+    var page=document.querySelector('.ai-page');
+    if(document.body.dataset.page==='ai-asistent' && page){
+      if(kb){
+        var hd=document.querySelector('header.header');
+        var top=hd?Math.max(0,hd.getBoundingClientRect().bottom):0;
+        page.style.setProperty('height',(vv.height-top)+'px','important');
+        window.scrollTo(0,0);
+        var msgs=document.querySelector('.ai-messages'); if(msgs) msgs.scrollTop=msgs.scrollHeight;
+      } else {
+        page.style.removeProperty('height');
+      }
+    }
+    var chat=document.querySelector('.chat.open');
+    if(chat && window.matchMedia('(max-width:767px)').matches){
+      if(kb){
+        chat.style.setProperty('inset','0 0 auto 0','important');
+        chat.style.setProperty('height',vv.height+'px','important');
+        window.scrollTo(0,0);
+        var cm=document.querySelector('.chat-messages'); if(cm) cm.scrollTop=cm.scrollHeight;
+      } else {
+        chat.style.removeProperty('inset');
+        chat.style.removeProperty('height');
+      }
+    }
+  }
+  vv.addEventListener('resize',apply);
+  vv.addEventListener('scroll',apply);
+  window.addEventListener('focusin',function(){setTimeout(apply,300)});
+  window.addEventListener('focusout',function(){setTimeout(apply,300)});
 })();
 </script>
 </body>
