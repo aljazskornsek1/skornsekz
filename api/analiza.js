@@ -48,20 +48,46 @@ const KATALOG = [
   ['Zavarovanje mačk', '/zavarovanje-mack.html'],
 ]
 
+const TEASER_ITEM = {
+  type: 'object', additionalProperties: false,
+  properties: {
+    naslov: { type: 'string' },
+    zakaj: { type: 'string' },
+    predlog: { type: 'string' },
+  },
+  required: ['naslov', 'zakaj', 'predlog'],
+}
+
+const TEASER_SCHEMA = {
+  type: 'object', additionalProperties: false,
+  properties: {
+    teaser: { type: 'array', minItems: 3, maxItems: 3, items: TEASER_ITEM },
+  },
+  required: ['teaser'],
+}
+
 const SCHEMA = {
   type: 'object', additionalProperties: false,
   properties: {
-    teaser: {
-      type: 'array', minItems: 3, maxItems: 3,
-      items: {
-        type: 'object', additionalProperties: false,
-        properties: {
-          naslov: { type: 'string' },
-          zakaj: { type: 'string' },
-          predlog: { type: 'string' },
+    teaser: { type: 'array', minItems: 3, maxItems: 3, items: TEASER_ITEM },
+    ocena_zascitenosti: {
+      type: 'object', additionalProperties: false,
+      properties: {
+        skupaj: { type: 'integer' },
+        podrocja: {
+          type: 'array', minItems: 4, maxItems: 6,
+          items: {
+            type: 'object', additionalProperties: false,
+            properties: {
+              naziv: { type: 'string' },
+              ocena: { type: 'integer' },
+              komentar: { type: 'string' },
+            },
+            required: ['naziv', 'ocena', 'komentar'],
+          },
         },
-        required: ['naslov', 'zakaj', 'predlog'],
       },
+      required: ['skupaj', 'podrocja'],
     },
     tveganja: {
       type: 'array', minItems: 4, maxItems: 9,
@@ -70,10 +96,12 @@ const SCHEMA = {
         properties: {
           naslov: { type: 'string' },
           stopnja: { type: 'string', enum: ['visoka', 'srednja', 'nizka'] },
+          verjetnost: { type: 'string', enum: ['majhna', 'srednja', 'velika'] },
+          posledica: { type: 'string', enum: ['blaga', 'resna', 'kritična'] },
           zakaj: { type: 'string' },
           resitev: { type: 'string' },
         },
-        required: ['naslov', 'stopnja', 'zakaj', 'resitev'],
+        required: ['naslov', 'stopnja', 'verjetnost', 'posledica', 'zakaj', 'resitev'],
       },
     },
     luknje: { type: 'array', maxItems: 6, items: { type: 'string' } },
@@ -92,7 +120,7 @@ const SCHEMA = {
     vprasanja_za_posvet: { type: 'array', minItems: 3, maxItems: 6, items: { type: 'string' } },
     povzetek: { type: 'string' },
   },
-  required: ['teaser', 'tveganja', 'luknje', 'priporocila', 'vprasanja_za_posvet', 'povzetek'],
+  required: ['teaser', 'ocena_zascitenosti', 'tveganja', 'luknje', 'priporocila', 'vprasanja_za_posvet', 'povzetek'],
 }
 
 function profilVBesedilo(p) {
@@ -117,6 +145,7 @@ function profilVBesedilo(p) {
   push('Potovanja v tujino', p.potovanja)
   push('Hišni ljubljenčki', p.ljubljencki)
   push('Skrb za starše', p.starsi)
+  push('Nezgodno zavarovanje otrok', p.otroci_zascita)
   push('Obstoječa zavarovanja', p.obstojeca)
   push('Dodatno', p.opomba)
   return rows.join('\n')
@@ -157,12 +186,38 @@ export default async function handler(req, res) {
     const body = typeof req.body === 'object' && req.body ? req.body : JSON.parse(req.body || '{}')
     const profil = body.profil && typeof body.profil === 'object' ? body.profil : null
     const language = ['sl', 'en', 'de'].includes(body.language) ? body.language : 'sl'
+    const mode = body.mode === 'teaser' ? 'teaser' : 'full'
     if (!profil) return respond(res, 400, { error: 'Manjka profil.' })
 
     const profilTekst = profilVBesedilo(profil).slice(0, 4000)
     if (!profilTekst) return respond(res, 400, { error: 'Prazen profil.' })
 
     const openai = new OpenAI({ apiKey: openaiKey })
+    const langNote = language === 'en' ? 'Write ALL text fields in English.' : language === 'de' ? 'Schreibe ALLE Textfelder auf Deutsch.' : 'Vsa besedila piši v slovenščini.'
+
+    // hitri način: samo 3 ključne ugotovitve, brez RAG — odgovor v nekaj sekundah
+    if (mode === 'teaser') {
+      const response = await openai.responses.create({
+        model: ANSWER_MODEL_STRONG,
+        input: [
+          { role: 'system', content: `Si izkušen zavarovalni svetovalec agencije Zavarovanje Skornšek (ekskluzivni zastopnik Zavarovalnice Triglav).
+Iz profila stranke izlušči 3 NAJPOMEMBNEJŠA zavarovalna tveganja. Konkretno in osebno za ta profil, ne generično. Vikanje. ${langNote}
+Brez premij in cen. Upoštevaj obstoječa zavarovanja — česar stranka že ima, ne izpostavljaj kot manjkajoče. "predlog" = ena kratka usmeritev, kaj urediti.` },
+          { role: 'user', content: `PROFIL STRANKE:\n${profilTekst}` },
+        ],
+        max_output_tokens: 900,
+        ...(ANSWER_MODEL_STRONG.startsWith('gpt-5') && !ANSWER_MODEL_STRONG.includes('chat')
+          ? { reasoning: { effort: 'low' } }
+          : {}),
+        text: { format: { type: 'json_schema', name: 'analiza_teaser', strict: true, schema: TEASER_SCHEMA } },
+      })
+      let porocilo
+      try { porocilo = JSON.parse(response.output_text) } catch {
+        return respond(res, 502, { error: 'Analize trenutno ni mogoče pripraviti. Poskusite znova.' })
+      }
+      return respond(res, 200, { porocilo })
+    }
+
     const supabase = createClient(supabaseUrl, supabaseKey, { auth: { persistSession: false, autoRefreshToken: false } })
 
     // poizvedbe za RAG glede na profil
@@ -178,13 +233,14 @@ export default async function handler(req, res) {
     try { context = await retrieve(openai, supabase, queries.slice(0, 6)) } catch (e) { console.error('[analiza] RAG:', e.message) }
 
     const katalog = KATALOG.map(([n, u]) => `${n} → ${u}`).join('\n')
-    const langNote = language === 'en' ? 'Write ALL text fields in English.' : language === 'de' ? 'Schreibe ALLE Textfelder auf Deutsch.' : 'Vsa besedila piši v slovenščini.'
 
     const system = `Si izkušen zavarovalni svetovalec agencije Zavarovanje Skornšek (ekskluzivni zastopnik Zavarovalnice Triglav).
 Iz profila stranke izdelaj analizo zavarovalnih potreb. Pravila:
 - Vikanje, topel a strokoven ton. ${langNote}
 - NIKOLI ne navajaj premij, cen ali številk, ki jih ne moreš utemeljiti. Zavarovalnih vsot ne izmišljuj; kjer je smiselno, opiši pristop (npr. "vsota naj pokrije 5 letnih dohodkov ali ostanek kredita").
 - "teaser" = 3 NAJPOMEMBNEJŠA tveganja tega profila, konkretno in osebno (ne generično).
+- "ocena_zascitenosti": realna ocena trenutne zaščitenosti gospodinjstva 0–100 (100 = vzorno pokrito). Bodi strog a pošten: brez ustreznih obstoječih zavarovanj ocena pod 45; popolna pokritost je redkost. "podrocja" = 4–6 NAJRELEVANTNEJŠIH področij za ta profil, imena izbiraj med: "Dom in premoženje", "Vozila in mobilnost", "Zdravje in nezgode", "Življenje in dohodek", "Odgovornost", "Potovanja in prosti čas", "Ljubljenčki". "komentar" = en kratek stavek, zakaj taka ocena. "skupaj" naj smiselno povzema področja (ne aritmetično povprečje — pomembnejša področja štejejo več).
+- Pri vsakem tveganju oceni "verjetnost" (majhna/srednja/velika — kako verjetno se v 10 letih zgodi temu profilu) in "posledica" (blaga/resna/kritična — finančni udarec, če se zgodi, glede na rezervo in dohodke stranke). "stopnja" = skupna prioriteta.
 - "priporocila": uporabi IZKLJUČNO produkte in URL-je iz kataloga spodaj; izberi samo relevantne.
 - Upoštevaj obstoječa zavarovanja: česar stranka že ima, ne priporočaj znova — pri "luknje" pa opozori, če pri obstoječem kritju pogosto kaj manjka.
 - Vsak nasvet je informativen predlog za posvet, ne zavezujoče svetovanje.
@@ -200,7 +256,7 @@ ${katalog}`
         { role: 'system', content: system },
         { role: 'user', content: user },
       ],
-      max_output_tokens: 4000,
+      max_output_tokens: 4600,
       ...(ANSWER_MODEL_STRONG.startsWith('gpt-5') && !ANSWER_MODEL_STRONG.includes('chat')
         ? { reasoning: { effort: 'low' } }
         : {}),
@@ -214,6 +270,12 @@ ${katalog}`
     try { porocilo = JSON.parse(raw) } catch {
       console.error('[analiza] JSON parse fail:', (raw || '').slice(0, 300))
       return respond(res, 502, { error: 'Analize trenutno ni mogoče pripraviti. Poskusite znova.' })
+    }
+    // varnostne meje ocen
+    if (porocilo.ocena_zascitenosti) {
+      const o = porocilo.ocena_zascitenosti
+      o.skupaj = Math.max(0, Math.min(100, o.skupaj | 0))
+      for (const p of o.podrocja || []) p.ocena = Math.max(0, Math.min(100, p.ocena | 0))
     }
     return respond(res, 200, { porocilo })
   } catch (error) {

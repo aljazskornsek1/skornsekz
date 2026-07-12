@@ -78,6 +78,121 @@ async function sendLeadEmail({ tip, ime, email, telefon, povzetek, storagePath, 
   }
 }
 
+// e-mail s celotnim poročilom analize potreb za STRANKO (sl/en/de)
+const L = {
+  sl: {
+    subject: 'Vaša analiza zavarovalnih potreb — Zavarovanje Skornšek',
+    hello: n => `Pozdravljeni, ${n}!`,
+    intro: 'Hvala za zaupanje. Spodaj je vaše osebno poročilo analize zavarovalnih potreb. V enem delovnem dnevu vas kontaktiramo za brezplačen posvet.',
+    score: 'Ocena zaščitenosti',
+    risks: 'Prepoznana tveganja', gaps: 'Na kaj bodite pozorni pri obstoječih kritjih',
+    recs: 'Priporočeni koraki', qs: 'Vprašanja za vaš posvet', sol: 'Rešitev',
+    contact: 'Vaša svetovalca', disclaimer: 'Analiza je informativne narave in ne predstavlja zavarovalnega svetovanja ali ponudbe. Za točen obseg kritij veljajo pogoji posameznega zavarovanja.',
+  },
+  en: {
+    subject: 'Your insurance needs analysis — Zavarovanje Skornšek',
+    hello: n => `Hello, ${n}!`,
+    intro: 'Thank you for your trust. Below is your personal insurance needs report. We will contact you within one business day for a free consultation.',
+    score: 'Protection score',
+    risks: 'Identified risks', gaps: 'What to watch in your existing coverage',
+    recs: 'Recommended steps', qs: 'Questions for your consultation', sol: 'Solution',
+    contact: 'Your advisors', disclaimer: 'This analysis is informative in nature and does not constitute insurance advice or an offer. The terms of each individual policy apply.',
+  },
+  de: {
+    subject: 'Ihre Analyse des Versicherungsbedarfs — Zavarovanje Skornšek',
+    hello: n => `Guten Tag, ${n}!`,
+    intro: 'Vielen Dank für Ihr Vertrauen. Unten finden Sie Ihren persönlichen Bericht zur Versicherungsbedarfsanalyse. Wir melden uns innerhalb eines Werktags für eine kostenlose Beratung.',
+    score: 'Schutz-Bewertung',
+    risks: 'Erkannte Risiken', gaps: 'Worauf Sie bei bestehendem Schutz achten sollten',
+    recs: 'Empfohlene Schritte', qs: 'Fragen für Ihre Beratung', sol: 'Lösung',
+    contact: 'Ihre Berater', disclaimer: 'Diese Analyse ist informativer Natur und stellt keine Versicherungsberatung oder ein Angebot dar. Es gelten die Bedingungen der jeweiligen Versicherung.',
+  },
+}
+const BASE_URL = 'https://www.zav-skornsek.si'
+
+function scoreColor(s) { return s >= 70 ? '#2e7d4f' : s >= 40 ? '#B08D57' : '#b3402a' }
+
+function reportEmailHtml({ ime, porocilo, language }) {
+  const l = L[language] || L.sl
+  const e = escapeHtml
+  const p = porocilo
+  const sec = t => `<h2 style="font-family:Georgia,serif;font-weight:400;font-size:22px;color:#0A1428;margin:34px 0 12px">${e(t)}</h2>`
+  let h = `<div style="font-family:Arial,Helvetica,sans-serif;color:#1f2937;line-height:1.65;max-width:640px;margin:auto">
+    <div style="background:#0A1428;padding:26px 28px">
+      <div style="color:#B08D57;font-size:11px;letter-spacing:3px;font-weight:700">ZAVAROVANJE SKORNŠEK</div>
+      <div style="font-family:Georgia,serif;color:#ffffff;font-size:26px;margin-top:8px">${e(l.subject.split('—')[0].trim())}</div>
+    </div>
+    <div style="padding:26px 28px;background:#ffffff;border:1px solid #e8e2d5;border-top:0">
+    <p style="font-size:16px"><strong>${e(l.hello(ime))}</strong></p>
+    <p style="font-size:14px;color:#4b5563">${e(l.intro)}</p>`
+  const o = p.ocena_zascitenosti
+  if (o && typeof o.skupaj === 'number') {
+    h += `<div style="border:1px solid #e8e2d5;background:#faf8f3;padding:20px 22px;margin:20px 0">
+      <div style="font-size:11px;letter-spacing:2px;color:#8a6c3c;font-weight:700;text-transform:uppercase">${e(l.score)}</div>
+      <div style="font-family:Georgia,serif;font-size:44px;color:${scoreColor(o.skupaj)};margin:4px 0 10px">${o.skupaj | 0}<span style="font-size:20px;color:#9ca3af"> / 100</span></div>`
+    for (const a of o.podrocja || []) {
+      h += `<div style="margin:9px 0"><div style="display:flex;justify-content:space-between;font-size:13px;color:#374151"><span>${e(a.naziv)}</span><strong style="color:${scoreColor(a.ocena)}">&nbsp;${a.ocena | 0}</strong></div>
+        <div style="height:5px;background:#ece7db;margin-top:4px"><div style="height:5px;width:${Math.max(2, Math.min(100, a.ocena | 0))}%;background:${scoreColor(a.ocena)}"></div></div></div>`
+    }
+    h += `</div>`
+  }
+  if (p.povzetek) h += `<p style="font-size:14px;color:#374151">${e(p.povzetek)}</p>`
+  if (Array.isArray(p.tveganja) && p.tveganja.length) {
+    h += sec(l.risks)
+    for (const t of p.tveganja) {
+      h += `<div style="border:1px solid #e8e2d5;padding:14px 16px;margin-bottom:10px">
+        <div style="font-size:15px;color:#0A1428"><strong>${e(t.naslov)}</strong> <span style="font-size:10px;letter-spacing:1px;text-transform:uppercase;background:#f1ece1;color:#8a6c3c;padding:2px 8px">${e(t.stopnja || '')}</span></div>
+        <div style="font-size:13px;color:#4b5563;margin-top:6px">${e(t.zakaj)}</div>
+        <div style="font-size:13px;color:#0A1428;margin-top:6px"><strong>${e(l.sol)}:</strong> ${e(t.resitev)}</div></div>`
+    }
+  }
+  if (Array.isArray(p.luknje) && p.luknje.length) {
+    h += sec(l.gaps) + '<ul style="padding-left:18px;font-size:13.5px;color:#374151">' + p.luknje.map(x => `<li style="margin:6px 0">${e(x)}</li>`).join('') + '</ul>'
+  }
+  if (Array.isArray(p.priporocila) && p.priporocila.length) {
+    h += sec(l.recs)
+    for (const r of p.priporocila) {
+      const url = typeof r.url === 'string' && r.url.startsWith('/') ? BASE_URL + r.url : BASE_URL
+      h += `<div style="border:1px solid #e8e2d5;padding:13px 16px;margin-bottom:8px">
+        <a href="${e(url)}" style="color:#0A1428;font-size:14.5px;font-weight:bold;text-decoration:none">${e(r.produkt)} →</a>
+        <div style="font-size:13px;color:#4b5563;margin-top:4px">${e(r.razlog)}</div></div>`
+    }
+  }
+  if (Array.isArray(p.vprasanja_za_posvet) && p.vprasanja_za_posvet.length) {
+    h += sec(l.qs) + '<ul style="padding-left:18px;font-size:13.5px;color:#374151">' + p.vprasanja_za_posvet.map(x => `<li style="margin:6px 0">${e(x)}</li>`).join('') + '</ul>'
+  }
+  h += `<div style="background:#0A1428;padding:20px 22px;margin-top:28px">
+      <div style="color:#B08D57;font-size:11px;letter-spacing:2px;font-weight:700;text-transform:uppercase">${e(l.contact)}</div>
+      <div style="color:#ffffff;font-size:14px;margin-top:8px">Igor Skornšek · <a href="tel:+38641661362" style="color:#dec89e;text-decoration:none">041 661 362</a><br>
+      Aljaž Skornšek · <a href="tel:+38631544416" style="color:#dec89e;text-decoration:none">031 544 416</a><br>
+      <a href="${BASE_URL}" style="color:#dec89e;text-decoration:none">www.zav-skornsek.si</a></div>
+    </div>
+    <p style="font-size:11px;color:#9ca3af;margin-top:16px">${e(l.disclaimer)}</p>
+    </div></div>`
+  return h
+}
+
+async function sendClientReportEmail({ ime, email, porocilo, language }) {
+  const apiKey = process.env.RESEND_API_KEY
+  if (!apiKey || !porocilo) return false
+  try {
+    const l = L[language] || L.sl
+    const resend = new Resend(apiKey)
+    const { error } = await resend.emails.send({
+      from: process.env.RESEND_FROM_EMAIL || 'Zavarovanje Skornšek <onboarding@resend.dev>',
+      to: [email],
+      replyTo: 'aljaz.skornsek1@gmail.com',
+      subject: l.subject,
+      html: reportEmailHtml({ ime, porocilo, language }),
+    })
+    if (error) { console.error('[lead] client email error:', error); return false }
+    return true
+  } catch (error) {
+    console.error('[lead] client email error:', error)
+    return false
+  }
+}
+
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
     res.setHeader('Allow', 'POST')
@@ -96,6 +211,7 @@ export default async function handler(req, res) {
     const email = cleanText(body.email, 254).toLowerCase()
     const telefon = cleanText(body.telefon, 80)
     const soglasje = body.soglasje === true
+    const language = ['sl', 'en', 'de'].includes(body.language) ? body.language : 'sl'
     const payload = body.payload && typeof body.payload === 'object' ? body.payload : {}
     const povzetek = cleanText(body.povzetek, 4000) || '(brez povzetka)'
 
@@ -147,7 +263,13 @@ export default async function handler(req, res) {
       storagePath: `${BUCKET}/${filePath}`, signedUrl,
     })
 
-    return respond(res, 200, { success: true, emailSent })
+    // stranki pošljemo lepo oblikovano poročilo (samo analiza potreb)
+    let clientEmailSent = false
+    if (tip === 'analiza-potreb' && payload.porocilo && typeof payload.porocilo === 'object') {
+      clientEmailSent = await sendClientReportEmail({ ime, email, porocilo: payload.porocilo, language })
+    }
+
+    return respond(res, 200, { success: true, emailSent, clientEmailSent })
   } catch (error) {
     console.error('[lead] error:', error)
     return respond(res, 500, { success: false, error: 'Oddaje trenutno ni bilo mogoče dokončati.' })
