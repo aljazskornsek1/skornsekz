@@ -19904,6 +19904,8 @@ function azRenderFull(){
   if(typeof localizeDOM==='function')try{localizeDOM(root)}catch(e){}
   root.scrollIntoView({behavior:'smooth',block:'start'});
 }
+
+if(location.hash==='#analiza-potreb'&&typeof render==='function'){try{render();}catch(e){}}
 </script>
 <script id="ai-kbfix">
 (function(){
