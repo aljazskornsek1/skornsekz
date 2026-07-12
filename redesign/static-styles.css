@@ -2634,10 +2634,10 @@ html body .mega small{color:#666!important}
   
 
     /* Domov: hero fotografija cez celotno ozadje (prej desna polovica, odrezana) */
-    .hero .hero-image{inset:0!important;opacity:1!important;background:linear-gradient(90deg,rgba(6,16,31,.94) 0%,rgba(6,16,31,.76) 40%,rgba(6,16,31,.44) 72%,rgba(6,16,31,.30) 100%),url('https://images.unsplash.com/photo-1449824913935-59a10b8d2000?auto=format&fit=crop&w=2400&q=80') center/cover no-repeat!important}
+    .hero .hero-image{inset:0!important;opacity:1!important;background:linear-gradient(90deg,rgba(6,16,31,.94) 0%,rgba(6,16,31,.76) 40%,rgba(6,16,31,.44) 72%,rgba(6,16,31,.30) 100%),url('/photo-poslovni-dom.webp') center/cover no-repeat!important}
     .hero .wrap,.hero .hero-copy{position:relative;z-index:1}
     @media (max-width:767px){
-      .hero .hero-image{background:linear-gradient(180deg,rgba(6,16,31,.90) 0%,rgba(6,16,31,.62) 55%,rgba(6,16,31,.82) 100%),url('https://images.unsplash.com/photo-1449824913935-59a10b8d2000?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat!important}
+      .hero .hero-image{background:linear-gradient(180deg,rgba(6,16,31,.90) 0%,rgba(6,16,31,.62) 55%,rgba(6,16,31,.82) 100%),url('/photo-poslovni-dom.webp') center/cover no-repeat!important}
     }
   
 
@@ -2768,3 +2768,10 @@ html body[data-page="ai-asistent"] #app{position:relative!important;inset:auto!i
 .static-page .s-nav a{color:rgba(255,255,255,.88);text-decoration:none;padding:10px 12px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:600}
 .static-page .s-nav a:hover{color:#dec89e}
 .static-page main{display:block}
+
+    .s-tel{color:rgba(255,255,255,.85);text-decoration:none;font-size:12px;letter-spacing:.08em;margin-right:14px;font-weight:600;white-space:nowrap}
+    .s-tel:hover{color:#dec89e}
+    @media (max-width:1100px){.s-tel{display:none}}
+    .lux-footer .lf-tel{margin-top:16px}
+    .lux-footer .lf-tel a{color:rgba(255,255,255,.8);text-decoration:none;transition:color .4s ease}
+    .lux-footer .lf-tel a:hover{color:#dec89e}
