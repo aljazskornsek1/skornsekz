@@ -3,6 +3,9 @@
   "buildCommand": "npm run build",
   "outputDirectory": "outputs",
   "functions": {
+    "api/analiza.js": { "maxDuration": 60 },
+    "api/portfelj.js": { "maxDuration": 60 },
+    "api/skoda.js": { "maxDuration": 60 },
     "api/chat.js": {
       "maxDuration": 60
     },
