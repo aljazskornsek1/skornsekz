@@ -9,6 +9,7 @@
     "@supabase/supabase-js": "^2.106.2",
     "busboy": "^1.6.0",
     "openai": "^6.22.0",
+    "pdfkit": "^0.19.1",
     "resend": "^6.9.3"
   },
   "engines": {

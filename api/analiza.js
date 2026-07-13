@@ -74,6 +74,7 @@ const SCHEMA = {
       type: 'object', additionalProperties: false,
       properties: {
         skupaj: { type: 'integer' },
+        potencial: { type: 'integer' },
         podrocja: {
           type: 'array', minItems: 4, maxItems: 6,
           items: {
@@ -87,7 +88,7 @@ const SCHEMA = {
           },
         },
       },
-      required: ['skupaj', 'podrocja'],
+      required: ['skupaj', 'potencial', 'podrocja'],
     },
     tveganja: {
       type: 'array', minItems: 4, maxItems: 9,
@@ -100,8 +101,9 @@ const SCHEMA = {
           posledica: { type: 'string', enum: ['blaga', 'resna', 'kritična'] },
           zakaj: { type: 'string' },
           resitev: { type: 'string' },
+          vir: { type: 'string' },
         },
-        required: ['naslov', 'stopnja', 'verjetnost', 'posledica', 'zakaj', 'resitev'],
+        required: ['naslov', 'stopnja', 'verjetnost', 'posledica', 'zakaj', 'resitev', 'vir'],
       },
     },
     luknje: { type: 'array', maxItems: 6, items: { type: 'string' } },
@@ -241,6 +243,8 @@ Iz profila stranke izdelaj analizo zavarovalnih potreb. Pravila:
 - "teaser" = 3 NAJPOMEMBNEJŠA tveganja tega profila, konkretno in osebno (ne generično).
 - "ocena_zascitenosti": realna ocena trenutne zaščitenosti gospodinjstva 0–100 (100 = vzorno pokrito). Bodi strog a pošten: brez ustreznih obstoječih zavarovanj ocena pod 45; popolna pokritost je redkost. "podrocja" = 4–6 NAJRELEVANTNEJŠIH področij za ta profil, imena izbiraj med: "Dom in premoženje", "Vozila in mobilnost", "Zdravje in nezgode", "Življenje in dohodek", "Odgovornost", "Potovanja in prosti čas", "Ljubljenčki". "komentar" = en kratek stavek, zakaj taka ocena. "skupaj" naj smiselno povzema področja (ne aritmetično povprečje — pomembnejša področja štejejo več).
 - Pri vsakem tveganju oceni "verjetnost" (majhna/srednja/velika — kako verjetno se v 10 letih zgodi temu profilu) in "posledica" (blaga/resna/kritična — finančni udarec, če se zgodi, glede na rezervo in dohodke stranke). "stopnja" = skupna prioriteta.
+- "vir": če se tveganje ali rešitev opira na priložene izvlečke iz pogojev, navedi naslov dokumenta iz oglatih oklepajev (npr. "Splošni pogoji za zavarovanje doma"); če se ne, pusti prazen niz. Naslovov si ne izmišljuj.
+- "potencial" v ocena_zascitenosti: realna ocena 0–100, ki bi jo gospodinjstvo doseglo, če uredi priporočene prioritete. Vedno višja od "skupaj", a verodostojna (95+ samo pri res popolni pokritosti).
 - "priporocila": uporabi IZKLJUČNO produkte in URL-je iz kataloga spodaj; izberi samo relevantne.
 - Upoštevaj obstoječa zavarovanja: česar stranka že ima, ne priporočaj znova — pri "luknje" pa opozori, če pri obstoječem kritju pogosto kaj manjka.
 - Vsak nasvet je informativen predlog za posvet, ne zavezujoče svetovanje.
@@ -275,6 +279,7 @@ ${katalog}`
     if (porocilo.ocena_zascitenosti) {
       const o = porocilo.ocena_zascitenosti
       o.skupaj = Math.max(0, Math.min(100, o.skupaj | 0))
+      o.potencial = Math.max(o.skupaj, Math.min(100, o.potencial | 0))
       for (const p of o.podrocja || []) p.ocena = Math.max(0, Math.min(100, p.ocena | 0))
     }
     return respond(res, 200, { porocilo })

@@ -1,5 +1,6 @@
 import { Resend } from 'resend'
 import { createClient } from '@supabase/supabase-js'
+import { zgradiPdf } from './_pdf/porocilo.js'
 
 const BUCKET = 'leads'
 const TABLE = 'pregled_polic'
@@ -88,6 +89,8 @@ const L = {
     risks: 'Prepoznana tveganja', gaps: 'Na kaj bodite pozorni pri obstoječih kritjih',
     recs: 'Priporočeni koraki', qs: 'Vprašanja za vaš posvet', sol: 'Rešitev',
     contact: 'Vaša svetovalca', disclaimer: 'Analiza je informativne narave in ne predstavlja zavarovalnega svetovanja ali ponudbe. Za točen obseg kritij veljajo pogoji posameznega zavarovanja.',
+    potencial: 'po ureditvi prioritet', vir: 'Vir',
+    openBtn: 'Odprite svoje poročilo', pdfNote: 'Celotno poročilo je priloženo tudi kot PDF dokument, spletna različica pa je vedno na voljo na zgornji povezavi.',
   },
   en: {
     subject: 'Your insurance needs analysis — Zavarovanje Skornšek',
@@ -97,6 +100,8 @@ const L = {
     risks: 'Identified risks', gaps: 'What to watch in your existing coverage',
     recs: 'Recommended steps', qs: 'Questions for your consultation', sol: 'Solution',
     contact: 'Your advisors', disclaimer: 'This analysis is informative in nature and does not constitute insurance advice or an offer. The terms of each individual policy apply.',
+    potencial: 'after addressing priorities', vir: 'Source',
+    openBtn: 'Open your report', pdfNote: 'The full report is also attached as a PDF document; the web version is always available at the link above.',
   },
   de: {
     subject: 'Ihre Analyse des Versicherungsbedarfs — Zavarovanje Skornšek',
@@ -106,13 +111,15 @@ const L = {
     risks: 'Erkannte Risiken', gaps: 'Worauf Sie bei bestehendem Schutz achten sollten',
     recs: 'Empfohlene Schritte', qs: 'Fragen für Ihre Beratung', sol: 'Lösung',
     contact: 'Ihre Berater', disclaimer: 'Diese Analyse ist informativer Natur und stellt keine Versicherungsberatung oder ein Angebot dar. Es gelten die Bedingungen der jeweiligen Versicherung.',
+    potencial: 'nach Regelung der Prioritäten', vir: 'Quelle',
+    openBtn: 'Ihren Bericht öffnen', pdfNote: 'Der vollständige Bericht ist auch als PDF-Dokument beigefügt; die Web-Version ist jederzeit über den obigen Link verfügbar.',
   },
 }
 const BASE_URL = 'https://www.zav-skornsek.si'
 
 function scoreColor(s) { return s >= 70 ? '#2e7d4f' : s >= 40 ? '#B08D57' : '#b3402a' }
 
-function reportEmailHtml({ ime, porocilo, language }) {
+function reportEmailHtml({ ime, porocilo, language, reportUrl }) {
   const l = L[language] || L.sl
   const e = escapeHtml
   const p = porocilo
@@ -124,12 +131,14 @@ function reportEmailHtml({ ime, porocilo, language }) {
     </div>
     <div style="padding:26px 28px;background:#ffffff;border:1px solid #e8e2d5;border-top:0">
     <p style="font-size:16px"><strong>${e(l.hello(ime))}</strong></p>
-    <p style="font-size:14px;color:#4b5563">${e(l.intro)}</p>`
+    <p style="font-size:14px;color:#4b5563">${e(l.intro)}</p>
+    ${reportUrl ? `<div style="margin:22px 0"><a href="${e(reportUrl)}" style="display:inline-block;background:#0A1428;color:#dec89e;text-decoration:none;font-size:12px;letter-spacing:2px;text-transform:uppercase;font-weight:bold;padding:14px 28px">${e(l.openBtn)} →</a>
+    <div style="font-size:11.5px;color:#9ca3af;margin-top:10px">${e(l.pdfNote)}</div></div>` : ''}`
   const o = p.ocena_zascitenosti
   if (o && typeof o.skupaj === 'number') {
     h += `<div style="border:1px solid #e8e2d5;background:#faf8f3;padding:20px 22px;margin:20px 0">
       <div style="font-size:11px;letter-spacing:2px;color:#8a6c3c;font-weight:700;text-transform:uppercase">${e(l.score)}</div>
-      <div style="font-family:Georgia,serif;font-size:44px;color:${scoreColor(o.skupaj)};margin:4px 0 10px">${o.skupaj | 0}<span style="font-size:20px;color:#9ca3af"> / 100</span></div>`
+      <div style="font-family:Georgia,serif;font-size:44px;color:${scoreColor(o.skupaj)};margin:4px 0 10px">${o.skupaj | 0}<span style="font-size:20px;color:#9ca3af"> / 100</span>${typeof o.potencial === 'number' && o.potencial > o.skupaj ? `<span style="font-size:15px;color:#2e7d4f;font-family:Arial,sans-serif">&nbsp;&nbsp;→ ${o.potencial | 0} ${e(l.potencial)}</span>` : ''}</div>`
     for (const a of o.podrocja || []) {
       h += `<div style="margin:9px 0"><div style="display:flex;justify-content:space-between;font-size:13px;color:#374151"><span>${e(a.naziv)}</span><strong style="color:${scoreColor(a.ocena)}">&nbsp;${a.ocena | 0}</strong></div>
         <div style="height:5px;background:#ece7db;margin-top:4px"><div style="height:5px;width:${Math.max(2, Math.min(100, a.ocena | 0))}%;background:${scoreColor(a.ocena)}"></div></div></div>`
@@ -143,7 +152,7 @@ function reportEmailHtml({ ime, porocilo, language }) {
       h += `<div style="border:1px solid #e8e2d5;padding:14px 16px;margin-bottom:10px">
         <div style="font-size:15px;color:#0A1428"><strong>${e(t.naslov)}</strong> <span style="font-size:10px;letter-spacing:1px;text-transform:uppercase;background:#f1ece1;color:#8a6c3c;padding:2px 8px">${e(t.stopnja || '')}</span></div>
         <div style="font-size:13px;color:#4b5563;margin-top:6px">${e(t.zakaj)}</div>
-        <div style="font-size:13px;color:#0A1428;margin-top:6px"><strong>${e(l.sol)}:</strong> ${e(t.resitev)}</div></div>`
+        <div style="font-size:13px;color:#0A1428;margin-top:6px"><strong>${e(l.sol)}:</strong> ${e(t.resitev)}</div>${t.vir ? `<div style="font-size:11px;color:#9ca3af;margin-top:5px;font-style:italic">${e(l.vir)}: ${e(t.vir)}</div>` : ''}</div>`
     }
   }
   if (Array.isArray(p.luknje) && p.luknje.length) {
@@ -172,7 +181,7 @@ function reportEmailHtml({ ime, porocilo, language }) {
   return h
 }
 
-async function sendClientReportEmail({ ime, email, porocilo, language }) {
+async function sendClientReportEmail({ ime, email, porocilo, language, reportUrl, pdfBuffer }) {
   const apiKey = process.env.RESEND_API_KEY
   if (!apiKey || !porocilo) return false
   try {
@@ -183,7 +192,8 @@ async function sendClientReportEmail({ ime, email, porocilo, language }) {
       to: [email],
       replyTo: 'aljaz.skornsek1@gmail.com',
       subject: l.subject,
-      html: reportEmailHtml({ ime, porocilo, language }),
+      html: reportEmailHtml({ ime, porocilo, language, reportUrl }),
+      ...(pdfBuffer ? { attachments: [{ filename: 'Analiza-zavarovalnih-potreb.pdf', content: pdfBuffer.toString('base64') }] } : {}),
     })
     if (error) { console.error('[lead] client email error:', error); return false }
     return true
@@ -265,11 +275,29 @@ export default async function handler(req, res) {
 
     // stranki pošljemo lepo oblikovano poročilo (samo analiza potreb)
     let clientEmailSent = false
+    let reportUrl = null
     if (tip === 'analiza-potreb' && payload.porocilo && typeof payload.porocilo === 'object') {
-      clientEmailSent = await sendClientReportEmail({ ime, email, porocilo: payload.porocilo, language })
+      // trajno poročilo z žetonsko povezavo
+      try {
+        const token = crypto.randomUUID().replace(/-/g, '')
+        const { error: repErr } = await supabase.storage.from(BUCKET).upload(
+          `porocila/${token}.json`,
+          Buffer.from(JSON.stringify({ ime, language, ustvarjeno: new Date().toISOString(), porocilo: payload.porocilo }), 'utf-8'),
+          { contentType: 'application/json', upsert: false },
+        )
+        if (!repErr) reportUrl = `https://www.zav-skornsek.si/zasebniki.html#porocilo-${token}`
+        else console.error('[lead] report save:', repErr.message)
+      } catch (e) { console.error('[lead] report save:', e) }
+
+      let pdfBuffer = null
+      try {
+        pdfBuffer = await zgradiPdf({ porocilo: payload.porocilo, ime, language, reportUrl: reportUrl || '' })
+      } catch (e) { console.error('[lead] pdf:', e) }
+
+      clientEmailSent = await sendClientReportEmail({ ime, email, porocilo: payload.porocilo, language, reportUrl, pdfBuffer })
     }
 
-    return respond(res, 200, { success: true, emailSent, clientEmailSent })
+    return respond(res, 200, { success: true, emailSent, clientEmailSent, reportUrl })
   } catch (error) {
     console.error('[lead] error:', error)
     return respond(res, 500, { success: false, error: 'Oddaje trenutno ni bilo mogoče dokončati.' })

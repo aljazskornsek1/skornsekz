@@ -6,6 +6,7 @@
     "api/analiza.js": { "maxDuration": 60 },
     "api/portfelj.js": { "maxDuration": 60 },
     "api/skoda.js": { "maxDuration": 60 },
+    "api/lead.js": { "maxDuration": 60, "includeFiles": "api/_pdf/**" },
     "api/chat.js": {
       "maxDuration": 60
     },
