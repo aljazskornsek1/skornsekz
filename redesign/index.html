@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Zavarovanje Skornšek</title>
+  <title>Zavarovanje Skornšek | Ekskluzivni zastopnik Zavarovalnice Triglav</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500&family=Libre+Franklin:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -153,6 +153,25 @@
       .btn { text-align: center; }
       .eyebrow { letter-spacing: 0.32em; }
     }
+
+    .intro-strip {
+      position: fixed;
+      left: 0; right: 0; bottom: 0;
+      padding: 18px 6% 20px;
+      text-align: center;
+      font-family: 'Libre Franklin', sans-serif;
+      color: rgba(255,255,255,0.55);
+      font-size: 12px;
+      line-height: 1.7;
+      text-shadow: 0 1px 10px rgba(0,0,0,0.6);
+      opacity: 0;
+      animation: rise 1.1s ease 0.7s forwards;
+    }
+    .intro-strip p { max-width: 880px; margin: 0 auto 6px; }
+    .intro-strip a { color: rgba(255,255,255,0.82); text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.3); padding-bottom: 1px; transition: color .3s, border-color .3s; }
+    .intro-strip a:hover { color: #fff; border-color: #fff; }
+    .intro-strip .sep { margin: 0 8px; color: rgba(255,255,255,0.3); }
+    @media (max-width: 600px), (max-height: 640px) { .intro-strip p { display: none; } .intro-strip { font-size: 11px; } }
   </style>
   <link rel="canonical" href="https://www.zav-skornsek.si/">
   <script type="application/ld+json">
@@ -164,11 +183,19 @@
     "logo": "https://www.zav-skornsek.si/asset-15.png",
     "image": "https://www.zav-skornsek.si/asset-02.jpg",
     "description": "Ekskluzivni zastopnik Zavarovalnice Triglav, d.d. Vsa zavarovanja na enem mestu \u2013 vozila, dom, \u017eivljenje, zdravje, podjetja.",
+    "telephone": "+38641661362",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Na Gaj 6A",
+      "addressLocality": "Bresternica",
+      "postalCode": "2354",
+      "addressCountry": "SI"
+    },
     "areaServed": "SI",
     "knowsLanguage": ["sl", "en", "de"]
   }
   </script>
-  <meta name="description" content="Zavarovanje Skornšek — ekskluzivni zastopnik Zavarovalnice Triglav, d.d. Vsa zavarovanja na enem mestu za zasebnike in podjetja.">
+  <meta name="description" content="Zavarovanje Skornšek — družinska agencija in ekskluzivni zastopnik Zavarovalnice Triglav, d.d. Avtomobilska, premoženjska, življenjska, nezgodna in zdravstvena zavarovanja ter zavarovanja za podjetja. Igor Skornšek · 041 661 362.">
   <meta property="og:title" content="Zavarovanje Skornšek">
   <meta property="og:description" content="Vsa zavarovanja na enem mestu — ekskluzivni zastopnik Zavarovalnice Triglav, d.d.">
   <meta property="og:url" content="https://www.zav-skornsek.si/">
@@ -181,12 +208,17 @@
 
   <div class="content">
     <div class="eyebrow">Zaupanje &middot; Varnost &middot; Tradicija</div>
-    <h1>Zavarovanje<span class="accent">Skornšek</span></h1>
+    <h1>Zavarovanje <span class="accent">Skornšek</span></h1>
     <div class="buttons">
       <a href="zasebniki.html" class="btn btn-primary">Zasebni uporabniki</a>
       <a href="podjetja.html" class="btn btn-secondary">Podjetja</a>
     </div>
   </div>
+
+  <footer class="intro-strip">
+    <p>Zavarovanje Skornšek je družinska agencija in ekskluzivni zastopnik Zavarovalnice Triglav, d.d. Urejamo avtomobilska, premoženjska, življenjska, nezgodna in zdravstvena zavarovanja za zasebnike ter celovito zavarovalno zaščito za podjetja — z osebnim svetovanjem in brezplačnimi AI orodji.</p>
+    <nav><a href="zemljevid-strani.html">Vsa zavarovanja</a><span class="sep">·</span><a href="zasebniki.html#analiza-potreb">Analiza potreb</a><span class="sep">·</span><a href="zasebniki.html#pregled-police">Pregled police</a><span class="sep">·</span><a href="zasebniki.html#skode">Prijava škode</a><span class="sep">·</span><a href="tel:+38641661362">041 661 362</a></nav>
+  </footer>
 
 <script defer src="/_vercel/insights/script.js"></script>
 </body>
