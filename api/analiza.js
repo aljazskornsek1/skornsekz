@@ -282,6 +282,9 @@ ${katalog}`
       o.potencial = Math.max(o.skupaj, Math.min(100, o.potencial | 0))
       for (const p of o.podrocja || []) p.ocena = Math.max(0, Math.min(100, p.ocena | 0))
     }
+    for (const t of porocilo.tveganja || []) {
+      if (typeof t.vir === 'string') t.vir = t.vir.replace(/^\[+|\]+$/g, '').split('|')[0].trim().slice(0, 90)
+    }
     return respond(res, 200, { porocilo })
   } catch (error) {
     console.error('[analiza] error:', error)
