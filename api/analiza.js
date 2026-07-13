@@ -114,9 +114,10 @@ const SCHEMA = {
         properties: {
           produkt: { type: 'string' },
           razlog: { type: 'string' },
+          vsota: { type: 'string' },
           url: { type: 'string' },
         },
-        required: ['produkt', 'razlog', 'url'],
+        required: ['produkt', 'razlog', 'vsota', 'url'],
       },
     },
     vprasanja_za_posvet: { type: 'array', minItems: 3, maxItems: 6, items: { type: 'string' } },
@@ -245,7 +246,7 @@ Iz profila stranke izdelaj analizo zavarovalnih potreb. Pravila:
 - Pri vsakem tveganju oceni "verjetnost" (majhna/srednja/velika — kako verjetno se v 10 letih zgodi temu profilu) in "posledica" (blaga/resna/kritična — finančni udarec, če se zgodi, glede na rezervo in dohodke stranke). "stopnja" = skupna prioriteta.
 - "vir": če se tveganje ali rešitev opira na priložene izvlečke iz pogojev, navedi naslov dokumenta iz oglatih oklepajev (npr. "Splošni pogoji za zavarovanje doma"); če se ne, pusti prazen niz. Naslovov si ne izmišljuj.
 - "potencial" v ocena_zascitenosti: realna ocena 0–100, ki bi jo gospodinjstvo doseglo, če uredi priporočene prioritete. Vedno višja od "skupaj", a verodostojna (95+ samo pri res popolni pokritosti).
-- "priporocila": uporabi IZKLJUČNO produkte in URL-je iz kataloga spodaj; izberi samo relevantne.
+- "priporocila": uporabi IZKLJUČNO produkte in URL-je iz kataloga spodaj; izberi samo relevantne. "vsota": kjer je smiselno, iz podatkov profila izpelji PRIPOROČENO ZAVAROVALNO VSOTO ali pristop k njej (npr. "vsaj ostanek kredita, torej 50.000–150.000 €, po možnosti + 2 letna dohodka"); uporabljaj razpone iz profila, nikoli premij; če vsote ni smiselno navesti, pusti ''.
 - Upoštevaj obstoječa zavarovanja: česar stranka že ima, ne priporočaj znova — pri "luknje" pa opozori, če pri obstoječem kritju pogosto kaj manjka.
 - Vsak nasvet je informativen predlog za posvet, ne zavezujoče svetovanje.
 

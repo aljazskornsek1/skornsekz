@@ -89,7 +89,7 @@ const L = {
     risks: 'Prepoznana tveganja', gaps: 'Na kaj bodite pozorni pri obstoječih kritjih',
     recs: 'Priporočeni koraki', qs: 'Vprašanja za vaš posvet', sol: 'Rešitev',
     contact: 'Vaša svetovalca', disclaimer: 'Analiza je informativne narave in ne predstavlja zavarovalnega svetovanja ali ponudbe. Za točen obseg kritij veljajo pogoji posameznega zavarovanja.',
-    potencial: 'po ureditvi prioritet', vir: 'Vir',
+    potencial: 'po ureditvi prioritet', vir: 'Vir', vsota: 'Priporočena vsota',
     openBtn: 'Odprite svoje poročilo', pdfNote: 'Celotno poročilo je priloženo tudi kot PDF dokument, spletna različica pa je vedno na voljo na zgornji povezavi.',
   },
   en: {
@@ -100,7 +100,7 @@ const L = {
     risks: 'Identified risks', gaps: 'What to watch in your existing coverage',
     recs: 'Recommended steps', qs: 'Questions for your consultation', sol: 'Solution',
     contact: 'Your advisors', disclaimer: 'This analysis is informative in nature and does not constitute insurance advice or an offer. The terms of each individual policy apply.',
-    potencial: 'after addressing priorities', vir: 'Source',
+    potencial: 'after addressing priorities', vir: 'Source', vsota: 'Recommended sum insured',
     openBtn: 'Open your report', pdfNote: 'The full report is also attached as a PDF document; the web version is always available at the link above.',
   },
   de: {
@@ -111,7 +111,7 @@ const L = {
     risks: 'Erkannte Risiken', gaps: 'Worauf Sie bei bestehendem Schutz achten sollten',
     recs: 'Empfohlene Schritte', qs: 'Fragen für Ihre Beratung', sol: 'Lösung',
     contact: 'Ihre Berater', disclaimer: 'Diese Analyse ist informativer Natur und stellt keine Versicherungsberatung oder ein Angebot dar. Es gelten die Bedingungen der jeweiligen Versicherung.',
-    potencial: 'nach Regelung der Prioritäten', vir: 'Quelle',
+    potencial: 'nach Regelung der Prioritäten', vir: 'Quelle', vsota: 'Empfohlene Versicherungssumme',
     openBtn: 'Ihren Bericht öffnen', pdfNote: 'Der vollständige Bericht ist auch als PDF-Dokument beigefügt; die Web-Version ist jederzeit über den obigen Link verfügbar.',
   },
 }
@@ -164,7 +164,7 @@ function reportEmailHtml({ ime, porocilo, language, reportUrl }) {
       const url = typeof r.url === 'string' && r.url.startsWith('/') ? BASE_URL + r.url : BASE_URL
       h += `<div style="border:1px solid #e8e2d5;padding:13px 16px;margin-bottom:8px">
         <a href="${e(url)}" style="color:#0A1428;font-size:14.5px;font-weight:bold;text-decoration:none">${e(r.produkt)} →</a>
-        <div style="font-size:13px;color:#4b5563;margin-top:4px">${e(r.razlog)}</div></div>`
+        <div style="font-size:13px;color:#4b5563;margin-top:4px">${e(r.razlog)}</div>${r.vsota ? `<div style="font-size:12px;color:#8a6c3c;margin-top:4px;font-weight:bold">${e(l.vsota)}: ${e(r.vsota)}</div>` : ''}</div>`
     }
   }
   if (Array.isArray(p.vprasanja_za_posvet) && p.vprasanja_za_posvet.length) {

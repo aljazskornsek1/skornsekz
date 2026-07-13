@@ -1,4 +1,5 @@
 import PDFDocument from 'pdfkit'
+import QRCode from 'qrcode'
 import fs from 'fs'
 import path from 'path'
 import { fileURLToPath } from 'url'
@@ -32,7 +33,7 @@ const T = {
     qs: 'Vprašanja za posvet', regards: 'S spoštovanjem,',
     role1: 'zavarovalni zastopnik', role2: 'zavarovalni zastopnik',
     disclaimer: 'Analiza je informativne narave in ne predstavlja zavarovalnega svetovanja ali ponudbe. Za točen obseg kritij veljajo pogoji posameznega zavarovanja. Zavarovanje Skornšek — ekskluzivni zastopnik Zavarovalnice Triglav, d.d.',
-    page: 'Stran',
+    page: 'Stran', vsota: 'Priporočena vsota', qr: 'Spletno poročilo',
   },
   en: {
     doc: 'INSURANCE NEEDS ANALYSIS', zaupno: 'Personal report — confidential',
@@ -45,7 +46,7 @@ const T = {
     qs: 'Questions for your consultation', regards: 'Kind regards,',
     role1: 'insurance agent', role2: 'insurance agent',
     disclaimer: 'This analysis is informative in nature and does not constitute insurance advice or an offer. The terms of each individual policy apply. Zavarovanje Skornšek — exclusive agent of Zavarovalnica Triglav, d.d.',
-    page: 'Page',
+    page: 'Page', vsota: 'Recommended sum insured', qr: 'Online report',
   },
   de: {
     doc: 'ANALYSE DES VERSICHERUNGSBEDARFS', zaupno: 'Persönlicher Bericht — vertraulich',
@@ -58,15 +59,19 @@ const T = {
     qs: 'Fragen für die Beratung', regards: 'Mit freundlichen Grüßen,',
     role1: 'Versicherungsvertreter', role2: 'Versicherungsvertreter',
     disclaimer: 'Diese Analyse ist informativer Natur und stellt keine Versicherungsberatung oder ein Angebot dar. Es gelten die Bedingungen der jeweiligen Versicherung. Zavarovanje Skornšek — exklusiver Vertreter der Zavarovalnica Triglav, d.d.',
-    page: 'Seite',
+    page: 'Seite', vsota: 'Empfohlene Versicherungssumme', qr: 'Online-Bericht',
   },
 }
 
 const col = s => (s >= 70 ? '#2e7d4f' : s >= 40 ? GOLD : '#b3402a')
 
-export function zgradiPdf({ porocilo, ime, language = 'sl', reportUrl = '' }) {
+export async function zgradiPdf({ porocilo, ime, language = 'sl', reportUrl = '' }) {
   const t = T[language] || T.sl
   const p = porocilo
+  let qrPng = null
+  if (reportUrl) {
+    try { qrPng = await QRCode.toBuffer(reportUrl, { margin: 1, width: 180, color: { dark: NAVY, light: '#ffffff' } }) } catch {}
+  }
   const doc = new PDFDocument({ size: 'A4', margins: { top: 64, bottom: 70, left: 58, right: 58 }, bufferPages: true, info: { Title: t.doc, Author: 'Zavarovanje Skornšek' } })
   const chunks = []
   doc.on('data', c => chunks.push(c))
@@ -196,6 +201,7 @@ export function zgradiPdf({ porocilo, ime, language = 'sl', reportUrl = '' }) {
       doc.rect(L, y0 - 4, CW, 0).stroke()
       doc.font(F.sansB).fontSize(10).fillColor(NAVY).text(rc.produkt, L + 14, y0, { width: CW - 28 })
       doc.font(F.sans).fontSize(9).fillColor(INK).text(rc.razlog, L + 14, doc.y + 2, { width: CW - 28, lineGap: 2 })
+      if (rc.vsota) doc.font(F.sansB).fontSize(8.5).fillColor('#8a6c3c').text(`${t.vsota}: ${rc.vsota}`, L + 14, doc.y + 2, { width: CW - 28 })
       if (rc.url && typeof rc.url === 'string') {
         const u = rc.url.startsWith('/') ? 'https://www.zav-skornsek.si' + rc.url : rc.url
         doc.font(F.sans).fontSize(7.5).fillColor(GOLD).text(u, L + 14, doc.y + 2, { link: u })
@@ -230,7 +236,13 @@ export function zgradiPdf({ porocilo, ime, language = 'sl', reportUrl = '' }) {
   doc.font(F.sans).fontSize(8).fillColor(MUTE).text(`${t.role1} · +386 41 661 362`, L, nameY + 17, { lineBreak: false })
   doc.font(F.sans).fontSize(8).fillColor(MUTE).text(`${t.role2} · +386 31 544 416`, L + 220, nameY + 17, { lineBreak: false })
   if (reportUrl) {
-    doc.font(F.sans).fontSize(8).fillColor(GOLD).text(reportUrl, L, nameY + 40, { link: reportUrl, width: CW })
+    doc.font(F.sans).fontSize(8).fillColor(GOLD).text(reportUrl, L, nameY + 40, { link: reportUrl, width: CW - 90 })
+  }
+  if (qrPng) {
+    try {
+      doc.image(qrPng, R - 66, nameY - 10, { width: 60 })
+      doc.font(F.sans).fontSize(6.3).fillColor(MUTE).text(t.qr, R - 70, nameY + 53, { width: 68, align: 'center', lineBreak: false })
+    } catch {}
   }
 
   // ── noga na vseh straneh

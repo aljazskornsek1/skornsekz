@@ -1437,6 +1437,10 @@ html body .mega small{color:#666!important}
   .az-pot b{font-size:18px;font-family:"Newsreader",Georgia,serif}
   .az-pot span{font-size:11px;color:#6b7280}
   .az-vir{font-size:12px!important;color:#9ca3af!important;font-style:italic}
+  .az-vsota{display:block;margin-top:7px;color:#8a6c3c;font-size:13px;font-weight:600}
+  .az-bridge{border:1px solid rgba(176,141,87,.25);background:#fff;padding:26px 28px;margin-top:28px}
+  .az-bridge h3{font-family:"Newsreader",Georgia,serif;font-weight:500;font-size:21px;color:#0A1428;margin:0 0 8px}
+  .az-bridge p{color:#4b5563;font-size:14px;line-height:1.65;margin:0 0 16px}
   @media (max-width:640px){.az-srow{gap:20px}.az-chip{font-size:10.5px;padding:4px 6px}.az-mlab{font-size:9px}}
 </style>
   <style id="hdr-fix">
@@ -7310,6 +7314,8 @@ html body .mega small{color:#666!important}
 Object.assign(TRANSLATIONS.de,{"Imajo vaši otroci sklenjeno nezgodno zavarovanje?": "Haben Ihre Kinder eine Unfallversicherung?", "ne vem": "Weiß nicht", "AI pregleduje vaš profil — prve ugotovitve čez približno 10 sekund, celotno poročilo nastaja v ozadju.": "Die KI prüft Ihr Profil — erste Erkenntnisse in etwa 10 Sekunden, der vollständige Bericht entsteht im Hintergrund.", "Pripravljam poročilo ...": "Bericht wird vorbereitet ...", "Ocena zaščitenosti": "Schutz-Bewertung", "Kaj urediti najprej": "Was zuerst zu regeln ist", "Navpično: verjetnost · vodoravno: resnost posledice": "Vertikal: Wahrscheinlichkeit · horizontal: Schwere der Folgen", "blaga": "gering", "resna": "ernst", "kritična": "kritisch", "majhna": "gering", "velika": "hoch", "Poročilo ste prejeli tudi na svoj e-naslov. Kontaktiramo vas v enem delovnem dnevu.": "Den Bericht haben Sie auch per E-Mail erhalten. Wir melden uns innerhalb eines Werktags.", "Ocena zaščitenosti po področjih, vsa tveganja po prioritetah, priporočeni koraki in vprašanja za posvet — brezplačno, v zameno za vaš kontakt. Poročilo prejmete tudi na e-pošto.": "Schutz-Bewertung nach Bereichen, alle Risiken nach Priorität, empfohlene Schritte und Fragen für die Beratung — kostenlos, im Austausch für Ihre Kontaktdaten. Den Bericht erhalten Sie auch per E-Mail.", "Poročila trenutno ni mogoče dokončati. Poskusite znova čez minuto.": "Der Bericht kann derzeit nicht fertiggestellt werden. Bitte versuchen Sie es in einer Minute erneut."});
 Object.assign(TRANSLATIONS.en,{"Nalagam poročilo ...": "Loading your report ...", "Poročila ni mogoče najti": "Report not found", "Preverite povezavo iz e-pošte ali nas pokličite: Igor Skornšek · 041 661 362.": "Please check the link from your e-mail or call us: Igor Skornšek · 041 661 362.", "po ureditvi prioritet": "after addressing priorities", "To je vaše shranjeno poročilo. Za posvet nas pokličite: Igor Skornšek · 041 661 362.": "This is your saved report. For a consultation, call us: Igor Skornšek · 041 661 362."});
 Object.assign(TRANSLATIONS.de,{"Nalagam poročilo ...": "Bericht wird geladen ...", "Poročila ni mogoče najti": "Bericht nicht gefunden", "Preverite povezavo iz e-pošte ali nas pokličite: Igor Skornšek · 041 661 362.": "Bitte prüfen Sie den Link aus Ihrer E-Mail oder rufen Sie uns an: Igor Skornšek · 041 661 362.", "po ureditvi prioritet": "nach Regelung der Prioritäten", "To je vaše shranjeno poročilo. Za posvet nas pokličite: Igor Skornšek · 041 661 362.": "Dies ist Ihr gespeicherter Bericht. Für eine Beratung rufen Sie uns an: Igor Skornšek · 041 661 362."});
+Object.assign(TRANSLATIONS.en,{"Priporočena vsota": "Recommended sum insured", "Preverite dejanska kritja": "Check your actual coverage", "Ta analiza temelji na vaših odgovorih. Naložite svoje obstoječe police in preverite, katere od ugotovljenih potreb že pokrivajo.": "This analysis is based on your answers. Upload your existing policies to see which of the identified needs they already cover.", "Naložite svoje police": "Upload your policies"});
+Object.assign(TRANSLATIONS.de,{"Priporočena vsota": "Empfohlene Versicherungssumme", "Preverite dejanska kritja": "Prüfen Sie Ihren tatsächlichen Schutz", "Ta analiza temelji na vaših odgovorih. Naložite svoje obstoječe police in preverite, katere od ugotovljenih potreb že pokrivajo.": "Diese Analyse basiert auf Ihren Antworten. Laden Sie Ihre bestehenden Policen hoch und prüfen Sie, welche der festgestellten Bedürfnisse bereits abgedeckt sind.", "Naložite svoje police": "Laden Sie Ihre Policen hoch"});
 let currentLang='sl';/* vedno slovensko ob nalaganju (izbira jezika se ne shranjuje) */try{localStorage.removeItem('skornsekLang')}catch(_){}
     const originalText=new WeakMap(),originalAttrs=new WeakMap();
     const normalizeText=value=>String(value).replace(/\s+/g,' ').trim();
@@ -20047,7 +20053,7 @@ function azRenderFull(){
   if(p.luknje&&p.luknje.length){h+='<h2>Na kaj bodite pozorni pri obstoječih kritjih</h2><ul class="az-list">';p.luknje.forEach(function(l){h+='<li>'+azEsc(l)+'</li>'});h+='</ul>';}
   h+='<h2>Priporočeni koraki</h2>';
   p.priporocila.forEach(function(r){
-    h+='<a class="az-rec" href="'+azEsc(r.url)+'"><em>Zavarovanje</em><br><b>'+azEsc(r.produkt)+'</b><span>'+azEsc(r.razlog)+'</span></a>';
+    h+='<a class="az-rec" href="'+azEsc(r.url)+'"><em>Zavarovanje</em><br><b>'+azEsc(r.produkt)+'</b><span>'+azEsc(r.razlog)+'</span>'+(r.vsota?'<span class="az-vsota">Priporočena vsota: '+azEsc(r.vsota)+'</span>':'')+'</a>';
   });
   h+='<h2>Vprašanja za vaš posvet</h2><ul class="az-list">';
   p.vprasanja_za_posvet.forEach(function(v){h+='<li>'+azEsc(v)+'</li>'});
@@ -20056,6 +20062,7 @@ function azRenderFull(){
    +'<button class="az-btn" onclick="window.print()">Shrani kot PDF</button>'
    +'<a class="az-btn ghost" href="#kontakt" style="text-decoration:none">Dogovor za posvet</a>'
    +'<a class="az-btn ghost" href="tel:+38641661362" style="text-decoration:none">Pokličite: 041 661 362</a></div>'
+   +'<div class="az-bridge"><h3>Preverite dejanska kritja</h3><p>Ta analiza temelji na vaših odgovorih. Naložite svoje obstoječe police in preverite, katere od ugotovljenih potreb že pokrivajo.</p><a class="az-btn" href="#portfelj" style="text-decoration:none">Naložite svoje police</a></div>'
    +'<p class="az-note" style="margin-top:22px">'
    +(window.__az.shared?'To je vaše shranjeno poročilo. Za posvet nas pokličite: Igor Skornšek · 041 661 362.':window.__az.mailSent?'Poročilo ste prejeli tudi na svoj e-naslov. Kontaktiramo vas v enem delovnem dnevu.':'Hvala za zaupanje — poročilo smo prejeli tudi mi in vas kontaktiramo v enem delovnem dnevu.')
    +'</p>';
@@ -20124,7 +20131,7 @@ function pfSubmit(){
   r.innerHTML='<div class="az-load"><div class="az-spin"></div><h3 style="font-family:\'Newsreader\',Georgia,serif;font-weight:400;color:#0A1428;margin:0 0 8px">Berem in primerjam police</h3><p style="color:#6b7280;font-size:14px;margin:0">Vsako polico preberem posebej — do 90 sekund.</p></div>';
   var lang=(typeof currentLang!=='undefined')?currentLang:'sl';
   Promise.all(window.__pf.files.map(pfB64)).then(function(files){
-    return fetch('/api/portfelj',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({files:files,language:lang})});
+    return fetch('/api/portfelj',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({files:files,language:lang,potrebe:(function(){try{var az=window.__az;if(az&&az.full){return ('Povzetek: '+(az.full.povzetek||'')+' | Kljucna tveganja: '+(az.full.tveganja||[]).map(function(t){return t.naslov}).join('; ')).slice(0,1800);}}catch(e){}return undefined;})()})});
   }).then(function(res){return res.json()})
   .then(function(d){
     if(!d.ugotovitve)throw new Error(d.error||'x');

@@ -10,6 +10,7 @@
     "busboy": "^1.6.0",
     "openai": "^6.22.0",
     "pdfkit": "^0.19.1",
+    "qrcode": "^1.5.4",
     "resend": "^6.9.3"
   },
   "engines": {

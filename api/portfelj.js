@@ -72,6 +72,7 @@ export default async function handler(req, res) {
     const body = typeof req.body === 'object' && req.body ? req.body : JSON.parse(req.body || '{}')
     const files = Array.isArray(body.files) ? body.files.slice(0, 5) : []
     const language = ['sl', 'en', 'de'].includes(body.language) ? body.language : 'sl'
+    const potrebe = typeof body.potrebe === 'string' ? body.potrebe.slice(0, 2000) : ''
     if (!files.length) return respond(res, 400, { error: 'Priložite vsaj eno polico.' })
 
     const inputs = files.map(fileInput)
@@ -112,8 +113,8 @@ Pravila:
 - "podzavarovanje": kjer so vsote očitno nizke glede na namen kritja; brez izmišljenih številk.
 - "opozorila_poteki": police, ki potečejo v 60 dneh, ali kjer datum ni razviden.
 - "teaser": do 3 NAJPOMEMBNEJŠE ugotovitve, konkretno.
-- Vsak nasvet je informativen predlog za posvet.` },
-        { role: 'user', content: 'PORTFELJ POLIC (JSON):\n' + JSON.stringify(veljavne).slice(0, 24000) },
+- Vsak nasvet je informativen predlog za posvet.${potrebe ? '\n- Stranka je pred tem opravila analizo potreb (spodaj). V "luknje" IZRECNO preveri, katere od ugotovljenih potreb naložene police pokrivajo in katerih ne.' : ''}` },
+        { role: 'user', content: 'PORTFELJ POLIC (JSON):\n' + JSON.stringify(veljavne).slice(0, 24000) + (potrebe ? '\n\nUGOTOVLJENE POTREBE IZ ANALIZE:\n' + potrebe : '') },
       ],
       max_output_tokens: 2600,
       ...(ANSWER_MODEL_STRONG.startsWith('gpt-5') ? { reasoning: { effort: 'low' } } : {}),
