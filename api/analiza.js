@@ -161,6 +161,29 @@ function profilVBesedilo(p) {
   return rows.join('\n')
 }
 
+// deterministična varovalka: odstrani vsebine o stvareh, ki jih v profilu NI
+const _ima = (arr, x) => Array.isArray(arr) && arr.includes(x)
+const FILTRI = [
+  { re: /elektrarn/i, ok: p => _ima(p.dom_posebnosti, 'sončna elektrarna') },
+  { re: /pomožn\w*\s+objekt/i, ok: p => _ima(p.dom_posebnosti, 'pomožni objekti') },
+  { re: /dragocen\w*\s+oprem/i, ok: p => _ima(p.dom_posebnosti, 'dragocena oprema') },
+  { re: /\bplovil/i, ok: p => _ima(p.vozila, 'plovilo') },
+  { re: /avtodom/i, ok: p => _ima(p.vozila, 'avtodom') },
+  { re: /mlad\w*\s+voznik/i, ok: p => p.mladi_voznik === 'da' },
+  { re: /\bpes\b|\bps(a|u|om|i|e)\b|pasj/i, ok: p => p.ljubljencki === 'pes' || p.ljubljencki === 'pes in mačka ali drugo' },
+  { re: /mačk/i, ok: p => p.ljubljencki === 'mačka' || p.ljubljencki === 'pes in mačka ali drugo' },
+  { re: /e-kolo|skiro|mikro\s?mobil/i, ok: p => _ima(p.vozila, 'e-kolo ali e-skiro') },
+  { re: /motorist|zavarovanj\w*\s+motorja/i, ok: p => _ima(p.vozila, 'motor') },
+  { re: /poplav/i, ok: p => _ima(p.dom_tveganja, 'bližina vodotoka ali poplavno območje') || _ima(p.dom_tveganja, 'klet ali pritličje') || !Array.isArray(p.dom_tveganja) },
+]
+function odstraniNeutemeljene(porocilo, profil) {
+  const sporen = txt => FILTRI.some(f => f.re.test(txt) && !f.ok(profil))
+  if (Array.isArray(porocilo.tveganja)) porocilo.tveganja = porocilo.tveganja.filter(t => !sporen(`${t.naslov} ${t.zakaj} ${t.resitev}`))
+  if (Array.isArray(porocilo.luknje)) porocilo.luknje = porocilo.luknje.filter(l => !sporen(l))
+  if (Array.isArray(porocilo.priporocila)) porocilo.priporocila = porocilo.priporocila.filter(r => !sporen(`${r.produkt} ${r.razlog} ${r.url}`))
+  if (Array.isArray(porocilo.teaser)) porocilo.teaser = porocilo.teaser.filter(t => !sporen(`${t.naslov} ${t.zakaj} ${t.predlog}`))
+}
+
 async function retrieve(openai, supabase, queries) {
   const chunks = []
   const emb = await openai.embeddings.create({ model: EMBEDDING_MODEL, input: queries, encoding_format: 'float' })
@@ -225,6 +248,7 @@ Brez premij in cen. Upoštevaj obstoječa zavarovanja — česar stranka že ima
       try { porocilo = JSON.parse(response.output_text) } catch {
         return respond(res, 502, { error: 'Analize trenutno ni mogoče pripraviti. Poskusite znova.' })
       }
+      odstraniNeutemeljene(porocilo, profil)
       return respond(res, 200, { porocilo })
     }
 
@@ -259,6 +283,7 @@ Iz profila stranke izdelaj analizo zavarovalnih potreb. Pravila:
 - Pri vsakem tveganju oceni "verjetnost" (majhna/srednja/velika — kako verjetno se v 10 letih zgodi temu profilu) in "posledica" (blaga/resna/kritična — finančni udarec, če se zgodi, glede na rezervo in dohodke stranke). "stopnja" = skupna prioriteta.
 - "vir": če se tveganje ali rešitev opira na priložene izvlečke iz pogojev, navedi naslov dokumenta iz oglatih oklepajev (npr. "Splošni pogoji za zavarovanje doma"); če se ne, pusti prazen niz. Naslovov si ne izmišljuj.
 - "priporocila": uporabi IZKLJUČNO produkte in URL-je iz kataloga spodaj; izberi samo relevantne. "vsota": kjer je smiselno, iz podatkov profila izpelji PRIPOROČENO ZAVAROVALNO VSOTO ali pristop k njej (npr. "vsaj ostanek kredita, torej 50.000–150.000 €, po možnosti + 2 letna dohodka"); uporabljaj razpone iz profila, nikoli premij; če vsote ni smiselno navesti, pusti ''.
+- STROGO: tveganja, luknje in priporočila izpeljuj IZKLJUČNO iz podatkov v PROFILU STRANKE. Izvlečki iz pogojev so samo razlaga kritij, NE vir dejstev o stranki. Če piše "Posebnosti doma: nič od naštetega", stranka NIMA sončne elektrarne, pomožnih objektov ali dragocene opreme — teh NE omenjaj. Enako za vozila, živali in otroke, ki jih v profilu ni.
 - Upoštevaj obstoječa zavarovanja: česar stranka že ima, ne priporočaj znova — pri "luknje" pa opozori, če pri obstoječem kritju pogosto kaj manjka.
 - Vsak nasvet je informativen predlog za posvet, ne zavezujoče svetovanje.
 
@@ -288,6 +313,7 @@ ${katalog}`
       console.error('[analiza] JSON parse fail:', (raw || '').slice(0, 300))
       return respond(res, 502, { error: 'Analize trenutno ni mogoče pripraviti. Poskusite znova.' })
     }
+    odstraniNeutemeljene(porocilo, profil)
     // številke VEDNO iz deterministične rubrike; od modela obdržimo samo komentarje
     {
       const komentarji = {}
