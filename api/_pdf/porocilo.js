@@ -226,10 +226,8 @@ export async function zgradiPdf({ porocilo, ime, language = 'sl', reportUrl = ''
     if (fs.existsSync(PODPIS)) { doc.image(PODPIS, L, sy + 14, { height: 44 }); sigBottom = sy + 62 }
   } catch {}
   const nameY = sigBottom + 6
-  doc.font(F.serifB).fontSize(11).fillColor(NAVY).text('Igor Skornšek', L, nameY, { lineBreak: false })
-  doc.font(F.serifB).fontSize(11).fillColor(NAVY).text('Aljaž Skornšek', L + 220, nameY, { lineBreak: false })
-  doc.font(F.sans).fontSize(8).fillColor(MUTE).text(`${t.role1} · +386 41 661 362`, L, nameY + 17, { lineBreak: false })
-  doc.font(F.sans).fontSize(8).fillColor(MUTE).text(`${t.role2} · +386 31 544 416`, L + 220, nameY + 17, { lineBreak: false })
+  doc.font(F.serifB).fontSize(11).fillColor(NAVY).text('Aljaž Skornšek', L, nameY, { lineBreak: false })
+  doc.font(F.sans).fontSize(8).fillColor(MUTE).text(`${t.role2} · +386 31 544 416`, L, nameY + 17, { lineBreak: false })
   if (reportUrl) {
     doc.font(F.sans).fontSize(8).fillColor(GOLD).text(reportUrl, L, nameY + 40, { link: reportUrl, width: CW - 90 })
   }
