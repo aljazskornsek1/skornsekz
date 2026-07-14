@@ -1,5 +1,6 @@
 import OpenAI from 'openai'
 import { createClient } from '@supabase/supabase-js'
+import { izracunajOceno } from './_lib/tocke.js'
 
 const ANSWER_MODEL_STRONG = process.env.OPENAI_ANSWER_MODEL_STRONG || 'gpt-5.4'
 const EMBEDDING_MODEL = 'text-embedding-3-small'
@@ -137,6 +138,12 @@ function profilVBesedilo(p) {
   push('Tip nepremičnine', p.nepremicnina)
   push('Vrednost nepremičnine', p.vrednost_nepremicnine)
   push('Posebnosti doma', p.dom_posebnosti)
+  push('Lokacijska tveganja doma', p.dom_tveganja)
+  push('Starost otrok', p.otroci_starost)
+  push('Neto mesečni dohodek gospodinjstva', p.dohodek_neto)
+  push('Vsota obstoječega življenjskega zavarovanja', p.zivljenjsko_vsota)
+  push('Ob izpadu nosilca (s.p.) posel', p.sp_izpad)
+  push('Zavarovana odgovornost dejavnosti (s.p.)', p.sp_odgovornost)
   push('Vozila', p.vozila)
   push('Vrednost glavnega vozila', p.vrednost_vozila)
   push('Mladi voznik v družini', p.mladi_voznik)
@@ -237,15 +244,20 @@ Brez premij in cen. Upoštevaj obstoječa zavarovanja — česar stranka že ima
 
     const katalog = KATALOG.map(([n, u]) => `${n} → ${u}`).join('\n')
 
+    // deterministično izračunane ocene — model jih razlaga, ne določa
+    const rubrika = izracunajOceno(profil)
+    const rubrikaTekst = rubrika.podrocja.map(a => `- ${a.naziv}: ${a.ocena}/100 (${a.razlogi.join(' ')})`).join('\n')
+      + `\nSKUPAJ: ${rubrika.skupaj}/100, POTENCIAL po ureditvi: ${rubrika.potencial}/100`
+
     const system = `Si izkušen zavarovalni svetovalec agencije Zavarovanje Skornšek (ekskluzivni zastopnik Zavarovalnice Triglav).
 Iz profila stranke izdelaj analizo zavarovalnih potreb. Pravila:
 - Vikanje, topel a strokoven ton. ${langNote}
 - NIKOLI ne navajaj premij, cen ali številk, ki jih ne moreš utemeljiti. Zavarovalnih vsot ne izmišljuj; kjer je smiselno, opiši pristop (npr. "vsota naj pokrije 5 letnih dohodkov ali ostanek kredita").
 - "teaser" = 3 NAJPOMEMBNEJŠA tveganja tega profila, konkretno in osebno (ne generično).
-- "ocena_zascitenosti": realna ocena trenutne zaščitenosti gospodinjstva 0–100 (100 = vzorno pokrito). Bodi strog a pošten: brez ustreznih obstoječih zavarovanj ocena pod 45; popolna pokritost je redkost. "podrocja" = 4–6 NAJRELEVANTNEJŠIH področij za ta profil, imena izbiraj med: "Dom in premoženje", "Vozila in mobilnost", "Zdravje in nezgode", "Življenje in dohodek", "Odgovornost", "Potovanja in prosti čas", "Ljubljenčki". "komentar" = en kratek stavek, zakaj taka ocena. "skupaj" naj smiselno povzema področja (ne aritmetično povprečje — pomembnejša področja štejejo več).
+- "ocena_zascitenosti": ocene so IZRAČUNANE deterministično (spodaj pod IZRAČUNANE OCENE). V "podrocja" prepiši NATANKO ta področja z NATANKO temi ocenami ter napiši "komentar" (en oseben stavek, ki oceno utemelji iz profila). "skupaj" in "potencial" prepiši iz izračuna. Številk NE spreminjaj.
+- "potencial" v ocena_zascitenosti: prepiši iz izračuna.
 - Pri vsakem tveganju oceni "verjetnost" (majhna/srednja/velika — kako verjetno se v 10 letih zgodi temu profilu) in "posledica" (blaga/resna/kritična — finančni udarec, če se zgodi, glede na rezervo in dohodke stranke). "stopnja" = skupna prioriteta.
 - "vir": če se tveganje ali rešitev opira na priložene izvlečke iz pogojev, navedi naslov dokumenta iz oglatih oklepajev (npr. "Splošni pogoji za zavarovanje doma"); če se ne, pusti prazen niz. Naslovov si ne izmišljuj.
-- "potencial" v ocena_zascitenosti: realna ocena 0–100, ki bi jo gospodinjstvo doseglo, če uredi priporočene prioritete. Vedno višja od "skupaj", a verodostojna (95+ samo pri res popolni pokritosti).
 - "priporocila": uporabi IZKLJUČNO produkte in URL-je iz kataloga spodaj; izberi samo relevantne. "vsota": kjer je smiselno, iz podatkov profila izpelji PRIPOROČENO ZAVAROVALNO VSOTO ali pristop k njej (npr. "vsaj ostanek kredita, torej 50.000–150.000 €, po možnosti + 2 letna dohodka"); uporabljaj razpone iz profila, nikoli premij; če vsote ni smiselno navesti, pusti ''.
 - Upoštevaj obstoječa zavarovanja: česar stranka že ima, ne priporočaj znova — pri "luknje" pa opozori, če pri obstoječem kritju pogosto kaj manjka.
 - Vsak nasvet je informativen predlog za posvet, ne zavezujoče svetovanje.
@@ -253,7 +265,7 @@ Iz profila stranke izdelaj analizo zavarovalnih potreb. Pravila:
 KATALOG PRODUKTOV (ime → url):
 ${katalog}`
 
-    const user = `PROFIL STRANKE:\n${profilTekst}\n\nIZVLEČKI IZ POGOJEV (za oporo, ne citiraj dobesedno):\n${context || '(ni na voljo)'}`
+    const user = `PROFIL STRANKE:\n${profilTekst}\n\nIZRAČUNANE OCENE (obvezno prepiši):\n${rubrikaTekst}\n\nIZVLEČKI IZ POGOJEV (za oporo, ne citiraj dobesedno):\n${context || '(ni na voljo)'}`
 
     const response = await openai.responses.create({
       model: ANSWER_MODEL_STRONG,
@@ -276,12 +288,20 @@ ${katalog}`
       console.error('[analiza] JSON parse fail:', (raw || '').slice(0, 300))
       return respond(res, 502, { error: 'Analize trenutno ni mogoče pripraviti. Poskusite znova.' })
     }
-    // varnostne meje ocen
-    if (porocilo.ocena_zascitenosti) {
-      const o = porocilo.ocena_zascitenosti
-      o.skupaj = Math.max(0, Math.min(100, o.skupaj | 0))
-      o.potencial = Math.max(o.skupaj, Math.min(100, o.potencial | 0))
-      for (const p of o.podrocja || []) p.ocena = Math.max(0, Math.min(100, p.ocena | 0))
+    // številke VEDNO iz deterministične rubrike; od modela obdržimo samo komentarje
+    {
+      const komentarji = {}
+      for (const a of porocilo.ocena_zascitenosti?.podrocja || []) komentarji[a.naziv] = a.komentar
+      porocilo.ocena_zascitenosti = {
+        skupaj: rubrika.skupaj,
+        potencial: rubrika.potencial,
+        podrocja: rubrika.podrocja.map(a => ({
+          naziv: a.naziv,
+          ocena: a.ocena,
+          komentar: komentarji[a.naziv] || a.razlogi.join(' '),
+        })),
+        sidro: rubrika,
+      }
     }
     for (const t of porocilo.tveganja || []) {
       if (typeof t.vir === 'string') t.vir = t.vir.replace(/^\[+|\]+$/g, '').split('|')[0].trim().slice(0, 90)
