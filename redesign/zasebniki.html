@@ -1437,6 +1437,21 @@ html body .mega small{color:#666!important}
   .az-pot b{font-size:18px;font-family:"Newsreader",Georgia,serif}
   .az-pot span{font-size:11px;color:#6b7280}
   .az-vir{font-size:12px!important;color:#9ca3af!important;font-style:italic}
+  .az-prior{display:grid;gap:12px;margin:6px 0 10px}
+  .az-prio{display:flex;gap:20px;align-items:flex-start;border:1px solid rgba(176,141,87,.25);background:#fff;padding:20px 22px;flex-wrap:wrap}
+  .az-pnum{font-family:"Newsreader",Georgia,serif;font-size:38px;color:#B08D57;line-height:1;flex:0 0 auto}
+  .az-pbody{flex:1;min-width:220px}
+  .az-pbody h4{margin:2px 0 6px;font-family:"Newsreader",Georgia,serif;font-weight:500;font-size:18px;color:#0A1428}
+  .az-pbody p{margin:0;font-size:14px;color:#4b5563;line-height:1.6}
+  .az-ptags{display:flex;flex-direction:column;gap:7px;flex:0 0 auto;margin-left:auto}
+  .az-ptag{display:flex;flex-direction:column;padding:6px 12px;border:1px solid rgba(10,20,40,.12);min-width:96px}
+  .az-ptag i{font-style:normal;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:#8a8f98;font-weight:600}
+  .az-ptag b{font-size:13px;color:#0A1428;text-transform:capitalize}
+  .az-ptag.g3{border-color:rgba(179,64,42,.45);background:rgba(179,64,42,.06)}
+  .az-ptag.g3 b{color:#b3402a}
+  .az-ptag.g2{border-color:rgba(176,141,87,.5);background:rgba(176,141,87,.07)}
+  .az-ptag.g2 b{color:#8a6c3c}
+  @media (max-width:640px){.az-ptags{flex-direction:row;margin-left:0}}
   .az-vsota{display:block;margin-top:7px;color:#8a6c3c;font-size:13px;font-weight:600}
   .az-bridge{border:1px solid rgba(176,141,87,.25);background:#fff;padding:26px 28px;margin-top:28px}
   .az-bridge h3{font-family:"Newsreader",Georgia,serif;font-weight:500;font-size:21px;color:#0A1428;margin:0 0 8px}
@@ -7316,6 +7331,8 @@ Object.assign(TRANSLATIONS.en,{"Nalagam poročilo ...": "Loading your report ...
 Object.assign(TRANSLATIONS.de,{"Nalagam poročilo ...": "Bericht wird geladen ...", "Poročila ni mogoče najti": "Bericht nicht gefunden", "Preverite povezavo iz e-pošte ali nas pokličite: Igor Skornšek · 041 661 362.": "Bitte prüfen Sie den Link aus Ihrer E-Mail oder rufen Sie uns an: Igor Skornšek · 041 661 362.", "po ureditvi prioritet": "nach Regelung der Prioritäten", "To je vaše shranjeno poročilo. Za posvet nas pokličite: Igor Skornšek · 041 661 362.": "Dies ist Ihr gespeicherter Bericht. Für eine Beratung rufen Sie uns an: Igor Skornšek · 041 661 362."});
 Object.assign(TRANSLATIONS.en,{"Priporočena vsota": "Recommended sum insured", "Preverite dejanska kritja": "Check your actual coverage", "Ta analiza temelji na vaših odgovorih. Naložite svoje obstoječe police in preverite, katere od ugotovljenih potreb že pokrivajo.": "This analysis is based on your answers. Upload your existing policies to see which of the identified needs they already cover.", "Naložite svoje police": "Upload your policies"});
 Object.assign(TRANSLATIONS.de,{"Priporočena vsota": "Empfohlene Versicherungssumme", "Preverite dejanska kritja": "Prüfen Sie Ihren tatsächlichen Schutz", "Ta analiza temelji na vaših odgovorih. Naložite svoje obstoječe police in preverite, katere od ugotovljenih potreb že pokrivajo.": "Diese Analyse basiert auf Ihren Antworten. Laden Sie Ihre bestehenden Policen hoch und prüfen Sie, welche der festgestellten Bedürfnisse bereits abgedeckt sind.", "Naložite svoje police": "Laden Sie Ihre Policen hoch"});
+Object.assign(TRANSLATIONS.en,{"verjetnost": "likelihood", "posledica": "impact"});
+Object.assign(TRANSLATIONS.de,{"verjetnost": "Wahrscheinlichkeit", "posledica": "Folgen"});
 let currentLang='sl';/* vedno slovensko ob nalaganju (izbira jezika se ne shranjuje) */try{localStorage.removeItem('skornsekLang')}catch(_){}
     const originalText=new WeakMap(),originalAttrs=new WeakMap();
     const normalizeText=value=>String(value).replace(/\s+/g,' ').trim();
@@ -20033,18 +20050,15 @@ function azRenderFull(){
   h+='<div class="az-rep">';
   var mat=(p.tveganja||[]).filter(function(t){return t.verjetnost&&t.posledica});
   if(mat.length){
-    var VER=['velika','srednja','majhna'],POS=['blaga','resna','kritična'];
-    h+='<h2>Kaj urediti najprej</h2><div class="az-matrix"><div class="az-mcorner"></div>';
-    POS.forEach(function(pl){h+='<div class="az-mlab">'+pl+'</div>';});
-    VER.forEach(function(v,ri){
-      h+='<div class="az-mlab side">'+v+'</div>';
-      POS.forEach(function(pc,ci){
-        var lvl=(3-ri)+(ci+1),chips='';
-        mat.forEach(function(t){if(t.verjetnost===v&&t.posledica===pc)chips+='<span class="az-chip">'+azEsc(t.naslov)+'</span>';});
-        h+='<div class="az-mcell l'+lvl+'">'+chips+'</div>';
-      });
+    var AZW={velika:3,srednja:2,majhna:1},AZP={'kritična':3,'resna':2,'blaga':1};
+    var top=mat.slice().sort(function(a,b){return (AZP[b.posledica]*2+AZW[b.verjetnost])-(AZP[a.posledica]*2+AZW[a.verjetnost])}).slice(0,4);
+    h+='<h2>Kaj urediti najprej</h2><div class="az-prior">';
+    top.forEach(function(t,i){
+      h+='<div class="az-prio"><div class="az-pnum">0'+(i+1)+'</div><div class="az-pbody"><h4>'+azEsc(t.naslov)+'</h4><p>'+azEsc(t.resitev)+'</p></div>'
+       +'<div class="az-ptags"><span class="az-ptag g'+AZW[t.verjetnost]+'"><i>verjetnost</i><b>'+azEsc(t.verjetnost)+'</b></span>'
+       +'<span class="az-ptag g'+AZP[t.posledica]+'"><i>posledica</i><b>'+azEsc(t.posledica)+'</b></span></div></div>';
     });
-    h+='</div><p class="az-maxis">Navpično: verjetnost · vodoravno: resnost posledice</p>';
+    h+='</div>';
   }
   h+='<h2>Prepoznana tveganja</h2>';
   p.tveganja.forEach(function(t){

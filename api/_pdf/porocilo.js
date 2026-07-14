@@ -134,34 +134,29 @@ export async function zgradiPdf({ porocilo, ime, language = 'sl', reportUrl = ''
     doc.y = boxY + boxH + 6
   }
 
-  // ── matrika
+  // ── prioritete (razvrščen seznam namesto matrike)
   const mat = (p.tveganja || []).filter(x => x.verjetnost && x.posledica)
   if (mat.length) {
     heading(t.matrix)
-    const VER = ['velika', 'srednja', 'majhna'], POS = ['blaga', 'resna', 'kritična']
-    const gx = L + 64, cw = (CW - 64) / 3, ch = 46
-    ensure(3 * ch + 40)
-    const gy = doc.y
-    doc.font(F.sansB).fontSize(6.5).fillColor(MUTE)
-    POS.forEach((pp, i) => doc.text(t.pos[i].toUpperCase(), gx + i * cw, gy, { width: cw, align: 'center', characterSpacing: 1 }))
-    VER.forEach((v, ri) => {
-      const y = gy + 12 + ri * ch
-      doc.font(F.sansB).fontSize(6.5).fillColor(MUTE).text(t.ver[ri].toUpperCase(), L, y + ch / 2 - 4, { width: 58, align: 'right', characterSpacing: 1 })
-      POS.forEach((pp, ci) => {
-        const lvl = (3 - ri) + (ci + 1)
-        const bg = lvl >= 6 ? '#f6dfd9' : lvl === 5 ? '#efe3cd' : lvl === 4 ? '#f5efe2' : '#f8f6f0'
-        doc.rect(gx + ci * cw + 2, y, cw - 4, ch - 4).fill(bg)
-        const items = mat.filter(x => x.verjetnost === v && x.posledica === pp)
-        let iy = y + 4
-        doc.font(F.sans).fontSize(6.8).fillColor(NAVY)
-        for (const it of items.slice(0, 3)) {
-          doc.text('· ' + it.naslov, gx + ci * cw + 7, iy, { width: cw - 14, height: 14, ellipsis: true })
-          iy += 13
-        }
-      })
+    const W = { velika: 3, srednja: 2, majhna: 1 }, P = { 'kritična': 3, resna: 2, blaga: 1 }
+    const verMap = { velika: t.ver[0], srednja: t.ver[1], majhna: t.ver[2] }
+    const posMap = { blaga: t.pos[0], resna: t.pos[1], 'kritična': t.pos[2] }
+    const top = [...mat].sort((a, b) => (P[b.posledica] * 2 + W[b.verjetnost]) - (P[a.posledica] * 2 + W[a.verjetnost])).slice(0, 4)
+    top.forEach((r, i) => {
+      ensure(64)
+      const y0 = doc.y
+      doc.font(F.serif).fontSize(22).fillColor(GOLD).text(String(i + 1).padStart(2, '0'), L, y0, { lineBreak: false })
+      doc.font(F.sansB).fontSize(10.5).fillColor(NAVY).text(r.naslov, L + 38, y0 + 2, { width: CW - 200 })
+      doc.font(F.sans).fontSize(8.5).fillColor(INK).text(r.resitev, L + 38, doc.y + 3, { width: CW - 200, lineGap: 2 })
+      const tagX = R - 138
+      doc.font(F.sans).fontSize(6.5).fillColor(MUTE).text(t.mv.toUpperCase(), tagX, y0 + 2, { width: 138, characterSpacing: 1, lineBreak: false })
+      doc.font(F.sansB).fontSize(8.5).fillColor(W[r.verjetnost] === 3 ? '#b3402a' : W[r.verjetnost] === 2 ? '#8a6c3c' : MUTE).text(verMap[r.verjetnost], tagX, y0 + 11, { lineBreak: false })
+      doc.font(F.sans).fontSize(6.5).fillColor(MUTE).text(t.mp.toUpperCase(), tagX, y0 + 25, { width: 138, characterSpacing: 1, lineBreak: false })
+      doc.font(F.sansB).fontSize(8.5).fillColor(P[r.posledica] === 3 ? '#b3402a' : P[r.posledica] === 2 ? '#8a6c3c' : MUTE).text(posMap[r.posledica], tagX, y0 + 34, { lineBreak: false })
+      const yEnd = Math.max(doc.y, y0 + 46)
+      doc.moveTo(L, yEnd + 6).lineTo(R, yEnd + 6).lineWidth(0.5).strokeColor(LINE).stroke()
+      doc.y = yEnd + 14
     })
-    doc.y = gy + 12 + 3 * ch + 4
-    doc.font(F.sans).fontSize(7).fillColor(MUTE).text(`↑ ${t.mv}   → ${t.mp}`, L + 64)
   }
 
   // ── tveganja
